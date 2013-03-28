@@ -54,6 +54,10 @@ typedef NS_ENUM(NSInteger, MCViewAlignment) {
 - (void)mc_setPosition:(MCViewPosition)position inView:(UIView *)view withMargin:(UIEdgeInsets)margins;
 - (void)mc_setPosition:(MCViewPosition)position nextToView:(UIView *)view withMargin:(UIEdgeInsets)margin;
 
+- (void)mc_setPosition:(MCViewPosition)position withMargin:(UIEdgeInsets)margins size:(CGSize) size;
+- (void)mc_setPosition:(MCViewPosition)position inView:(UIView *)view withMargin:(UIEdgeInsets)margins size:(CGSize) size;
+- (void)mc_setPosition:(MCViewPosition)position nextToView:(UIView *)view withMargin:(UIEdgeInsets)margin size:(CGSize) size;
+
 - (void)mc_positionAtX:(double)xValue;
 - (void)mc_positionAtY:(double)yValue;
 - (void)mc_positionAtX:(double)xValue andY:(double)yValue;

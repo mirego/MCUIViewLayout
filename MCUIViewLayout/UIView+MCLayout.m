@@ -131,6 +131,18 @@
     // TODO: To be implemented
 }
 
+- (void)mc_setPosition:(MCViewPosition)position withMargin:(UIEdgeInsets)margins size:(CGSize) size {
+
+}
+
+- (void)mc_setPosition:(MCViewPosition)position inView:(UIView *)view withMargin:(UIEdgeInsets)margins size:(CGSize) size {
+
+}
+
+- (void)mc_setPosition:(MCViewPosition)position nextToView:(UIView *)view withMargin:(UIEdgeInsets)margin size:(CGSize) size {
+
+}
+
 - (CGPoint)originForPosition:(MCViewPosition)position andInset:(UIEdgeInsets)inset {
     CGPoint viewPosition = CGPointZero;
     viewPosition.x = [self xOriginForPosition:position andInset:inset];
