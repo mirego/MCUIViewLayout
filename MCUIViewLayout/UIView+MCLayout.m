@@ -188,8 +188,7 @@
     return yPosition;
 }
 
-- (void)mc_placeNextToView:(UIView *)view atPosition:(MCViewPosition)position
-        alignmentWithSide:(MCViewAlignment)alignment withInset:(UIEdgeInsets)inset {
+- (void)mc_placeNextToView:(UIView *)view atPosition:(MCViewPosition)position withInset:(UIEdgeInsets)inset {
     // TODO:
 }
 
