@@ -76,25 +76,25 @@ static const int kMargin = 10;
 - (void) layoutSubviews {
     [super layoutSubviews];
 
-    [self.topLeft mc_placeAtPosition:MCViewPositionTopLeft withInset:UIEdgeInsetsMake(kMargin,
+    [self.topLeft mc_setPosition:MCViewPositionTopLeft withMargin:UIEdgeInsetsMake(kMargin,
             kMargin, kMargin, kMargin)];
-    [self.top mc_placeAtPosition:MCViewPositionTop withInset:UIEdgeInsetsMake(kMargin,
+    [self.top mc_setPosition:MCViewPositionTop withMargin:UIEdgeInsetsMake(kMargin,
             kMargin, kMargin, kMargin)];
-    [self.topRight mc_placeAtPosition:MCViewPositionTopRight withInset:UIEdgeInsetsMake(kMargin,
-            kMargin, kMargin, kMargin)];
-
-    [self.left mc_placeAtPosition:MCViewPositionLeft withInset:UIEdgeInsetsMake(kMargin,
-            kMargin, kMargin, kMargin)];
-    [self.centered mc_placeAtPosition:MCViewPositionCenter withInset:UIEdgeInsetsMake(kMargin,
-            kMargin, kMargin, kMargin)];
-    [self.right mc_placeAtPosition:MCViewPositionRight withInset:UIEdgeInsetsMake(kMargin,
+    [self.topRight mc_setPosition:MCViewPositionTopRight withMargin:UIEdgeInsetsMake(kMargin,
             kMargin, kMargin, kMargin)];
 
-    [self.bottomLeft mc_placeAtPosition:MCViewPositionBottomLeft withInset:UIEdgeInsetsMake(kMargin,
+    [self.left mc_setPosition:MCViewPositionLeft withMargin:UIEdgeInsetsMake(kMargin,
             kMargin, kMargin, kMargin)];
-    [self.bottom mc_placeAtPosition:MCViewPositionBottom withInset:UIEdgeInsetsMake(kMargin,
+    [self.centered mc_setPosition:MCViewPositionCenter withMargin:UIEdgeInsetsMake(kMargin,
             kMargin, kMargin, kMargin)];
-    [self.bottomRight mc_placeAtPosition:MCViewPositionBottomRight withInset:UIEdgeInsetsMake(kMargin,
+    [self.right mc_setPosition:MCViewPositionRight withMargin:UIEdgeInsetsMake(kMargin,
+            kMargin, kMargin, kMargin)];
+
+    [self.bottomLeft mc_setPosition:MCViewPositionBottomLeft withMargin:UIEdgeInsetsMake(kMargin,
+            kMargin, kMargin, kMargin)];
+    [self.bottom mc_setPosition:MCViewPositionBottom withMargin:UIEdgeInsetsMake(kMargin,
+            kMargin, kMargin, kMargin)];
+    [self.bottomRight mc_setPosition:MCViewPositionBottomRight withMargin:UIEdgeInsetsMake(kMargin,
             kMargin, kMargin, kMargin)];
 }
 

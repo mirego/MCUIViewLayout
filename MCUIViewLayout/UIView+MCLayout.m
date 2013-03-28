@@ -117,10 +117,18 @@
 }
 
 
-- (void)mc_placeAtPosition:(MCViewPosition)position withInset:(UIEdgeInsets)inset {
+- (void)mc_setPosition:(MCViewPosition)position withMargin:(UIEdgeInsets)margins {
     CGRect viewFrame = self.frame;
-    viewFrame.origin = [self originForPosition:position andInset:inset];
+    viewFrame.origin = [self originForPosition:position andInset:margins];
     self.frame = viewFrame;
+}
+
+- (void)mc_setPosition:(MCViewPosition)position inView:(UIView *)view withMargin:(UIEdgeInsets)margins {
+    // TODO: To be implemented
+}
+
+- (void)mc_setPosition:(MCViewPosition)position nextToView:(UIView *)view withMargin:(UIEdgeInsets)margin {
+    // TODO: To be implemented
 }
 
 - (CGPoint)originForPosition:(MCViewPosition)position andInset:(UIEdgeInsets)inset {
@@ -186,10 +194,6 @@
         }
     }
     return yPosition;
-}
-
-- (void)mc_placeNextToView:(UIView *)view atPosition:(MCViewPosition)position withInset:(UIEdgeInsets)inset {
-    // TODO: To be implemented
 }
 
 - (void)mc_positionAtX:(double)xValue {
