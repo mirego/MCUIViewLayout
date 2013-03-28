@@ -189,7 +189,7 @@
 }
 
 - (void)mc_placeNextToView:(UIView *)view atPosition:(MCViewPosition)position withInset:(UIEdgeInsets)inset {
-    // TODO:
+    // TODO: To be implemented
 }
 
 - (void)mc_positionAtX:(double)xValue {
