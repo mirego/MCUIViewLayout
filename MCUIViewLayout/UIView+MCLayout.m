@@ -155,17 +155,13 @@
             xPosition = inset.left;
             break;
         }
-
         case MCViewPositionRight:
         case MCViewPositionBottomRight:
         case MCViewPositionTopRight: {
             xPosition = CGRectGetWidth(superViewBounds) - CGRectGetWidth(viewFrame) - inset.right;
             break;
         }
-
-
     }
-
     return xPosition;
 }
 
