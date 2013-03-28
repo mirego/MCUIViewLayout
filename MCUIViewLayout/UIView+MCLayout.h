@@ -8,7 +8,27 @@
 
 #import <UIKit/UIKit.h>
 
-@interface UIView (Layout)
+typedef NS_ENUM(NSInteger, UIViewPosition) {
+    UIViewPositionCenter,
+    UIViewPositionTop,
+    UIViewPositionBottom,
+    UIViewPositionLeft,
+    UIViewPositionRight,
+    UIViewPositionTopLeft,
+    UIViewPositionTopRight,
+    UIViewPositionBottomLeft,
+    UIViewPositionBottomRight,
+};
+
+typedef NS_ENUM(NSInteger, UIViewAlignment) {
+    UIViewAlignmentCenter,
+    UIViewAlignmentTop
+    UIViewAlignmentBottom,
+    UIViewAlignmentLeft,
+    UIViewAlignmentRight,
+};
+
+@interface UIView (MCLayout)
 
 - (CGFloat)mc_width;
 - (void)mc_setWidth:(CGFloat)width;
@@ -29,6 +49,9 @@
 
 - (CGFloat)mc_baselinePosition;
 - (CGFloat)mc_rightMostPosition;
+
+- (void)mc_placeSubView:(UIView *)view position:(UIViewPosition)position inset:(UIEdgeInsets)inset;
+- (void)mc_placeNextToView:(UIView *)view position:(UIViewPosition)position alignment:(UIViewAlignment) alignment inset:(UIEdgeInsets)inset;
 
 - (void)mc_positionAtX:(double)xValue;
 - (void)mc_positionAtY:(double)yValue;
@@ -90,5 +113,4 @@
 - (void)mc_alignTopOfSuperViewWithOffset:(CGFloat)offset;
 - (void)mc_alignBottomOfSuperView;
 - (void)mc_alignBottomOfSuperViewWithOffset:(CGFloat)offset;
-
 @end

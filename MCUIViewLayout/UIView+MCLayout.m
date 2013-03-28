@@ -6,9 +6,9 @@
 //  Copyright (c) 2012 Mirego, Inc. All rights reserved.
 //
 
-#import "UIView+Layout.h"
+#import "UIView+MCLayout.h"
 
-@implementation UIView (Layout)
+@implementation UIView (MCLayout)
 
 - (void)mc_removeSubviews {
 	for (UIView *view in self.subviews) {
@@ -112,6 +112,82 @@
 - (CGFloat)mc_rightMostPosition
 {
     return  [self mc_xPosition] + [self mc_width];
+}
+
+
+- (void)mc_PositionSubView:(UIView *)view aligned:(UIViewPosition)position inset:(UIEdgeInsets)inset {
+    CGRect viewFrame = view.frame;
+    CGFloat width = CGRectGetWidth(viewFrame);
+    CGFloat height = CGRectGetHeight(viewFrame);
+
+    switch (position) {
+        case UIViewPositionTop: {
+            view.frame = CGRectMake(((CGRectGetWidth(self.bounds) - CGRectGetWidth(viewFrame)) * 0.5f),
+                                    inset.top,
+                                    width,
+                                    height);
+            break;
+        }
+        case UIViewPositionTopRight: {
+            view.frame = CGRectMake(CGRectGetWidth(self.bounds) - CGRectGetWidth(viewFrame) - inset.right,
+                                    inset.top,
+                                    width,
+                                    height);
+            break;
+        }
+        case UIViewPositionTopLeft: {
+            view.frame = CGRectMake(inset.left,
+                                    inset.top,
+                                    width,
+                                    height);
+            break;
+        }
+        case UIViewPositionBottomRight: {
+            view.frame = CGRectMake(CGRectGetWidth(self.bounds) - CGRectGetWidth(viewFrame) - inset.right,
+                                    CGRectGetHeight(self.bounds) - CGRectGetHeight(viewFrame) - inset.bottom,
+                                    width,
+                                    height);
+            break;
+        }
+        case UIViewPositionBottomLeft: {
+            view.frame = CGRectMake(inset.left,
+                                    CGRectGetHeight(self.bounds) - CGRectGetHeight(viewFrame) - inset.bottom,
+                                    width,
+                                    height);
+            break;
+        }
+        case UIViewPositionCenter: {
+            view.center = self.center;
+            break;
+        }
+        case UIViewPositionLeft: {
+            view.frame = CGRectMake(inset.left,
+                                    (CGRectGetHeight(self.bounds) - CGRectGetHeight(viewFrame)) * 0.5f,
+                                    width,
+                                    height);
+            break;
+        }
+        case UIViewPositionRight: {
+            view.frame = CGRectMake(CGRectGetWidth(self.bounds) - CGRectGetWidth(viewFrame) - inset.right,
+                                    (CGRectGetHeight(self.bounds) - CGRectGetHeight(viewFrame)) * 0.5f,
+                                    width,
+                                    height);
+            break;
+        }
+        case UIViewPositionBottom:
+        default: {
+            view.frame = CGRectMake(((CGRectGetWidth(self.bounds) - CGRectGetWidth(viewFrame)) * 0.5f),
+                                    CGRectGetHeight(self.bounds) - CGRectGetHeight(viewFrame) - inset.bottom,
+                                    width,
+                                    height);
+            break;
+        }
+    }
+
+}
+
+- (void)mc_placeNextToView:(UIView *)view position:(UIViewPosition)position alignment:(UIViewAlignment) alignment inset:(UIEdgeInsets)inset {
+    // TODO:
 }
 
 - (void)mc_positionAtX:(double)xValue {
