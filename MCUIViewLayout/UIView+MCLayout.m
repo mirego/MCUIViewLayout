@@ -6,9 +6,9 @@
 //  Copyright (c) 2012 Mirego, Inc. All rights reserved.
 //
 
-#import "UIView+Layout.h"
+#import "UIView+MCLayout.h"
 
-@implementation UIView (Layout)
+@implementation UIView (MCLayout)
 
 - (void)mc_removeSubviews {
 	for (UIView *view in self.subviews) {
@@ -112,6 +112,60 @@
 - (CGFloat)mc_rightMostPosition
 {
     return  [self mc_xPosition] + [self mc_width];
+}
+
+
+- (void)mcPositionSubView:(UIView *)view aligned:(UIViewContentMode)position inset:(UIEdgeInsets)inset {
+    CGRect viewFrame = view.frame;
+    CGFloat width = CGRectGetWidth(viewFrame);
+    CGFloat height = CGRectGetHeight(viewFrame);
+
+    switch (position) {
+        case UIViewContentModeTop: {
+            view.frame = CGRectMake(((CGRectGetWidth(self.bounds) - CGRectGetWidth(viewFrame)) * 0.5f),
+                                    inset.top,
+                                    width,
+                                    height);
+            break;
+        }
+        case UIViewContentModeTopRight: {
+            view.frame = CGRectMake(CGRectGetWidth(self.bounds) - CGRectGetWidth(viewFrame) - inset.right,
+                                    inset.top,
+                                    width,
+                                    height);
+            break;
+        }
+        case UIViewContentModeTopLeft: {
+            view.frame = CGRectMake(inset.left,
+                                    inset.top,
+                                    width,
+                                    height);
+            break;
+        }
+        case UIViewContentModeBottomRight: {
+            view.frame = CGRectMake(CGRectGetWidth(self.bounds) - CGRectGetWidth(viewFrame) - inset.right,
+                                    CGRectGetHeight(self.bounds) - CGRectGetHeight(viewFrame) - inset.bottom,
+                                    width,
+                                    height);
+            break;
+        }
+        case UIViewContentModeBottomLeft: {
+            view.frame = CGRectMake(inset.left,
+                                    CGRectGetHeight(self.bounds) - CGRectGetHeight(viewFrame) - inset.bottom,
+                                    width,
+                                    height);
+            break;
+        }
+        case UIViewContentModeBottom:
+        default: {
+            view.frame = CGRectMake(((CGRectGetWidth(self.bounds) - CGRectGetWidth(viewFrame)) * 0.5f),
+                                    CGRectGetHeight(self.bounds) - CGRectGetHeight(viewFrame) - inset.bottom,
+                                    width,
+                                    height);
+            break;
+        }
+    }
+
 }
 
 - (void)mc_positionAtX:(double)xValue {

@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface UIView (Layout)
+@interface UIView (MCLayout)
 
 - (CGFloat)mc_width;
 - (void)mc_setWidth:(CGFloat)width;
@@ -29,6 +29,8 @@
 
 - (CGFloat)mc_baselinePosition;
 - (CGFloat)mc_rightMostPosition;
+
+- (void)mcPositionSubView:(UIView *)view aligned:(UIViewContentMode)position inset:(UIEdgeInsets)inset;
 
 - (void)mc_positionAtX:(double)xValue;
 - (void)mc_positionAtY:(double)yValue;
@@ -90,5 +92,4 @@
 - (void)mc_alignTopOfSuperViewWithOffset:(CGFloat)offset;
 - (void)mc_alignBottomOfSuperView;
 - (void)mc_alignBottomOfSuperViewWithOffset:(CGFloat)offset;
-
 @end
