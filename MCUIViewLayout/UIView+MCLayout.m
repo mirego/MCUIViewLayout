@@ -115,55 +115,66 @@
 }
 
 
-- (void)mc_PositionSubView:(UIView *)view aligned:(UIViewContentMode)position inset:(UIEdgeInsets)inset {
+- (void)mc_PositionSubView:(UIView *)view aligned:(UIViewPosition)position inset:(UIEdgeInsets)inset {
     CGRect viewFrame = view.frame;
     CGFloat width = CGRectGetWidth(viewFrame);
     CGFloat height = CGRectGetHeight(viewFrame);
 
     switch (position) {
-        case UIViewContentModeTop: {
+        case UIViewPositionTop: {
             view.frame = CGRectMake(((CGRectGetWidth(self.bounds) - CGRectGetWidth(viewFrame)) * 0.5f),
                                     inset.top,
                                     width,
                                     height);
             break;
         }
-        case UIViewContentModeTopRight: {
+        case UIViewPositionTopRight: {
             view.frame = CGRectMake(CGRectGetWidth(self.bounds) - CGRectGetWidth(viewFrame) - inset.right,
                                     inset.top,
                                     width,
                                     height);
             break;
         }
-        case UIViewContentModeTopLeft: {
+        case UIViewPositionTopLeft: {
             view.frame = CGRectMake(inset.left,
                                     inset.top,
                                     width,
                                     height);
             break;
         }
-        case UIViewContentModeBottomRight: {
+        case UIViewPositionBottomRight: {
             view.frame = CGRectMake(CGRectGetWidth(self.bounds) - CGRectGetWidth(viewFrame) - inset.right,
                                     CGRectGetHeight(self.bounds) - CGRectGetHeight(viewFrame) - inset.bottom,
                                     width,
                                     height);
             break;
         }
-        case UIViewContentModeBottomLeft: {
+        case UIViewPositionBottomLeft: {
             view.frame = CGRectMake(inset.left,
                                     CGRectGetHeight(self.bounds) - CGRectGetHeight(viewFrame) - inset.bottom,
                                     width,
                                     height);
             break;
         }
-        case UIViewContentModeScaleAspectFill:
-        case UIViewContentModeScaleAspectFit:
-        case UIViewContentModeScaleToFill:
-        case UIViewContentModeRedraw: {
-            NSAssert(false, @"unsupported mode");
+        case UIViewPositionCenter: {
+            view.center = self.center;
             break;
         }
-        case UIViewContentModeBottom:
+        case UIViewPositionLeft: {
+            view.frame = CGRectMake(inset.left,
+                                    (CGRectGetHeight(self.bounds) - CGRectGetHeight(viewFrame)) * 0.5f,
+                                    width,
+                                    height);
+            break;
+        }
+        case UIViewPositionRight: {
+            view.frame = CGRectMake(CGRectGetWidth(self.bounds) - CGRectGetWidth(viewFrame) - inset.right,
+                                    (CGRectGetHeight(self.bounds) - CGRectGetHeight(viewFrame)) * 0.5f,
+                                    width,
+                                    height);
+            break;
+        }
+        case UIViewPositionBottom:
         default: {
             view.frame = CGRectMake(((CGRectGetWidth(self.bounds) - CGRectGetWidth(viewFrame)) * 0.5f),
                                     CGRectGetHeight(self.bounds) - CGRectGetHeight(viewFrame) - inset.bottom,
@@ -173,6 +184,10 @@
         }
     }
 
+}
+
+- (void)mc_placeNextToView:(UIView *)view position:(UIViewPosition)position alignment:(UIViewAlignment) alignment inset:(UIEdgeInsets)inset {
+    // TODO:
 }
 
 - (void)mc_positionAtX:(double)xValue {
