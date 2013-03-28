@@ -8,21 +8,21 @@
 
 #import <UIKit/UIKit.h>
 
-typedef NS_ENUM(NSInteger, UIViewPosition) {
-    UIViewPositionCenter,
-    UIViewPositionTop,
-    UIViewPositionBottom,
-    UIViewPositionLeft,
-    UIViewPositionRight,
-    UIViewPositionTopLeft,
-    UIViewPositionTopRight,
-    UIViewPositionBottomLeft,
-    UIViewPositionBottomRight,
+typedef NS_ENUM(NSInteger, MCViewPosition) {
+    MCViewPositionCenter,
+    MCViewPositionTop,
+    MCViewPositionBottom,
+    MCViewPositionLeft,
+    MCViewPositionRight,
+    MCViewPositionTopLeft,
+    MCViewPositionTopRight,
+    MCViewPositionBottomLeft,
+    MCViewPositionBottomRight,
 };
 
-typedef NS_ENUM(NSInteger, UIViewAlignment) {
+typedef NS_ENUM(NSInteger, MCViewAlignment) {
     UIViewAlignmentCenter,
-    UIViewAlignmentTop
+    UIViewAlignmentTop,
     UIViewAlignmentBottom,
     UIViewAlignmentLeft,
     UIViewAlignmentRight,
@@ -50,8 +50,9 @@ typedef NS_ENUM(NSInteger, UIViewAlignment) {
 - (CGFloat)mc_baselinePosition;
 - (CGFloat)mc_rightMostPosition;
 
-- (void)mc_placeSubView:(UIView *)view position:(UIViewPosition)position inset:(UIEdgeInsets)inset;
-- (void)mc_placeNextToView:(UIView *)view position:(UIViewPosition)position alignment:(UIViewAlignment) alignment inset:(UIEdgeInsets)inset;
+- (void)mc_placeAtPosition:(MCViewPosition)position withInset:(UIEdgeInsets)inset;
+- (void)mc_placeNextToView:(UIView *)view atPosition:(MCViewPosition)position
+        alignmentWithSide:(MCViewAlignment)alignment withInset:(UIEdgeInsets)inset;
 
 - (void)mc_positionAtX:(double)xValue;
 - (void)mc_positionAtY:(double)yValue;

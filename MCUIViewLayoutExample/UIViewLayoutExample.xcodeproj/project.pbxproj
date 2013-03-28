@@ -16,6 +16,8 @@
 		09ABD59816E8ECF300290BB3 /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = 09ABD59716E8ECF300290BB3 /* Default.png */; };
 		09ABD59A16E8ECF300290BB3 /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 09ABD59916E8ECF300290BB3 /* Default@2x.png */; };
 		09ABD59C16E8ECF300290BB3 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 09ABD59B16E8ECF300290BB3 /* Default-568h@2x.png */; };
+		915CC234176C38B004A184DA /* MCUIViewLayoutRootController.m in Sources */ = {isa = PBXBuildFile; fileRef = 915CCFD54737A43192F21DB9 /* MCUIViewLayoutRootController.m */; };
+		915CCC00441E907727365383 /* MCUIViewLayoutExampleRootView.m in Sources */ = {isa = PBXBuildFile; fileRef = 915CC9F339EE34C5EFB71925 /* MCUIViewLayoutExampleRootView.m */; };
 		FA41FEF91703D35100071708 /* UIView+MCLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = FA41FEF81703D35100071708 /* UIView+MCLayout.m */; };
 /* End PBXBuildFile section */
 
@@ -33,6 +35,10 @@
 		09ABD59716E8ECF300290BB3 /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
 		09ABD59916E8ECF300290BB3 /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
 		09ABD59B16E8ECF300290BB3 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
+		915CC00B966DD189ED394F8E /* MCUIViewLayoutExampleRootView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MCUIViewLayoutExampleRootView.h; sourceTree = "<group>"; };
+		915CC9F339EE34C5EFB71925 /* MCUIViewLayoutExampleRootView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MCUIViewLayoutExampleRootView.m; sourceTree = "<group>"; };
+		915CCE9B66464E120F02DF6F /* MCUIViewLayoutRootController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MCUIViewLayoutRootController.h; sourceTree = "<group>"; };
+		915CCFD54737A43192F21DB9 /* MCUIViewLayoutRootController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MCUIViewLayoutRootController.m; sourceTree = "<group>"; };
 		FA41FEF71703D35100071708 /* UIView+MCLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+MCLayout.h"; sourceTree = "<group>"; };
 		FA41FEF81703D35100071708 /* UIView+MCLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+MCLayout.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -85,6 +91,10 @@
 				09ABD59416E8ECF300290BB3 /* AppDelegate.h */,
 				09ABD59516E8ECF300290BB3 /* AppDelegate.m */,
 				09ABD58C16E8ECF300290BB3 /* Supporting Files */,
+				915CCFD54737A43192F21DB9 /* MCUIViewLayoutRootController.m */,
+				915CCE9B66464E120F02DF6F /* MCUIViewLayoutRootController.h */,
+				915CC9F339EE34C5EFB71925 /* MCUIViewLayoutExampleRootView.m */,
+				915CC00B966DD189ED394F8E /* MCUIViewLayoutExampleRootView.h */,
 			);
 			path = UIViewLayoutExample;
 			sourceTree = "<group>";
@@ -181,6 +191,8 @@
 				09ABD59216E8ECF300290BB3 /* main.m in Sources */,
 				09ABD59616E8ECF300290BB3 /* AppDelegate.m in Sources */,
 				FA41FEF91703D35100071708 /* UIView+MCLayout.m in Sources */,
+				915CC234176C38B004A184DA /* MCUIViewLayoutRootController.m in Sources */,
+				915CCC00441E907727365383 /* MCUIViewLayoutExampleRootView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
