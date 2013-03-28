@@ -156,6 +156,13 @@
                                     height);
             break;
         }
+        case UIViewContentModeScaleAspectFill:
+        case UIViewContentModeScaleAspectFit:
+        case UIViewContentModeScaleToFill:
+        case UIViewContentModeRedraw: {
+            NSAssert(false, @"unsupported mode");
+            break;
+        }
         case UIViewContentModeBottom:
         default: {
             view.frame = CGRectMake(((CGRectGetWidth(self.bounds) - CGRectGetWidth(viewFrame)) * 0.5f),
