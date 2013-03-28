@@ -6,9 +6,11 @@
 //  Copyright (c) 2012 Mirego, Inc. All rights reserved.
 //
 
-#import "UIView+Layout.h"
+#import <CoreGraphics/CoreGraphics.h>
+#import <UIKit/UIKit.h>
+#import "UIView+MCLayout.h"
 
-@implementation UIView (Layout)
+@implementation UIView (MCLayout)
 
 - (void)mc_removeSubviews {
 	for (UIView *view in self.subviews) {
@@ -112,6 +114,82 @@
 - (CGFloat)mc_rightMostPosition
 {
     return  [self mc_xPosition] + [self mc_width];
+}
+
+
+- (void)mc_placeAtPosition:(MCViewPosition)position withInset:(UIEdgeInsets)inset {
+    CGRect viewFrame = self.frame;
+    viewFrame.origin = [self originForPosition:position andInset:inset];
+    self.frame = viewFrame;
+}
+
+- (CGPoint)originForPosition:(MCViewPosition)position andInset:(UIEdgeInsets)inset {
+    CGPoint viewPosition = CGPointZero;
+    viewPosition.x = [self xOriginForPosition:position andInset:inset];
+    viewPosition.y = [self viewYOriginForPosition:position andInset:inset];
+    return viewPosition;
+}
+
+- (CGFloat)xOriginForPosition:(MCViewPosition)position andInset:(UIEdgeInsets)inset {
+    CGRect viewFrame = self.frame;
+    CGRect superViewBounds = self.superview.bounds;
+    CGFloat xPosition = 0.0f;
+    switch (position) {
+        case MCViewPositionBottom:
+        case MCViewPositionCenter:
+        case MCViewPositionTop: {
+            xPosition = ((CGRectGetWidth(superViewBounds) - CGRectGetWidth(viewFrame)) * 0.5f);
+            break;
+        }
+        case MCViewPositionTopLeft:
+        case MCViewPositionLeft:
+        case MCViewPositionBottomLeft: {
+            xPosition = inset.left;
+            break;
+        }
+
+        case MCViewPositionRight:
+        case MCViewPositionBottomRight:
+        case MCViewPositionTopRight: {
+            xPosition = CGRectGetWidth(superViewBounds) - CGRectGetWidth(viewFrame) - inset.right;
+            break;
+        }
+
+
+    }
+
+    return xPosition;
+}
+
+- (CGFloat)viewYOriginForPosition:(MCViewPosition)position andInset:(UIEdgeInsets)inset {
+    CGFloat yPosition = 0.0f;
+    CGRect viewFrame = self.frame;
+    CGRect superViewBounds = self.superview.bounds;
+    switch (position) {
+        case MCViewPositionTopLeft:
+        case MCViewPositionTopRight:
+        case MCViewPositionTop: {
+            yPosition = inset.top;
+            break;
+        }
+        case MCViewPositionBottom:
+        case MCViewPositionBottomLeft:
+        case MCViewPositionBottomRight: {
+            yPosition = CGRectGetHeight(superViewBounds) - CGRectGetHeight(viewFrame) - inset.bottom;
+            break;
+        }
+        case MCViewPositionRight:
+        case MCViewPositionLeft:
+        case MCViewPositionCenter: {
+            yPosition = (CGRectGetHeight(superViewBounds) - CGRectGetHeight(viewFrame)) * 0.5f;
+            break;
+        }
+    }
+    return yPosition;
+}
+
+- (void)mc_placeNextToView:(UIView *)view atPosition:(MCViewPosition)position withInset:(UIEdgeInsets)inset {
+    // TODO: To be implemented
 }
 
 - (void)mc_positionAtX:(double)xValue {
