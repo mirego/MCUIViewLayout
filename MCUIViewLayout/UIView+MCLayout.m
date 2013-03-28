@@ -115,7 +115,7 @@
 }
 
 
-- (void)mcPositionSubView:(UIView *)view aligned:(UIViewContentMode)position inset:(UIEdgeInsets)inset {
+- (void)mc_PositionSubView:(UIView *)view aligned:(UIViewContentMode)position inset:(UIEdgeInsets)inset {
     CGRect viewFrame = view.frame;
     CGFloat width = CGRectGetWidth(viewFrame);
     CGFloat height = CGRectGetHeight(viewFrame);

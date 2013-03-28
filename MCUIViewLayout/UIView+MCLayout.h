@@ -30,7 +30,7 @@
 - (CGFloat)mc_baselinePosition;
 - (CGFloat)mc_rightMostPosition;
 
-- (void)mcPositionSubView:(UIView *)view aligned:(UIViewContentMode)position inset:(UIEdgeInsets)inset;
+- (void)mc_PositionSubView:(UIView *)view aligned:(UIViewContentMode)position inset:(UIEdgeInsets)inset;
 
 - (void)mc_positionAtX:(double)xValue;
 - (void)mc_positionAtY:(double)yValue;
