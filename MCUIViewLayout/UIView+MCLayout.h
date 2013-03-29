@@ -12,7 +12,7 @@ typedef NS_ENUM(NSInteger, MCViewPosition) {
     MCViewPositionCenter,
     MCViewPositionTop,
     MCViewPositionBottom,
-    MCViewPositionLeft,
+    MCViewPositionCenterLeft,
     MCViewPositionRight,
     MCViewPositionTopLeft,
     MCViewPositionTopRight,
@@ -20,12 +20,19 @@ typedef NS_ENUM(NSInteger, MCViewPosition) {
     MCViewPositionBottomRight,
 };
 
-typedef NS_ENUM(NSInteger, MCViewAlignment) {
-    UIViewAlignmentCenter,
-    UIViewAlignmentTop,
-    UIViewAlignmentBottom,
-    UIViewAlignmentLeft,
-    UIViewAlignmentRight,
+typedef NS_ENUM(NSInteger, MCViewRelativePosition) {
+    MCViewRelativePositionAboveAlignedLeft,
+    MCViewRelativePositionAboveCentered,
+    MCViewRelativePositionAboveAlignedRight,
+    MCViewRelativePositionToTheRightAlignedTop,
+    MCViewRelativePositionToTheRightCentered,
+    MCViewRelativePositionToTheRightAlignedBottom,
+    MCViewRelativePositionToTheLeftAlignedTop,
+    MCViewRelativePositionToTheLefttCentered,
+    MCViewRelativePositionToTheLeftAlignedBottom,
+    MCViewRelativePositionUnderAlignedLeft,
+    MCViewRelativePositionUnderCentered,
+    MCViewRelativePositionUnderAlignedRight
 };
 
 @interface UIView (MCLayout)
@@ -50,13 +57,14 @@ typedef NS_ENUM(NSInteger, MCViewAlignment) {
 - (CGFloat)mc_baselinePosition;
 - (CGFloat)mc_rightMostPosition;
 
-- (void)mc_setPosition:(MCViewPosition)position withMargin:(UIEdgeInsets)margins;
-- (void)mc_setPosition:(MCViewPosition)position inView:(UIView *)view withMargin:(UIEdgeInsets)margins;
-- (void)mc_setPosition:(MCViewPosition)position nextToView:(UIView *)view withMargin:(UIEdgeInsets)margin;
+- (void)mc_setPosition:(MCViewPosition)position withMargins:(UIEdgeInsets)margins;
+- (void)mc_setPosition:(MCViewRelativePosition)position relativeToView:(UIView *)view withMargins:(UIEdgeInsets)margins;
+- (void)mc_setPosition:(MCViewPosition)position inView:(UIView *)view withMargins:(UIEdgeInsets)margins;
 
-- (void)mc_setPosition:(MCViewPosition)position withMargin:(UIEdgeInsets)margins size:(CGSize) size;
-- (void)mc_setPosition:(MCViewPosition)position inView:(UIView *)view withMargin:(UIEdgeInsets)margins size:(CGSize) size;
-- (void)mc_setPosition:(MCViewPosition)position nextToView:(UIView *)view withMargin:(UIEdgeInsets)margin size:(CGSize) size;
+- (void)mc_setPosition:(MCViewPosition)position withMargins:(UIEdgeInsets)margins size:(CGSize) size;
+- (void)mc_setPosition:(MCViewRelativePosition)position relativeToView:(UIView *)view withMargins:(UIEdgeInsets)margins size:(CGSize) size;
+- (void)mc_setPosition:(MCViewPosition)position inView:(UIView *)view withMargins:(UIEdgeInsets)margins size:(CGSize) size;
+
 
 - (void)mc_positionAtX:(double)xValue;
 - (void)mc_positionAtY:(double)yValue;

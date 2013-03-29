@@ -1,5 +1,5 @@
 //
-//  MCUIViewLayoutExampleRootView
+//  MCUIViewLayoutExampleSetPosition
 //  UIViewLayoutExample
 //
 //  Created by mlefrancois on 2013-03-28
@@ -10,5 +10,5 @@
 #import <Foundation/Foundation.h>
 
 
-@interface MCUIViewLayoutExampleRootView : UIView
+@interface MCUIViewLayoutExampleSetPosition : UIView
 @end

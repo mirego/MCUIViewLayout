@@ -1,5 +1,5 @@
 //
-//  MCUIViewLayoutExampleRootView
+//  MCUIViewLayoutExampleSetPosition
 //  UIViewLayoutExample
 //
 //  Created by mlefrancois on 2013-03-28
@@ -7,15 +7,16 @@
 //
 
 
-#import "MCUIViewLayoutExampleRootView.h"
+#import "MCUIViewLayoutExampleSetPosition.h"
 #import "UIView+MCLayout.h"
+#import "MCUIViewExampleUIFactory.h"
 
 static const int kMargin = 10;
 
 //------------------------------------------------------------------------------
-#pragma mark MCUIViewLayoutExampleRootView (Privates methods)
+#pragma mark MCUIViewLayoutExampleSetPosition (Privates methods)
 //------------------------------------------------------------------------------
-@interface MCUIViewLayoutExampleRootView ()
+@interface MCUIViewLayoutExampleSetPosition ()
 
 @property(nonatomic, strong) UILabel *topLeft;
 @property(nonatomic, strong) UILabel *top;
@@ -29,9 +30,9 @@ static const int kMargin = 10;
 @end
 
 //------------------------------------------------------------------------------
-#pragma mark - MCUIViewLayoutExampleRootView implementation
+#pragma mark - MCUIViewLayoutExampleSetPosition implementation
 //------------------------------------------------------------------------------
-@implementation MCUIViewLayoutExampleRootView
+@implementation MCUIViewLayoutExampleSetPosition
 //------------------------------------------------------------------------------
 #pragma mark Constructors and destructor
 //------------------------------------------------------------------------------
@@ -39,27 +40,25 @@ static const int kMargin = 10;
     self = [super initWithFrame:frame];
     if (self) {
         self.backgroundColor = [UIColor blueColor];
-        self.topLeft = [self addLabelWithTitle:@"topLeft"];
-        self.top = [self addLabelWithTitle:@"top"];
-        self.topRight = [self addLabelWithTitle:@"topRight"];
+        self.topLeft = [MCUIViewExampleUIFactory addLabelWithTitle:@"topLeft" inView:self];
+        self.top = [MCUIViewExampleUIFactory addLabelWithTitle:@"top" inView:self];
+        self.topRight = [MCUIViewExampleUIFactory addLabelWithTitle:@"topRight" inView:self];
 
-        self.left = [self addLabelWithTitle:@"left"];
-        self.centered = [self addLabelWithTitle:@"centered"];
-        self.right = [self addLabelWithTitle:@"right"];
+        self.left = [MCUIViewExampleUIFactory addLabelWithTitle:@"left" inView:self];
+        self.centered = [MCUIViewExampleUIFactory addLabelWithTitle:@"centered" inView:self];
+        self.right = [MCUIViewExampleUIFactory addLabelWithTitle:@"right" inView:self];
 
-        self.bottomLeft = [self addLabelWithTitle:@"bottomLeft"];
-        self.bottom = [self addLabelWithTitle:@"bottom"];
-        self.bottomRight = [self addLabelWithTitle:@"bottomRight"];
+        self.bottomLeft = [MCUIViewExampleUIFactory addLabelWithTitle:@"bottomLeft" inView:self];
+        self.bottom = [MCUIViewExampleUIFactory addLabelWithTitle:@"bottom" inView:self];
+        self.bottomRight = [MCUIViewExampleUIFactory addLabelWithTitle:@"bottomRight" inView:self];
+
+        [self addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(close)] ];
     }
     return self;
 }
 
-- (UILabel *)addLabelWithTitle:(NSString *)title {
-    UILabel *label = [[UILabel alloc] init];
-    label.text = title;
-    [label sizeToFit];
-    [self addSubview:label];
-    return label;
+- (void)close {
+    [self removeFromSuperview];
 }
 
 //- (void)dealloc {
@@ -76,25 +75,25 @@ static const int kMargin = 10;
 - (void) layoutSubviews {
     [super layoutSubviews];
 
-    [self.topLeft mc_setPosition:MCViewPositionTopLeft withMargin:UIEdgeInsetsMake(kMargin,
+    [self.topLeft mc_setPosition:MCViewPositionTopLeft withMargins:UIEdgeInsetsMake(kMargin,
             kMargin, kMargin, kMargin)];
-    [self.top mc_setPosition:MCViewPositionTop withMargin:UIEdgeInsetsMake(kMargin,
+    [self.top mc_setPosition:MCViewPositionTop withMargins:UIEdgeInsetsMake(kMargin,
             kMargin, kMargin, kMargin)];
-    [self.topRight mc_setPosition:MCViewPositionTopRight withMargin:UIEdgeInsetsMake(kMargin,
-            kMargin, kMargin, kMargin)];
-
-    [self.left mc_setPosition:MCViewPositionLeft withMargin:UIEdgeInsetsMake(kMargin,
-            kMargin, kMargin, kMargin)];
-    [self.centered mc_setPosition:MCViewPositionCenter withMargin:UIEdgeInsetsMake(kMargin,
-            kMargin, kMargin, kMargin)];
-    [self.right mc_setPosition:MCViewPositionRight withMargin:UIEdgeInsetsMake(kMargin,
+    [self.topRight mc_setPosition:MCViewPositionTopRight withMargins:UIEdgeInsetsMake(kMargin,
             kMargin, kMargin, kMargin)];
 
-    [self.bottomLeft mc_setPosition:MCViewPositionBottomLeft withMargin:UIEdgeInsetsMake(kMargin,
+    [self.left mc_setPosition:MCViewPositionLeft withMargins:UIEdgeInsetsMake(kMargin,
             kMargin, kMargin, kMargin)];
-    [self.bottom mc_setPosition:MCViewPositionBottom withMargin:UIEdgeInsetsMake(kMargin,
+    [self.centered mc_setPosition:MCViewPositionCenter withMargins:UIEdgeInsetsMake(kMargin,
             kMargin, kMargin, kMargin)];
-    [self.bottomRight mc_setPosition:MCViewPositionBottomRight withMargin:UIEdgeInsetsMake(kMargin,
+    [self.right mc_setPosition:MCViewPositionRight withMargins:UIEdgeInsetsMake(kMargin,
+            kMargin, kMargin, kMargin)];
+
+    [self.bottomLeft mc_setPosition:MCViewPositionBottomLeft withMargins:UIEdgeInsetsMake(kMargin,
+            kMargin, kMargin, kMargin)];
+    [self.bottom mc_setPosition:MCViewPositionBottom withMargins:UIEdgeInsetsMake(kMargin,
+            kMargin, kMargin, kMargin)];
+    [self.bottomRight mc_setPosition:MCViewPositionBottomRight withMargins:UIEdgeInsetsMake(kMargin,
             kMargin, kMargin, kMargin)];
 }
 

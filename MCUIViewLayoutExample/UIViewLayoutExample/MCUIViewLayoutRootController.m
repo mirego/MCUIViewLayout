@@ -8,7 +8,9 @@
 
 
 #import "MCUIViewLayoutRootController.h"
-#import "MCUIViewLayoutExampleRootView.h"
+#import "MCUIViewLayoutExampleSetPosition.h"
+#import "MCUIViewLayoutExampleMenuView.h"
+#import "MCUIViewLayoutExampleSetRelativePosition.h"
 
 //------------------------------------------------------------------------------
 #pragma mark MCUIViewLayoutRootController (privates methods)
@@ -47,9 +49,18 @@
 #pragma mark Controller events
 //------------------------------------------------------------------------------
 - (void)loadView {
-    self.view = [[MCUIViewLayoutExampleRootView alloc] init];
+    MCUIViewLayoutExampleMenuView *rootview = [[MCUIViewLayoutExampleMenuView alloc] init];
+    [rootview.buttonSetPosition addTarget:self action:@selector(showSetPositionExample) forControlEvents:UIControlEventTouchUpInside];
+    [rootview.buttonSetRelativePosition addTarget:self action:@selector(showSetRelativePositionExample) forControlEvents:UIControlEventTouchUpInside];
+    self.view = rootview;
+}
 
+- (void)showSetRelativePositionExample {
+    [self.view addSubview:[[MCUIViewLayoutExampleSetRelativePosition alloc] initWithFrame:self.view.bounds]];
+}
 
+- (void)showSetPositionExample {
+    [self.view addSubview:[[MCUIViewLayoutExampleSetPosition alloc] initWithFrame:self.view.bounds]];
 }
 
 //- (void)viewDidLoad
