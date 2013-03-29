@@ -140,15 +140,17 @@
     CGPoint viewPosition = CGPointZero;
     viewPosition.x = [self xOriginForPosition:position andInset:inset size:size inView:view];
     viewPosition.y = [self yOriginForPosition:position andInset:inset size:size inView:view];
-    viewPosition = [self convertPoint:viewPosition fromView:view];
+    if (self.superview != view) {
+        viewPosition = [view convertPoint:viewPosition toView:self.superview];
+    }
     return viewPosition;
 }
 
 - (CGFloat)xOriginForPosition:(MCViewPosition)position andInset:(UIEdgeInsets)inset size:(CGSize)size
            inView:(UIView *)view {
-    CGRect viewFrame = self.frame;
-    viewFrame.size = size;
+    CGRect viewFrame = self.bounds;
     CGRect superViewBounds = view.bounds;
+    viewFrame.size = size;
     CGFloat xPosition = 0.0f;
     switch (position) {
         case MCViewPositionBottom:
@@ -176,9 +178,9 @@
 - (CGFloat)yOriginForPosition:(MCViewPosition)position andInset:(UIEdgeInsets)inset size:(CGSize)size
            inView:(UIView *)view {
     CGFloat yPosition = 0.0f;
-    CGRect viewFrame = self.frame;
-    viewFrame.size = size;
+    CGRect viewFrame = self.bounds;
     CGRect superViewBounds = view.bounds;
+    viewFrame.size = size;
     switch (position) {
         case MCViewPositionTop:
         case MCViewPositionTopLeft:
@@ -216,7 +218,7 @@
 - (CGFloat)xOriginForPosition:(MCViewRelativePosition)position relativeTo:(UIView *)view andInset:(UIEdgeInsets)inset
            size:(CGSize)size {
 
-    CGRect viewFrame = self.frame;
+    CGRect viewFrame = self.bounds;
     viewFrame.size = size;
     CGRect relativeViewBounds = view.frame;
     CGFloat xPosition = 0.0f;
@@ -261,10 +263,9 @@
 - (CGFloat)viewYOriginForPosition:(MCViewRelativePosition)position relativeTo:(UIView *)view
            andInset:(UIEdgeInsets)inset size:(CGSize)size {
     CGFloat yPosition = 0.0f;
-    CGRect viewFrame = self.frame;
+    CGRect viewFrame = self.bounds;
     viewFrame.size = size;
     CGRect relativeViewBounds = view.frame;
-
     switch (position) {
         case MCViewRelativePositionAboveAlignedLeft:
         case MCViewRelativePositionAboveCentered:
@@ -309,6 +310,9 @@
     CGPoint viewPosition = CGPointZero;
     viewPosition.x = [self xOriginForPosition:position relativeTo:view andInset:inset size:size];
     viewPosition.y = [self viewYOriginForPosition:position relativeTo:view andInset:inset size:size];
+    if (self.superview != view.superview) {
+        viewPosition = [view.superview convertPoint:viewPosition toView:self.superview];
+    }
     return viewPosition;
 }
 
