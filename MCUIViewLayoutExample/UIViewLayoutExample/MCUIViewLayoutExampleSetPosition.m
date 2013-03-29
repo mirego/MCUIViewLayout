@@ -44,9 +44,9 @@ static const int kMargin = 10;
         self.top = [MCUIViewExampleUIFactory addLabelWithTitle:@"top" inView:self];
         self.topRight = [MCUIViewExampleUIFactory addLabelWithTitle:@"topRight" inView:self];
 
-        self.left = [MCUIViewExampleUIFactory addLabelWithTitle:@"left" inView:self];
+        self.left = [MCUIViewExampleUIFactory addLabelWithTitle:@"leftCentered" inView:self];
         self.centered = [MCUIViewExampleUIFactory addLabelWithTitle:@"centered" inView:self];
-        self.right = [MCUIViewExampleUIFactory addLabelWithTitle:@"right" inView:self];
+        self.right = [MCUIViewExampleUIFactory addLabelWithTitle:@"rightCentered" inView:self];
 
         self.bottomLeft = [MCUIViewExampleUIFactory addLabelWithTitle:@"bottomLeft" inView:self];
         self.bottom = [MCUIViewExampleUIFactory addLabelWithTitle:@"bottom" inView:self];
@@ -82,11 +82,11 @@ static const int kMargin = 10;
     [self.topRight mc_setPosition:MCViewPositionTopRight withMargins:UIEdgeInsetsMake(kMargin,
             kMargin, kMargin, kMargin)];
 
-    [self.left mc_setPosition:MCViewPositionLeft withMargins:UIEdgeInsetsMake(kMargin,
+    [self.left mc_setPosition:MCViewPositionCenterLeft withMargins:UIEdgeInsetsMake(kMargin,
             kMargin, kMargin, kMargin)];
     [self.centered mc_setPosition:MCViewPositionCenter withMargins:UIEdgeInsetsMake(kMargin,
             kMargin, kMargin, kMargin)];
-    [self.right mc_setPosition:MCViewPositionRight withMargins:UIEdgeInsetsMake(kMargin,
+    [self.right mc_setPosition:MCViewPositionCenterRight withMargins:UIEdgeInsetsMake(kMargin,
             kMargin, kMargin, kMargin)];
 
     [self.bottomLeft mc_setPosition:MCViewPositionBottomLeft withMargins:UIEdgeInsetsMake(kMargin,

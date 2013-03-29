@@ -163,7 +163,7 @@
             xPosition = inset.left;
             break;
         }
-        case MCViewPositionRight:
+        case MCViewPositionCenterRight:
         case MCViewPositionBottomRight:
         case MCViewPositionTopRight: {
             xPosition = CGRectGetWidth(superViewBounds) - CGRectGetWidth(viewFrame) - inset.right;
@@ -194,7 +194,7 @@
         }
         case MCViewPositionCenter:
         case MCViewPositionCenterLeft:
-        case MCViewPositionRight: {
+        case MCViewPositionCenterRight: {
             yPosition = (CGRectGetHeight(superViewBounds) - CGRectGetHeight(viewFrame)) * 0.5f;
             break;
         }
@@ -224,6 +224,7 @@
     switch (position) {
         case MCViewRelativePositionAboveAlignedLeft:
         case MCViewRelativePositionUnderAlignedLeft: {
+            xPosition = CGRectGetMinX(relativeViewBounds) + inset.left;
             break;
         }
         case MCViewRelativePositionAboveCentered:
@@ -235,14 +236,23 @@
 
         case MCViewRelativePositionAboveAlignedRight:
         case MCViewRelativePositionUnderAlignedRight: {
+            xPosition = CGRectGetMaxX(relativeViewBounds) - inset.right - CGRectGetWidth(viewFrame);
             break;
         }
-        case MCViewRelativePositionToTheRightAlignedTop:break;
-        case MCViewRelativePositionToTheRightCentered:break;
-        case MCViewRelativePositionToTheRightAlignedBottom:break;
-        case MCViewRelativePositionToTheLeftAlignedTop:break;
-        case MCViewRelativePositionToTheLefttCentered:break;
-        case MCViewRelativePositionToTheLeftAlignedBottom:break;
+        case MCViewRelativePositionToTheLeftCentered:
+        case MCViewRelativePositionToTheLeftAlignedBottom:
+        case MCViewRelativePositionToTheLeftAlignedTop: {
+            CGFloat relativeMinX = CGRectGetMinX(relativeViewBounds);
+            xPosition = relativeMinX - CGRectGetWidth(viewFrame) - inset.right;
+            break;
+        }
+        case MCViewRelativePositionToTheRightAlignedTop:
+        case MCViewRelativePositionToTheRightCentered:
+        case MCViewRelativePositionToTheRightAlignedBottom: {
+            CGFloat relativeMaxX = CGRectGetMaxX(relativeViewBounds);
+            xPosition = relativeMaxX + inset.left;
+            break;
+        }
     }
 
     return xPosition;
@@ -259,6 +269,8 @@
         case MCViewRelativePositionAboveAlignedLeft:
         case MCViewRelativePositionAboveCentered:
         case MCViewRelativePositionAboveAlignedRight:{
+            CGFloat relativetop = CGRectGetMinY(relativeViewBounds);
+            yPosition = relativetop - inset.bottom - CGRectGetHeight(viewFrame);
             break;
         }
         case MCViewRelativePositionUnderAlignedLeft:
@@ -268,12 +280,25 @@
             yPosition = relativeBaseline + inset.top;
             break;
         }
-        case MCViewRelativePositionToTheRightAlignedTop:break;
-        case MCViewRelativePositionToTheRightCentered:break;
-        case MCViewRelativePositionToTheRightAlignedBottom:break;
-        case MCViewRelativePositionToTheLeftAlignedTop:break;
-        case MCViewRelativePositionToTheLefttCentered:break;
-        case MCViewRelativePositionToTheLeftAlignedBottom:break;
+
+        case MCViewRelativePositionToTheLeftCentered:
+        case MCViewRelativePositionToTheRightCentered: {
+            CGFloat relativeMidPoint = CGRectGetMidY(relativeViewBounds);
+            yPosition = relativeMidPoint - CGRectGetHeight(viewFrame) * 0.5f;
+            break;
+        }
+
+        case MCViewRelativePositionToTheRightAlignedTop:
+        case MCViewRelativePositionToTheLeftAlignedTop: {
+            yPosition = CGRectGetMinY(relativeViewBounds) + inset.top;
+            break;
+        }
+
+        case MCViewRelativePositionToTheRightAlignedBottom:
+        case MCViewRelativePositionToTheLeftAlignedBottom: {
+            yPosition = CGRectGetMaxY(relativeViewBounds) - inset.bottom - CGRectGetHeight(viewFrame);
+            break;
+        }
     }
 
     return yPosition;
