@@ -138,15 +138,32 @@
     self.frame = viewFrame;
 }
 
+- (CGFloat)roundFloatIfNecesssary:(CGFloat)number {
+    static BOOL onNonRetina;
+    static dispatch_once_t once;
+    dispatch_once(&once, ^ {
+        onNonRetina = [UIScreen mainScreen].scale <= 1.0000f;
+    });
+
+    if (onNonRetina) {
+        return roundf(number);
+    }
+    else {
+        return number;
+    }
+
+}
+
 - (CGPoint)originForPosition:(MCViewPosition)position andInset:(UIEdgeInsets)inset size:(CGSize)size inView:(UIView *)view {
     CGPoint viewPosition = CGPointZero;
-    viewPosition.x = [self xOriginForPosition:position andInset:inset size:size inView:view];
-    viewPosition.y = [self yOriginForPosition:position andInset:inset size:size inView:view];
+    viewPosition.x = [self roundFloatIfNecesssary:[self xOriginForPosition:position andInset:inset size:size inView:view]];
+    viewPosition.y = [self roundFloatIfNecesssary:[self yOriginForPosition:position andInset:inset size:size inView:view]];
     if (self.superview != view) {
         viewPosition = [view convertPoint:viewPosition toView:self.superview];
     }
     return viewPosition;
 }
+
 
 - (CGFloat)xOriginForPosition:(MCViewPosition)position andInset:(UIEdgeInsets)inset size:(CGSize)size
            inView:(UIView *)view {
@@ -310,8 +327,8 @@
 - (CGPoint)originForRelativePosition:(MCViewRelativePosition)position andInset:(UIEdgeInsets)inset size:(CGSize)size
            toView:(UIView *) view {
     CGPoint viewPosition = CGPointZero;
-    viewPosition.x = [self xOriginForPosition:position relativeTo:view andInset:inset size:size];
-    viewPosition.y = [self viewYOriginForPosition:position relativeTo:view andInset:inset size:size];
+    viewPosition.x = [self roundFloatIfNecesssary:[self xOriginForPosition:position relativeTo:view andInset:inset size:size]];
+    viewPosition.y = [self roundFloatIfNecesssary:[self viewYOriginForPosition:position relativeTo:view andInset:inset size:size]];
     if (self.superview != view.superview) {
         viewPosition = [view.superview convertPoint:viewPosition toView:self.superview];
     }
