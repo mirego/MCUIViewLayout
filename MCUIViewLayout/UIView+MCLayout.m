@@ -116,9 +116,6 @@
     return  [self mc_xPosition] + [self mc_width];
 }
 
-- (void)mc_setFrameToIntegralFrame {
-    self.frame = CGRectIntegral(self.frame);
-}
 - (void)mc_setPosition:(MCViewPosition)position withMargins:(UIEdgeInsets)margins size:(CGSize) size {
     [self mc_setPosition:position inView:self.superview withMargins:margins size:size];
 }
