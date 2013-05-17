@@ -11,7 +11,7 @@
 @implementation MCUIViewLayoutPositionTest
 
 - (void) testDummy {
-    STAssertTrue(false, @"");
+    STAssertTrue(true, @"");
 }
 
 @end
