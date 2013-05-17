@@ -14,10 +14,11 @@
 
 }
 
-+ (CGRect)positionRect:(CGRect)rect atPosition:(enum MCViewPosition)position inRect:(CGRect)targetRect withMargin:(UIEdgeInsets const)margin {
-    rect.origin = [self originForPosition:position andInset:margin size:rect.size inRect:targetRect];
++ (CGRect)positionRect:(CGRect)rect atPosition:(enum MCViewPosition)position inRect:(CGRect)targetRect withMargins:(UIEdgeInsets const)margins {
+    rect.origin = [self originForPosition:position andInset:margins size:rect.size inRect:targetRect];
     return rect;
 }
+
 
 + (CGPoint)originForPosition:(MCViewPosition)position andInset:(UIEdgeInsets)inset size:(CGSize)size inRect:(CGRect)targetRect {
     CGPoint origin = CGPointZero;
@@ -92,6 +93,103 @@
     else {
         return number;
     }
+}
+
++ (CGRect)relativePositionRect:(CGRect)rect atPosition:(enum MCViewPosition)position inRect:(CGRect)targetRect withMargins:(UIEdgeInsets const)margins {
+    rect.origin = [self originForRelativePosition:position andInset:margins size:rect.size targetRect:targetRect];
+    return rect;
+}
+
++ (CGPoint)originForRelativePosition:(MCViewRelativePosition)position andInset:(UIEdgeInsets)inset size:(CGSize)size
+                              targetRect:(CGRect) targetRect {
+    CGPoint viewPosition = CGPointZero;
+    viewPosition.x = [self roundFloatIfRequired:[self relativeXOriginForPosition:position relativeTo:targetRect andInset:inset size:size]];
+    viewPosition.y = [self roundFloatIfRequired:[self relativeYOriginForPosition:position relativeTo:targetRect andInset:inset size:size]];
+    return viewPosition;
+}
+
++ (CGFloat)relativeXOriginForPosition:(MCViewRelativePosition)position relativeTo:(CGRect)relativeRect andInset:(UIEdgeInsets)inset
+                                 size:(CGSize)size {
+
+    CGFloat xPosition = 0.0f;
+
+    switch (position) {
+        case MCViewRelativePositionAboveAlignedLeft:
+        case MCViewRelativePositionUnderAlignedLeft: {
+            xPosition = CGRectGetMinX(relativeRect) + inset.left;
+            break;
+        }
+        case MCViewRelativePositionAboveCentered:
+        case MCViewRelativePositionUnderCentered: {
+            CGFloat relativeMidPoint = CGRectGetMidX(relativeRect);
+            xPosition = relativeMidPoint - size.width * 0.5f;
+            break;
+        }
+
+        case MCViewRelativePositionAboveAlignedRight:
+        case MCViewRelativePositionUnderAlignedRight: {
+            xPosition = CGRectGetMaxX(relativeRect) - inset.right - size.width;
+            break;
+        }
+        case MCViewRelativePositionToTheLeftCentered:
+        case MCViewRelativePositionToTheLeftAlignedBottom:
+        case MCViewRelativePositionToTheLeftAlignedTop: {
+            CGFloat relativeMinX = CGRectGetMinX(relativeRect);
+            xPosition = relativeMinX - size.width - inset.right;
+            break;
+        }
+        case MCViewRelativePositionToTheRightAlignedTop:
+        case MCViewRelativePositionToTheRightCentered:
+        case MCViewRelativePositionToTheRightAlignedBottom: {
+            CGFloat relativeMaxX = CGRectGetMaxX(relativeRect);
+            xPosition = relativeMaxX + inset.left;
+            break;
+        }
+    }
+
+    return xPosition;
+}
+
++ (CGFloat)relativeYOriginForPosition:(MCViewRelativePosition)position relativeTo:(CGRect)relativeRect
+                             andInset:(UIEdgeInsets)inset size:(CGSize)size {
+    CGFloat yPosition = 0.0f;
+    switch (position) {
+        case MCViewRelativePositionAboveAlignedLeft:
+        case MCViewRelativePositionAboveCentered:
+        case MCViewRelativePositionAboveAlignedRight:{
+            CGFloat relativeTop = CGRectGetMinY(relativeRect);
+            yPosition = relativeTop - inset.bottom - size.height;
+            break;
+        }
+        case MCViewRelativePositionUnderAlignedLeft:
+        case MCViewRelativePositionUnderCentered:
+        case MCViewRelativePositionUnderAlignedRight:{
+            CGFloat relativeBaseline = CGRectGetMaxY(relativeRect);
+            yPosition = relativeBaseline + inset.top;
+            break;
+        }
+
+        case MCViewRelativePositionToTheLeftCentered:
+        case MCViewRelativePositionToTheRightCentered: {
+            CGFloat relativeMidPoint = CGRectGetMidY(relativeRect);
+            yPosition = relativeMidPoint - size.height * 0.5f;
+            break;
+        }
+
+        case MCViewRelativePositionToTheRightAlignedTop:
+        case MCViewRelativePositionToTheLeftAlignedTop: {
+            yPosition = CGRectGetMinY(relativeRect) + inset.top;
+            break;
+        }
+
+        case MCViewRelativePositionToTheRightAlignedBottom:
+        case MCViewRelativePositionToTheLeftAlignedBottom: {
+            yPosition = CGRectGetMaxY(relativeRect) - inset.bottom - size.height;
+            break;
+        }
+    }
+
+    return yPosition;
 }
 
 @end
