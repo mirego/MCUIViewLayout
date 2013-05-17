@@ -16,11 +16,17 @@
 		09ABD59816E8ECF300290BB3 /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = 09ABD59716E8ECF300290BB3 /* Default.png */; };
 		09ABD59A16E8ECF300290BB3 /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 09ABD59916E8ECF300290BB3 /* Default@2x.png */; };
 		09ABD59C16E8ECF300290BB3 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 09ABD59B16E8ECF300290BB3 /* Default-568h@2x.png */; };
+		5E6C83471746A74F00BB872E /* SenTestingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5E6C83461746A74F00BB872E /* SenTestingKit.framework */; };
+		5E6C83481746A74F00BB872E /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 09ABD58516E8ECF300290BB3 /* UIKit.framework */; };
+		5E6C83491746A74F00BB872E /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 09ABD58716E8ECF300290BB3 /* Foundation.framework */; };
+		5E6C834F1746A74F00BB872E /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 5E6C834D1746A74F00BB872E /* InfoPlist.strings */; };
+		5E6C83521746A74F00BB872E /* UIViewLayoutExampleTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E6C83511746A74F00BB872E /* UIViewLayoutExampleTests.m */; };
 		915CC1C38A309CC53EF0A7BC /* MCUIViewExampleUIFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = 915CC2122AFA59E400174116 /* MCUIViewExampleUIFactory.m */; };
 		915CC234176C38B004A184DA /* MCUIViewLayoutRootController.m in Sources */ = {isa = PBXBuildFile; fileRef = 915CCFD54737A43192F21DB9 /* MCUIViewLayoutRootController.m */; };
 		915CCA7A367EF8173AB5D7E3 /* MCUIViewLayoutExampleMenuView.m in Sources */ = {isa = PBXBuildFile; fileRef = 915CCAFCAE539F379DDA60E1 /* MCUIViewLayoutExampleMenuView.m */; };
 		915CCC00441E907727365383 /* MCUIViewLayoutExampleSetPosition.m in Sources */ = {isa = PBXBuildFile; fileRef = 915CC9F339EE34C5EFB71925 /* MCUIViewLayoutExampleSetPosition.m */; };
 		915CCD3D1192C7EE590BBBC3 /* MCUIViewLayoutExampleSetRelativePosition.m in Sources */ = {isa = PBXBuildFile; fileRef = 915CCB9122A70EB9F47C5BB7 /* MCUIViewLayoutExampleSetRelativePosition.m */; };
+		BF9309EF8B616810BB8D9A6D /* MCUIViewLayoutPositionTest.m in Sources */ = {isa = PBXBuildFile; fileRef = BF93022FB48635DBB10A1506 /* MCUIViewLayoutPositionTest.m */; };
 		FA41FEF91703D35100071708 /* UIView+MCLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = FA41FEF81703D35100071708 /* UIView+MCLayout.m */; };
 /* End PBXBuildFile section */
 
@@ -38,6 +44,13 @@
 		09ABD59716E8ECF300290BB3 /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
 		09ABD59916E8ECF300290BB3 /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
 		09ABD59B16E8ECF300290BB3 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
+		5E6C83451746A74F00BB872E /* UIViewLayoutExampleTests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = UIViewLayoutExampleTests.octest; sourceTree = BUILT_PRODUCTS_DIR; };
+		5E6C83461746A74F00BB872E /* SenTestingKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SenTestingKit.framework; path = Library/Frameworks/SenTestingKit.framework; sourceTree = DEVELOPER_DIR; };
+		5E6C834C1746A74F00BB872E /* UIViewLayoutExampleTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "UIViewLayoutExampleTests-Info.plist"; sourceTree = "<group>"; };
+		5E6C834E1746A74F00BB872E /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		5E6C83501746A74F00BB872E /* UIViewLayoutExampleTests.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UIViewLayoutExampleTests.h; sourceTree = "<group>"; };
+		5E6C83511746A74F00BB872E /* UIViewLayoutExampleTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = UIViewLayoutExampleTests.m; sourceTree = "<group>"; };
+		5E6C83531746A74F00BB872E /* UIViewLayoutExampleTests-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIViewLayoutExampleTests-Prefix.pch"; sourceTree = "<group>"; };
 		915CC00B966DD189ED394F8E /* MCUIViewLayoutExampleSetPosition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MCUIViewLayoutExampleSetPosition.h; sourceTree = "<group>"; };
 		915CC2122AFA59E400174116 /* MCUIViewExampleUIFactory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MCUIViewExampleUIFactory.m; sourceTree = "<group>"; };
 		915CC583EAC96379F74A17BA /* MCUIViewLayoutExampleSetRelativePosition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MCUIViewLayoutExampleSetRelativePosition.h; sourceTree = "<group>"; };
@@ -48,6 +61,8 @@
 		915CCE9B66464E120F02DF6F /* MCUIViewLayoutRootController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MCUIViewLayoutRootController.h; sourceTree = "<group>"; };
 		915CCF1DC8E609DEFDA5004D /* MCUIViewExampleUIFactory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MCUIViewExampleUIFactory.h; sourceTree = "<group>"; };
 		915CCFD54737A43192F21DB9 /* MCUIViewLayoutRootController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MCUIViewLayoutRootController.m; sourceTree = "<group>"; };
+		BF93022FB48635DBB10A1506 /* MCUIViewLayoutPositionTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MCUIViewLayoutPositionTest.m; sourceTree = "<group>"; };
+		BF9303D4523E08697F37E232 /* MCUIViewLayoutPositionTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MCUIViewLayoutPositionTest.h; sourceTree = "<group>"; };
 		FA41FEF71703D35100071708 /* UIView+MCLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+MCLayout.h"; sourceTree = "<group>"; };
 		FA41FEF81703D35100071708 /* UIView+MCLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+MCLayout.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -63,6 +78,16 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		5E6C83411746A74F00BB872E /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5E6C83471746A74F00BB872E /* SenTestingKit.framework in Frameworks */,
+				5E6C83481746A74F00BB872E /* UIKit.framework in Frameworks */,
+				5E6C83491746A74F00BB872E /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -71,6 +96,7 @@
 			children = (
 				FA41FEF61703D35100071708 /* MCUIViewLayout */,
 				09ABD58B16E8ECF300290BB3 /* UIViewLayoutExample */,
+				5E6C834A1746A74F00BB872E /* UIViewLayoutExampleTests */,
 				09ABD58416E8ECF300290BB3 /* Frameworks */,
 				09ABD58316E8ECF300290BB3 /* Products */,
 			);
@@ -80,6 +106,7 @@
 			isa = PBXGroup;
 			children = (
 				09ABD58216E8ECF300290BB3 /* UIViewLayoutExample.app */,
+				5E6C83451746A74F00BB872E /* UIViewLayoutExampleTests.octest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -90,6 +117,7 @@
 				09ABD58516E8ECF300290BB3 /* UIKit.framework */,
 				09ABD58716E8ECF300290BB3 /* Foundation.framework */,
 				09ABD58916E8ECF300290BB3 /* CoreGraphics.framework */,
+				5E6C83461746A74F00BB872E /* SenTestingKit.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -128,6 +156,28 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
+		5E6C834A1746A74F00BB872E /* UIViewLayoutExampleTests */ = {
+			isa = PBXGroup;
+			children = (
+				5E6C83501746A74F00BB872E /* UIViewLayoutExampleTests.h */,
+				5E6C83511746A74F00BB872E /* UIViewLayoutExampleTests.m */,
+				5E6C834B1746A74F00BB872E /* Supporting Files */,
+				BF9303D4523E08697F37E232 /* MCUIViewLayoutPositionTest.h */,
+				BF93022FB48635DBB10A1506 /* MCUIViewLayoutPositionTest.m */,
+			);
+			path = UIViewLayoutExampleTests;
+			sourceTree = "<group>";
+		};
+		5E6C834B1746A74F00BB872E /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				5E6C834C1746A74F00BB872E /* UIViewLayoutExampleTests-Info.plist */,
+				5E6C834D1746A74F00BB872E /* InfoPlist.strings */,
+				5E6C83531746A74F00BB872E /* UIViewLayoutExampleTests-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
 		FA41FEF61703D35100071708 /* MCUIViewLayout */ = {
 			isa = PBXGroup;
 			children = (
@@ -158,6 +208,24 @@
 			productReference = 09ABD58216E8ECF300290BB3 /* UIViewLayoutExample.app */;
 			productType = "com.apple.product-type.application";
 		};
+		5E6C83441746A74F00BB872E /* UIViewLayoutExampleTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 5E6C83561746A74F00BB872E /* Build configuration list for PBXNativeTarget "UIViewLayoutExampleTests" */;
+			buildPhases = (
+				5E6C83401746A74F00BB872E /* Sources */,
+				5E6C83411746A74F00BB872E /* Frameworks */,
+				5E6C83421746A74F00BB872E /* Resources */,
+				5E6C83431746A74F00BB872E /* ShellScript */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = UIViewLayoutExampleTests;
+			productName = UIViewLayoutExampleTests;
+			productReference = 5E6C83451746A74F00BB872E /* UIViewLayoutExampleTests.octest */;
+			productType = "com.apple.product-type.bundle";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -180,6 +248,7 @@
 			projectRoot = "";
 			targets = (
 				09ABD58116E8ECF300290BB3 /* UIViewLayoutExample */,
+				5E6C83441746A74F00BB872E /* UIViewLayoutExampleTests */,
 			);
 		};
 /* End PBXProject section */
@@ -196,7 +265,31 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		5E6C83421746A74F00BB872E /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5E6C834F1746A74F00BB872E /* InfoPlist.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		5E6C83431746A74F00BB872E /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# Run the unit tests in this test bundle.\n\"${SYSTEM_DEVELOPER_DIR}/Tools/RunUnitTests\"\n";
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		09ABD57E16E8ECF300290BB3 /* Sources */ = {
@@ -214,6 +307,15 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		5E6C83401746A74F00BB872E /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5E6C83521746A74F00BB872E /* UIViewLayoutExampleTests.m in Sources */,
+				BF9309EF8B616810BB8D9A6D /* MCUIViewLayoutPositionTest.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
@@ -221,6 +323,14 @@
 			isa = PBXVariantGroup;
 			children = (
 				09ABD58F16E8ECF300290BB3 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		5E6C834D1746A74F00BB872E /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				5E6C834E1746A74F00BB872E /* en */,
 			);
 			name = InfoPlist.strings;
 			sourceTree = "<group>";
@@ -306,6 +416,36 @@
 			};
 			name = Release;
 		};
+		5E6C83541746A74F00BB872E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				FRAMEWORK_SEARCH_PATHS = (
+					"\"$(SDKROOT)/Developer/Library/Frameworks\"",
+					"\"$(DEVELOPER_LIBRARY_DIR)/Frameworks\"",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "UIViewLayoutExampleTests/UIViewLayoutExampleTests-Prefix.pch";
+				INFOPLIST_FILE = "UIViewLayoutExampleTests/UIViewLayoutExampleTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = octest;
+			};
+			name = Debug;
+		};
+		5E6C83551746A74F00BB872E /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				FRAMEWORK_SEARCH_PATHS = (
+					"\"$(SDKROOT)/Developer/Library/Frameworks\"",
+					"\"$(DEVELOPER_LIBRARY_DIR)/Frameworks\"",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "UIViewLayoutExampleTests/UIViewLayoutExampleTests-Prefix.pch";
+				INFOPLIST_FILE = "UIViewLayoutExampleTests/UIViewLayoutExampleTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = octest;
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -326,6 +466,14 @@
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
+		};
+		5E6C83561746A74F00BB872E /* Build configuration list for PBXNativeTarget "UIViewLayoutExampleTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				5E6C83541746A74F00BB872E /* Debug */,
+				5E6C83551746A74F00BB872E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
 		};
 /* End XCConfigurationList section */
 	};
