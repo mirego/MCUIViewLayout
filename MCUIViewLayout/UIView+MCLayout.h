@@ -26,33 +26,8 @@
 // POSSIBILITY OF SUCH DAMAGE.
 
 #import <UIKit/UIKit.h>
+#import "MCUIViewLayoutPosition.h"
 
-typedef NS_ENUM(NSInteger, MCViewPosition) {
-    MCViewPositionCenter,
-    MCViewPositionTop,
-    MCViewPositionBottom,
-    MCViewPositionCenterRight,
-    MCViewPositionCenterLeft,
-    MCViewPositionTopLeft,
-    MCViewPositionTopRight,
-    MCViewPositionBottomLeft,
-    MCViewPositionBottomRight,
-};
-
-typedef NS_ENUM(NSInteger, MCViewRelativePosition) {
-    MCViewRelativePositionAboveAlignedLeft,
-    MCViewRelativePositionAboveCentered,
-    MCViewRelativePositionAboveAlignedRight,
-    MCViewRelativePositionToTheRightAlignedTop,
-    MCViewRelativePositionToTheRightCentered,
-    MCViewRelativePositionToTheRightAlignedBottom,
-    MCViewRelativePositionToTheLeftAlignedTop,
-    MCViewRelativePositionToTheLeftCentered,
-    MCViewRelativePositionToTheLeftAlignedBottom,
-    MCViewRelativePositionUnderAlignedLeft,
-    MCViewRelativePositionUnderCentered,
-    MCViewRelativePositionUnderAlignedRight
-};
 
 @interface UIView (MCLayout)
 
