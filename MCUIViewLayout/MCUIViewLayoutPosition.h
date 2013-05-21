@@ -39,7 +39,6 @@ typedef NS_ENUM(NSInteger, MCViewRelativePosition) {
 
 + (CGRect)positionRect:(CGRect)rect atPosition:(enum MCViewPosition)position inRect:(CGRect)targetRect withMargins:(UIEdgeInsets const)margins;
 
-//+ (CGRect)relativePositionRect:(CGRect)rect atPosition:(enum MCViewRelativePosition)position inRect:(CGRect)targetRect withMargins:(UIEdgeInsets const)margins;
-
 + (CGRect)relativePositionRect:(CGRect)rect atPosition:(enum MCViewPosition)position inRect:(CGRect)targetRect withMargins:(UIEdgeInsets const)margins;
+
 @end
