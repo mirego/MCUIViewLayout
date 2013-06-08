@@ -51,13 +51,16 @@
 - (CGFloat)mc_baselinePosition;
 - (CGFloat)mc_rightMostPosition;
 
+- (void)mc_setPosition:(MCViewPosition)position;
 - (void)mc_setPosition:(MCViewPosition)position withMargins:(UIEdgeInsets)margins;
-- (void)mc_setPosition:(MCViewRelativePosition)position relativeToView:(UIView *)view withMargins:(UIEdgeInsets)margins;
-- (void)mc_setPosition:(MCViewPosition)position inView:(UIView *)view withMargins:(UIEdgeInsets)margins;
-
 - (void)mc_setPosition:(MCViewPosition)position withMargins:(UIEdgeInsets)margins size:(CGSize) size;
-- (void)mc_setPosition:(MCViewRelativePosition)position relativeToView:(UIView *)view withMargins:(UIEdgeInsets)margins size:(CGSize) size;
+
+- (void)mc_setPosition:(MCViewPosition)position inView:(UIView *)view withMargins:(UIEdgeInsets)margins;
 - (void)mc_setPosition:(MCViewPosition)position inView:(UIView *)view withMargins:(UIEdgeInsets)margins size:(CGSize) size;
+
+- (void)mc_setRelativePosition:(MCViewRelativePosition)position ToView:(UIView *)view withMargins:(UIEdgeInsets)margins;
+- (void)mc_setRelativePosition:(MCViewRelativePosition)position ToView:(UIView *)view withMargins:(UIEdgeInsets)margins size:(CGSize) size;
+
 
 - (void)mc_positionAtX:(double)xValue;
 - (void)mc_positionAtY:(double)yValue;

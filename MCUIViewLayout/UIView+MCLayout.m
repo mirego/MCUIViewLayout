@@ -143,6 +143,10 @@
     [self mc_setPosition:position withMargins:margins size:self.frame.size];
 }
 
+- (void)mc_setPosition:(MCViewPosition)position {
+    [self mc_setPosition:position withMargins:UIEdgeInsetsZero];
+}
+
 - (void)mc_setPosition:(MCViewPosition)position inView:(UIView *)view withMargins:(UIEdgeInsets)margins {
     [self mc_setPosition:position inView:view withMargins:margins size:self.frame.size];
 }
@@ -161,7 +165,7 @@
     self.frame = viewFrame;
 }
 
-- (void)mc_setPosition:(MCViewRelativePosition)position relativeToView:(UIView *)view withMargins:(UIEdgeInsets)margins size:(CGSize)size {
+- (void)mc_setRelativePosition:(MCViewRelativePosition)position ToView:(UIView *)view withMargins:(UIEdgeInsets)margins size:(CGSize)size {
     CGRect viewFrame = self.frame;
     viewFrame.size = size;
 
@@ -175,8 +179,8 @@
     self.frame = viewFrame;
 }
 
-- (void)mc_setPosition:(MCViewRelativePosition)position relativeToView:(UIView *)view withMargins:(UIEdgeInsets)margins {
-    [self mc_setPosition:position relativeToView:view withMargins:margins size:self.frame.size];
+- (void)mc_setRelativePosition:(MCViewRelativePosition)position ToView:(UIView *)view withMargins:(UIEdgeInsets)margins {
+    [self mc_setRelativePosition:position ToView:view withMargins:margins size:self.frame.size];
 }
 
 - (void)mc_positionAtX:(double)xValue {
@@ -478,6 +482,5 @@
     if(!self.superview) return;
     [self mc_positionAtY:self.superview.mc_height - self.mc_height - offset];
 }
-
 
 @end
