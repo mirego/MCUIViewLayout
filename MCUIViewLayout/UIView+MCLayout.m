@@ -178,7 +178,7 @@
     CGRect viewFrame = self.frame;
     viewFrame.size = size;
 
-    CGRect targetFrame = view.bounds;
+    CGRect targetFrame = view.frame;
     if (self.superview != view.superview) {
         targetFrame.origin = [view.superview convertPoint:targetFrame.origin toView:self.superview];
     }
