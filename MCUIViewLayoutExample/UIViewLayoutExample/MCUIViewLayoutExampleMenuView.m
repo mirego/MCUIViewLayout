@@ -74,8 +74,8 @@
     [super layoutSubviews];
     [self.buttonSetPosition mc_setPosition:MCViewPositionTop withMargins:UIEdgeInsetsMake(15, 0, 0, 0)];
 
-    [self.buttonSetRelativePosition mc_setPosition:MCViewRelativePositionUnderCentered
-                                    relativeToView:self.buttonSetPosition withMargins:UIEdgeInsetsMake(15.0f, 0, 0, 0)];
+    [self.buttonSetRelativePosition mc_setRelativePosition:MCViewRelativePositionUnderCentered
+                                                    ToView:self.buttonSetPosition withMargins:UIEdgeInsetsMake(15.0f, 0, 0, 0)];
 }
 
 //------------------------------------------------------------------------------

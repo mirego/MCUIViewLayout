@@ -95,7 +95,7 @@
     }
 }
 
-+ (CGRect)relativePositionRect:(CGRect)rect atPosition:(enum MCViewPosition)position inRect:(CGRect)targetRect withMargins:(UIEdgeInsets const)margins {
++ (CGRect)relativePositionRect:(CGRect)rect atPosition:(MCViewRelativePosition)position inRect:(CGRect)targetRect withMargins:(UIEdgeInsets const)margins {
     rect.origin = [self originForRelativePosition:position andInset:margins size:rect.size targetRect:targetRect];
     return rect;
 }
