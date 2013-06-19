@@ -55,6 +55,7 @@
 - (void)mc_setPosition:(MCViewPosition)position withMargins:(UIEdgeInsets)margins;
 - (void)mc_setPosition:(MCViewPosition)position withMargins:(UIEdgeInsets)margins size:(CGSize) size;
 
+- (void)mc_setPosition:(MCViewPosition)position inView:(UIView *)view;
 - (void)mc_setPosition:(MCViewPosition)position inView:(UIView *)view withMargins:(UIEdgeInsets)margins;
 - (void)mc_setPosition:(MCViewPosition)position inView:(UIView *)view withMargins:(UIEdgeInsets)margins size:(CGSize) size;
 
