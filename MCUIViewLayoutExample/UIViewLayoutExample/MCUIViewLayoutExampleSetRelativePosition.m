@@ -143,14 +143,14 @@
     [self.bottomRightSibling mc_setPosition:MCViewPositionBottom withMargins:margins
                                                           size:CGSizeMake(30, 30)];
     margins = UIEdgeInsetsMake(2, 4, 6, 8);
-    [self.aboveRight mc_setPosition:MCViewRelativePositionAboveAlignedRight relativeToView:self.bottomRightSibling
-                                                                          withMargins:margins];
-    [self.belowRight mc_setPosition:MCViewRelativePositionUnderAlignedRight relativeToView:self.bottomRightSibling
-                                                                          withMargins:margins];
-    [self.leftBottom mc_setPosition:MCViewRelativePositionToTheLeftAlignedBottom relativeToView:self.bottomRightSibling
-                                                                           withMargins:margins];
-    [self.rightBottom mc_setPosition:MCViewRelativePositionToTheRightAlignedBottom relativeToView:self.bottomRightSibling
-                                                                             withMargins:margins];
+    [self.aboveRight mc_setRelativePosition:MCViewRelativePositionAboveAlignedRight ToView:self.bottomRightSibling
+                                withMargins:margins];
+    [self.belowRight mc_setRelativePosition:MCViewRelativePositionUnderAlignedRight ToView:self.bottomRightSibling
+                                withMargins:margins];
+    [self.leftBottom mc_setRelativePosition:MCViewRelativePositionToTheLeftAlignedBottom ToView:self.bottomRightSibling
+                                withMargins:margins];
+    [self.rightBottom mc_setRelativePosition:MCViewRelativePositionToTheRightAlignedBottom ToView:self.bottomRightSibling
+                                 withMargins:margins];
 }
 
 - (void)layouTopLeftExamples {
@@ -158,14 +158,14 @@
     [self.topLeftSibling mc_setPosition:MCViewPositionTop withMargins:margins
                                                               size:CGSizeMake(30, 30)];
     margins = UIEdgeInsetsMake(2, 4, 6, 8);
-    [self.aboveLeft mc_setPosition:MCViewRelativePositionAboveAlignedLeft relativeToView:self.topLeftSibling
-                                                                           withMargins:margins];
-    [self.belowLeft mc_setPosition:MCViewRelativePositionUnderAlignedLeft relativeToView:self.topLeftSibling
-                                                                           withMargins:margins];
-    [self.leftTop mc_setPosition:MCViewRelativePositionToTheLeftAlignedTop relativeToView:self.topLeftSibling
-                                                                               withMargins:margins];
-    [self.rightTop mc_setPosition:MCViewRelativePositionToTheRightAlignedTop relativeToView:self.topLeftSibling
-                                                                                withMargins:margins];
+    [self.aboveLeft mc_setRelativePosition:MCViewRelativePositionAboveAlignedLeft ToView:self.topLeftSibling
+                               withMargins:margins];
+    [self.belowLeft mc_setRelativePosition:MCViewRelativePositionUnderAlignedLeft ToView:self.topLeftSibling
+                               withMargins:margins];
+    [self.leftTop mc_setRelativePosition:MCViewRelativePositionToTheLeftAlignedTop ToView:self.topLeftSibling
+                             withMargins:margins];
+    [self.rightTop mc_setRelativePosition:MCViewRelativePositionToTheRightAlignedTop ToView:self.topLeftSibling
+                              withMargins:margins];
 }
 
 - (void)layoutCenteredExamples {
@@ -174,14 +174,14 @@
                                                               size:CGSizeMake(80, 40)];
 
 
-    [self.aboveCentered mc_setPosition:MCViewRelativePositionAboveCentered relativeToView:self.centeredSibling
-                                                                           withMargins:margins];
-    [self.belowCentered mc_setPosition:MCViewRelativePositionUnderCentered relativeToView:self.centeredSibling
-                                                                           withMargins:margins];
-    [self.leftCentered mc_setPosition:MCViewRelativePositionToTheLeftCentered relativeToView:self.centeredSibling
-                                                                              withMargins:margins];
-    [self.rightCentered mc_setPosition:MCViewRelativePositionToTheRightCentered relativeToView:self.centeredSibling
-                                                                                withMargins:margins];
+    [self.aboveCentered mc_setRelativePosition:MCViewRelativePositionAboveCentered ToView:self.centeredSibling
+                                   withMargins:margins];
+    [self.belowCentered mc_setRelativePosition:MCViewRelativePositionUnderCentered ToView:self.centeredSibling
+                                   withMargins:margins];
+    [self.leftCentered mc_setRelativePosition:MCViewRelativePositionToTheLeftCentered ToView:self.centeredSibling
+                                  withMargins:margins];
+    [self.rightCentered mc_setRelativePosition:MCViewRelativePositionToTheRightCentered ToView:self.centeredSibling
+                                   withMargins:margins];
 }
 
 //------------------------------------------------------------------------------
