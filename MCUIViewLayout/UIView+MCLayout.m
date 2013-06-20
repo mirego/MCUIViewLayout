@@ -170,11 +170,11 @@
     self.frame = viewFrame;
 }
 
-- (void)mc_setRelativePosition:(MCViewRelativePosition)position ToView:(UIView *)view withMargins:(UIEdgeInsets)margins {
-    [self mc_setRelativePosition:position ToView:view withMargins:margins size:self.frame.size];
+- (void)mc_setRelativePosition:(MCViewRelativePosition)position toView:(UIView *)view withMargins:(UIEdgeInsets)margins {
+    [self mc_setRelativePosition:position toView:view withMargins:margins size:self.frame.size];
 }
 
-- (void)mc_setRelativePosition:(MCViewRelativePosition)position ToView:(UIView *)view withMargins:(UIEdgeInsets)margins size:(CGSize)size {
+- (void)mc_setRelativePosition:(MCViewRelativePosition)position toView:(UIView *)view withMargins:(UIEdgeInsets)margins size:(CGSize)size {
     CGRect viewFrame = self.frame;
     viewFrame.size = size;
 
