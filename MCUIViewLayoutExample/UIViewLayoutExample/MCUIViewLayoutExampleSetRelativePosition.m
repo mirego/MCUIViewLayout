@@ -143,13 +143,13 @@
     [self.bottomRightSibling mc_setPosition:MCViewPositionBottom withMargins:margins
                                                           size:CGSizeMake(30, 30)];
     margins = UIEdgeInsetsMake(2, 4, 6, 8);
-    [self.aboveRight mc_setRelativePosition:MCViewRelativePositionAboveAlignedRight ToView:self.bottomRightSibling
+    [self.aboveRight mc_setRelativePosition:MCViewRelativePositionAboveAlignedRight toView:self.bottomRightSibling
                                 withMargins:margins];
-    [self.belowRight mc_setRelativePosition:MCViewRelativePositionUnderAlignedRight ToView:self.bottomRightSibling
+    [self.belowRight mc_setRelativePosition:MCViewRelativePositionUnderAlignedRight toView:self.bottomRightSibling
                                 withMargins:margins];
-    [self.leftBottom mc_setRelativePosition:MCViewRelativePositionToTheLeftAlignedBottom ToView:self.bottomRightSibling
+    [self.leftBottom mc_setRelativePosition:MCViewRelativePositionToTheLeftAlignedBottom toView:self.bottomRightSibling
                                 withMargins:margins];
-    [self.rightBottom mc_setRelativePosition:MCViewRelativePositionToTheRightAlignedBottom ToView:self.bottomRightSibling
+    [self.rightBottom mc_setRelativePosition:MCViewRelativePositionToTheRightAlignedBottom toView:self.bottomRightSibling
                                  withMargins:margins];
 }
 
@@ -158,13 +158,13 @@
     [self.topLeftSibling mc_setPosition:MCViewPositionTop withMargins:margins
                                                               size:CGSizeMake(30, 30)];
     margins = UIEdgeInsetsMake(2, 4, 6, 8);
-    [self.aboveLeft mc_setRelativePosition:MCViewRelativePositionAboveAlignedLeft ToView:self.topLeftSibling
+    [self.aboveLeft mc_setRelativePosition:MCViewRelativePositionAboveAlignedLeft toView:self.topLeftSibling
                                withMargins:margins];
-    [self.belowLeft mc_setRelativePosition:MCViewRelativePositionUnderAlignedLeft ToView:self.topLeftSibling
+    [self.belowLeft mc_setRelativePosition:MCViewRelativePositionUnderAlignedLeft toView:self.topLeftSibling
                                withMargins:margins];
-    [self.leftTop mc_setRelativePosition:MCViewRelativePositionToTheLeftAlignedTop ToView:self.topLeftSibling
+    [self.leftTop mc_setRelativePosition:MCViewRelativePositionToTheLeftAlignedTop toView:self.topLeftSibling
                              withMargins:margins];
-    [self.rightTop mc_setRelativePosition:MCViewRelativePositionToTheRightAlignedTop ToView:self.topLeftSibling
+    [self.rightTop mc_setRelativePosition:MCViewRelativePositionToTheRightAlignedTop toView:self.topLeftSibling
                               withMargins:margins];
 }
 
@@ -174,13 +174,13 @@
                                                               size:CGSizeMake(80, 40)];
 
 
-    [self.aboveCentered mc_setRelativePosition:MCViewRelativePositionAboveCentered ToView:self.centeredSibling
+    [self.aboveCentered mc_setRelativePosition:MCViewRelativePositionAboveCentered toView:self.centeredSibling
                                    withMargins:margins];
-    [self.belowCentered mc_setRelativePosition:MCViewRelativePositionUnderCentered ToView:self.centeredSibling
+    [self.belowCentered mc_setRelativePosition:MCViewRelativePositionUnderCentered toView:self.centeredSibling
                                    withMargins:margins];
-    [self.leftCentered mc_setRelativePosition:MCViewRelativePositionToTheLeftCentered ToView:self.centeredSibling
+    [self.leftCentered mc_setRelativePosition:MCViewRelativePositionToTheLeftCentered toView:self.centeredSibling
                                   withMargins:margins];
-    [self.rightCentered mc_setRelativePosition:MCViewRelativePositionToTheRightCentered ToView:self.centeredSibling
+    [self.rightCentered mc_setRelativePosition:MCViewRelativePositionToTheRightCentered toView:self.centeredSibling
                                    withMargins:margins];
 }
 
