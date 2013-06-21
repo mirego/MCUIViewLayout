@@ -36,13 +36,13 @@
        (position == MCViewPositionCenter) ||
        (position == MCViewPositionTop) ) {
         xPosition = ((CGRectGetWidth(targetRect) - size.width) * 0.5f);
-    } else if((position == (MCViewPositionTop | MCViewPositionLeft)) ||
-              (position == (MCViewPositionCenter | MCViewPositionLeft)) ||
-              (position == (MCViewPositionBottom | MCViewPositionLeft)) ) {
+    } else if((position == MCViewPositionTopLeft) ||
+              (position == MCViewPositionCenterLeft) ||
+              (position == MCViewPositionBottomLeft) ) {
         xPosition = inset.left;
-    } else if((position == (MCViewPositionCenter | MCViewPositionRight)) ||
-              (position == (MCViewPositionBottom | MCViewPositionRight)) ||
-              (position == (MCViewPositionTop | MCViewPositionRight)) ) {
+    } else if((position == MCViewPositionCenterRight) ||
+              (position == MCViewPositionBottomRight) ||
+              (position == MCViewPositionTopRight) ) {
         xPosition = CGRectGetWidth(targetRect) - size.width - inset.right;
     } else {
         NSAssert(NO, @"Positions not handled");
@@ -56,16 +56,16 @@
     CGFloat yPosition = 0.0f;
     
     if((position == MCViewPositionTop) ||
-       (position == (MCViewPositionTop | MCViewPositionLeft)) ||
-       (position == (MCViewPositionTop | MCViewPositionRight)) ) {
+       (position == MCViewPositionTopLeft) ||
+       (position == MCViewPositionTopRight) ) {
         yPosition = inset.top;
     } else if((position == MCViewPositionBottom) ||
-              (position == (MCViewPositionBottom | MCViewPositionLeft)) ||
-              (position == (MCViewPositionBottom | MCViewPositionRight)) ) {
+              (position == MCViewPositionBottomLeft) ||
+              (position == MCViewPositionBottomRight) ) {
         yPosition = CGRectGetHeight(targetRect) - size.height - inset.bottom;
     } else if((position == MCViewPositionCenter) ||
-              (position == (MCViewPositionCenter | MCViewPositionLeft)) ||
-              (position == (MCViewPositionCenter | MCViewPositionRight)) ) {
+              (position == MCViewPositionCenterLeft) ||
+              (position == MCViewPositionCenterRight) ) {
         yPosition = (CGRectGetHeight(targetRect) - size.height) * 0.5f;
     } else {
         NSAssert(NO, @"Positions not handled");
