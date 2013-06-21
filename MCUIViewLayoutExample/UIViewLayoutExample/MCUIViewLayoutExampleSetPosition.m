@@ -93,25 +93,25 @@ static const int kMargin = 10;
 - (void) layoutSubviews {
     [super layoutSubviews];
 
-    [self.topLeft mc_setPosition:MCViewPositionTopLeft withMargins:UIEdgeInsetsMake(kMargin,
+    [self.topLeft mc_setPosition:MCViewPositionTop | MCViewPositionLeft withMargins:UIEdgeInsetsMake(kMargin,
             kMargin, kMargin, kMargin)];
     [self.top mc_setPosition:MCViewPositionTop withMargins:UIEdgeInsetsMake(kMargin,
             kMargin, kMargin, kMargin)];
-    [self.topRight mc_setPosition:MCViewPositionTopRight withMargins:UIEdgeInsetsMake(kMargin,
+    [self.topRight mc_setPosition:MCViewPositionTop | MCViewPositionRight withMargins:UIEdgeInsetsMake(kMargin,
             kMargin, kMargin, kMargin)];
 
-    [self.left mc_setPosition:MCViewPositionCenterLeft withMargins:UIEdgeInsetsMake(kMargin,
+    [self.left mc_setPosition:MCViewPositionCenter | MCViewPositionLeft withMargins:UIEdgeInsetsMake(kMargin,
             kMargin, kMargin, kMargin)];
     [self.centered mc_setPosition:MCViewPositionCenter withMargins:UIEdgeInsetsMake(kMargin,
             kMargin, kMargin, kMargin)];
-    [self.right mc_setPosition:MCViewPositionCenterRight withMargins:UIEdgeInsetsMake(kMargin,
+    [self.right mc_setPosition:MCViewPositionCenter | MCViewPositionRight withMargins:UIEdgeInsetsMake(kMargin,
             kMargin, kMargin, kMargin)];
 
-    [self.bottomLeft mc_setPosition:MCViewPositionBottomLeft withMargins:UIEdgeInsetsMake(kMargin,
+    [self.bottomLeft mc_setPosition:MCViewPositionBottom | MCViewPositionLeft withMargins:UIEdgeInsetsMake(kMargin,
             kMargin, kMargin, kMargin)];
     [self.bottom mc_setPosition:MCViewPositionBottom withMargins:UIEdgeInsetsMake(kMargin,
             kMargin, kMargin, kMargin)];
-    [self.bottomRight mc_setPosition:MCViewPositionBottomRight withMargins:UIEdgeInsetsMake(kMargin,
+    [self.bottomRight mc_setPosition:MCViewPositionBottom | MCViewPositionRight withMargins:UIEdgeInsetsMake(kMargin,
             kMargin, kMargin, kMargin)];
 }
 
