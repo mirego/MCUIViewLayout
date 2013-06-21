@@ -195,8 +195,8 @@
 			children = (
 				FA41FEF71703D35100071708 /* UIView+MCLayout.h */,
 				FA41FEF81703D35100071708 /* UIView+MCLayout.m */,
-				BF93017C2A02E04CC15591BF /* MCUIViewLayoutPosition.m */,
 				BF930D8EB447693A4A094EA0 /* MCUIViewLayoutPosition.h */,
+				BF93017C2A02E04CC15591BF /* MCUIViewLayoutPosition.m */,
 			);
 			name = MCUIViewLayout;
 			path = ../MCUIViewLayout;

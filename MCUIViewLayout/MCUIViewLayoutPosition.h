@@ -8,16 +8,18 @@
 
 #import <Foundation/Foundation.h>
 
-typedef NS_ENUM(NSInteger, MCViewPosition) {
-    MCViewPositionCenter,
-    MCViewPositionTop,
-    MCViewPositionBottom,
-    MCViewPositionCenterRight,
-    MCViewPositionCenterLeft,
-    MCViewPositionTopLeft,
-    MCViewPositionTopRight,
-    MCViewPositionBottomLeft,
-    MCViewPositionBottomRight,
+typedef NS_OPTIONS(NSInteger, MCViewPosition) {
+    MCViewPositionCenter    = (0x1 << 0), // => 0x00000001
+    MCViewPositionTop       = (0x1 << 1), // => 0x00000010
+    MCViewPositionBottom    = (0x1 << 2), // => 0x00000100
+    MCViewPositionLeft      = (0x1 << 3), // => 0x00001000
+    MCViewPositionRight     = (0x1 << 4), // => 0x00010000
+    MCViewPositionTopLeft     = MCViewPositionTop | MCViewPositionLeft,
+    MCViewPositionTopRight    = MCViewPositionTop | MCViewPositionRight,
+    MCViewPositionBottomLeft  = MCViewPositionBottom | MCViewPositionLeft,
+    MCViewPositionBottomRight = MCViewPositionBottom | MCViewPositionRight,
+    MCViewPositionCenterLeft  = MCViewPositionCenter | MCViewPositionLeft,
+    MCViewPositionCenterRight = MCViewPositionCenter | MCViewPositionRight
 };
 
 typedef NS_ENUM(NSInteger, MCViewRelativePosition) {
