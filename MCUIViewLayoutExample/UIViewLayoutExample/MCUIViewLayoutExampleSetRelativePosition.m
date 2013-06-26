@@ -140,8 +140,8 @@
 
 - (void)layoutBottomRightExamples {
     UIEdgeInsets margins = UIEdgeInsetsMake(50, 15, 50, 25);
-    [self.bottomRightSibling mc_setPosition:MCViewPositionBottom withMargins:margins
-                                                          size:CGSizeMake(30, 30)];
+    [self.bottomRightSibling mc_setPosition:MCViewPositionBottomHCenter withMargins:margins
+                                       size:CGSizeMake(30, 30)];
     margins = UIEdgeInsetsMake(2, 4, 6, 8);
     [self.aboveRight mc_setRelativePosition:MCViewRelativePositionAboveAlignedRight toView:self.bottomRightSibling
                                 withMargins:margins];
@@ -155,8 +155,8 @@
 
 - (void)layouTopLeftExamples {
     UIEdgeInsets margins = UIEdgeInsetsMake(50, 15, 20, 25);
-    [self.topLeftSibling mc_setPosition:MCViewPositionTop withMargins:margins
-                                                              size:CGSizeMake(30, 30)];
+    [self.topLeftSibling mc_setPosition:MCViewPositionTopHCenter withMargins:margins
+                                   size:CGSizeMake(30, 30)];
     margins = UIEdgeInsetsMake(2, 4, 6, 8);
     [self.aboveLeft mc_setRelativePosition:MCViewRelativePositionAboveAlignedLeft toView:self.topLeftSibling
                                withMargins:margins];
@@ -170,7 +170,7 @@
 
 - (void)layoutCenteredExamples {
     UIEdgeInsets margins = UIEdgeInsetsMake(10, 15, 20, 25);
-    [self.centeredSibling mc_setPosition:MCViewPositionCenter withMargins:margins
+    [self.centeredSibling mc_setPosition:MCViewPositionCenters withMargins:margins
                                                               size:CGSizeMake(80, 40)];
 
 

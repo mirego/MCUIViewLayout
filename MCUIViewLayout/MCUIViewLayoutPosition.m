@@ -15,36 +15,41 @@
 }
 
 + (CGRect)positionRect:(CGRect)rect atPosition:(enum MCViewPosition)position inRect:(CGRect)targetRect withMargins:(UIEdgeInsets const)margins {
-    rect.origin = [self originForPosition:position andInset:margins size:rect.size inRect:targetRect];
+    rect.origin = [self originForPosition:position andInset:margins size:rect.size inRect:targetRect initialRectOrigin: rect.origin];
     return rect;
 }
 
 
-+ (CGPoint)originForPosition:(MCViewPosition)position andInset:(UIEdgeInsets)inset size:(CGSize)size inRect:(CGRect)targetRect {
++ (CGPoint)originForPosition:(MCViewPosition)position andInset:(UIEdgeInsets)inset size:(CGSize)size inRect:(CGRect)targetRect initialRectOrigin:(CGPoint)initialRectOrigin{
     CGPoint origin = CGPointZero;
-    origin.x = [self roundFloatIfRequired:[self xOriginForPosition:position andInset:inset size:size inRect:targetRect]];
-    origin.y = [self roundFloatIfRequired:[self yOriginForPosition:position andInset:inset size:size inRect:targetRect]];
+    origin.x = [self roundFloatIfRequired:[self xOriginForPosition:position andInset:inset size:size inRect:targetRect defaultX:initialRectOrigin.x]];
+    origin.y = [self roundFloatIfRequired:[self yOriginForPosition:position andInset:inset size:size inRect:targetRect defaultY:initialRectOrigin.y]];
     return origin;
 }
 
 
 + (CGFloat)xOriginForPosition:(MCViewPosition)position andInset:(UIEdgeInsets)inset size:(CGSize)size
-                       inRect:(CGRect)targetRect {
-    CGFloat xPosition = 0.0f;
-    
-    if((position == MCViewPositionBottom) ||
-       (position == MCViewPositionCenter) ||
-       (position == MCViewPositionTop) ) {
-        xPosition = ((CGRectGetWidth(targetRect) - size.width) * 0.5f);
-    } else if((position == MCViewPositionTopLeft) ||
-              (position == MCViewPositionCenterLeft) ||
-              (position == MCViewPositionBottomLeft) ) {
-        xPosition = inset.left;
-    } else if((position == MCViewPositionCenterRight) ||
-              (position == MCViewPositionBottomRight) ||
-              (position == MCViewPositionTopRight) ) {
-        xPosition = CGRectGetWidth(targetRect) - size.width - inset.right;
-    } else {
+                       inRect:(CGRect)targetRect defaultX:(CGFloat)defaultX {
+    CGFloat xPosition = defaultX;
+
+    int matchingPositionCount = 0;
+
+    if((position & MCViewPositionLeft) != 0) {
+        xPosition = targetRect.origin.x + inset.left;
+        matchingPositionCount++;
+    }
+
+    if((position & MCViewPositionRight) != 0 ) {
+        xPosition = targetRect.origin.x + CGRectGetWidth(targetRect) - size.width - inset.right;
+        matchingPositionCount++;
+    }
+
+    if((position & MCViewPositionHCenter) != 0) {
+        xPosition = targetRect.origin.x + ((CGRectGetWidth(targetRect) - size.width) * 0.5f);
+        matchingPositionCount++;
+    }
+
+    if (matchingPositionCount > 1) {
         NSAssert(NO, @"Positions not handled");
     }
     
@@ -52,25 +57,30 @@
 }
 
 + (CGFloat)yOriginForPosition:(MCViewPosition)position andInset:(UIEdgeInsets)inset size:(CGSize)size
-        inRect:(CGRect)targetRect {
-    CGFloat yPosition = 0.0f;
-    
-    if((position == MCViewPositionTop) ||
-       (position == MCViewPositionTopLeft) ||
-       (position == MCViewPositionTopRight) ) {
-        yPosition = inset.top;
-    } else if((position == MCViewPositionBottom) ||
-              (position == MCViewPositionBottomLeft) ||
-              (position == MCViewPositionBottomRight) ) {
-        yPosition = CGRectGetHeight(targetRect) - size.height - inset.bottom;
-    } else if((position == MCViewPositionCenter) ||
-              (position == MCViewPositionCenterLeft) ||
-              (position == MCViewPositionCenterRight) ) {
-        yPosition = (CGRectGetHeight(targetRect) - size.height) * 0.5f;
-    } else {
+        inRect:(CGRect)targetRect defaultY:(CGFloat)defaultY {
+    CGFloat yPosition = defaultY;
+
+    int matchingPositionCount = 0;
+
+    if((position & MCViewPositionTop) != 0) {
+        yPosition = targetRect.origin.y + inset.top;
+        matchingPositionCount++;
+    }
+
+    if((position & MCViewPositionBottom) != 0) {
+        yPosition = targetRect.origin.y + CGRectGetHeight(targetRect) - size.height - inset.bottom;
+        matchingPositionCount++;
+    }
+
+    if((position & MCViewPositionVCenter) != 0) {
+        yPosition = targetRect.origin.y + (CGRectGetHeight(targetRect) - size.height) * 0.5f;
+        matchingPositionCount++;
+    }
+
+    if (matchingPositionCount > 1) {
         NSAssert(NO, @"Positions not handled");
     }
-    
+
     return yPosition;
 }
 
