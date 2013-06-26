@@ -9,17 +9,24 @@
 #import <Foundation/Foundation.h>
 
 typedef NS_OPTIONS(NSInteger, MCViewPosition) {
-    MCViewPositionCenter    = (0x1 << 0), // => 0x00000001
-    MCViewPositionTop       = (0x1 << 1), // => 0x00000010
-    MCViewPositionBottom    = (0x1 << 2), // => 0x00000100
-    MCViewPositionLeft      = (0x1 << 3), // => 0x00001000
-    MCViewPositionRight     = (0x1 << 4), // => 0x00010000
-    MCViewPositionTopLeft     = MCViewPositionTop | MCViewPositionLeft,
-    MCViewPositionTopRight    = MCViewPositionTop | MCViewPositionRight,
-    MCViewPositionBottomLeft  = MCViewPositionBottom | MCViewPositionLeft,
-    MCViewPositionBottomRight = MCViewPositionBottom | MCViewPositionRight,
-    MCViewPositionCenterLeft  = MCViewPositionCenter | MCViewPositionLeft,
-    MCViewPositionCenterRight = MCViewPositionCenter | MCViewPositionRight
+    MCViewPositionHCenter = (0x1 << 0),
+    MCViewPositionVCenter = (0x1 << 1),
+    MCViewPositionTop              = (0x1 << 2),
+    MCViewPositionBottom           = (0x1 << 3),
+    MCViewPositionLeft             = (0x1 << 4),
+    MCViewPositionRight            = (0x1 << 5),
+
+    MCViewPositionTopLeft       = MCViewPositionTop | MCViewPositionLeft,
+    MCViewPositionTopHCenter    = MCViewPositionTop | MCViewPositionHCenter,
+    MCViewPositionTopRight      = MCViewPositionTop | MCViewPositionRight,
+
+    MCViewPositionBottomLeft    = MCViewPositionBottom | MCViewPositionLeft,
+    MCViewPositionBottomHCenter = MCViewPositionBottom | MCViewPositionHCenter,
+    MCViewPositionBottomRight   = MCViewPositionBottom | MCViewPositionRight,
+
+    MCViewPositionVCenterLeft   = MCViewPositionVCenter | MCViewPositionLeft,
+    MCViewPositionCenters       = MCViewPositionVCenter | MCViewPositionHCenter,
+    MCViewPositionVCenterRight  = MCViewPositionVCenter | MCViewPositionRight
 };
 
 typedef NS_ENUM(NSInteger, MCViewRelativePosition) {

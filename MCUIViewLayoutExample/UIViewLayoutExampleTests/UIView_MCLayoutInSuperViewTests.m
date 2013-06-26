@@ -37,7 +37,7 @@
 
 - (void)testSetTopPositionNoMarginsNoSize
 {
-    [self.toPositionView mc_setPosition:MCViewPositionTop];
+    [self.toPositionView mc_setPosition:MCViewPositionTopHCenter];
     STAssertTrue(rectEquals(80, 0, 40, 40, self.toPositionView.frame), @"");
 }
 
@@ -55,19 +55,19 @@
 
 - (void)testSetCenterLeftPositionNoMarginsNoSize
 {
-    [self.toPositionView mc_setPosition:MCViewPositionCenterLeft];
+    [self.toPositionView mc_setPosition:MCViewPositionVCenterLeft];
     STAssertTrue(rectEquals(0, 80, 40, 40, self.toPositionView.frame), @"");
 }
 
 - (void)testSetCenterPositionNoMarginsNoSize
 {
-    [self.toPositionView mc_setPosition:MCViewPositionCenter];
+    [self.toPositionView mc_setPosition:MCViewPositionCenters];
     STAssertTrue(rectEquals(80, 80, 40, 40, self.toPositionView.frame), @"");
 }
 
 - (void)testSetCenterRightPositionNoMarginsNoSize
 {
-    [self.toPositionView mc_setPosition:MCViewPositionCenterRight];
+    [self.toPositionView mc_setPosition:MCViewPositionVCenterRight];
     STAssertTrue(rectEquals(160, 80, 40, 40, self.toPositionView.frame), @"");
 }
 
@@ -79,7 +79,7 @@
 
 - (void)testSetBottomPositionNoMarginsNoSize
 {
-    [self.toPositionView mc_setPosition:MCViewPositionBottom];
+    [self.toPositionView mc_setPosition:MCViewPositionBottomHCenter];
     STAssertTrue(rectEquals(80, 160, 40, 40, self.toPositionView.frame), @"");
 }
 
