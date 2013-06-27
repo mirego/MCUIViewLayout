@@ -9,12 +9,18 @@
 #import <Foundation/Foundation.h>
 
 typedef NS_OPTIONS(NSInteger, MCViewPosition) {
-    MCViewPositionHCenter       = (0x1 << 0),
-    MCViewPositionVCenter       = (0x1 << 1),
-    MCViewPositionTop           = (0x1 << 2),
-    MCViewPositionBottom        = (0x1 << 3),
-    MCViewPositionLeft          = (0x1 << 4),
-    MCViewPositionRight         = (0x1 << 5),
+    MCViewPositionToTheLeft        = (0x1 << 0),
+    MCViewPositionLeft             = (0x1 << 1),
+    MCViewPositionHCenter          = (0x1 << 2),
+    MCViewPositionRight            = (0x1 << 3),
+    MCViewPositionToTheRight       = (0x1 << 4),
+
+    MCViewPositionAbove            = (0x1 << 5),
+    MCViewPositionTop              = (0x1 << 6),
+    MCViewPositionVCenter          = (0x1 << 7),
+    MCViewPositionBottom           = (0x1 << 8),
+    MCViewPositionUnder            = (0x1 << 9),
+
 
     MCViewPositionTopLeft       = MCViewPositionTop | MCViewPositionLeft,
     MCViewPositionTopHCenter    = MCViewPositionTop | MCViewPositionHCenter,
