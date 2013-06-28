@@ -42,7 +42,7 @@
         matchingPositionCount++;
     }
 
-    if((position & MCViewPositionHCenter) != 0) {
+    if((position & MCViewPositionHorizontalCenter) != 0) {
         xPosition = targetRect.origin.x + ((CGRectGetWidth(targetRect) - size.width) * 0.5f);
         matchingPositionCount++;
     }
@@ -82,7 +82,7 @@
         matchingPositionCount++;
     }
 
-    if((position & MCViewPositionVCenter) != 0) {
+    if((position & MCViewPositionVerticalCenter) != 0) {
         yPosition = targetRect.origin.y + (CGRectGetHeight(targetRect) - size.height) * 0.5f;
         matchingPositionCount++;
     }
@@ -129,7 +129,7 @@
         }
 
         case MCViewRelativePositionAboveCentered: {
-            position = MCViewPositionAbove | MCViewPositionHCenter;
+            position = MCViewPositionAbove | MCViewPositionHorizontalCenter;
             break;
         }
 
@@ -144,7 +144,7 @@
         }
 
         case MCViewRelativePositionToTheRightCentered: {
-            position = MCViewPositionVCenter | MCViewPositionToTheRight;
+            position = MCViewPositionVerticalCenter | MCViewPositionToTheRight;
             break;
         }
 
@@ -159,7 +159,7 @@
         }
 
         case MCViewRelativePositionToTheLeftCentered: {
-            position = MCViewPositionToTheLeft | MCViewPositionVCenter;
+            position = MCViewPositionToTheLeft | MCViewPositionVerticalCenter;
             break;
         }
 
@@ -174,7 +174,7 @@
         }
 
         case MCViewRelativePositionUnderCentered: {
-            position = MCViewPositionHCenter | MCViewPositionUnder;
+            position = MCViewPositionHorizontalCenter | MCViewPositionUnder;
             break;
         }
 

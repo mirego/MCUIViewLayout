@@ -89,4 +89,14 @@
     STAssertTrue(rectEquals(160, 160, 40, 40, self.toPositionView.frame), @"");
 }
 
+- (void)testSetPositionInViewCenterTwoSibblings
+{
+    UIView *sibblingView = [[UIView alloc] initWithFrame:CGRectMake(-100, -100, 40, 40)];
+    [self.containerView addSubview:sibblingView];
+
+    self.toPositionView.frame = CGRectMake(10, 10, 40, 40);
+    [sibblingView mc_setPosition:MCViewPositionCenters inView:self.toPositionView];
+    STAssertTrue(rectEquals(10, 10, 40, 40, sibblingView.frame), @"");
+}
+
 @end

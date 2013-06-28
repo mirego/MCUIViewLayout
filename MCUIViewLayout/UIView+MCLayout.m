@@ -160,9 +160,16 @@
     CGRect viewFrame = self.frame;
     viewFrame.size = size;
 
-    CGRect targetFrame = view.bounds;
-    if (self.superview != view.superview) {
-        targetFrame.origin = [view.superview convertPoint:targetFrame.origin toView:self.superview];
+
+    CGRect targetFrame;
+    if (view == self.superview) {
+        targetFrame = view.bounds;
+    }
+    else if (view.superview == self.superview) {
+        targetFrame = view.frame;
+    }
+    else {
+        NSAssert(false, @"can only set position for a sibbling or the superview");
     }
 
     viewFrame = [MCUIViewLayoutPosition positionRect:viewFrame atPosition:position inRect:targetFrame withMargins:margins];

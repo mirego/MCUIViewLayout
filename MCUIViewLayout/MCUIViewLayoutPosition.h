@@ -11,28 +11,27 @@
 typedef NS_OPTIONS(NSInteger, MCViewPosition) {
     MCViewPositionToTheLeft        = (0x1 << 0),
     MCViewPositionLeft             = (0x1 << 1),
-    MCViewPositionHCenter          = (0x1 << 2),
+    MCViewPositionHorizontalCenter = (0x1 << 2),
     MCViewPositionRight            = (0x1 << 3),
     MCViewPositionToTheRight       = (0x1 << 4),
 
     MCViewPositionAbove            = (0x1 << 5),
     MCViewPositionTop              = (0x1 << 6),
-    MCViewPositionVCenter          = (0x1 << 7),
+    MCViewPositionVerticalCenter   = (0x1 << 7),
     MCViewPositionBottom           = (0x1 << 8),
     MCViewPositionUnder            = (0x1 << 9),
 
-
     MCViewPositionTopLeft       = MCViewPositionTop | MCViewPositionLeft,
-    MCViewPositionTopHCenter    = MCViewPositionTop | MCViewPositionHCenter,
+    MCViewPositionTopHCenter    = MCViewPositionTop | MCViewPositionHorizontalCenter,
     MCViewPositionTopRight      = MCViewPositionTop | MCViewPositionRight,
 
     MCViewPositionBottomLeft    = MCViewPositionBottom | MCViewPositionLeft,
-    MCViewPositionBottomHCenter = MCViewPositionBottom | MCViewPositionHCenter,
+    MCViewPositionBottomHCenter = MCViewPositionBottom | MCViewPositionHorizontalCenter,
     MCViewPositionBottomRight   = MCViewPositionBottom | MCViewPositionRight,
 
-    MCViewPositionVCenterLeft   = MCViewPositionVCenter | MCViewPositionLeft,
-    MCViewPositionCenters       = MCViewPositionVCenter | MCViewPositionHCenter,
-    MCViewPositionVCenterRight  = MCViewPositionVCenter | MCViewPositionRight
+    MCViewPositionVCenterLeft   = MCViewPositionVerticalCenter | MCViewPositionLeft,
+    MCViewPositionCenters       = MCViewPositionVerticalCenter | MCViewPositionHorizontalCenter,
+    MCViewPositionVCenterRight  = MCViewPositionVerticalCenter | MCViewPositionRight
 };
 
 typedef NS_ENUM(NSInteger, MCViewRelativePosition) {
