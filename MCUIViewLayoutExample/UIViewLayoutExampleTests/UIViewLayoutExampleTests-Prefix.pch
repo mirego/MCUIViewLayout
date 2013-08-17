@@ -1,5 +1,5 @@
 //
-// Prefix header for all source files of the 'UIView_MCLayoutInSuperViewTest' target in the 'UIView_MCLayoutInSuperViewTest' project
+// Prefix header for all source files of the 'UIViewLayoutExampleTests' target in the 'MCUIViewLayoutExample' project
 //
 
 #ifdef __OBJC__
