@@ -1,21 +1,21 @@
 //
-//  UIView_MCLayoutInSuperViewTests.m
-//  UIView_MCLayoutInSuperViewTests
+//  UIView_MCLayoutInSuperViewTest.m
+//  UIView_MCLayoutInSuperViewTest
 //
 //  Created by Mathieu Baron on 2013-05-17.
 //  Copyright (c) 2013 Mirego, Inc. All rights reserved.
 //
 
-#import "UIView_MCLayoutInSuperViewTests.h"
+#import "UIView_MCLayoutInSuperViewTest.h"
 #import "RectHelper.h"
 #import "UIView+MCLayout.h"
 
-@interface UIView_MCLayoutInSuperViewTests ()
+@interface UIView_MCLayoutInSuperViewTest ()
 @property(nonatomic) UIView *containerView;
 @property(nonatomic) UIView *toPositionView;
 @end
 
-@implementation UIView_MCLayoutInSuperViewTests
+@implementation UIView_MCLayoutInSuperViewTest
 
 - (void)setUp
 {

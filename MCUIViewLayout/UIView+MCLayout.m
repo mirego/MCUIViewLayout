@@ -29,27 +29,25 @@
 @implementation UIView (MCLayout)
 - (CGFloat)mc_width
 {
-	CGRect bounds = [self bounds];
-	return bounds.size.width;
+	return CGRectGetWidth(self.bounds);
 }
 
 - (void)mc_setWidth:(CGFloat)value
 {
 	CGRect frame = [self frame];
-	frame.size.width = round(value);
+	frame.size.width = roundf(value);
 	[self setFrame:frame];
 }
 
 - (CGFloat)mc_height
 {
-	CGRect bounds = [self bounds];
-	return bounds.size.height;
+	return CGRectGetHeight(self.bounds);
 }
 
 - (void)mc_setHeight:(CGFloat)value
 {
 	CGRect frame = [self frame];
-	frame.size.height = round(value);
+	frame.size.height = roundf(value);
 	[self setFrame:frame];
 }
 
@@ -69,27 +67,24 @@
 
 - (CGPoint)mc_origin
 {
-	CGRect frame = [self frame];
-	return frame.origin;
+	return self.frame.origin;
 }
 
 - (void)mc_setOrigin:(CGPoint)point
 {
 	CGRect frame = [self frame];
-	frame.origin = point;
+	frame.origin = CGPointMake(roundf(point.x), roundf(point.y));
 	[self setFrame:frame];
 }
 
 - (CGFloat)mc_xPosition
 {
-	CGRect frame = [self frame];
-	return frame.origin.x;
+	return [self mc_origin].x;
 }
 
 - (CGFloat)mc_yPosition
 {
-	CGRect frame = [self frame];
-	return frame.origin.y;
+    return [self mc_origin].y;
 }
 
 - (void)mc_setPosition:(MCViewPosition)position {

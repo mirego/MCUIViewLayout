@@ -1,5 +1,5 @@
 //
-//  UIView_MCLayoutBesideSiblingTests.h
+//  UIView_MCLayoutSizeAndPositionBaseMethodTest.h
 //  UIViewLayoutExample
 //
 //  Created by Marc Lefrancois on 2013-08-16.
@@ -8,6 +8,6 @@
 
 #import <SenTestingKit/SenTestingKit.h>
 
-@interface UIView_MCLayoutBesideSiblingTests : SenTestCase
+@interface UIView_MCLayoutSizeAndPositionBaseMethodTest : SenTestCase
 
 @end

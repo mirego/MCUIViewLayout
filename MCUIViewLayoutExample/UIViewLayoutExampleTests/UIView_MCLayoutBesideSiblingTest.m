@@ -1,22 +1,22 @@
 //
-//  UIView_MCLayoutBesideSiblingTests.m
+//  UIView_MCLayoutBesideSiblingTest.m
 //  UIViewLayoutExample
 //
 //  Created by Marc Lefrancois on 2013-08-16.
 //  Copyright (c) 2013 Mirego, Inc. All rights reserved.
 //
 
-#import "UIView_MCLayoutBesideSiblingTests.h"
+#import "UIView_MCLayoutBesideSiblingTest.h"
 #import "UIView+MCLayout.h"
 #import "RectHelper.h"
 
-@interface UIView_MCLayoutBesideSiblingTests ()
+@interface UIView_MCLayoutBesideSiblingTest ()
 @property(nonatomic) UIView *containerView;
 @property(nonatomic) UIView *toPositionView;
 @property(nonatomic) UIView *siblingView;
 @end
 
-@implementation UIView_MCLayoutBesideSiblingTests
+@implementation UIView_MCLayoutBesideSiblingTest
 - (void)setUp
 {
     [super setUp];
