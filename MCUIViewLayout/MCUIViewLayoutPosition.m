@@ -16,7 +16,6 @@
     return rect;
 }
 
-
 + (CGPoint)originForPosition:(MCViewPosition)position andInset:(UIEdgeInsets)inset size:(CGSize)size inRect:(CGRect)targetRect initialRectOrigin:(CGPoint)initialRectOrigin{
     CGPoint origin = CGPointZero;
     origin.x = [self roundFloatIfRequired:[self xOriginForPosition:position andInset:inset size:size inRect:targetRect defaultX:initialRectOrigin.x]];

@@ -11,8 +11,8 @@
 #import "UIView+MCLayout.h"
 
 @interface UIView_MCLayoutInSuperViewTests ()
-@property(nonatomic, strong) UIView *containerView;
-@property(nonatomic, strong) UIView *toPositionView;
+@property(nonatomic) UIView *containerView;
+@property(nonatomic) UIView *toPositionView;
 @end
 
 @implementation UIView_MCLayoutInSuperViewTests
