@@ -8,4 +8,6 @@
 
 
 BOOL rectEquals(CGFloat expectedX, CGFloat expectedY, CGFloat expectedWidth, CGFloat expectedHeight, CGRect rectToValidate);
+BOOL sizeEquals(CGFloat expectedWidth, CGFloat expectedHeight, CGSize sizeToValidate);
+BOOL pointEquals(CGFloat expectedX, CGFloat expectedY, CGPoint pointToValidate);
 

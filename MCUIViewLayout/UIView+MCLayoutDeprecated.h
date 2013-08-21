@@ -9,70 +9,72 @@
 
 #import <Foundation/Foundation.h>
 
+#define MC_DEPRECATED __attribute__ ((deprecated))
+
 @interface UIView (MCLayoutDeprecated)
 
-- (CGFloat)mc_baselinePosition;
-- (CGFloat)mc_bottomPosition;
-- (CGFloat)mc_rightMostPosition;
+- (CGFloat)mc_baselinePosition MC_DEPRECATED;
+- (CGFloat)mc_bottomPosition MC_DEPRECATED;
+- (CGFloat)mc_rightMostPosition MC_DEPRECATED;
 
-- (void)mc_positionAtX:(double)xValue;
-- (void)mc_positionAtY:(double)yValue;
-- (void)mc_positionAtX:(double)xValue andY:(double)yValue;
-- (void)mc_positionAtX:(double)xValue andY:(double)yValue withWidth:(double)width;
-- (void)mc_positionAtX:(double)xValue andY:(double)yValue withHeight:(double)height;
-- (void)mc_positionAtX:(double)xValue withHeight:(double)height;
+- (void)mc_positionAtX:(double)xValue MC_DEPRECATED;
+- (void)mc_positionAtY:(double)yValue MC_DEPRECATED;
+- (void)mc_positionAtX:(double)xValue andY:(double)yValue MC_DEPRECATED;
+- (void)mc_positionAtX:(double)xValue andY:(double)yValue withWidth:(double)width MC_DEPRECATED;
+- (void)mc_positionAtX:(double)xValue andY:(double)yValue withHeight:(double)height MC_DEPRECATED;
+- (void)mc_positionAtX:(double)xValue withHeight:(double)height MC_DEPRECATED;
 
-- (void)mc_positionRightOfSuperViewWithSpacing:(CGFloat)spacing;
-- (void)mc_positionLeftOfSuperViewWithSpacing:(CGFloat)spacing;
-- (void)mc_positionTopOfSuperViewWithSpacing:(CGFloat)spacing;
-- (void)mc_positionBottomOfSuperViewWithSpacing:(CGFloat)spacing;
+- (void)mc_positionRightOfSuperViewWithSpacing:(CGFloat)spacing MC_DEPRECATED;
+- (void)mc_positionLeftOfSuperViewWithSpacing:(CGFloat)spacing MC_DEPRECATED;
+- (void)mc_positionTopOfSuperViewWithSpacing:(CGFloat)spacing MC_DEPRECATED;
+- (void)mc_positionBottomOfSuperViewWithSpacing:(CGFloat)spacing MC_DEPRECATED;
 
-- (void)mc_removeSubviews;
+- (void)mc_removeSubviews MC_DEPRECATED;
 
-- (void)mc_centerInSuperView;
-- (void)mc_aestheticCenterInSuperView;
+- (void)mc_centerInSuperView MC_DEPRECATED;
+- (void)mc_aestheticCenterInSuperView MC_DEPRECATED;
 
-- (void)mc_bringToFront;
-- (void)mc_sendToBack;
+- (void)mc_bringToFront MC_DEPRECATED;
+- (void)mc_sendToBack MC_DEPRECATED;
 
-- (void)mc_centerAtX;
-- (void)mc_centerAtXQuarter;
-- (void)mc_centerAtX3Quarter;
+- (void)mc_centerAtX MC_DEPRECATED;
+- (void)mc_centerAtXQuarter MC_DEPRECATED;
+- (void)mc_centerAtX3Quarter MC_DEPRECATED;
 
-- (void)mc_fillBelowView:(UIView*)view;
-- (void)mc_fillBelowView:(UIView *)view withSpacing:(CGFloat)spacing;
+- (void)mc_fillBelowView:(UIView*)view MC_DEPRECATED;
+- (void)mc_fillBelowView:(UIView *)view withSpacing:(CGFloat)spacing MC_DEPRECATED;
 
 
-- (void)mc_positionAbove:(UIView*)view;
-- (void)mc_positionAbove:(UIView *)view withSpacing:(CGFloat)spacing;
-- (void)mc_positionBelow:(UIView*)view;
-- (void)mc_positionBelow:(UIView *)view withSpacing:(CGFloat)spacing;
-- (void)mc_positionLeft:(UIView*)view;
-- (void)mc_positionLeft:(UIView *)view withSpacing:(CGFloat)spacing;
-- (void)mc_positionRight:(UIView*)view;
-- (void)mc_positionRight:(UIView *)view withSpacing:(CGFloat)spacing;
+- (void)mc_positionAbove:(UIView*)view MC_DEPRECATED;
+- (void)mc_positionAbove:(UIView *)view withSpacing:(CGFloat)spacing MC_DEPRECATED;
+- (void)mc_positionBelow:(UIView*)view MC_DEPRECATED;
+- (void)mc_positionBelow:(UIView *)view withSpacing:(CGFloat)spacing MC_DEPRECATED;
+- (void)mc_positionLeft:(UIView*)view MC_DEPRECATED;
+- (void)mc_positionLeft:(UIView *)view withSpacing:(CGFloat)spacing MC_DEPRECATED;
+- (void)mc_positionRight:(UIView*)view MC_DEPRECATED;
+- (void)mc_positionRight:(UIView *)view withSpacing:(CGFloat)spacing MC_DEPRECATED;
 
-- (void)mc_alignTop:(UIView*)view;
-- (void)mc_alignTop:(UIView *)view withOffset:(CGFloat)offset;
-- (void)mc_alignBottom:(UIView*)view;
-- (void)mc_alignBottom:(UIView *)view withOffset:(CGFloat)offset;
-- (void)mc_alignLeft:(UIView*)view;
-- (void)mc_alignLeft:(UIView *)view withOffset:(CGFloat)offset;
-- (void)mc_alignRight:(UIView*)view;
-- (void)mc_alignRight:(UIView *)view withOffset:(CGFloat)offset;
+- (void)mc_alignTop:(UIView*)view MC_DEPRECATED;
+- (void)mc_alignTop:(UIView *)view withOffset:(CGFloat)offset MC_DEPRECATED;
+- (void)mc_alignBottom:(UIView*)view MC_DEPRECATED;
+- (void)mc_alignBottom:(UIView *)view withOffset:(CGFloat)offset MC_DEPRECATED;
+- (void)mc_alignLeft:(UIView*)view MC_DEPRECATED;
+- (void)mc_alignLeft:(UIView *)view withOffset:(CGFloat)offset MC_DEPRECATED;
+- (void)mc_alignRight:(UIView*)view MC_DEPRECATED;
+- (void)mc_alignRight:(UIView *)view withOffset:(CGFloat)offset MC_DEPRECATED;
 
-- (void)mc_centerX:(UIView*)view;
-- (void)mc_centerX:(UIView *)view withOffset:(CGFloat)offset;
-- (void)mc_centerY:(UIView*)view;
-- (void)mc_centerY:(UIView *)view withOffset:(CGFloat)offset;
-- (void)mc_centerInView:(UIView*)view;
+- (void)mc_centerX:(UIView*)view MC_DEPRECATED;
+- (void)mc_centerX:(UIView *)view withOffset:(CGFloat)offset MC_DEPRECATED;
+- (void)mc_centerY:(UIView*)view MC_DEPRECATED;
+- (void)mc_centerY:(UIView *)view withOffset:(CGFloat)offset MC_DEPRECATED;
+- (void)mc_centerInView:(UIView*)view MC_DEPRECATED;
 
-- (void)mc_alignRightOfSuperView;
-- (void)mc_alignRightOfSuperViewWithOffset:(CGFloat)offset;
-- (void)mc_alignLeftOfSuperView;
-- (void)mc_alignLeftOfSuperViewWithOffset:(CGFloat)offset;
-- (void)mc_alignTopOfSuperView;
-- (void)mc_alignTopOfSuperViewWithOffset:(CGFloat)offset;
-- (void)mc_alignBottomOfSuperView;
-- (void)mc_alignBottomOfSuperViewWithOffset:(CGFloat)offset;
+- (void)mc_alignRightOfSuperView MC_DEPRECATED;
+- (void)mc_alignRightOfSuperViewWithOffset:(CGFloat)offset MC_DEPRECATED;
+- (void)mc_alignLeftOfSuperView MC_DEPRECATED;
+- (void)mc_alignLeftOfSuperViewWithOffset:(CGFloat)offset MC_DEPRECATED;
+- (void)mc_alignTopOfSuperView MC_DEPRECATED;
+- (void)mc_alignTopOfSuperViewWithOffset:(CGFloat)offset MC_DEPRECATED;
+- (void)mc_alignBottomOfSuperView MC_DEPRECATED;
+- (void)mc_alignBottomOfSuperViewWithOffset:(CGFloat)offset MC_DEPRECATED;
 @end

@@ -7,7 +7,7 @@
 //
 
 #import "MCUIViewLayoutPositionTest.h"
-#import "RectHelper.h"
+#import "GeometryTestingHelper.h"
 #import "MCUIViewLayoutPosition.h"
 
 @implementation MCUIViewLayoutPositionTest

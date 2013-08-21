@@ -7,7 +7,7 @@
 //
 
 #import "UIView_MCLayoutInSuperViewTest.h"
-#import "RectHelper.h"
+#import "GeometryTestingHelper.h"
 #import "UIView+MCLayout.h"
 
 @interface UIView_MCLayoutInSuperViewTest ()
