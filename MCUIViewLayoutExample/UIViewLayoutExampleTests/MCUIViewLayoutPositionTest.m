@@ -7,7 +7,7 @@
 //
 
 #import "MCUIViewLayoutPositionTest.h"
-#import "RectHelper.h"
+#import "GeometryTestingHelper.h"
 #import "MCUIViewLayoutPosition.h"
 
 @implementation MCUIViewLayoutPositionTest
@@ -26,13 +26,13 @@
 }
 
 - (void) testHCenterInRectNoMargin {
-    CGRect rect = [MCUIViewLayoutPosition positionRect:CGRectMake(1000, 1000, 20, 20) atPosition:MCViewPositionHCenter inRect:CGRectMake(100, 100, 100, 100) withMargins:UIEdgeInsetsZero];
+    CGRect rect = [MCUIViewLayoutPosition positionRect:CGRectMake(1000, 1000, 20, 20) atPosition:MCViewPositionHorizontalCenter inRect:CGRectMake(100, 100, 100, 100) withMargins:UIEdgeInsetsZero];
 
     STAssertTrue(rectEquals(140.0f, 1000.0f, 20.0f, 20.0f, rect), @"");
 }
 
 - (void) testHCenterInRectWithMargin {
-    CGRect rect = [MCUIViewLayoutPosition positionRect:CGRectMake(1000, 1000, 20, 20) atPosition:MCViewPositionHCenter inRect:CGRectMake(100, 100, 100, 100) withMargins:UIEdgeInsetsMake(99, 99, 99, 5)];
+    CGRect rect = [MCUIViewLayoutPosition positionRect:CGRectMake(1000, 1000, 20, 20) atPosition:MCViewPositionHorizontalCenter inRect:CGRectMake(100, 100, 100, 100) withMargins:UIEdgeInsetsMake(99, 99, 99, 5)];
 
     STAssertTrue(rectEquals(140.0f, 1000.0f, 20.0f, 20.0f, rect), @"");
 }
@@ -62,13 +62,13 @@
 }
 
 - (void) testVCenterInRectNoMargin {
-    CGRect rect = [MCUIViewLayoutPosition positionRect:CGRectMake(1000, 1000, 20, 20) atPosition:MCViewPositionVCenter inRect:CGRectMake(100, 100, 100, 100) withMargins:UIEdgeInsetsZero];
+    CGRect rect = [MCUIViewLayoutPosition positionRect:CGRectMake(1000, 1000, 20, 20) atPosition:MCViewPositionVerticalCenter inRect:CGRectMake(100, 100, 100, 100) withMargins:UIEdgeInsetsZero];
 
     STAssertTrue(rectEquals(1000.0f, 140.0f, 20.0f, 20.0f, rect), @"");
 }
 
 - (void) testVCenterInRectWithMargin {
-    CGRect rect = [MCUIViewLayoutPosition positionRect:CGRectMake(1000, 1000, 20, 20) atPosition:MCViewPositionVCenter inRect:CGRectMake(100, 100, 100, 100) withMargins:UIEdgeInsetsMake(5, 99, 99, 99)];
+    CGRect rect = [MCUIViewLayoutPosition positionRect:CGRectMake(1000, 1000, 20, 20) atPosition:MCViewPositionVerticalCenter inRect:CGRectMake(100, 100, 100, 100) withMargins:UIEdgeInsetsMake(5, 99, 99, 99)];
 
     STAssertTrue(rectEquals(1000.0f, 140.0f, 20.0f, 20.0f, rect), @"");
 }
