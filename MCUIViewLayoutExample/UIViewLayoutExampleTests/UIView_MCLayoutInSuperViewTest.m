@@ -41,6 +41,12 @@
     STAssertTrue(rectEquals(80, 0, 40, 40, self.toPositionView.frame), @"");
 }
 
+- (void)testSetTopPositionWithMarginsNoSize
+{
+    [self.toPositionView mc_setPosition:MCViewPositionTopHCenter withMargins:UIEdgeInsetsMake(5, 10, 15, 20)];
+    STAssertTrue(rectEquals(70, 5, 40, 40, self.toPositionView.frame), @"");
+}
+
 - (void)testSetTopLeftPositionNoMarginsNoSize
 {
     [self.toPositionView mc_setPosition:MCViewPositionTopLeft];

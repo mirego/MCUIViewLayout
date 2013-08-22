@@ -29,6 +29,7 @@
 #import "MCUIViewLayoutExampleSetPosition.h"
 #import "MCUIViewLayoutExampleMenuView.h"
 #import "MCUIViewLayoutExampleSetRelativePosition.h"
+#import "MCUIViewLayoutExampleSetPositionSizeToFit.h"
 
 //------------------------------------------------------------------------------
 #pragma mark MCUIViewLayoutRootController (privates methods)
@@ -70,6 +71,7 @@
     MCUIViewLayoutExampleMenuView *rootview = [[MCUIViewLayoutExampleMenuView alloc] initWithFrame:[[UIScreen mainScreen] applicationFrame]];
     [rootview.buttonSetPosition addTarget:self action:@selector(showSetPositionExample) forControlEvents:UIControlEventTouchUpInside];
     [rootview.buttonSetRelativePosition addTarget:self action:@selector(showSetRelativePositionExample) forControlEvents:UIControlEventTouchUpInside];
+    [rootview.buttonSetPositionSizeToFit addTarget:self action:@selector(showSetPositionSizeToFitExample) forControlEvents:UIControlEventTouchUpInside];
     self.view = rootview;
 }
 
@@ -81,6 +83,13 @@
 
 - (void)showSetPositionExample {
     UIView *view =[[MCUIViewLayoutExampleSetPosition alloc] initWithFrame:self.view.bounds];
+    view.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
+    [self.view addSubview:view];
+}
+
+- (void)showSetPositionSizeToFitExample
+{
+    UIView *view =[[MCUIViewLayoutExampleSetPositionSizeToFit alloc] initWithFrame:self.view.bounds];
     view.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
     [self.view addSubview:view];
 }

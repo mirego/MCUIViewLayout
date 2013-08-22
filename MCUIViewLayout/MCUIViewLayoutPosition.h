@@ -21,6 +21,9 @@ typedef NS_OPTIONS(NSInteger, MCViewPosition) {
     MCViewPositionBottom           = (0x1 << 8),
     MCViewPositionUnder            = (0x1 << 9),
 
+    MCViewPositionFitWidth         = (0x1 << 20),
+    MCViewPositionFitHeight         = (0x1 << 21),
+
     MCViewPositionTopLeft       = MCViewPositionTop | MCViewPositionLeft,
     MCViewPositionTopHCenter    = MCViewPositionTop | MCViewPositionHorizontalCenter,
     MCViewPositionTopRight      = MCViewPositionTop | MCViewPositionRight,
@@ -31,28 +34,29 @@ typedef NS_OPTIONS(NSInteger, MCViewPosition) {
 
     MCViewPositionVCenterLeft   = MCViewPositionVerticalCenter | MCViewPositionLeft,
     MCViewPositionCenters       = MCViewPositionVerticalCenter | MCViewPositionHorizontalCenter,
-    MCViewPositionVCenterRight  = MCViewPositionVerticalCenter | MCViewPositionRight
-};
+    MCViewPositionVCenterRight  = MCViewPositionVerticalCenter | MCViewPositionRight,
 
-typedef NS_ENUM(NSInteger, MCViewRelativePosition) {
-    MCViewRelativePositionAboveAlignedLeft,
-    MCViewRelativePositionAboveCentered,
-    MCViewRelativePositionAboveAlignedRight,
-    MCViewRelativePositionToTheRightAlignedTop,
-    MCViewRelativePositionToTheRightCentered,
-    MCViewRelativePositionToTheRightAlignedBottom,
-    MCViewRelativePositionToTheLeftAlignedTop,
-    MCViewRelativePositionToTheLeftCentered,
-    MCViewRelativePositionToTheLeftAlignedBottom,
-    MCViewRelativePositionUnderAlignedLeft,
-    MCViewRelativePositionUnderCentered,
-    MCViewRelativePositionUnderAlignedRight
+    MCViewRelativePositionAboveAlignedLeft = MCViewPositionAbove | MCViewPositionLeft,
+    MCViewRelativePositionAboveCentered = MCViewPositionAbove | MCViewPositionHorizontalCenter,
+    MCViewRelativePositionAboveAlignedRight = MCViewPositionAbove | MCViewPositionRight,
+
+    MCViewRelativePositionToTheRightAlignedTop = MCViewPositionTop | MCViewPositionToTheRight,
+    MCViewRelativePositionToTheRightCentered = MCViewPositionVerticalCenter | MCViewPositionToTheRight,
+    MCViewRelativePositionToTheRightAlignedBottom = MCViewPositionBottom | MCViewPositionToTheRight,
+
+    MCViewRelativePositionToTheLeftAlignedTop = MCViewPositionToTheLeft | MCViewPositionTop,
+    MCViewRelativePositionToTheLeftCentered = MCViewPositionToTheLeft | MCViewPositionVerticalCenter,
+    MCViewRelativePositionToTheLeftAlignedBottom = MCViewPositionToTheLeft | MCViewPositionBottom,
+
+    MCViewRelativePositionUnderAlignedLeft = MCViewPositionLeft | MCViewPositionUnder,
+    MCViewRelativePositionUnderCentered = MCViewPositionHorizontalCenter | MCViewPositionUnder,
+    MCViewRelativePositionUnderAlignedRight = MCViewPositionRight | MCViewPositionUnder
 };
 
 @interface MCUIViewLayoutPosition : NSObject
 
 + (CGRect)positionRect:(CGRect)rect atPosition:(MCViewPosition)position inRect:(CGRect)targetRect withMargins:(UIEdgeInsets const)margins;
 
-+ (CGRect)relativePositionRect:(CGRect)rect atPosition:(MCViewRelativePosition)position inRect:(CGRect)targetRect withMargins:(UIEdgeInsets const)margins;
++ (CGRect)relativePositionRect:(CGRect)rect atPosition:(MCViewPosition)position inRect:(CGRect)targetRect withMargins:(UIEdgeInsets const)margins;
 
 @end
