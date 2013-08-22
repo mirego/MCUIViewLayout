@@ -2,18 +2,41 @@
 // Created by Mathieu Baron on 2013-05-17.
 // Copyright (c) 2013 Mirego, Inc. All rights reserved.
 //
-
-#import <CoreGraphics/CoreGraphics.h>
 #import "MCUIViewLayoutPosition.h"
 
-
-@implementation MCUIViewLayoutPosition {
-
+@implementation MCUIViewLayoutPosition 
++ (CGRect)positionRect:(CGRect)rect atPosition:(MCViewPosition)position inRect:(CGRect)targetRect withMargins:(UIEdgeInsets const)margins {
+    rect.origin = [self originForPosition:position andInset:margins size:rect.size inRect:targetRect initialRectOrigin:rect.origin];
+    rect.size = [self sizeForPosition:position andInset:margins initialSize:rect.size inRect:targetRect];
+    return rect;
 }
 
-+ (CGRect)positionRect:(CGRect)rect atPosition:(enum MCViewPosition)position inRect:(CGRect)targetRect withMargins:(UIEdgeInsets const)margins {
-    rect.origin = [self originForPosition:position andInset:margins size:rect.size inRect:targetRect initialRectOrigin: rect.origin];
-    return rect;
++ (CGSize)sizeForPosition:(MCViewPosition)position andInset:(UIEdgeInsets)inset initialSize:(CGSize)size inRect:(CGRect)rect
+{
+    CGSize result = size;
+    result.width = [self roundFloatIfRequired:[self widthForPosition:position andInset:inset initialSize:size inRect:rect]];
+    result.height = [self roundFloatIfRequired:[self heightForPosition:position andInset:inset initialSize:size inRect:rect]];
+    return result;
+}
+
++ (CGFloat)heightForPosition:(MCViewPosition)position andInset:(UIEdgeInsets)inset initialSize:(CGSize)size inRect:(CGRect)rect
+{
+    CGFloat actualHeight = size.height;
+    BOOL fitHeight = (position & MCViewPositionFitHeight) != 0;
+    if (fitHeight) {
+        actualHeight = CGRectGetHeight(rect) - inset.top - inset.bottom;
+    }
+    return actualHeight;
+}
+
++ (CGFloat)widthForPosition:(MCViewPosition)position andInset:(UIEdgeInsets)inset initialSize:(CGSize)size inRect:(CGRect)rect
+{
+    CGFloat actualWidth = size.width;
+    BOOL fitWidth = (position & MCViewPositionFitWidth) != 0;
+    if (fitWidth) {
+        actualWidth = CGRectGetWidth(rect) - inset.left - inset.right;
+    }
+    return actualWidth;
 }
 
 + (CGPoint)originForPosition:(MCViewPosition)position andInset:(UIEdgeInsets)inset size:(CGSize)size inRect:(CGRect)targetRect initialRectOrigin:(CGPoint)initialRectOrigin{
@@ -27,12 +50,19 @@
 + (CGFloat)xOriginForPosition:(MCViewPosition)position andInset:(UIEdgeInsets)inset size:(CGSize)size
                        inRect:(CGRect)targetRect defaultX:(CGFloat)defaultX {
     CGFloat xPosition = defaultX;
+    CGSize sizeForPositioning = size;
+
+
+    BOOL fitWidth = (position & MCViewPositionFitWidth) != 0;
+    if (fitWidth) {
+        sizeForPositioning.width = CGRectGetWidth(targetRect) - inset.left - inset.right;
+    }
 
     int matchingPositionCount = 0;
 
     if((position & MCViewPositionToTheLeft) != 0) {
         CGFloat relativeMinX = CGRectGetMinX(targetRect);
-        xPosition = relativeMinX - size.width - inset.right;
+        xPosition = relativeMinX - sizeForPositioning.width - inset.right;
         matchingPositionCount++;
     }
 
@@ -42,12 +72,19 @@
     }
 
     if((position & MCViewPositionHorizontalCenter) != 0) {
-        xPosition = targetRect.origin.x + ((CGRectGetWidth(targetRect) - size.width) * 0.5f);
+        if (fitWidth) {
+            xPosition = targetRect.origin.x + inset.left;
+        } else {
+            xPosition = targetRect.origin.x + ((CGRectGetWidth(targetRect) - sizeForPositioning.width) * 0.5f);
+            xPosition += inset.left;
+            xPosition -= inset.right;
+        }
+
         matchingPositionCount++;
     }
 
     if((position & MCViewPositionRight) != 0 ) {
-        xPosition = targetRect.origin.x + CGRectGetWidth(targetRect) - size.width - inset.right;
+        xPosition = targetRect.origin.x + CGRectGetWidth(targetRect) - sizeForPositioning.width - inset.right;
         matchingPositionCount++;
     }
 
@@ -56,6 +93,7 @@
         xPosition = relativeMaxX + inset.left;
         matchingPositionCount++;
     }
+
 
     if (matchingPositionCount > 1) {
         NSAssert(NO, @"Positions not handled");
@@ -67,12 +105,18 @@
 + (CGFloat)yOriginForPosition:(MCViewPosition)position andInset:(UIEdgeInsets)inset size:(CGSize)size
         inRect:(CGRect)targetRect defaultY:(CGFloat)defaultY {
     CGFloat yPosition = defaultY;
+    CGSize sizeForPositioning = size;
+
+    BOOL fitHeight = (position & MCViewPositionFitHeight) != 0;
+    if (fitHeight) {
+        sizeForPositioning.height = CGRectGetHeight(targetRect) - inset.top - inset.bottom;
+    }
 
     int matchingPositionCount = 0;
 
     if((position & MCViewPositionAbove) != 0) {
         CGFloat relativeTop = CGRectGetMinY(targetRect);
-        yPosition = relativeTop - inset.bottom - size.height;
+        yPosition = relativeTop - inset.bottom - sizeForPositioning.height;
         matchingPositionCount++;
     }
 
@@ -82,12 +126,20 @@
     }
 
     if((position & MCViewPositionVerticalCenter) != 0) {
-        yPosition = targetRect.origin.y + (CGRectGetHeight(targetRect) - size.height) * 0.5f;
+        if (fitHeight) {
+            yPosition = targetRect.origin.y + inset.top;
+        }
+        else {
+            yPosition = targetRect.origin.y + (CGRectGetHeight(targetRect) - sizeForPositioning.height) * 0.5f;
+            yPosition += inset.top;
+            yPosition -= inset.bottom;
+        }
+
         matchingPositionCount++;
     }
 
     if((position & MCViewPositionBottom) != 0) {
-        yPosition = targetRect.origin.y + CGRectGetHeight(targetRect) - size.height - inset.bottom;
+        yPosition = targetRect.origin.y + CGRectGetHeight(targetRect) - sizeForPositioning.height - inset.bottom;
         matchingPositionCount++;
     }
 
@@ -119,73 +171,8 @@
     }
 }
 
-+ (CGRect)relativePositionRect:(CGRect)rect atPosition:(MCViewRelativePosition)position inRect:(CGRect)targetRect withMargins:(UIEdgeInsets const)margins {
-
-    switch (position) {
-        case MCViewRelativePositionAboveAlignedLeft: {
-            position = MCViewPositionAbove | MCViewPositionLeft;
-            break;
-        }
-
-        case MCViewRelativePositionAboveCentered: {
-            position = MCViewPositionAbove | MCViewPositionHorizontalCenter;
-            break;
-        }
-
-        case MCViewRelativePositionAboveAlignedRight: {
-            position = MCViewPositionAbove | MCViewPositionRight;
-            break;
-        }
-
-        case MCViewRelativePositionToTheRightAlignedTop: {
-            position = MCViewPositionTop | MCViewPositionToTheRight;
-            break;
-        }
-
-        case MCViewRelativePositionToTheRightCentered: {
-            position = MCViewPositionVerticalCenter | MCViewPositionToTheRight;
-            break;
-        }
-
-        case MCViewRelativePositionToTheRightAlignedBottom: {
-            position = MCViewPositionToTheRight | MCViewPositionBottom;
-            break;
-        }
-
-        case MCViewRelativePositionToTheLeftAlignedTop: {
-            position = MCViewPositionToTheLeft | MCViewPositionTop;
-            break;
-        }
-
-        case MCViewRelativePositionToTheLeftCentered: {
-            position = MCViewPositionToTheLeft | MCViewPositionVerticalCenter;
-            break;
-        }
-
-        case MCViewRelativePositionToTheLeftAlignedBottom: {
-            position = MCViewPositionToTheLeft | MCViewPositionBottom;
-            break;
-        }
-
-        case MCViewRelativePositionUnderAlignedLeft: {
-            position = MCViewPositionLeft | MCViewPositionUnder;
-            break;
-        }
-
-        case MCViewRelativePositionUnderCentered: {
-            position = MCViewPositionHorizontalCenter | MCViewPositionUnder;
-            break;
-        }
-
-        case MCViewRelativePositionUnderAlignedRight: {
-            position = MCViewPositionRight | MCViewPositionUnder;
-            break;
-        }
-    }
-
-    rect.origin = [self originForPosition:position andInset:margins size:rect.size inRect:targetRect initialRectOrigin: rect.origin];
-
-    return rect;
++ (CGRect)relativePositionRect:(CGRect)rect atPosition:(MCViewPosition)position inRect:(CGRect)targetRect withMargins:(UIEdgeInsets)margins {
+    return [self positionRect:rect atPosition:position inRect:targetRect withMargins:margins];
 }
 
 @end

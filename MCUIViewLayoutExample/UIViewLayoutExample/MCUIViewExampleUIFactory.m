@@ -68,6 +68,7 @@
 + (UILabel *)addLabelWithTitle:(NSString *)title inView:(UIView *)view {
     UILabel *label = [[UILabel alloc] init];
     label.text = title;
+    label.textAlignment = NSTextAlignmentCenter;
     [label sizeToFit];
     [view addSubview:label];
     return label;
