@@ -24,6 +24,7 @@ typedef NS_OPTIONS(NSInteger, MCViewPosition) {
     MCViewPositionFitWidth         = (0x1 << 20),
     MCViewPositionFitHeight         = (0x1 << 21),
 
+    // Position inside another rect
     MCViewPositionTopLeft       = MCViewPositionTop | MCViewPositionLeft,
     MCViewPositionTopHCenter    = MCViewPositionTop | MCViewPositionHorizontalCenter,
     MCViewPositionTopRight      = MCViewPositionTop | MCViewPositionRight,
@@ -36,6 +37,7 @@ typedef NS_OPTIONS(NSInteger, MCViewPosition) {
     MCViewPositionCenters       = MCViewPositionVerticalCenter | MCViewPositionHorizontalCenter,
     MCViewPositionVCenterRight  = MCViewPositionVerticalCenter | MCViewPositionRight,
 
+    // Position outside another rect
     MCViewRelativePositionAboveAlignedLeft = MCViewPositionAbove | MCViewPositionLeft,
     MCViewRelativePositionAboveCentered = MCViewPositionAbove | MCViewPositionHorizontalCenter,
     MCViewRelativePositionAboveAlignedRight = MCViewPositionAbove | MCViewPositionRight,
