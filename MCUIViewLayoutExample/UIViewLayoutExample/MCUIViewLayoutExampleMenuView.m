@@ -33,6 +33,7 @@
 @interface MCUIViewLayoutExampleMenuView ()
 @property(nonatomic, readwrite) UIButton *buttonSetPosition;
 @property(nonatomic, readwrite) UIButton *buttonSetRelativePosition;
+@property(nonatomic, readwrite) UIButton *buttonSetPositionSizeToFit;
 @end
 
 //------------------------------------------------------------------------------
@@ -55,6 +56,10 @@
         [self.buttonSetRelativePosition sizeToFit];
         [self addSubview:self.buttonSetRelativePosition];
 
+        self.buttonSetPositionSizeToFit = [UIButton buttonWithType:UIButtonTypeRoundedRect];
+        [self.buttonSetPositionSizeToFit setTitle:@"mc_setPositionWithSizeToFit" forState:UIControlStateNormal];
+        [self.buttonSetPositionSizeToFit sizeToFit];
+        [self addSubview:self.buttonSetPositionSizeToFit];
     }
     return self;
 }
@@ -76,6 +81,9 @@
 
     [self.buttonSetRelativePosition mc_setRelativePosition:MCViewRelativePositionUnderCentered
                                                     toView:self.buttonSetPosition withMargins:UIEdgeInsetsMake(15.0f, 0, 0, 0)];
+
+    [self.buttonSetPositionSizeToFit mc_setRelativePosition:MCViewRelativePositionUnderCentered
+                                                    toView:self.buttonSetRelativePosition withMargins:UIEdgeInsetsMake(15.0f, 0, 0, 0)];
 }
 
 //------------------------------------------------------------------------------

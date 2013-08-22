@@ -34,7 +34,7 @@
 - (void) testHCenterInRectWithMargin {
     CGRect rect = [MCUIViewLayoutPosition positionRect:CGRectMake(1000, 1000, 20, 20) atPosition:MCViewPositionHorizontalCenter inRect:CGRectMake(100, 100, 100, 100) withMargins:UIEdgeInsetsMake(99, 99, 99, 5)];
 
-    STAssertTrue(rectEquals(140.0f, 1000.0f, 20.0f, 20.0f, rect), @"");
+    STAssertTrue(rectEquals(234.0f, 1000.0f, 20.0f, 20.0f, rect), @"");
 }
 
 - (void) testRightInRectNoMargin {
@@ -70,7 +70,7 @@
 - (void) testVCenterInRectWithMargin {
     CGRect rect = [MCUIViewLayoutPosition positionRect:CGRectMake(1000, 1000, 20, 20) atPosition:MCViewPositionVerticalCenter inRect:CGRectMake(100, 100, 100, 100) withMargins:UIEdgeInsetsMake(5, 99, 99, 99)];
 
-    STAssertTrue(rectEquals(1000.0f, 140.0f, 20.0f, 20.0f, rect), @"");
+    STAssertTrue(rectEquals(1000.0f, 46.0f, 20.0f, 20.0f, rect), @"");
 }
 
 - (void) testBottomInRectNoMargin {

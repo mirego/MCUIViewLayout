@@ -32,4 +32,5 @@
 @interface MCUIViewLayoutExampleMenuView : UIView
 @property(nonatomic, readonly) UIButton *buttonSetPosition;
 @property(nonatomic, readonly) UIButton *buttonSetRelativePosition;
+@property(nonatomic, readonly) UIButton *buttonSetPositionSizeToFit;
 @end
