@@ -22,8 +22,7 @@
 + (CGFloat)heightForPosition:(MCViewPosition)position andInset:(UIEdgeInsets)inset initialSize:(CGSize)size inRect:(CGRect)rect
 {
     CGFloat actualHeight = size.height;
-    BOOL fitHeight = (position & MCViewPositionFitHeight) != 0;
-    if (fitHeight) {
+    if (position & MCViewPositionFitHeight) {
         actualHeight = CGRectGetHeight(rect) - inset.top - inset.bottom;
     }
     return actualHeight;
@@ -32,8 +31,7 @@
 + (CGFloat)widthForPosition:(MCViewPosition)position andInset:(UIEdgeInsets)inset initialSize:(CGSize)size inRect:(CGRect)rect
 {
     CGFloat actualWidth = size.width;
-    BOOL fitWidth = (position & MCViewPositionFitWidth) != 0;
-    if (fitWidth) {
+    if (position & MCViewPositionFitWidth) {
         actualWidth = CGRectGetWidth(rect) - inset.left - inset.right;
     }
     return actualWidth;
@@ -52,53 +50,46 @@
     CGFloat xPosition = defaultX;
     CGSize sizeForPositioning = size;
 
-
-    BOOL fitWidth = (position & MCViewPositionFitWidth) != 0;
-    if (fitWidth) {
-        sizeForPositioning.width = CGRectGetWidth(targetRect) - inset.left - inset.right;
-    }
-
-    int matchingPositionCount = 0;
-
-    if((position & MCViewPositionToTheLeft) != 0) {
-        CGFloat relativeMinX = CGRectGetMinX(targetRect);
-        xPosition = relativeMinX - sizeForPositioning.width - inset.right;
-        matchingPositionCount++;
-    }
-
-    if((position & MCViewPositionLeft) != 0) {
+    if (position & MCViewPositionFitWidth) {
         xPosition = targetRect.origin.x + inset.left;
-        matchingPositionCount++;
     }
+    else {
+        int matchingPositionCount = 0;
 
-    if((position & MCViewPositionHorizontalCenter) != 0) {
-        if (fitWidth) {
+        if(position & MCViewPositionToTheLeft) {
+            CGFloat relativeMinX = CGRectGetMinX(targetRect);
+            xPosition = relativeMinX - sizeForPositioning.width - inset.right;
+            matchingPositionCount++;
+        }
+
+        if(position & MCViewPositionLeft) {
             xPosition = targetRect.origin.x + inset.left;
-        } else {
+            matchingPositionCount++;
+        }
+
+        if(position & MCViewPositionHorizontalCenter) {
             xPosition = targetRect.origin.x + ((CGRectGetWidth(targetRect) - sizeForPositioning.width) * 0.5f);
             xPosition += inset.left;
             xPosition -= inset.right;
+            matchingPositionCount++;
         }
 
-        matchingPositionCount++;
+        if(position & MCViewPositionRight) {
+            xPosition = targetRect.origin.x + CGRectGetWidth(targetRect) - sizeForPositioning.width - inset.right;
+            matchingPositionCount++;
+        }
+
+        if(position & MCViewPositionToTheRight) {
+            CGFloat relativeMaxX = CGRectGetMaxX(targetRect);
+            xPosition = relativeMaxX + inset.left;
+            matchingPositionCount++;
+        }
+
+        if (matchingPositionCount > 1) {
+            NSAssert(NO, @"Positions not handled");
+        }
     }
 
-    if((position & MCViewPositionRight) != 0 ) {
-        xPosition = targetRect.origin.x + CGRectGetWidth(targetRect) - sizeForPositioning.width - inset.right;
-        matchingPositionCount++;
-    }
-
-    if((position & MCViewPositionToTheRight) != 0) {
-        CGFloat relativeMaxX = CGRectGetMaxX(targetRect);
-        xPosition = relativeMaxX + inset.left;
-        matchingPositionCount++;
-    }
-
-
-    if (matchingPositionCount > 1) {
-        NSAssert(NO, @"Positions not handled");
-    }
-    
     return xPosition;
 }
 
@@ -107,50 +98,44 @@
     CGFloat yPosition = defaultY;
     CGSize sizeForPositioning = size;
 
-    BOOL fitHeight = (position & MCViewPositionFitHeight) != 0;
-    if (fitHeight) {
-        sizeForPositioning.height = CGRectGetHeight(targetRect) - inset.top - inset.bottom;
-    }
-
-    int matchingPositionCount = 0;
-
-    if((position & MCViewPositionAbove) != 0) {
-        CGFloat relativeTop = CGRectGetMinY(targetRect);
-        yPosition = relativeTop - inset.bottom - sizeForPositioning.height;
-        matchingPositionCount++;
-    }
-
-    if((position & MCViewPositionTop) != 0) {
+    if (position & MCViewPositionFitHeight) {
         yPosition = targetRect.origin.y + inset.top;
-        matchingPositionCount++;
     }
+    else {
+        int matchingPositionCount = 0;
 
-    if((position & MCViewPositionVerticalCenter) != 0) {
-        if (fitHeight) {
-            yPosition = targetRect.origin.y + inset.top;
+        if(position & MCViewPositionAbove) {
+            CGFloat relativeTop = CGRectGetMinY(targetRect);
+            yPosition = relativeTop - inset.bottom - sizeForPositioning.height;
+            matchingPositionCount++;
         }
-        else {
+
+        if(position & MCViewPositionTop) {
+            yPosition = targetRect.origin.y + inset.top;
+            matchingPositionCount++;
+        }
+
+        if(position & MCViewPositionVerticalCenter) {
             yPosition = targetRect.origin.y + (CGRectGetHeight(targetRect) - sizeForPositioning.height) * 0.5f;
             yPosition += inset.top;
             yPosition -= inset.bottom;
+            matchingPositionCount++;
         }
 
-        matchingPositionCount++;
-    }
+        if(position & MCViewPositionBottom) {
+            yPosition = targetRect.origin.y + CGRectGetHeight(targetRect) - sizeForPositioning.height - inset.bottom;
+            matchingPositionCount++;
+        }
 
-    if((position & MCViewPositionBottom) != 0) {
-        yPosition = targetRect.origin.y + CGRectGetHeight(targetRect) - sizeForPositioning.height - inset.bottom;
-        matchingPositionCount++;
-    }
+        if(position & MCViewPositionUnder) {
+            CGFloat relativeBaseline = CGRectGetMaxY(targetRect);
+            yPosition = relativeBaseline + inset.top;
+            matchingPositionCount++;
+        }
 
-    if((position & MCViewPositionUnder) != 0) {
-        CGFloat relativeBaseline = CGRectGetMaxY(targetRect);
-        yPosition = relativeBaseline + inset.top;
-        matchingPositionCount++;
-    }
-
-    if (matchingPositionCount > 1) {
-        NSAssert(NO, @"Positions not handled");
+        if (matchingPositionCount > 1) {
+            NSAssert(NO, @"Positions not handled");
+        }
     }
 
     return yPosition;

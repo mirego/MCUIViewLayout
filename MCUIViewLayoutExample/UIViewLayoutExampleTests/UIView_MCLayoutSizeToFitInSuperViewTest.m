@@ -64,7 +64,7 @@
     STAssertTrue(rectEquals(5, 130, 190, 40, self.toPositionView.frame), @"");
 }
 
-- (void)testAlignBottomFitWidth {
+- (void)testAlignBottomHCenterFitWidth {
     [self.toPositionView mc_setPosition:MCViewPositionBottomHCenter|MCViewPositionFitWidth withMargins:UIEdgeInsetsMake(5, 10, 15, 20)];
     STAssertTrue(rectEquals(10, 245, 170, 40, self.toPositionView.frame), @"");
 }
@@ -82,6 +82,26 @@
 - (void)testAlignCentersFitHeight {
     [self.toPositionView mc_setPosition:MCViewPositionCenters|MCViewPositionFitHeight withMargins:UIEdgeInsetsMake(5, 10, 15, 20)];
     STAssertTrue(rectEquals(70, 5, 40, 280, self.toPositionView.frame), @"");
+}
+
+- (void)testAlignRightFitHeight {
+    [self.toPositionView mc_setPosition:MCViewPositionRight|MCViewPositionFitHeight withMargins:UIEdgeInsetsMake(100, 0, 0, 0)];
+    STAssertTrue(rectEquals(160, 100, 40, 200, self.toPositionView.frame), @"");
+}
+
+- (void)testAlignLeftFitHeight {
+    [self.toPositionView mc_setPosition:MCViewPositionLeft|MCViewPositionFitHeight withMargins:UIEdgeInsetsMake(100, 0, 0, 0)];
+    STAssertTrue(rectEquals(0, 100, 40, 200, self.toPositionView.frame), @"");
+}
+
+- (void)testAlignTopFitWidth {
+    [self.toPositionView mc_setPosition:MCViewPositionTop|MCViewPositionFitWidth withMargins:UIEdgeInsetsMake(20, 5, 0, 10)];
+    STAssertTrue(rectEquals(5, 20, 185, 40, self.toPositionView.frame), @"");
+}
+
+- (void)testAlignBottomFitWidth {
+    [self.toPositionView mc_setPosition:MCViewPositionBottom|MCViewPositionFitWidth withMargins:UIEdgeInsetsMake(20, 5, 10, 10)];
+    STAssertTrue(rectEquals(5, 250, 185, 40, self.toPositionView.frame), @"");
 }
 
 @end
