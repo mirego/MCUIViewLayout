@@ -55,50 +55,51 @@
 
     BOOL fitWidth = (position & MCViewPositionFitWidth) != 0;
     if (fitWidth) {
-        sizeForPositioning.width = CGRectGetWidth(targetRect) - inset.left - inset.right;
-    }
-
-    int matchingPositionCount = 0;
-
-    if((position & MCViewPositionToTheLeft) != 0) {
-        CGFloat relativeMinX = CGRectGetMinX(targetRect);
-        xPosition = relativeMinX - sizeForPositioning.width - inset.right;
-        matchingPositionCount++;
-    }
-
-    if((position & MCViewPositionLeft) != 0) {
         xPosition = targetRect.origin.x + inset.left;
-        matchingPositionCount++;
     }
+    else {
+        int matchingPositionCount = 0;
 
-    if((position & MCViewPositionHorizontalCenter) != 0) {
-        if (fitWidth) {
-            xPosition = targetRect.origin.x + inset.left;
-        } else {
-            xPosition = targetRect.origin.x + ((CGRectGetWidth(targetRect) - sizeForPositioning.width) * 0.5f);
-            xPosition += inset.left;
-            xPosition -= inset.right;
+        if((position & MCViewPositionToTheLeft) != 0) {
+            CGFloat relativeMinX = CGRectGetMinX(targetRect);
+            xPosition = relativeMinX - sizeForPositioning.width - inset.right;
+            matchingPositionCount++;
         }
 
-        matchingPositionCount++;
+        if((position & MCViewPositionLeft) != 0) {
+            xPosition = targetRect.origin.x + inset.left;
+            matchingPositionCount++;
+        }
+
+        if((position & MCViewPositionHorizontalCenter) != 0) {
+            if (fitWidth) {
+
+            } else {
+                xPosition = targetRect.origin.x + ((CGRectGetWidth(targetRect) - sizeForPositioning.width) * 0.5f);
+                xPosition += inset.left;
+                xPosition -= inset.right;
+            }
+
+            matchingPositionCount++;
+        }
+
+        if((position & MCViewPositionRight) != 0 ) {
+            xPosition = targetRect.origin.x + CGRectGetWidth(targetRect) - sizeForPositioning.width - inset.right;
+            matchingPositionCount++;
+        }
+
+        if((position & MCViewPositionToTheRight) != 0) {
+            CGFloat relativeMaxX = CGRectGetMaxX(targetRect);
+            xPosition = relativeMaxX + inset.left;
+            matchingPositionCount++;
+        }
+
+
+        if (matchingPositionCount > 1) {
+            NSAssert(NO, @"Positions not handled");
+        }
     }
 
-    if((position & MCViewPositionRight) != 0 ) {
-        xPosition = targetRect.origin.x + CGRectGetWidth(targetRect) - sizeForPositioning.width - inset.right;
-        matchingPositionCount++;
-    }
-
-    if((position & MCViewPositionToTheRight) != 0) {
-        CGFloat relativeMaxX = CGRectGetMaxX(targetRect);
-        xPosition = relativeMaxX + inset.left;
-        matchingPositionCount++;
-    }
-
-
-    if (matchingPositionCount > 1) {
-        NSAssert(NO, @"Positions not handled");
-    }
-    
     return xPosition;
 }
 
@@ -109,48 +110,46 @@
 
     BOOL fitHeight = (position & MCViewPositionFitHeight) != 0;
     if (fitHeight) {
-        sizeForPositioning.height = CGRectGetHeight(targetRect) - inset.top - inset.bottom;
-    }
-
-    int matchingPositionCount = 0;
-
-    if((position & MCViewPositionAbove) != 0) {
-        CGFloat relativeTop = CGRectGetMinY(targetRect);
-        yPosition = relativeTop - inset.bottom - sizeForPositioning.height;
-        matchingPositionCount++;
-    }
-
-    if((position & MCViewPositionTop) != 0) {
         yPosition = targetRect.origin.y + inset.top;
-        matchingPositionCount++;
     }
+    else {
+        int matchingPositionCount = 0;
 
-    if((position & MCViewPositionVerticalCenter) != 0) {
-        if (fitHeight) {
-            yPosition = targetRect.origin.y + inset.top;
+        if((position & MCViewPositionAbove) != 0) {
+            CGFloat relativeTop = CGRectGetMinY(targetRect);
+            yPosition = relativeTop - inset.bottom - sizeForPositioning.height;
+            matchingPositionCount++;
         }
-        else {
+
+        if((position & MCViewPositionTop) != 0) {
+            yPosition = targetRect.origin.y + inset.top;
+            matchingPositionCount++;
+        }
+
+        if(((position & MCViewPositionVerticalCenter) != 0) || fitHeight) {
+
             yPosition = targetRect.origin.y + (CGRectGetHeight(targetRect) - sizeForPositioning.height) * 0.5f;
             yPosition += inset.top;
             yPosition -= inset.bottom;
+
+
+            matchingPositionCount++;
         }
 
-        matchingPositionCount++;
-    }
+        if((position & MCViewPositionBottom) != 0) {
+            yPosition = targetRect.origin.y + CGRectGetHeight(targetRect) - sizeForPositioning.height - inset.bottom;
+            matchingPositionCount++;
+        }
 
-    if((position & MCViewPositionBottom) != 0) {
-        yPosition = targetRect.origin.y + CGRectGetHeight(targetRect) - sizeForPositioning.height - inset.bottom;
-        matchingPositionCount++;
-    }
+        if((position & MCViewPositionUnder) != 0) {
+            CGFloat relativeBaseline = CGRectGetMaxY(targetRect);
+            yPosition = relativeBaseline + inset.top;
+            matchingPositionCount++;
+        }
 
-    if((position & MCViewPositionUnder) != 0) {
-        CGFloat relativeBaseline = CGRectGetMaxY(targetRect);
-        yPosition = relativeBaseline + inset.top;
-        matchingPositionCount++;
-    }
-
-    if (matchingPositionCount > 1) {
-        NSAssert(NO, @"Positions not handled");
+        if (matchingPositionCount > 1) {
+            NSAssert(NO, @"Positions not handled");
+        }
     }
 
     return yPosition;
