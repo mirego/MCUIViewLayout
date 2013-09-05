@@ -22,8 +22,7 @@
 + (CGFloat)heightForPosition:(MCViewPosition)position andInset:(UIEdgeInsets)inset initialSize:(CGSize)size inRect:(CGRect)rect
 {
     CGFloat actualHeight = size.height;
-    BOOL fitHeight = (position & MCViewPositionFitHeight) != 0;
-    if (fitHeight) {
+    if (position & MCViewPositionFitHeight) {
         actualHeight = CGRectGetHeight(rect) - inset.top - inset.bottom;
     }
     return actualHeight;
@@ -32,8 +31,7 @@
 + (CGFloat)widthForPosition:(MCViewPosition)position andInset:(UIEdgeInsets)inset initialSize:(CGSize)size inRect:(CGRect)rect
 {
     CGFloat actualWidth = size.width;
-    BOOL fitWidth = (position & MCViewPositionFitWidth) != 0;
-    if (fitWidth) {
+    if (position & MCViewPositionFitWidth) {
         actualWidth = CGRectGetWidth(rect) - inset.left - inset.right;
     }
     return actualWidth;
@@ -52,48 +50,40 @@
     CGFloat xPosition = defaultX;
     CGSize sizeForPositioning = size;
 
-
-    BOOL fitWidth = (position & MCViewPositionFitWidth) != 0;
-    if (fitWidth) {
+    if (position & MCViewPositionFitWidth) {
         xPosition = targetRect.origin.x + inset.left;
     }
     else {
         int matchingPositionCount = 0;
 
-        if((position & MCViewPositionToTheLeft) != 0) {
+        if(position & MCViewPositionToTheLeft) {
             CGFloat relativeMinX = CGRectGetMinX(targetRect);
             xPosition = relativeMinX - sizeForPositioning.width - inset.right;
             matchingPositionCount++;
         }
 
-        if((position & MCViewPositionLeft) != 0) {
+        if(position & MCViewPositionLeft) {
             xPosition = targetRect.origin.x + inset.left;
             matchingPositionCount++;
         }
 
-        if((position & MCViewPositionHorizontalCenter) != 0) {
-            if (fitWidth) {
-
-            } else {
-                xPosition = targetRect.origin.x + ((CGRectGetWidth(targetRect) - sizeForPositioning.width) * 0.5f);
-                xPosition += inset.left;
-                xPosition -= inset.right;
-            }
-
+        if(position & MCViewPositionHorizontalCenter) {
+            xPosition = targetRect.origin.x + ((CGRectGetWidth(targetRect) - sizeForPositioning.width) * 0.5f);
+            xPosition += inset.left;
+            xPosition -= inset.right;
             matchingPositionCount++;
         }
 
-        if((position & MCViewPositionRight) != 0 ) {
+        if(position & MCViewPositionRight) {
             xPosition = targetRect.origin.x + CGRectGetWidth(targetRect) - sizeForPositioning.width - inset.right;
             matchingPositionCount++;
         }
 
-        if((position & MCViewPositionToTheRight) != 0) {
+        if(position & MCViewPositionToTheRight) {
             CGFloat relativeMaxX = CGRectGetMaxX(targetRect);
             xPosition = relativeMaxX + inset.left;
             matchingPositionCount++;
         }
-
 
         if (matchingPositionCount > 1) {
             NSAssert(NO, @"Positions not handled");
@@ -108,40 +98,36 @@
     CGFloat yPosition = defaultY;
     CGSize sizeForPositioning = size;
 
-    BOOL fitHeight = (position & MCViewPositionFitHeight) != 0;
-    if (fitHeight) {
+    if (position & MCViewPositionFitHeight) {
         yPosition = targetRect.origin.y + inset.top;
     }
     else {
         int matchingPositionCount = 0;
 
-        if((position & MCViewPositionAbove) != 0) {
+        if(position & MCViewPositionAbove) {
             CGFloat relativeTop = CGRectGetMinY(targetRect);
             yPosition = relativeTop - inset.bottom - sizeForPositioning.height;
             matchingPositionCount++;
         }
 
-        if((position & MCViewPositionTop) != 0) {
+        if(position & MCViewPositionTop) {
             yPosition = targetRect.origin.y + inset.top;
             matchingPositionCount++;
         }
 
-        if(((position & MCViewPositionVerticalCenter) != 0) || fitHeight) {
-
+        if(position & MCViewPositionVerticalCenter) {
             yPosition = targetRect.origin.y + (CGRectGetHeight(targetRect) - sizeForPositioning.height) * 0.5f;
             yPosition += inset.top;
             yPosition -= inset.bottom;
-
-
             matchingPositionCount++;
         }
 
-        if((position & MCViewPositionBottom) != 0) {
+        if(position & MCViewPositionBottom) {
             yPosition = targetRect.origin.y + CGRectGetHeight(targetRect) - sizeForPositioning.height - inset.bottom;
             matchingPositionCount++;
         }
 
-        if((position & MCViewPositionUnder) != 0) {
+        if(position & MCViewPositionUnder) {
             CGFloat relativeBaseline = CGRectGetMaxY(targetRect);
             yPosition = relativeBaseline + inset.top;
             matchingPositionCount++;
