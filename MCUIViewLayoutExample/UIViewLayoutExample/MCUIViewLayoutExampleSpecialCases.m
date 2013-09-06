@@ -24,24 +24,26 @@
 // CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE)
 // ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
 // POSSIBILITY OF SUCH DAMAGE.
-#import "MCUIViewLayoutExampleSetPositionSizeToFit.h"
+
+#import "MCUIViewLayoutExampleSpecialCases.h"
 #import "MCUIViewExampleUIFactory.h"
 #import "UIView+MCLayout.h"
 
 //------------------------------------------------------------------------------
-#pragma mark - MCUIViewLayoutExampleSetPositionSizeToFit
+#pragma mark - MCUIViewLayoutExampleSpecialCases
 //------------------------------------------------------------------------------
-@interface MCUIViewLayoutExampleSetPositionSizeToFit ()
+@interface MCUIViewLayoutExampleSpecialCases ()
 
-@property(nonatomic, strong) UILabel *top;
-@property(nonatomic, strong) UILabel *left;
-@property(nonatomic, strong) UILabel *centered;
-@property(nonatomic, strong) UILabel *right;
-@property(nonatomic, strong) UILabel *bottom;
-
+@property(nonatomic) UILabel *container;
+@property(nonatomic) UILabel *firstView;
+@property(nonatomic) UILabel *secondView;
+@property(nonatomic) UILabel *thirdView;
 @end
 
-@implementation MCUIViewLayoutExampleSetPositionSizeToFit
+@implementation MCUIViewLayoutExampleSpecialCases
+{
+
+}
 
 //------------------------------------------------------------------------------
 #pragma mark constructors and destructor
@@ -50,25 +52,34 @@
 {
     self = [super initWithFrame:frame];
     if (self) {
+
+        [self addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(close)]];
         self.backgroundColor = [UIColor darkGrayColor];
+        self.container = [MCUIViewExampleUIFactory addLabelWithTitle:@"" inView:self];
+        self.container.backgroundColor = [UIColor whiteColor];
+        
+        self.firstView = [MCUIViewExampleUIFactory addLabelWithTitle:@"first" inView:self.container];
+        self.firstView.backgroundColor = [[UIColor redColor] colorWithAlphaComponent:0.3];
+        
+        self.secondView = [MCUIViewExampleUIFactory addLabelWithTitle:@"second" inView:self.container];
+        self.secondView.backgroundColor = [[UIColor blueColor] colorWithAlphaComponent:0.3];
 
-        self.top = [MCUIViewExampleUIFactory addLabelWithTitle:@"top" inView:self];
-        self.top.backgroundColor = [[UIColor redColor] colorWithAlphaComponent:0.3];
-
-        self.left = [MCUIViewExampleUIFactory addLabelWithTitle:@"leftCentered" inView:self];
-        self.left.backgroundColor = [[UIColor redColor] colorWithAlphaComponent:0.3];
-        self.centered = [MCUIViewExampleUIFactory addLabelWithTitle:@"centered" inView:self];
-        self.centered.backgroundColor = [[UIColor yellowColor] colorWithAlphaComponent:0.3];
-        self.right = [MCUIViewExampleUIFactory addLabelWithTitle:@"rightCentered" inView:self];
-        self.right.backgroundColor = [[UIColor redColor] colorWithAlphaComponent:0.3];
-
-        self.bottom = [MCUIViewExampleUIFactory addLabelWithTitle:@"bottom" inView:self];
-        self.bottom.backgroundColor = [[UIColor redColor] colorWithAlphaComponent:0.3];
-        [self addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(close)] ];
+        self.thirdView = [MCUIViewExampleUIFactory addLabelWithTitle:@"third" inView:self.container];
+        self.thirdView.backgroundColor = [[UIColor blackColor] colorWithAlphaComponent:0.3];
     }
 
     return self;
 }
+
+- (void)close
+{
+    [self removeFromSuperview];
+}
+
+
+//- (void)dealloc { 
+//
+//}
 //------------------------------------------------------------------------------
 #pragma mark setters and getters
 //------------------------------------------------------------------------------
@@ -79,20 +90,14 @@
 - (void)layoutSubviews
 {
     [super layoutSubviews];
-    UIEdgeInsets insets = UIEdgeInsetsMake(5, 10, 15, 20);
 
-    [self.top mc_setPosition:MCViewPositionTopHCenter|MCViewPositionFitWidth withMargins:insets];
-    [self.left mc_setPosition:MCViewPositionVCenterLeft|MCViewPositionFitHeight withMargins:insets];
-    [self.bottom mc_setPosition:MCViewPositionBottomHCenter|MCViewPositionFitWidth withMargins:insets];
-    [self.right mc_setPosition:MCViewPositionVCenterRight|MCViewPositionFitHeight withMargins:insets];
-    [self.centered mc_setPosition:MCViewPositionCenters|MCViewPositionFitHeight|MCViewPositionFitWidth withMargins:insets];
+    [self.container mc_setPosition:MCViewPositionVerticalCenter|MCViewPositionFitWidth withMargins:UIEdgeInsetsMake(0, 15, 0, 15) size:CGSizeMake(100, 105)];
+    [self.firstView mc_setPosition:MCViewPositionTopLeft| MCViewPositionFitHeight withMargins:UIEdgeInsetsMake(2, 0, 2, 0) size:CGSizeMake(55, 100)];
+    [self.secondView mc_setRelativePosition:MCViewPositionToTheRight | MCViewPositionFitHeight toView:self.firstView withMargins:UIEdgeInsetsMake(0, 3, 0, 0) size:CGSizeMake(55, 100)];
+    [self.thirdView mc_setRelativePosition:MCViewPositionToTheRight | MCViewPositionFitHeight toView:self.secondView withMargins:UIEdgeInsetsMake(0, 3, 0, 0) size:CGSizeMake(55, 100)];
 }
 
 //------------------------------------------------------------------------------
 #pragma mark private methods
 //------------------------------------------------------------------------------
-- (void)close
-{
-    [self removeFromSuperview];
-}
 @end
