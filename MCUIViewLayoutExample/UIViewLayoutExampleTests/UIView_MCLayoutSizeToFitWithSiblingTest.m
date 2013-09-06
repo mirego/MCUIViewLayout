@@ -37,9 +37,21 @@
     [super tearDown];
 }
 
-- (void)testLayoutUnderSiblingFitWidth
+- (void)testLayoutUnderSiblingCenterFitWidth
 {
     [self.toPositionView mc_setRelativePosition:MCViewRelativePositionUnderCentered|MCViewPositionFitWidth toView:self.siblingView withMargins:UIEdgeInsetsMake(10, 5, 20, 15)];
     STAssertTrue(rectEquals(35, 135, 30, 40, self.toPositionView.frame), @"");
+}
+
+- (void)testLayoutUnderSiblingFitWidth
+{
+    [self.toPositionView mc_setRelativePosition:MCViewPositionUnder|MCViewPositionFitWidth toView:self.siblingView withMargins:UIEdgeInsetsMake(10, 5, 20, 15)];
+    STAssertTrue(rectEquals(35, 135, 30, 40, self.toPositionView.frame), @"");
+}
+
+- (void)testLayoutUnderAboveFitWidth
+{
+    [self.toPositionView mc_setRelativePosition:MCViewPositionAbove|MCViewPositionFitWidth toView:self.siblingView withMargins:UIEdgeInsetsMake(10, 5, 20, 15)];
+    STAssertTrue(rectEquals(35, 15, 30, 40, self.toPositionView.frame), @"");
 }
 @end
