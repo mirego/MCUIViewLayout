@@ -105,4 +105,22 @@
     STAssertTrue(rectEquals(10, 10, 40, 40, sibblingView.frame), @"");
 }
 
+- (void)testSetPositionTopLeftWithDecimalDimensionsBelowPointFiveShouldCeilToTheHighestValue
+{
+    [self.toPositionView mc_setPosition:MCViewPositionTopLeft withMargins:UIEdgeInsetsMake(15, 15, 0, 0) size:CGSizeMake(19.33, 20.44)];
+    STAssertTrue(rectEquals(15, 15, 20, 21, self.toPositionView.frame), @"");
+}
+
+- (void)testSetPositionTopLeftWithDecimalMarginsShouldFloorToTheLowestValue
+{
+    [self.toPositionView mc_setPosition:MCViewPositionTopLeft withMargins:UIEdgeInsetsMake(15.88, 15.88, 0, 0) size:CGSizeMake(19.33, 20.44)];
+    STAssertTrue(rectEquals(15, 15, 20, 21, self.toPositionView.frame), @"");
+}
+
+- (void)testSetPositionBottomRightWithDecimalMarginsShouldCeilToTheHighestValue
+{
+    [self.toPositionView mc_setPosition:MCViewPositionBottomLeft withMargins:UIEdgeInsetsMake(0, 10, 10, 0) size:CGSizeMake(19.33, 20.44)];
+    STAssertTrue(rectEquals(10, 169, 20, 21, self.toPositionView.frame), @"");
+}
+
 @end
