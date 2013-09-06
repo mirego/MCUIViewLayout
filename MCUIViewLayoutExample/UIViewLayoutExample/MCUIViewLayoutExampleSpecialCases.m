@@ -91,10 +91,10 @@
 {
     [super layoutSubviews];
 
-    [self.container mc_setPosition:MCViewPositionVerticalCenter|MCViewPositionFitWidth withMargins:UIEdgeInsetsMake(0, 15, 0, 15) size:CGSizeMake(100, 105)];
-    [self.firstView mc_setPosition:MCViewPositionTopLeft| MCViewPositionFitHeight withMargins:UIEdgeInsetsMake(2, 0, 2, 0) size:CGSizeMake(55, 100)];
-    [self.secondView mc_setRelativePosition:MCViewPositionToTheRight | MCViewPositionFitHeight toView:self.firstView withMargins:UIEdgeInsetsMake(0, 3, 0, 0) size:CGSizeMake(55, 100)];
-    [self.thirdView mc_setRelativePosition:MCViewPositionToTheRight | MCViewPositionFitHeight toView:self.secondView withMargins:UIEdgeInsetsMake(0, 3, 0, 0) size:CGSizeMake(55, 100)];
+    [self.container mc_setPosition:MCViewPositionVerticalCenter|MCViewPositionFitWidth withMargins:UIEdgeInsetsMake(1, 15, 1, 15) size:CGSizeMake(100, 105.33)];
+    [self.firstView mc_setPosition:MCViewPositionTopLeft| MCViewPositionFitHeight withMargins:UIEdgeInsetsMake(0, 0, 0, 0) size:CGSizeMake(55.77, 100)];
+    [self.secondView mc_setRelativePosition:MCViewPositionToTheRight | MCViewPositionFitHeight toView:self.firstView withMargins:UIEdgeInsetsMake(0, 0, 0, 0) size:CGSizeMake(55.33, 100)];
+    [self.thirdView mc_setRelativePosition:MCViewPositionToTheRight | MCViewPositionFitHeight toView:self.secondView withMargins:UIEdgeInsetsMake(0, 0, 0, 0) size:CGSizeMake(55.66, 100)];
 }
 
 //------------------------------------------------------------------------------
