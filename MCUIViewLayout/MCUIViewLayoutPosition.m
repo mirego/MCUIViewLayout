@@ -28,16 +28,16 @@
 
 @implementation MCUIViewLayoutPosition 
 + (CGRect)positionRect:(CGRect)rect atPosition:(MCViewPosition)position inRect:(CGRect)targetRect withMargins:(UIEdgeInsets const)margins {
-    rect.origin = [self originForPosition:position andInset:margins size:rect.size inRect:targetRect initialRectOrigin:rect.origin];
     rect.size = [self sizeForPosition:position andInset:margins initialSize:rect.size inRect:targetRect];
+    rect.origin = [self originForPosition:position andInset:margins size:rect.size inRect:targetRect initialRectOrigin:rect.origin];
     return rect;
 }
 
 + (CGSize)sizeForPosition:(MCViewPosition)position andInset:(UIEdgeInsets)inset initialSize:(CGSize)size inRect:(CGRect)rect
 {
     CGSize result = size;
-    result.width = [self roundFloatIfRequired:[self widthForPosition:position andInset:inset initialSize:size inRect:rect]];
-    result.height = [self roundFloatIfRequired:[self heightForPosition:position andInset:inset initialSize:size inRect:rect]];
+    result.width = [self ceilFloatIfRequired:[self widthForPosition:position andInset:inset initialSize:size inRect:rect]];
+    result.height = [self ceilFloatIfRequired:[self heightForPosition:position andInset:inset initialSize:size inRect:rect]];
     return result;
 }
 
@@ -61,8 +61,21 @@
 
 + (CGPoint)originForPosition:(MCViewPosition)position andInset:(UIEdgeInsets)inset size:(CGSize)size inRect:(CGRect)targetRect initialRectOrigin:(CGPoint)initialRectOrigin{
     CGPoint origin = CGPointZero;
-    origin.x = [self roundFloatIfRequired:[self xOriginForPosition:position andInset:inset size:size inRect:targetRect defaultX:initialRectOrigin.x]];
-    origin.y = [self roundFloatIfRequired:[self yOriginForPosition:position andInset:inset size:size inRect:targetRect defaultY:initialRectOrigin.y]];
+
+    if ((position & MCViewPositionLeft) || (position & MCViewPositionToTheRight)){
+        origin.x = [self floorFloatIfRequired:[self xOriginForPosition:position andInset:inset size:size inRect:targetRect defaultX:initialRectOrigin.x]];
+    }
+    else {
+        origin.x = [self ceilFloatIfRequired:[self xOriginForPosition:position andInset:inset size:size inRect:targetRect defaultX:initialRectOrigin.x]];
+    }
+
+    if ((position & MCViewPositionTop) || (position & MCViewPositionUnder)) {
+        origin.y = [self floorFloatIfRequired:[self yOriginForPosition:position andInset:inset size:size inRect:targetRect defaultY:initialRectOrigin.y]];
+    }
+    else {
+        origin.y = [self ceilFloatIfRequired:[self yOriginForPosition:position andInset:inset size:size inRect:targetRect defaultY:initialRectOrigin.y]];
+    }
+
     return origin;
 }
 
@@ -163,7 +176,7 @@
     return yPosition;
 }
 
-+ (CGFloat)roundFloatIfRequired:(CGFloat)number {
++ (CGFloat)ceilFloatIfRequired:(CGFloat)number {
     static BOOL onNonRetina;
     static dispatch_once_t once;
     dispatch_once(&once, ^ {
@@ -171,7 +184,23 @@
     });
 
     if (onNonRetina) {
-        return roundf(number);
+        return ceilf(number);
+    }
+    else {
+        return number;
+    }
+}
+
++ (CGFloat)floorFloatIfRequired:(CGFloat)number
+{
+    static BOOL onNonRetina;
+    static dispatch_once_t once;
+    dispatch_once(&once, ^ {
+        onNonRetina = [UIScreen mainScreen].scale <= 1.0000f;
+    });
+
+    if (onNonRetina) {
+        return floorf(number);
     }
     else {
         return number;
