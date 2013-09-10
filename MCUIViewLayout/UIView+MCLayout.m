@@ -35,7 +35,7 @@
 - (void)mc_setWidth:(CGFloat)value
 {
 	CGRect frame = [self frame];
-	frame.size.width = roundf(value);
+	frame.size.width = ceilf(value);
 	[self setFrame:frame];
 }
 
@@ -47,15 +47,15 @@
 - (void)mc_setHeight:(CGFloat)value
 {
 	CGRect frame = [self frame];
-	frame.size.height = roundf(value);
+	frame.size.height = ceilf(value);
 	[self setFrame:frame];
 }
 
 - (void)mc_setSize:(CGSize)size
 {
 	CGRect frame = [self frame];
-	frame.size.width = round(size.width);
-	frame.size.height = round(size.height);
+	frame.size.width = ceilf(size.width);
+	frame.size.height = ceilf(size.height);
 	[self setFrame:frame];
 }
 

@@ -47,6 +47,12 @@
     STAssertTrue(sizeEquals(50, 50, [self.toMesureView mc_size]), @"");
 }
 
+- (void)testMCSetSizeWithDecimalDimensionsBelowPointFiveShouldCeilToTheHighestValue
+{
+    [self.toMesureView mc_setSize:CGSizeMake(50.04, 50.6)];
+    STAssertTrue(sizeEquals(51, 51, [self.toMesureView mc_size]), @"");
+}
+
 - (void)testMCGetHeight
 {
     CGFloat height = [self.toMesureView mc_height];
@@ -59,6 +65,12 @@
     STAssertEquals(46.0f, [self.toMesureView mc_height], @"");
 }
 
+- (void)testMCSetHeightWithDecimalDimensionsBelowPointFiveShouldCeilToTheHighestValue
+{
+    [self.toMesureView mc_setHeight:46.001f];
+    STAssertEquals(47.0f, [self.toMesureView mc_height], @"");
+}
+
 - (void)testMCGetWidth
 {
     CGFloat width = [self.toMesureView mc_width];
@@ -69,6 +81,12 @@
 {
     [self.toMesureView mc_setWidth:48.0f];
     STAssertEquals(48.0f, [self.toMesureView mc_width], @"");
+}
+
+- (void)testMCSetWidthWithDecimalDimensionsBelowPointFiveShouldCeilToTheHighestValue
+{
+    [self.toMesureView mc_setWidth:46.001f];
+    STAssertEquals(47.0f, [self.toMesureView mc_width], @"");
 }
 
 - (void)testMCGetOrigin
