@@ -15,7 +15,7 @@ All methods are prefixed `mc_` at the moment. This is to avoid colisions as desc
 ### Change z-ordering of a view
 
 You've just added a view and need it bellow all other views or the other way
-around? Don't need ot play with the `subviews` array of the `superview`.
+around? Don't need to play with the `subviews` array of the `superview`.
 
 ```objective-c
 - (void)funWithZOrdering
