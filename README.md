@@ -1,4 +1,6 @@
 # MCUIViewLayout - Layouting enhancements to UIView
+[![Badge w/ Version](https://cocoapod-badges.herokuapp.com/v/MCUIViewLayout/badge.png)](https://cocoadocs.org/docsets/MCUIViewLayout)
+[![Badge w/ Platform](https://cocoapod-badges.herokuapp.com/p/MCUIViewLayout/badge.png)](https://cocoadocs.org/docsets/MCUIViewLayout)
 
 MCUIViewLayout is a category added over [`UIView`](http://developer.apple.com/library/ios/#documentation/UIKit/Reference/UIView_Class/)
 to make layouting the views easier. It provide shortcut methods to set width, height, position based without the need
