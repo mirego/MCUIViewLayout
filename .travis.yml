@@ -1,0 +1,3 @@
+language: objective-c
+
+script: xctool -project MCUIViewLayoutExample/UIViewLayoutExample.xcodeproj -scheme "UIViewLayoutExampleTests" build test -sdk iphonesimulator -arch i386
