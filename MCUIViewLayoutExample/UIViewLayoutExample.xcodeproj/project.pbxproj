@@ -36,6 +36,7 @@
 		915CCD3D1192C7EE590BBBC3 /* MCUIViewLayoutExampleSetRelativePosition.m in Sources */ = {isa = PBXBuildFile; fileRef = 915CCB9122A70EB9F47C5BB7 /* MCUIViewLayoutExampleSetRelativePosition.m */; };
 		915CCE88A51CB1FD1872FAD7 /* UIView_MCLayoutBesideSiblingTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 915CC680291CC2F230EF5371 /* UIView_MCLayoutBesideSiblingTest.m */; };
 		915CCF4AC69DEE1F258A4F21 /* UIView_MCLayoutSizeToFitInSuperViewTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 915CC081DFB9902B9C2DBD5F /* UIView_MCLayoutSizeToFitInSuperViewTest.m */; };
+		A6E494651829A89400692FB5 /* UIViewLayoutExampleTestLog.m in Sources */ = {isa = PBXBuildFile; fileRef = A6E494641829A89400692FB5 /* UIViewLayoutExampleTestLog.m */; };
 		BF930161D3B969E8FCE8DBE4 /* GeometryTestingHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = BF9303A636A8ECB35132EAAD /* GeometryTestingHelper.m */; };
 		BF9307FDE6406D33B8966E95 /* MCUIViewLayoutPosition.m in Sources */ = {isa = PBXBuildFile; fileRef = BF93017C2A02E04CC15591BF /* MCUIViewLayoutPosition.m */; };
 		BF930920665F2EF890D53326 /* MCUIViewLayoutPosition.m in Sources */ = {isa = PBXBuildFile; fileRef = BF93017C2A02E04CC15591BF /* MCUIViewLayoutPosition.m */; };
@@ -91,6 +92,7 @@
 		915CCF1DC8E609DEFDA5004D /* MCUIViewExampleUIFactory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MCUIViewExampleUIFactory.h; sourceTree = "<group>"; };
 		915CCFD54737A43192F21DB9 /* MCUIViewLayoutRootController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MCUIViewLayoutRootController.m; sourceTree = "<group>"; };
 		915CCFF62977398CEF365092 /* UIView_MCLayoutBesideSiblingTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UIView_MCLayoutBesideSiblingTest.h; sourceTree = "<group>"; };
+		A6E494641829A89400692FB5 /* UIViewLayoutExampleTestLog.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UIViewLayoutExampleTestLog.m; sourceTree = "<group>"; };
 		BF93017C2A02E04CC15591BF /* MCUIViewLayoutPosition.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MCUIViewLayoutPosition.m; sourceTree = "<group>"; };
 		BF93022FB48635DBB10A1506 /* MCUIViewLayoutPositionTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MCUIViewLayoutPositionTest.m; sourceTree = "<group>"; };
 		BF9303A636A8ECB35132EAAD /* GeometryTestingHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GeometryTestingHelper.m; sourceTree = "<group>"; };
@@ -215,6 +217,7 @@
 				915CC501F5EB6AEBD5A89A8C /* UIView_MCLayoutSizeToFitWithSiblingTest.m */,
 				915CCA275F8198C3F61290F3 /* UIView_MCLayoutInSuperViewAndBesideSibling.h */,
 				915CC366DEE25CFB00E321F8 /* UIView_MCLayoutInSuperViewAndBesideSibling.m */,
+				A6E494641829A89400692FB5 /* UIViewLayoutExampleTestLog.m */,
 			);
 			path = UIViewLayoutExampleTests;
 			sourceTree = "<group>";
@@ -374,6 +377,7 @@
 				BF9309EF8B616810BB8D9A6D /* MCUIViewLayoutPositionTest.m in Sources */,
 				BF930161D3B969E8FCE8DBE4 /* GeometryTestingHelper.m in Sources */,
 				BF9307FDE6406D33B8966E95 /* MCUIViewLayoutPosition.m in Sources */,
+				A6E494651829A89400692FB5 /* UIViewLayoutExampleTestLog.m in Sources */,
 				FA83DAE2176351960007FF9B /* UIView+MCLayout.m in Sources */,
 				915CCE88A51CB1FD1872FAD7 /* UIView_MCLayoutBesideSiblingTest.m in Sources */,
 				915CC6E54B99B785AAB25B9B /* UIView+MCLayoutDeprecated.m in Sources */,
@@ -495,6 +499,8 @@
 					"\"$(SDKROOT)/Developer/Library/Frameworks\"",
 					"\"$(DEVELOPER_LIBRARY_DIR)/Frameworks\"",
 				);
+				GCC_GENERATE_TEST_COVERAGE_FILES = YES;
+				GCC_INSTRUMENT_PROGRAM_FLOW_ARCS = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "UIViewLayoutExampleTests/UIViewLayoutExampleTests-Prefix.pch";
 				INFOPLIST_FILE = "UIViewLayoutExampleTests/UIViewLayoutExampleTests-Info.plist";
@@ -510,6 +516,8 @@
 					"\"$(SDKROOT)/Developer/Library/Frameworks\"",
 					"\"$(DEVELOPER_LIBRARY_DIR)/Frameworks\"",
 				);
+				GCC_GENERATE_TEST_COVERAGE_FILES = YES;
+				GCC_INSTRUMENT_PROGRAM_FLOW_ARCS = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "UIViewLayoutExampleTests/UIViewLayoutExampleTests-Prefix.pch";
 				INFOPLIST_FILE = "UIViewLayoutExampleTests/UIViewLayoutExampleTests-Info.plist";
@@ -518,6 +526,69 @@
 			};
 			name = Release;
 		};
+		A6E494661829A93300692FB5 /* Coverage */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_GENERATE_TEST_COVERAGE_FILES = YES;
+				GCC_INSTRUMENT_PROGRAM_FLOW_ARCS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
+				ONLY_ACTIVE_ARCH = NO;
+				SDKROOT = iphoneos;
+			};
+			name = Coverage;
+		};
+		A6E494671829A93300692FB5 /* Coverage */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "UIViewLayoutExample/UIViewLayoutExample-Prefix.pch";
+				INFOPLIST_FILE = "UIViewLayoutExample/UIViewLayoutExample-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Coverage;
+		};
+		A6E494681829A93300692FB5 /* Coverage */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				FRAMEWORK_SEARCH_PATHS = (
+					"\"$(SDKROOT)/Developer/Library/Frameworks\"",
+					"\"$(DEVELOPER_LIBRARY_DIR)/Frameworks\"",
+				);
+				GCC_GENERATE_TEST_COVERAGE_FILES = YES;
+				GCC_INSTRUMENT_PROGRAM_FLOW_ARCS = YES;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "UIViewLayoutExampleTests/UIViewLayoutExampleTests-Prefix.pch";
+				INFOPLIST_FILE = "UIViewLayoutExampleTests/UIViewLayoutExampleTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = octest;
+			};
+			name = Coverage;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -525,6 +596,7 @@
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				09ABD59D16E8ECF300290BB3 /* Debug */,
+				A6E494661829A93300692FB5 /* Coverage */,
 				09ABD59E16E8ECF300290BB3 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
@@ -534,6 +606,7 @@
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				09ABD5A016E8ECF300290BB3 /* Debug */,
+				A6E494671829A93300692FB5 /* Coverage */,
 				09ABD5A116E8ECF300290BB3 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
@@ -543,6 +616,7 @@
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				5E6C83541746A74F00BB872E /* Debug */,
+				A6E494681829A93300692FB5 /* Coverage */,
 				5E6C83551746A74F00BB872E /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
