@@ -7,4 +7,4 @@ script:
   - xctool -project MCUIViewLayoutExample/UIViewLayoutExample.xcodeproj -scheme "UIViewLayoutExampleTests" build test -sdk iphonesimulator
 
 after_success:
-  - ./coveralls.rb --extension m --exclude-folder Demo --exclude-folder Test --exclude-folder Externals
+  - ./coveralls.rb --extension m --exclude-folder MCUIViewLayoutExample
