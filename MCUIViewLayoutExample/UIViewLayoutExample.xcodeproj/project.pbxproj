@@ -93,6 +93,7 @@
 		915CCFD54737A43192F21DB9 /* MCUIViewLayoutRootController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MCUIViewLayoutRootController.m; sourceTree = "<group>"; };
 		915CCFF62977398CEF365092 /* UIView_MCLayoutBesideSiblingTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UIView_MCLayoutBesideSiblingTest.h; sourceTree = "<group>"; };
 		A6E494641829A89400692FB5 /* UIViewLayoutExampleTestLog.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UIViewLayoutExampleTestLog.m; sourceTree = "<group>"; };
+		A6E49469182AA94B00692FB5 /* UIViewLayoutExampleTestLog.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UIViewLayoutExampleTestLog.h; sourceTree = "<group>"; };
 		BF93017C2A02E04CC15591BF /* MCUIViewLayoutPosition.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MCUIViewLayoutPosition.m; sourceTree = "<group>"; };
 		BF93022FB48635DBB10A1506 /* MCUIViewLayoutPositionTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MCUIViewLayoutPositionTest.m; sourceTree = "<group>"; };
 		BF9303A636A8ECB35132EAAD /* GeometryTestingHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GeometryTestingHelper.m; sourceTree = "<group>"; };
@@ -200,24 +201,25 @@
 		5E6C834A1746A74F00BB872E /* UIViewLayoutExampleTests */ = {
 			isa = PBXGroup;
 			children = (
-				5E6C83501746A74F00BB872E /* UIView_MCLayoutInSuperViewTest.h */,
-				5E6C83511746A74F00BB872E /* UIView_MCLayoutInSuperViewTest.m */,
 				5E6C834B1746A74F00BB872E /* Supporting Files */,
-				BF9303D4523E08697F37E232 /* MCUIViewLayoutPositionTest.h */,
-				BF93022FB48635DBB10A1506 /* MCUIViewLayoutPositionTest.m */,
+				A6E49469182AA94B00692FB5 /* UIViewLayoutExampleTestLog.h */,
+				A6E494641829A89400692FB5 /* UIViewLayoutExampleTestLog.m */,
 				BF9305FFE48374C7414278C6 /* GeometryTestingHelper.h */,
 				BF9303A636A8ECB35132EAAD /* GeometryTestingHelper.m */,
+				BF9303D4523E08697F37E232 /* MCUIViewLayoutPositionTest.h */,
+				BF93022FB48635DBB10A1506 /* MCUIViewLayoutPositionTest.m */,
 				915CCFF62977398CEF365092 /* UIView_MCLayoutBesideSiblingTest.h */,
 				915CC680291CC2F230EF5371 /* UIView_MCLayoutBesideSiblingTest.m */,
+				915CCA275F8198C3F61290F3 /* UIView_MCLayoutInSuperViewAndBesideSibling.h */,
+				915CC366DEE25CFB00E321F8 /* UIView_MCLayoutInSuperViewAndBesideSibling.m */,
+				5E6C83501746A74F00BB872E /* UIView_MCLayoutInSuperViewTest.h */,
+				5E6C83511746A74F00BB872E /* UIView_MCLayoutInSuperViewTest.m */,
 				915CCE60E1848B1160874933 /* UIView_MCLayoutSizeAndPositionBaseMethodTest.h */,
 				915CCBBDF035C678C368819F /* UIView_MCLayoutSizeAndPositionBaseMethodTest.m */,
 				915CC202BED26A49EEC852B3 /* UIView_MCLayoutSizeToFitInSuperViewTest.h */,
 				915CC081DFB9902B9C2DBD5F /* UIView_MCLayoutSizeToFitInSuperViewTest.m */,
 				915CCC8A35CCFDD62F741D75 /* UIView_MCLayoutSizeToFitWithSiblingTest.h */,
 				915CC501F5EB6AEBD5A89A8C /* UIView_MCLayoutSizeToFitWithSiblingTest.m */,
-				915CCA275F8198C3F61290F3 /* UIView_MCLayoutInSuperViewAndBesideSibling.h */,
-				915CC366DEE25CFB00E321F8 /* UIView_MCLayoutInSuperViewAndBesideSibling.m */,
-				A6E494641829A89400692FB5 /* UIViewLayoutExampleTestLog.m */,
 			);
 			path = UIViewLayoutExampleTests;
 			sourceTree = "<group>";

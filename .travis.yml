@@ -1,10 +1,11 @@
+---
 language: objective-c
 
 before_script:
   - sudo easy_install cpp-coveralls
 
 script:
-  - xctool -project MCUIViewLayoutExample/UIViewLayoutExample.xcodeproj -scheme "UIViewLayoutExampleTests" build test -sdk iphonesimulator -arch i386
+  - xctool project MCUIViewLayoutExample/UIViewLayoutExample.xcodeproj -scheme UIViewLayoutExampleTests build test -sdk iphonesimulator -arch i386 ONLY_ACTIVE_ARCH=NO
 
 after_success:
-  - ./coveralls.rb --extension m --exclude-folder MCUIViewLayoutExample
+  - ./coveralls.rb --extension m --exclude-folder MCUIViewLayoutExample/MCUIViewLayoutExample
