@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name     = 'MCUIViewLayout'
-  s.version  = '0.3.3'
+  s.version  = '0.3.4'
   s.license  = 'BSD 3-Clause'
   s.summary  = 'Layouting enhancements to UIView.'
   s.homepage = 'https://github.com/mirego/MCUIViewLayout'
