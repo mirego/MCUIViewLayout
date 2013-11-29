@@ -115,7 +115,7 @@
 
     CGRect targetFrame;
     if (view == self.superview) {
-        targetFrame = view.bounds;
+        targetFrame = CGRectMake(0.0f, 0.0f, view.bounds.size.width, view.bounds.size.height);
     }
     else if (view.superview == self.superview) {
         targetFrame = view.frame;
