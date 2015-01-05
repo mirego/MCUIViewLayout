@@ -262,7 +262,7 @@ Don't forget to `#import "UIView+MCLayout.h"` where it's needed.
 
 ## License
 
-MCUIViewLayout is © 2013 [Mirego](http://www.mirego.com) and may be freely
+MCUIViewLayout is © 2013-2015 [Mirego](http://www.mirego.com) and may be freely
 distributed under the [New BSD license](http://opensource.org/licenses/BSD-3-Clause).
 See the [`LICENSE.md`](https://github.com/mirego/MCUIViewLayout/blob/master/LICENSE.md) file.
 
