@@ -79,4 +79,7 @@ typedef NS_OPTIONS(NSInteger, MCViewPosition) {
 
 + (CGRect)relativePositionRect:(CGRect)rect atPosition:(MCViewPosition)position inRect:(CGRect)targetRect withMargins:(UIEdgeInsets const)margins;
 
++ (CGFloat)ceilFloatToDisplayScale:(CGFloat)number;
++ (CGFloat)floorFloatToDisplayScale:(CGFloat)number;
+
 @end
