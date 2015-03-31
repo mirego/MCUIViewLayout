@@ -244,7 +244,7 @@ typedef NS_ENUM(NSInteger, MCViewRelativePosition) {
 ### And more...
 
 Not all the positioning methods are described here. This is still a work in progress. Find all the positiong methods in
-[`UIView.MCLayout.h`](https://github.com/mirego/MCUIViewLayout/blob/master/MCUIViewLayout/UIView%2BMCLayout.h).
+[`UIView+MCLayout.h`](https://github.com/mirego/MCUIViewLayout/blob/master/MCUIViewLayout/UIView%2BMCLayout.h).
 
 
 ## Adding to your project
