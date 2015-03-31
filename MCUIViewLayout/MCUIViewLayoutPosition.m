@@ -27,6 +27,30 @@
 #import "MCUIViewLayoutPosition.h"
 
 @implementation MCUIViewLayoutPosition 
+CGFloat (^_ceilFloatToDisplayScale)(CGFloat x);
+CGFloat (^_floorFloatToDisplayScale)(CGFloat x);
+
++ (void)load {
+    CGFloat displayScale = [UIScreen mainScreen].scale;
+    CGFloat displayScaleInv = 1.0f / displayScale;
+    
+    if (displayScale > 1.0f) {
+        _ceilFloatToDisplayScale = ^(CGFloat x) {
+            return ceilf(x * displayScale) * displayScaleInv;
+        };
+        _floorFloatToDisplayScale = ^(CGFloat x) {
+            return floorf(x * displayScale) * displayScaleInv;
+        };
+    } else {
+        _ceilFloatToDisplayScale = ^(CGFloat x) {
+            return (CGFloat)ceilf(x);
+        };
+        _floorFloatToDisplayScale = ^(CGFloat x) {
+            return (CGFloat)floorf(x);
+        };
+    }
+}
+
 + (CGRect)positionRect:(CGRect)rect atPosition:(MCViewPosition)position inRect:(CGRect)targetRect withMargins:(UIEdgeInsets const)margins {
     rect.size = [self sizeForPosition:position andInset:margins initialSize:rect.size inRect:targetRect];
     rect.origin = [self originForPosition:position andInset:margins size:rect.size inRect:targetRect initialRectOrigin:rect.origin];
@@ -36,8 +60,8 @@
 + (CGSize)sizeForPosition:(MCViewPosition)position andInset:(UIEdgeInsets)inset initialSize:(CGSize)size inRect:(CGRect)rect
 {
     CGSize result = size;
-    result.width = [self ceilFloatIfRequired:[self widthForPosition:position andInset:inset initialSize:size inRect:rect]];
-    result.height = [self ceilFloatIfRequired:[self heightForPosition:position andInset:inset initialSize:size inRect:rect]];
+    result.width = _ceilFloatToDisplayScale([self widthForPosition:position andInset:inset initialSize:size inRect:rect]);
+    result.height = _ceilFloatToDisplayScale([self heightForPosition:position andInset:inset initialSize:size inRect:rect]);
     return result;
 }
 
@@ -63,17 +87,17 @@
     CGPoint origin = CGPointZero;
 
     if ((position & MCViewPositionLeft) || (position & MCViewPositionToTheRight)){
-        origin.x = [self floorFloatIfRequired:[self xOriginForPosition:position andInset:inset size:size inRect:targetRect defaultX:initialRectOrigin.x]];
+        origin.x = _floorFloatToDisplayScale([self xOriginForPosition:position andInset:inset size:size inRect:targetRect defaultX:initialRectOrigin.x]);
     }
     else {
-        origin.x = [self ceilFloatIfRequired:[self xOriginForPosition:position andInset:inset size:size inRect:targetRect defaultX:initialRectOrigin.x]];
+        origin.x = _ceilFloatToDisplayScale([self xOriginForPosition:position andInset:inset size:size inRect:targetRect defaultX:initialRectOrigin.x]);
     }
 
     if ((position & MCViewPositionTop) || (position & MCViewPositionUnder)) {
-        origin.y = [self floorFloatIfRequired:[self yOriginForPosition:position andInset:inset size:size inRect:targetRect defaultY:initialRectOrigin.y]];
+        origin.y = _floorFloatToDisplayScale([self yOriginForPosition:position andInset:inset size:size inRect:targetRect defaultY:initialRectOrigin.y]);
     }
     else {
-        origin.y = [self ceilFloatIfRequired:[self yOriginForPosition:position andInset:inset size:size inRect:targetRect defaultY:initialRectOrigin.y]];
+        origin.y = _ceilFloatToDisplayScale([self yOriginForPosition:position andInset:inset size:size inRect:targetRect defaultY:initialRectOrigin.y]);
     }
 
     return origin;
@@ -176,35 +200,12 @@
     return yPosition;
 }
 
-+ (CGFloat)ceilFloatIfRequired:(CGFloat)number {
-    static BOOL onNonRetina;
-    static dispatch_once_t once;
-    dispatch_once(&once, ^ {
-        onNonRetina = [UIScreen mainScreen].scale <= 1.0000f;
-    });
-
-    if (onNonRetina) {
-        return ceilf(number);
-    }
-    else {
-        return number;
-    }
++ (CGFloat)ceilFloatToDisplayScale:(CGFloat)number {
+    return _ceilFloatToDisplayScale(number);
 }
 
-+ (CGFloat)floorFloatIfRequired:(CGFloat)number
-{
-    static BOOL onNonRetina;
-    static dispatch_once_t once;
-    dispatch_once(&once, ^ {
-        onNonRetina = [UIScreen mainScreen].scale <= 1.0000f;
-    });
-
-    if (onNonRetina) {
-        return floorf(number);
-    }
-    else {
-        return number;
-    }
++ (CGFloat)floorFloatToDisplayScale:(CGFloat)number {
+    return _floorFloatToDisplayScale(number);
 }
 
 + (CGRect)relativePositionRect:(CGRect)rect atPosition:(MCViewPosition)position inRect:(CGRect)targetRect withMargins:(UIEdgeInsets)margins {
