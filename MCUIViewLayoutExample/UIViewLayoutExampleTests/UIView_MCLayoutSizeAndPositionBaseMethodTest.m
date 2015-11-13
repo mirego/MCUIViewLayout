@@ -24,11 +24,12 @@
 // CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE)
 // ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
 // POSSIBILITY OF SUCH DAMAGE.
-#import "UIView_MCLayoutSizeAndPositionBaseMethodTest.h"
+
+#import <XCTest/XCTest.h>
 #import "UIView+MCLayout.h"
 #import "GeometryTestingHelper.h"
 
-@interface UIView_MCLayoutSizeAndPositionBaseMethodTest ()
+@interface UIView_MCLayoutSizeAndPositionBaseMethodTest : XCTestCase
 @property(nonatomic) UIView *containerView;
 @property(nonatomic) UIView *toMesureView;
 @end
@@ -56,79 +57,79 @@
 - (void)testMCGetSize
 {
     CGSize size = [self.toMesureView mc_size];
-    STAssertTrue(sizeEquals(40, 40, size), @"");
+    XCTAssertTrue(sizeEquals(40, 40, size), @"");
 }
 
 - (void)testMCSetSize
 {
     [self.toMesureView mc_setSize:CGSizeMake(50, 50)];
-    STAssertTrue(sizeEquals(50, 50, [self.toMesureView mc_size]), @"");
+    XCTAssertTrue(sizeEquals(50, 50, [self.toMesureView mc_size]), @"");
 }
 
 - (void)testMCSetSizeWithDecimalDimensionsBelowPointFiveShouldCeilToTheHighestValue
 {
     [self.toMesureView mc_setSize:CGSizeMake(50.04, 50.6)];
-    STAssertTrue(sizeEquals(51, 51, [self.toMesureView mc_size]), @"");
+    XCTAssertTrue(sizeEquals(51, 51, [self.toMesureView mc_size]), @"");
 }
 
 - (void)testMCGetHeight
 {
     CGFloat height = [self.toMesureView mc_height];
-    STAssertEquals(40.0f, height, @"");
+    XCTAssertEqual(40.0f, height, @"");
 }
 
 - (void)testMCSetHeight
 {
     [self.toMesureView mc_setHeight:46.0f];
-    STAssertEquals(46.0f, [self.toMesureView mc_height], @"");
+    XCTAssertEqual(46.0f, [self.toMesureView mc_height], @"");
 }
 
 - (void)testMCSetHeightWithDecimalDimensionsBelowPointFiveShouldCeilToTheHighestValue
 {
     [self.toMesureView mc_setHeight:46.001f];
-    STAssertEquals(47.0f, [self.toMesureView mc_height], @"");
+    XCTAssertEqual(47.0f, [self.toMesureView mc_height], @"");
 }
 
 - (void)testMCGetWidth
 {
     CGFloat width = [self.toMesureView mc_width];
-    STAssertEquals(40.0f, width, @"");
+    XCTAssertEqual(40.0f, width, @"");
 }
 
 - (void)testMCSetWidth
 {
     [self.toMesureView mc_setWidth:48.0f];
-    STAssertEquals(48.0f, [self.toMesureView mc_width], @"");
+    XCTAssertEqual(48.0f, [self.toMesureView mc_width], @"");
 }
 
 - (void)testMCSetWidthWithDecimalDimensionsBelowPointFiveShouldCeilToTheHighestValue
 {
     [self.toMesureView mc_setWidth:46.001f];
-    STAssertEquals(47.0f, [self.toMesureView mc_width], @"");
+    XCTAssertEqual(47.0f, [self.toMesureView mc_width], @"");
 }
 
 - (void)testMCGetOrigin
 {
     CGPoint origin = [self.toMesureView mc_origin];
-    STAssertTrue(pointEquals(10, 15, origin), @"");
+    XCTAssertTrue(pointEquals(10, 15, origin), @"");
 }
 
 - (void)testMCSetOrigin
 {
     [self.toMesureView mc_setOrigin:CGPointMake(200,200)];
-    STAssertTrue(pointEquals(200, 200, [self.toMesureView mc_origin]), @"");
+    XCTAssertTrue(pointEquals(200, 200, [self.toMesureView mc_origin]), @"");
 }
 
 - (void)testMCGetXPosition
 {
     CGFloat xPosition = [self.toMesureView mc_xPosition];
-    STAssertEquals(10.0f, xPosition, @"");
+    XCTAssertEqual(10.0f, xPosition, @"");
 }
 
 - (void)testMCGetYPosition
 {
     CGFloat yPosition = [self.toMesureView mc_yPosition];
-    STAssertEquals(15.0f, yPosition, @"");
+    XCTAssertEqual(15.0f, yPosition, @"");
 }
 
 @end

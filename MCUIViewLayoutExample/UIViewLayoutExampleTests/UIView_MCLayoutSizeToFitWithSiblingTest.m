@@ -25,11 +25,11 @@
 // ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
 // POSSIBILITY OF SUCH DAMAGE.
 
-#import "UIView_MCLayoutSizeToFitWithSiblingTest.h"
+#import <XCTest/XCTest.h>
 #import "UIView+MCLayout.h"
 #import "GeometryTestingHelper.h"
 
-@interface UIView_MCLayoutSizeToFitWithSiblingTest ()
+@interface UIView_MCLayoutSizeToFitWithSiblingTest : XCTestCase
 @property(nonatomic) UIView *containerView;
 @property(nonatomic) UIView *toPositionView;
 @property(nonatomic) UIView *siblingView;
@@ -59,18 +59,18 @@
 - (void)testLayoutUnderSiblingCenterFitWidth
 {
     [self.toPositionView mc_setRelativePosition:MCViewRelativePositionUnderCentered|MCViewPositionFitWidth toView:self.siblingView withMargins:UIEdgeInsetsMake(10, 5, 20, 15)];
-    STAssertTrue(rectEquals(35, 135, 30, 40, self.toPositionView.frame), @"");
+    XCTAssertTrue(rectEquals(35, 135, 30, 40, self.toPositionView.frame), @"");
 }
 
 - (void)testLayoutUnderSiblingFitWidth
 {
     [self.toPositionView mc_setRelativePosition:MCViewPositionUnder|MCViewPositionFitWidth toView:self.siblingView withMargins:UIEdgeInsetsMake(10, 5, 20, 15)];
-    STAssertTrue(rectEquals(35, 135, 30, 40, self.toPositionView.frame), @"");
+    XCTAssertTrue(rectEquals(35, 135, 30, 40, self.toPositionView.frame), @"");
 }
 
 - (void)testLayoutUnderAboveFitWidth
 {
     [self.toPositionView mc_setRelativePosition:MCViewPositionAbove|MCViewPositionFitWidth toView:self.siblingView withMargins:UIEdgeInsetsMake(10, 5, 20, 15)];
-    STAssertTrue(rectEquals(35, 15, 30, 40, self.toPositionView.frame), @"");
+    XCTAssertTrue(rectEquals(35, 15, 30, 40, self.toPositionView.frame), @"");
 }
 @end
