@@ -25,13 +25,14 @@
 // ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
 // POSSIBILITY OF SUCH DAMAGE.
 
-#import "UIView_MCLayoutInSuperViewTest.h"
+#import <XCTest/XCTest.h>
 #import "GeometryTestingHelper.h"
 #import "UIView+MCLayout.h"
 
-@interface UIView_MCLayoutInSuperViewTest ()
+@interface UIView_MCLayoutInSuperViewTest : XCTestCase
 @property(nonatomic) UIView *containerView;
 @property(nonatomic) UIView *toPositionView;
+@property(nonatomic) CGFloat displayScale;
 @end
 
 @implementation UIView_MCLayoutInSuperViewTest
@@ -39,6 +40,7 @@
 - (void)setUp
 {
     [super setUp];
+    self.displayScale = [UIScreen mainScreen].scale;
     self.containerView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 200, 200)];
     self.toPositionView = [[UIView alloc] initWithFrame:CGRectMake(-50, -50, 40, 40)];
     [self.containerView addSubview:self.toPositionView];
@@ -57,61 +59,61 @@
 - (void)testSetTopPositionNoMarginsNoSize
 {
     [self.toPositionView mc_setPosition:MCViewPositionTopHCenter];
-    STAssertTrue(rectEquals(80, 0, 40, 40, self.toPositionView.frame), @"");
+    XCTAssertTrue(rectEquals(80, 0, 40, 40, self.toPositionView.frame), @"");
 }
 
 - (void)testSetTopPositionWithMarginsNoSize
 {
     [self.toPositionView mc_setPosition:MCViewPositionTopHCenter withMargins:UIEdgeInsetsMake(5, 10, 15, 20)];
-    STAssertTrue(rectEquals(70, 5, 40, 40, self.toPositionView.frame), @"");
+    XCTAssertTrue(rectEquals(70, 5, 40, 40, self.toPositionView.frame), @"");
 }
 
 - (void)testSetTopLeftPositionNoMarginsNoSize
 {
     [self.toPositionView mc_setPosition:MCViewPositionTopLeft];
-    STAssertTrue(rectEquals(0, 0, 40, 40, self.toPositionView.frame), @"");
+    XCTAssertTrue(rectEquals(0, 0, 40, 40, self.toPositionView.frame), @"");
 }
 
 - (void)testSetTopRightPositionNoMarginsNoSize
 {
     [self.toPositionView mc_setPosition:MCViewPositionTopRight];
-    STAssertTrue(rectEquals(160, 0, 40, 40, self.toPositionView.frame), @"");
+    XCTAssertTrue(rectEquals(160, 0, 40, 40, self.toPositionView.frame), @"");
 }
 
 - (void)testSetCenterLeftPositionNoMarginsNoSize
 {
     [self.toPositionView mc_setPosition:MCViewPositionVCenterLeft];
-    STAssertTrue(rectEquals(0, 80, 40, 40, self.toPositionView.frame), @"");
+    XCTAssertTrue(rectEquals(0, 80, 40, 40, self.toPositionView.frame), @"");
 }
 
 - (void)testSetCenterPositionNoMarginsNoSize
 {
     [self.toPositionView mc_setPosition:MCViewPositionCenters];
-    STAssertTrue(rectEquals(80, 80, 40, 40, self.toPositionView.frame), @"");
+    XCTAssertTrue(rectEquals(80, 80, 40, 40, self.toPositionView.frame), @"");
 }
 
 - (void)testSetCenterRightPositionNoMarginsNoSize
 {
     [self.toPositionView mc_setPosition:MCViewPositionVCenterRight];
-    STAssertTrue(rectEquals(160, 80, 40, 40, self.toPositionView.frame), @"");
+    XCTAssertTrue(rectEquals(160, 80, 40, 40, self.toPositionView.frame), @"");
 }
 
 - (void)testSetBottomLeftPositionNoMarginsNoSize
 {
     [self.toPositionView mc_setPosition:MCViewPositionBottomLeft];
-    STAssertTrue(rectEquals(0, 160, 40, 40, self.toPositionView.frame), @"");
+    XCTAssertTrue(rectEquals(0, 160, 40, 40, self.toPositionView.frame), @"");
 }
 
 - (void)testSetBottomPositionNoMarginsNoSize
 {
     [self.toPositionView mc_setPosition:MCViewPositionBottomHCenter];
-    STAssertTrue(rectEquals(80, 160, 40, 40, self.toPositionView.frame), @"");
+    XCTAssertTrue(rectEquals(80, 160, 40, 40, self.toPositionView.frame), @"");
 }
 
 - (void)testSetBottomRightPositionNoMarginsNoSize
 {
     [self.toPositionView mc_setPosition:MCViewPositionBottomRight];
-    STAssertTrue(rectEquals(160, 160, 40, 40, self.toPositionView.frame), @"");
+    XCTAssertTrue(rectEquals(160, 160, 40, 40, self.toPositionView.frame), @"");
 }
 
 - (void)testSetPositionInViewCenterTwoSibblings
@@ -121,25 +123,40 @@
 
     self.toPositionView.frame = CGRectMake(10, 10, 40, 40);
     [sibblingView mc_setPosition:MCViewPositionCenters inView:self.toPositionView];
-    STAssertTrue(rectEquals(10, 10, 40, 40, sibblingView.frame), @"");
+    XCTAssertTrue(rectEquals(10, 10, 40, 40, sibblingView.frame), @"");
 }
 
 - (void)testSetPositionTopLeftWithDecimalDimensionsBelowPointFiveShouldCeilToTheHighestValue
 {
     [self.toPositionView mc_setPosition:MCViewPositionTopLeft withMargins:UIEdgeInsetsMake(15, 15, 0, 0) size:CGSizeMake(19.33, 20.44)];
-    STAssertTrue(rectEquals(15, 15, 20, 21, self.toPositionView.frame), @"");
+    
+    if (self.displayScale == 1.0f) {
+        XCTAssertTrue(rectEquals(15, 15, 20, 21, self.toPositionView.frame), @"");
+    } else {
+        XCTAssertTrue(rectEquals(15, 15, 19.5, 20.5, self.toPositionView.frame), @"");
+    }
 }
 
 - (void)testSetPositionTopLeftWithDecimalMarginsShouldFloorToTheLowestValue
 {
     [self.toPositionView mc_setPosition:MCViewPositionTopLeft withMargins:UIEdgeInsetsMake(15.88, 15.88, 0, 0) size:CGSizeMake(19.33, 20.44)];
-    STAssertTrue(rectEquals(15, 15, 20, 21, self.toPositionView.frame), @"");
+    
+    if (self.displayScale == 1.0f) {
+        XCTAssertTrue(rectEquals(15, 15, 20, 21, self.toPositionView.frame), @"");
+    } else {
+        XCTAssertTrue(rectEquals(15.5, 15.5, 19.5, 20.5, self.toPositionView.frame), @"");
+    }
+
 }
 
 - (void)testSetPositionBottomRightWithDecimalMarginsShouldCeilToTheHighestValue
 {
     [self.toPositionView mc_setPosition:MCViewPositionBottomLeft withMargins:UIEdgeInsetsMake(0, 10, 10, 0) size:CGSizeMake(19.33, 20.44)];
-    STAssertTrue(rectEquals(10, 169, 20, 21, self.toPositionView.frame), @"");
+    if (self.displayScale == 1.0f) {
+        XCTAssertTrue(rectEquals(10, 169, 20, 21, self.toPositionView.frame), @"");
+    } else {
+        XCTAssertTrue(rectEquals(10, 169.5, 19.5, 20.5, self.toPositionView.frame), @"");
+    }
 }
 
 @end
