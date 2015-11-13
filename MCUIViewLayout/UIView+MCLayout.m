@@ -25,6 +25,7 @@
 // ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
 // POSSIBILITY OF SUCH DAMAGE.
 #import "UIView+MCLayout.h"
+#import "UIView+MCLayoutCalculation.h"
 
 @implementation UIView (MCLayout)
 - (CGFloat)mc_width
@@ -108,25 +109,8 @@
 }
 
 - (void)mc_setPosition:(MCViewPosition)position inView:(UIView *)view withMargins:(UIEdgeInsets)margins size:(CGSize)size {
-
-    CGRect viewFrame = self.frame;
-    viewFrame.size = size;
-
-
-    CGRect targetFrame;
-    if (view == self.superview) {
-        targetFrame = CGRectMake(0.0f, 0.0f, view.bounds.size.width, view.bounds.size.height);
-    }
-    else if (view.superview == self.superview) {
-        targetFrame = view.frame;
-    }
-    else {
-        NSAssert(false, @"can only set position for a sibbling or the superview");
-    }
-
-    viewFrame = [MCUIViewLayoutPosition positionRect:viewFrame atPosition:position inRect:targetFrame withMargins:margins];
-
-    self.frame = viewFrame;
+    
+    self.frame = [self mc_getRectForPosition:position inView:view withMargins:margins size:size];
 }
 
 - (void)mc_setRelativePosition:(MCViewPosition)position toView:(UIView *)view
@@ -139,16 +123,7 @@
 }
 
 - (void)mc_setRelativePosition:(MCViewPosition)position toView:(UIView *)view withMargins:(UIEdgeInsets)margins size:(CGSize)size {
-    CGRect viewFrame = self.frame;
-    viewFrame.size = size;
-
-    CGRect targetFrame = view.frame;
-    if (self.superview != view.superview) {
-        targetFrame.origin = [view.superview convertPoint:targetFrame.origin toView:self.superview];
-    }
-
-    viewFrame = [MCUIViewLayoutPosition relativePositionRect:viewFrame atPosition:position inRect:targetFrame withMargins:margins];
-    self.frame = viewFrame;
+    self.frame = [self mc_getRectForRelativePosition:position toView:view withMargins:margins size:size];
 }
 
 @end
