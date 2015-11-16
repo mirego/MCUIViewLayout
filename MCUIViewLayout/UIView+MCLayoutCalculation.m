@@ -44,7 +44,7 @@
         targetFrame = view.frame;
     }
     else {
-        NSAssert(false, @"can only set position for a sibbling or the superview");
+        NSAssert(false, @"can only set position for a sibling or the superview");
     }
     
     return [MCUIViewLayoutPosition positionRect:viewFrame atPosition:position inRect:targetFrame withMargins:margins];
