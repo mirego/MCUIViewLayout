@@ -1,5 +1,5 @@
 # MCUIViewLayout - Layouting enhancements to UIView
-[![Badge w/ Version](https://cocoapod-badges.herokuapp.com/v/MCUIViewLayout/badge.png)](https://cocoadocs.org/docsets/MCUIViewLayout)
+[![Badge w/ Version](https://cocoapod-badges.herokuapp.com/v/MCUIViewLayout/badge.png)](http://cocoadocs.org/docsets/MCUIViewLayout)
 [![Build Status](https://travis-ci.org/mirego/MCUIViewLayout.png?branch=master)](https://travis-ci.org/mirego/MCUIViewLayout)
 [![Coverage Status](https://coveralls.io/repos/mirego/MCUIViewLayout/badge.png?branch=master)](https://coveralls.io/r/mirego/MCUIViewLayout?branch=master)
 
