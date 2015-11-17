@@ -1,4 +1,4 @@
-// Copyright (c) 2013, Mirego
+// Copyright (c) 2015, Mirego
 // All rights reserved.
 //
 // Redistribution and use in source and binary forms, with or without
@@ -35,6 +35,7 @@
 @property(nonatomic, readwrite) UIButton *buttonSetRelativePosition;
 @property(nonatomic, readwrite) UIButton *buttonSetPositionSizeToFit;
 @property(nonatomic, readwrite) UIButton *buttonSpecialCases;
+@property(nonatomic, readwrite) UIButton *buttonRelativeCenterInParent;
 @end
 
 //------------------------------------------------------------------------------
@@ -66,6 +67,11 @@
         [self.buttonSpecialCases setTitle:@"mc_specialCases" forState:UIControlStateNormal];
         [self.buttonSpecialCases sizeToFit];
         [self addSubview:self.buttonSpecialCases];
+        
+        self.buttonRelativeCenterInParent = [UIButton buttonWithType:UIButtonTypeRoundedRect];
+        [self.buttonRelativeCenterInParent setTitle:@"mc_RelativeCenterInParent" forState:UIControlStateNormal];
+        [self.buttonRelativeCenterInParent sizeToFit];
+        [self addSubview:self.buttonRelativeCenterInParent];
     }
     return self;
 }
@@ -92,6 +98,8 @@
                                                     toView:self.buttonSetRelativePosition withMargins:UIEdgeInsetsMake(15.0f, 0, 0, 0)];
     [self.buttonSpecialCases mc_setRelativePosition:MCViewRelativePositionUnderCentered |MCViewPositionFitWidth
                                                      toView:self.buttonSetPositionSizeToFit withMargins:UIEdgeInsetsMake(15.0f, 0, 0, 0)];
+    [self.buttonRelativeCenterInParent mc_setRelativePosition:MCViewRelativePositionUnderCentered |MCViewPositionFitWidth
+                                             toView:self.buttonSpecialCases withMargins:UIEdgeInsetsMake(15.0f, 0, 0, 0)];
 }
 
 //------------------------------------------------------------------------------

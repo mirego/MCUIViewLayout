@@ -1,4 +1,4 @@
-// Copyright (c) 2013, Mirego
+// Copyright (c) 2015, Mirego
 // All rights reserved.
 //
 // Redistribution and use in source and binary forms, with or without
@@ -31,6 +31,7 @@
 #import "MCUIViewLayoutExampleSetRelativePosition.h"
 #import "MCUIViewLayoutExampleSetPositionSizeToFit.h"
 #import "MCUIViewLayoutExampleSpecialCases.h"
+#import "MCUIViewLayoutExampleRelativeCenterInParent.h"
 
 //------------------------------------------------------------------------------
 #pragma mark MCUIViewLayoutRootController (privates methods)
@@ -61,19 +62,14 @@
 - (void)dealloc {
     [self deallocViews];
 }
-//------------------------------------------------------------------------------
-#pragma mark Setters and getters
-//------------------------------------------------------------------------------
 
-//------------------------------------------------------------------------------
-#pragma mark Controller events
-//------------------------------------------------------------------------------
 - (void)loadView {
     MCUIViewLayoutExampleMenuView *rootview = [[MCUIViewLayoutExampleMenuView alloc] initWithFrame:[[UIScreen mainScreen] applicationFrame]];
     [rootview.buttonSetPosition addTarget:self action:@selector(showSetPositionExample) forControlEvents:UIControlEventTouchUpInside];
     [rootview.buttonSetRelativePosition addTarget:self action:@selector(showSetRelativePositionExample) forControlEvents:UIControlEventTouchUpInside];
     [rootview.buttonSetPositionSizeToFit addTarget:self action:@selector(showSetPositionSizeToFitExample) forControlEvents:UIControlEventTouchUpInside];
     [rootview.buttonSpecialCases addTarget:self action:@selector(showSpecialCases) forControlEvents:UIControlEventTouchUpInside];
+    [rootview.buttonRelativeCenterInParent addTarget:self action:@selector(showRelativeCenterInParent) forControlEvents:UIControlEventTouchUpInside];
     self.view = rootview;
 }
 
@@ -103,61 +99,15 @@
     [self.view addSubview:view];
 }
 
-//- (void)viewDidLoad
-//{
-//    [super viewDidLoad];
-//}
+- (void)showRelativeCenterInParent
+{
+    UIView *view =[[MCUIViewLayoutExampleRelativeCenterInParent alloc] initWithFrame:self.view.bounds];
+    view.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
+    [self.view addSubview:view];
+}
 
 - (void)viewDidUnload {
     [self deallocViews];
 }
-
-//- (void)viewWillAppear:(BOOL)animated
-//{
-//    [super viewWillAppear:animated];
-//}
-
-//- (void) viewDidAppear:(BOOL)animated
-//{
-//    [super viewDidAppear:animated];
-//}
-
-//- (void) viewWillDisappear:(BOOL)animated
-//{
-//    [super viewWillDisappear:animated];
-//}
-
-//- (void) viewDidDisappear:(BOOL)animated
-//{
-//    [super viewDidDisappear:animated];
-//}
-
-//------------------------------------------------------------------------------
-#pragma mark Memory management
-//------------------------------------------------------------------------------
-//- (void)didReceiveMemoryWarning
-//{
-//    [super didReceiveMemoryWarning];
-//}
-
-//------------------------------------------------------------------------------
-#pragma mark Orientation management
-//------------------------------------------------------------------------------
-//- (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
-//{
-//    return (interfaceOrientation == UIInterfaceOrientationPortrait);
-//}
-
-//------------------------------------------------------------------------------
-#pragma mark Public methods
-//------------------------------------------------------------------------------
-
-//------------------------------------------------------------------------------
-#pragma mark Private methods
-//------------------------------------------------------------------------------
-
-//------------------------------------------------------------------------------
-#pragma mark Control events
-//------------------------------------------------------------------------------
 
 @end
