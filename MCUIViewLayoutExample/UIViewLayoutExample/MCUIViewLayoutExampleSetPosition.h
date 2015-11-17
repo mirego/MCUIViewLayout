@@ -27,6 +27,5 @@
 
 #import <Foundation/Foundation.h>
 
-
 @interface MCUIViewLayoutExampleSetPosition : UIView
 @end

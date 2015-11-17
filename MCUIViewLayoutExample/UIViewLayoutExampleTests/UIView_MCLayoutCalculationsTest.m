@@ -31,16 +31,15 @@
 #import "UIView+MCLayoutCalculation.h"
 
 @interface UIView_MCLayoutCalculationsTest : XCTestCase
-@property(nonatomic) UIView *containerView;
-@property(nonatomic) UIView *toPositionView;
-@property(nonatomic) UIView *siblingView;
-@property(nonatomic) UIView *orphanView;
+@property (nonatomic) UIView *containerView;
+@property (nonatomic) UIView *toPositionView;
+@property (nonatomic) UIView *siblingView;
+@property (nonatomic) UIView *orphanView;
 @end
 
 @implementation UIView_MCLayoutCalculationsTest
 
-- (void)setUp
-{
+- (void)setUp {
     [super setUp];
     self.containerView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 200, 200)];
     self.toPositionView = [[UIView alloc] initWithFrame:CGRectMake(-50, -50, 40, 40)];
@@ -50,8 +49,7 @@
     [self.containerView addSubview:self.toPositionView];
 }
 
-- (void)tearDown
-{
+- (void)tearDown {
     // Tear-down code here.
     [self.toPositionView removeFromSuperview];
     self.containerView = nil;
@@ -59,55 +57,46 @@
     [super tearDown];
 }
 
-- (void)testGetRectForPosition
-{
+- (void)testGetRectForPosition {
     CGRect rect = [self.toPositionView mc_getRectForPosition:MCViewPositionTopHCenter];
     XCTAssertTrue(rectEquals(80, 0, 40, 40, rect), @"");
 }
 
-- (void)testGetRectForPositionWithMargins
-{
-    CGRect rect = [self.toPositionView mc_getRectForPosition:MCViewPositionTopHCenter withMargins:UIEdgeInsetsMake(10,10,10,10)];
+- (void)testGetRectForPositionWithMargins {
+    CGRect rect = [self.toPositionView mc_getRectForPosition:MCViewPositionTopHCenter withMargins:UIEdgeInsetsMake(10, 10, 10, 10)];
     XCTAssertTrue(rectEquals(80, 10, 40, 40, rect), @"");
 }
 
-- (void)testGetRectForPositionWithMarginsAndSize
-{
+- (void)testGetRectForPositionWithMarginsAndSize {
     CGRect rect = [self.toPositionView mc_getRectForPosition:MCViewPositionTopHCenter withMargins:UIEdgeInsetsMake(10, 10, 10, 10) size:CGSizeMake(50, 50)];
     XCTAssertTrue(rectEquals(75, 10, 50, 50, rect), @"");
 }
 
-- (void)testGetRectForPositionInView
-{
+- (void)testGetRectForPositionInView {
     CGRect rect = [self.toPositionView mc_getRectForPosition:MCViewPositionCenters inView:self.siblingView];
     XCTAssertTrue(rectEquals(40, 40, 40, 40, rect), @"");
 }
 
-- (void)testGetRectForPositionInViewWithMargins
-{
-    CGRect rect = [self.toPositionView mc_getRectForPosition:MCViewPositionBottomRight inView:self.siblingView withMargins:UIEdgeInsetsMake(0,0,5,5)];
+- (void)testGetRectForPositionInViewWithMargins {
+    CGRect rect = [self.toPositionView mc_getRectForPosition:MCViewPositionBottomRight inView:self.siblingView withMargins:UIEdgeInsetsMake(0, 0, 5, 5)];
     XCTAssertTrue(rectEquals(65, 65, 40, 40, rect), @"");
 }
 
-- (void)testGetRectForPositionNoSiblingNorParent
-{
+- (void)testGetRectForPositionNoSiblingNorParent {
     @try {
         [self.toPositionView mc_getRectForPosition:MCViewPositionBottomRight inView:self.orphanView];
         XCTFail("Should've thrown an exception");
-    } @catch(NSException *exception) {
-
+    } @catch (NSException *exception) {
     }
 }
 
-- (void)testGetRelativeRectForPositionToView
-{
+- (void)testGetRelativeRectForPositionToView {
     CGRect rect = [self.toPositionView mc_getRectForRelativePosition:MCViewRelativePositionUnderCentered toView:self.siblingView];
     XCTAssertTrue(rectEquals(40, 110, 40, 40, rect), @"");
 }
 
-- (void)testGetRelativeRectForPositionToViewWithMargins
-{
-    CGRect rect = [self.toPositionView mc_getRectForRelativePosition:MCViewRelativePositionUnderCentered toView:self.siblingView withMargins:UIEdgeInsetsMake(15,15,0,0)];
+- (void)testGetRelativeRectForPositionToViewWithMargins {
+    CGRect rect = [self.toPositionView mc_getRectForRelativePosition:MCViewRelativePositionUnderCentered toView:self.siblingView withMargins:UIEdgeInsetsMake(15, 15, 0, 0)];
     XCTAssertTrue(rectEquals(55, 125, 40, 40, rect), @"");
 }
 

@@ -28,33 +28,43 @@
 #import <UIKit/UIKit.h>
 #import "MCUIViewLayoutPosition.h"
 
-
 @interface UIView (MCLayout)
 
 - (CGFloat)mc_width;
+
 - (void)mc_setWidth:(CGFloat)width;
 
 - (CGFloat)mc_height;
+
 - (void)mc_setHeight:(CGFloat)height;
 
 - (CGSize)mc_size;
+
 - (void)mc_setSize:(CGSize)size;
 
 - (CGPoint)mc_origin;
+
 - (void)mc_setOrigin:(CGPoint)point;
 
 - (CGFloat)mc_xPosition;
+
 - (CGFloat)mc_yPosition;
 
 - (void)mc_setPosition:(MCViewPosition)position;
+
 - (void)mc_setPosition:(MCViewPosition)position withMargins:(UIEdgeInsets)margins;
-- (void)mc_setPosition:(MCViewPosition)position withMargins:(UIEdgeInsets)margins size:(CGSize) size;
+
+- (void)mc_setPosition:(MCViewPosition)position withMargins:(UIEdgeInsets)margins size:(CGSize)size;
 
 - (void)mc_setPosition:(MCViewPosition)position inView:(UIView *)view;
+
 - (void)mc_setPosition:(MCViewPosition)position inView:(UIView *)view withMargins:(UIEdgeInsets)margins;
-- (void)mc_setPosition:(MCViewPosition)position inView:(UIView *)view withMargins:(UIEdgeInsets)margins size:(CGSize) size;
+
+- (void)mc_setPosition:(MCViewPosition)position inView:(UIView *)view withMargins:(UIEdgeInsets)margins size:(CGSize)size;
 
 - (void)mc_setRelativePosition:(MCViewPosition)position toView:(UIView *)view;
+
 - (void)mc_setRelativePosition:(MCViewPosition)position toView:(UIView *)view withMargins:(UIEdgeInsets)margins;
-- (void)mc_setRelativePosition:(MCViewPosition)position toView:(UIView *)view withMargins:(UIEdgeInsets)margins size:(CGSize) size;
+
+- (void)mc_setRelativePosition:(MCViewPosition)position toView:(UIView *)view withMargins:(UIEdgeInsets)margins size:(CGSize)size;
 @end

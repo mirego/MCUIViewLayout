@@ -63,7 +63,7 @@
     else {
         NSAssert(false, @"can only set position for a sibling or the superview");
     }
-    
+
     if (position & MCViewPositionFitParentWidth) {
         MCViewPosition adjustedPosition = (position & ~MCViewPositionFitParentWidth);
         CGRect rect = [MCUIViewLayoutPosition positionRect:viewFrame atPosition:adjustedPosition inRect:targetFrame withMargins:margins];
@@ -103,7 +103,7 @@
     return [self mc_getRectForRelativePosition:position toView:view withMargins:margins size:self.frame.size];
 }
 
-- (CGRect)mc_getRectForRelativePosition:(MCViewPosition)position toView:(UIView *)view withMargins:(UIEdgeInsets)margins size:(CGSize) size {
+- (CGRect)mc_getRectForRelativePosition:(MCViewPosition)position toView:(UIView *)view withMargins:(UIEdgeInsets)margins size:(CGSize)size {
 
     // This is mainly here for backward compatibility. Can't see why we allowed layouting 2 views that are not siblings...
     if (position < MCViewPositionFitParentHeight) {

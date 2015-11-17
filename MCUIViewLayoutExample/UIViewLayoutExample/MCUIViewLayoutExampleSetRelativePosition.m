@@ -31,31 +31,34 @@
 
 //------------------------------------------------------------------------------
 #pragma mark MCUIViewLayoutExampleSetRelativePosition (Privates methods)
+
 //------------------------------------------------------------------------------
 @interface MCUIViewLayoutExampleSetRelativePosition ()
-@property(nonatomic) UIView *centeredSibling;
-@property(nonatomic) UILabel * aboveCentered;
-@property(nonatomic) UILabel *belowCentered;
-@property(nonatomic, strong) UILabel *leftCentered;
-@property(nonatomic, strong) UILabel *rightCentered;
-@property(nonatomic, strong) UIView *topLeftSibling;
-@property(nonatomic, strong) UILabel *aboveLeft;
-@property(nonatomic, strong) UILabel *belowLeft;
-@property(nonatomic, strong) UILabel *leftTop;
-@property(nonatomic, strong) UILabel *rightTop;
-@property(nonatomic, strong) UIView *bottomRightSibling;
-@property(nonatomic, strong) UILabel *aboveRight;
-@property(nonatomic, strong) UILabel *belowRight;
-@property(nonatomic, strong) UILabel *leftBottom;
-@property(nonatomic, strong) UILabel *rightBottom;
+@property (nonatomic) UIView *centeredSibling;
+@property (nonatomic) UILabel *aboveCentered;
+@property (nonatomic) UILabel *belowCentered;
+@property (nonatomic, strong) UILabel *leftCentered;
+@property (nonatomic, strong) UILabel *rightCentered;
+@property (nonatomic, strong) UIView *topLeftSibling;
+@property (nonatomic, strong) UILabel *aboveLeft;
+@property (nonatomic, strong) UILabel *belowLeft;
+@property (nonatomic, strong) UILabel *leftTop;
+@property (nonatomic, strong) UILabel *rightTop;
+@property (nonatomic, strong) UIView *bottomRightSibling;
+@property (nonatomic, strong) UILabel *aboveRight;
+@property (nonatomic, strong) UILabel *belowRight;
+@property (nonatomic, strong) UILabel *leftBottom;
+@property (nonatomic, strong) UILabel *rightBottom;
 @end
 
 //------------------------------------------------------------------------------
 #pragma mark - MCUIViewLayoutExampleSetRelativePosition implementation
+
 //------------------------------------------------------------------------------
 @implementation MCUIViewLayoutExampleSetRelativePosition
 //------------------------------------------------------------------------------
 #pragma mark Constructors and destructor
+
 //------------------------------------------------------------------------------
 - (id)initWithFrame:(CGRect)frame {
     self = [super initWithFrame:frame];
@@ -65,7 +68,6 @@
         [self addCenteredExamples];
         [self addTopLeftExamples];
         [self addBottomRightExamples];
-
     }
     return self;
 }
@@ -75,13 +77,13 @@
     self.bottomRightSibling.backgroundColor = [UIColor blueColor];
 
     self.aboveRight = [MCUIViewExampleUIFactory addLabelWithTitle:@"AboveRight"
-                                               inView:self];
+                                                           inView:self];
     self.belowRight = [MCUIViewExampleUIFactory addLabelWithTitle:@"BelowRight"
-                                               inView:self];
+                                                           inView:self];
     self.leftBottom = [MCUIViewExampleUIFactory addLabelWithTitle:@"LeftBottom"
-                                             inView:self];
+                                                           inView:self];
     self.rightBottom = [MCUIViewExampleUIFactory addLabelWithTitle:@"RightBottom"
-                                              inView:self];
+                                                            inView:self];
     [self addSubview:self.bottomRightSibling];
 }
 
@@ -90,13 +92,13 @@
     self.topLeftSibling.backgroundColor = [UIColor blueColor];
 
     self.aboveLeft = [MCUIViewExampleUIFactory addLabelWithTitle:@"AboveLeft"
-                                                   inView:self];
+                                                          inView:self];
     self.belowLeft = [MCUIViewExampleUIFactory addLabelWithTitle:@"BelowLeft"
-                                                   inView:self];
+                                                          inView:self];
     self.leftTop = [MCUIViewExampleUIFactory addLabelWithTitle:@"LeftTop"
-                                                  inView:self];
+                                                        inView:self];
     self.rightTop = [MCUIViewExampleUIFactory addLabelWithTitle:@"RightTop"
-                                                   inView:self];
+                                                         inView:self];
     [self addSubview:self.topLeftSibling];
 }
 
@@ -105,19 +107,18 @@
     self.centeredSibling.backgroundColor = [UIColor blueColor];
 
     self.aboveCentered = [MCUIViewExampleUIFactory addLabelWithTitle:@"Abovecentered"
-                                                   inView:self];
+                                                              inView:self];
     self.belowCentered = [MCUIViewExampleUIFactory addLabelWithTitle:@"Belowcentered"
-                                                   inView:self];
+                                                              inView:self];
     self.leftCentered = [MCUIViewExampleUIFactory addLabelWithTitle:@"LCentered"
-                                                  inView:self];
+                                                             inView:self];
     self.rightCentered = [MCUIViewExampleUIFactory addLabelWithTitle:@"RCentered"
-                                                   inView:self];
+                                                              inView:self];
     [self addSubview:self.centeredSibling];
 }
 
 - (void)close {
     [self removeFromSuperview];
-
 }
 
 //- (void)dealloc {
@@ -130,8 +131,9 @@
 
 //------------------------------------------------------------------------------
 #pragma mark Layout
+
 //------------------------------------------------------------------------------
-- (void) layoutSubviews {
+- (void)layoutSubviews {
     [super layoutSubviews];
     [self layoutCenteredExamples];
     [self layouTopLeftExamples];
@@ -171,8 +173,7 @@
 - (void)layoutCenteredExamples {
     UIEdgeInsets margins = UIEdgeInsetsMake(10, 15, 20, 25);
     [self.centeredSibling mc_setPosition:MCViewPositionCenters withMargins:margins
-                                                              size:CGSizeMake(80, 40)];
-
+                                    size:CGSizeMake(80, 40)];
 
     [self.aboveCentered mc_setRelativePosition:MCViewRelativePositionAboveCentered toView:self.centeredSibling
                                    withMargins:margins];

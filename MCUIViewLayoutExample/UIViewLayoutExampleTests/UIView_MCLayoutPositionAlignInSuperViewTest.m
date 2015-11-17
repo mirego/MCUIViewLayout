@@ -30,15 +30,14 @@
 #import "UIView+MCLayout.h"
 
 @interface UIView_MCLayoutPositionAlignInSuperViewTest : XCTestCase
-@property(nonatomic) UIView *containerView;
-@property(nonatomic) UIView *toPositionView;
-@property(nonatomic) UIView *siblingView;
+@property (nonatomic) UIView *containerView;
+@property (nonatomic) UIView *toPositionView;
+@property (nonatomic) UIView *siblingView;
 @end
 
 @implementation UIView_MCLayoutPositionAlignInSuperViewTest
 
-- (void)setUp
-{
+- (void)setUp {
     [super setUp];
     self.containerView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 200, 200)];
     self.siblingView = [[UIView alloc] initWithFrame:CGRectMake(95, 95, 10, 10)];
@@ -47,8 +46,7 @@
     [self.containerView addSubview:self.siblingView];
 }
 
-- (void)tearDown
-{
+- (void)tearDown {
     [self.toPositionView removeFromSuperview];
     [self.siblingView removeFromSuperview];
     self.containerView = nil;
@@ -57,46 +55,45 @@
     [super tearDown];
 }
 
--(void)testAboveCenterInParent {
+- (void)testAboveCenterInParent {
     [self.toPositionView mc_setRelativePosition:MCViewPositionAbove | MCViewPositionHCenterInParent toView:self.siblingView];
     XCTAssertTrue(rectEquals(80, 55, 40, 40, self.toPositionView.frame), @"");
 }
 
--(void)testUnderCenterInParent {
+- (void)testUnderCenterInParent {
     [self.toPositionView mc_setRelativePosition:MCViewPositionUnder | MCViewPositionHCenterInParent toView:self.siblingView];
     XCTAssertTrue(rectEquals(80, 105, 40, 40, self.toPositionView.frame), @"");
 }
 
--(void)testToTheRightCenterInParent {
+- (void)testToTheRightCenterInParent {
     [self.toPositionView mc_setRelativePosition:MCViewPositionToTheRight | MCViewPositionVCenterInParent toView:self.siblingView];
     XCTAssertTrue(rectEquals(105, 80, 40, 40, self.toPositionView.frame), @"");
 }
 
--(void)testToTheLeftCenterInParent {
+- (void)testToTheLeftCenterInParent {
     [self.toPositionView mc_setRelativePosition:MCViewPositionToTheLeft | MCViewPositionVCenterInParent toView:self.siblingView];
     XCTAssertTrue(rectEquals(55, 80, 40, 40, self.toPositionView.frame), @"");
 }
 
--(void)testAboveFitParentWidth {
+- (void)testAboveFitParentWidth {
     [self.toPositionView mc_setRelativePosition:MCViewPositionAbove | MCViewPositionFitParentWidth toView:self.siblingView];
     XCTAssertTrue(rectEquals(0, 55, 200, 40, self.toPositionView.frame), @"");
 }
 
--(void)testUnderFitParentWidth {
+- (void)testUnderFitParentWidth {
     [self.toPositionView mc_setRelativePosition:MCViewPositionUnder | MCViewPositionFitParentWidth toView:self.siblingView];
     XCTAssertTrue(rectEquals(0, 105, 200, 40, self.toPositionView.frame), @"");
 }
 
--(void)testToTheRightFitParentHeight {
+- (void)testToTheRightFitParentHeight {
     [self.toPositionView mc_setRelativePosition:MCViewPositionToTheRight | MCViewPositionFitParentHeight toView:self.siblingView];
     XCTAssertTrue(rectEquals(105, 0, 40, 200, self.toPositionView.frame), @"");
 }
 
--(void)testToTheLeftFitParentHeight {
+- (void)testToTheLeftFitParentHeight {
     [self.toPositionView mc_setRelativePosition:MCViewPositionToTheLeft | MCViewPositionFitParentHeight toView:self.siblingView];
     XCTAssertTrue(rectEquals(55, 0, 40, 200, self.toPositionView.frame), @"");
 }
-
 
 
 @end

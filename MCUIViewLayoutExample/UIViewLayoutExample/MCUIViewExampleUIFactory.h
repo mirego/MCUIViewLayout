@@ -27,7 +27,6 @@
 
 #import <Foundation/Foundation.h>
 
-
 @interface MCUIViewExampleUIFactory : NSObject
 + (UILabel *)addLabelWithTitle:(NSString *)title inView:(UIView *)view;
 @end

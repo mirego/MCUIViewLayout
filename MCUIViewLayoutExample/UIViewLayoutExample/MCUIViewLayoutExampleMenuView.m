@@ -29,21 +29,24 @@
 #import "UIView+MCLayout.h"
 //------------------------------------------------------------------------------
 #pragma mark MCUIViewLayoutExampleRootView (Privates methods)
+
 //------------------------------------------------------------------------------
 @interface MCUIViewLayoutExampleMenuView ()
-@property(nonatomic, readwrite) UIButton *buttonSetPosition;
-@property(nonatomic, readwrite) UIButton *buttonSetRelativePosition;
-@property(nonatomic, readwrite) UIButton *buttonSetPositionSizeToFit;
-@property(nonatomic, readwrite) UIButton *buttonSpecialCases;
-@property(nonatomic, readwrite) UIButton *buttonRelativeCenterInParent;
+@property (nonatomic, readwrite) UIButton *buttonSetPosition;
+@property (nonatomic, readwrite) UIButton *buttonSetRelativePosition;
+@property (nonatomic, readwrite) UIButton *buttonSetPositionSizeToFit;
+@property (nonatomic, readwrite) UIButton *buttonSpecialCases;
+@property (nonatomic, readwrite) UIButton *buttonRelativeCenterInParent;
 @end
 
 //------------------------------------------------------------------------------
 #pragma mark - MCUIViewLayoutExampleRootView implementation
+
 //------------------------------------------------------------------------------
 @implementation MCUIViewLayoutExampleMenuView
 //------------------------------------------------------------------------------
 #pragma mark Constructors and destructor
+
 //------------------------------------------------------------------------------
 - (id)initWithFrame:(CGRect)frame {
     self = [super initWithFrame:frame];
@@ -67,7 +70,7 @@
         [self.buttonSpecialCases setTitle:@"mc_specialCases" forState:UIControlStateNormal];
         [self.buttonSpecialCases sizeToFit];
         [self addSubview:self.buttonSpecialCases];
-        
+
         self.buttonRelativeCenterInParent = [UIButton buttonWithType:UIButtonTypeRoundedRect];
         [self.buttonRelativeCenterInParent setTitle:@"mc_RelativeCenterInParent" forState:UIControlStateNormal];
         [self.buttonRelativeCenterInParent sizeToFit];
@@ -86,8 +89,9 @@
 
 //------------------------------------------------------------------------------
 #pragma mark Layout
+
 //------------------------------------------------------------------------------
-- (void) layoutSubviews {
+- (void)layoutSubviews {
     [super layoutSubviews];
     [self.buttonSetPosition mc_setPosition:MCViewPositionTopHCenter withMargins:UIEdgeInsetsMake(50, 0, 0, 0)];
 
@@ -95,11 +99,11 @@
                                                     toView:self.buttonSetPosition withMargins:UIEdgeInsetsMake(15.0f, 0, 0, 0)];
 
     [self.buttonSetPositionSizeToFit mc_setRelativePosition:MCViewRelativePositionUnderCentered
-                                                    toView:self.buttonSetRelativePosition withMargins:UIEdgeInsetsMake(15.0f, 0, 0, 0)];
-    [self.buttonSpecialCases mc_setRelativePosition:MCViewRelativePositionUnderCentered |MCViewPositionFitWidth
-                                                     toView:self.buttonSetPositionSizeToFit withMargins:UIEdgeInsetsMake(15.0f, 0, 0, 0)];
-    [self.buttonRelativeCenterInParent mc_setRelativePosition:MCViewRelativePositionUnderCentered |MCViewPositionFitWidth
-                                             toView:self.buttonSpecialCases withMargins:UIEdgeInsetsMake(15.0f, 0, 0, 0)];
+                                                     toView:self.buttonSetRelativePosition withMargins:UIEdgeInsetsMake(15.0f, 0, 0, 0)];
+    [self.buttonSpecialCases mc_setRelativePosition:MCViewRelativePositionUnderCentered | MCViewPositionFitWidth
+                                             toView:self.buttonSetPositionSizeToFit withMargins:UIEdgeInsetsMake(15.0f, 0, 0, 0)];
+    [self.buttonRelativeCenterInParent mc_setRelativePosition:MCViewRelativePositionUnderCentered | MCViewPositionFitWidth
+                                                       toView:self.buttonSpecialCases withMargins:UIEdgeInsetsMake(15.0f, 0, 0, 0)];
 }
 
 //------------------------------------------------------------------------------

@@ -28,7 +28,7 @@
 #import "MCUIViewLayoutExampleRelativeCenterInParent.h"
 #import "UIView+MCLayout.h"
 
-@interface MCUIViewLayoutExampleRelativeCenterInParent()
+@interface MCUIViewLayoutExampleRelativeCenterInParent ()
 @property (nonatomic) UIView *anchor;
 @property (nonatomic) UIView *viewToPosition;
 @property (nonatomic) UIView *viewToPosition2;
@@ -40,21 +40,20 @@
     if (self) {
         self.backgroundColor = [UIColor blueColor];
         [self addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(close)]];
-        
+
         _anchor = [[UIView alloc] init];
         _anchor.backgroundColor = [UIColor blackColor];
         [self addSubview:_anchor];
-        
+
         _viewToPosition = [[UIView alloc] init];
         _viewToPosition.backgroundColor = [UIColor cyanColor];
         [self addSubview:_viewToPosition];
-        
+
         _viewToPosition2 = [[UIView alloc] init];
         _viewToPosition2.backgroundColor = [UIColor yellowColor];
         [self addSubview:_viewToPosition2];
-
     }
-    
+
     return self;
 }
 

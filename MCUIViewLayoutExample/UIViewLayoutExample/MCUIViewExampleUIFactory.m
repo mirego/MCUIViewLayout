@@ -29,22 +29,22 @@
 
 //------------------------------------------------------------------------------
 #pragma mark - MCUIViewExampleUIFactory
+
 //------------------------------------------------------------------------------
 @interface MCUIViewExampleUIFactory ()
 
 @end
 
 @implementation MCUIViewExampleUIFactory {
-
 }
 
 //------------------------------------------------------------------------------
 #pragma mark constructors and destructor
+
 //------------------------------------------------------------------------------
 - (id)init {
     self = [super init];
     if (self) {
-
     }
 
     return self;
@@ -63,6 +63,7 @@
 
 //------------------------------------------------------------------------------
 #pragma mark private methods
+
 //------------------------------------------------------------------------------
 + (UILabel *)addLabelWithTitle:(NSString *)title inView:(UIView *)view {
     UILabel *label = [[UILabel alloc] init];

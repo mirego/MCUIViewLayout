@@ -30,14 +30,13 @@
 #import "GeometryTestingHelper.h"
 
 @interface UIView_MCLayoutBesideSiblingTest : XCTestCase
-@property(nonatomic) UIView *containerView;
-@property(nonatomic) UIView *toPositionView;
-@property(nonatomic) UIView *siblingView;
+@property (nonatomic) UIView *containerView;
+@property (nonatomic) UIView *toPositionView;
+@property (nonatomic) UIView *siblingView;
 @end
 
 @implementation UIView_MCLayoutBesideSiblingTest
-- (void)setUp
-{
+- (void)setUp {
     [super setUp];
     self.containerView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 200, 200)];
     self.toPositionView = [[UIView alloc] initWithFrame:CGRectMake(-50, -50, 40, 40)];
@@ -46,9 +45,7 @@
     [self.containerView addSubview:self.siblingView];
 }
 
-
-- (void)tearDown
-{
+- (void)tearDown {
     [self.toPositionView removeFromSuperview];
     [self.siblingView removeFromSuperview];
     self.siblingView = nil;
@@ -57,62 +54,62 @@
     [super tearDown];
 }
 
-- (void) testAboveSiblingCentered {
+- (void)testAboveSiblingCentered {
     [self.toPositionView mc_setRelativePosition:MCViewRelativePositionAboveCentered toView:self.siblingView];
     XCTAssertTrue(rectEquals(35, 35, 40, 40, self.toPositionView.frame), @"");
 }
 
-- (void) testAboveSiblingAlignLeft {
+- (void)testAboveSiblingAlignLeft {
     [self.toPositionView mc_setRelativePosition:MCViewRelativePositionAboveAlignedLeft toView:self.siblingView];
     XCTAssertTrue(rectEquals(30, 35, 40, 40, self.toPositionView.frame), @"");
 }
 
-- (void) testAboveSiblingAlignRight {
+- (void)testAboveSiblingAlignRight {
     [self.toPositionView mc_setRelativePosition:MCViewRelativePositionAboveAlignedRight toView:self.siblingView];
     XCTAssertTrue(rectEquals(40, 35, 40, 40, self.toPositionView.frame), @"");
 }
 
-- (void) testUnderSiblingCentered {
+- (void)testUnderSiblingCentered {
     [self.toPositionView mc_setRelativePosition:MCViewRelativePositionUnderCentered toView:self.siblingView];
     XCTAssertTrue(rectEquals(35, 125, 40, 40, self.toPositionView.frame), @"");
 }
 
-- (void) testUnderSiblingAlignRight {
+- (void)testUnderSiblingAlignRight {
     [self.toPositionView mc_setRelativePosition:MCViewRelativePositionUnderAlignedRight toView:self.siblingView];
     XCTAssertTrue(rectEquals(40, 125, 40, 40, self.toPositionView.frame), @"");
 }
 
-- (void) testUnderSiblingAlignLeft {
+- (void)testUnderSiblingAlignLeft {
     [self.toPositionView mc_setRelativePosition:MCViewRelativePositionUnderAlignedLeft toView:self.siblingView];
     XCTAssertTrue(rectEquals(30, 125, 40, 40, self.toPositionView.frame), @"");
 }
 
-- (void) testToTheRightOfSiblingCentered {
+- (void)testToTheRightOfSiblingCentered {
     [self.toPositionView mc_setRelativePosition:MCViewRelativePositionToTheRightCentered toView:self.siblingView];
     XCTAssertTrue(rectEquals(80, 80, 40, 40, self.toPositionView.frame), @"");
 }
 
-- (void) testToTheRightOfSiblingAlignTop {
+- (void)testToTheRightOfSiblingAlignTop {
     [self.toPositionView mc_setRelativePosition:MCViewRelativePositionToTheRightAlignedTop toView:self.siblingView];
     XCTAssertTrue(rectEquals(80, 75, 40, 40, self.toPositionView.frame), @"");
 }
 
-- (void) testToTheRightOfSiblingAlignBottom {
+- (void)testToTheRightOfSiblingAlignBottom {
     [self.toPositionView mc_setRelativePosition:MCViewRelativePositionToTheRightAlignedBottom toView:self.siblingView];
     XCTAssertTrue(rectEquals(80, 85, 40, 40, self.toPositionView.frame), @"");
 }
 
-- (void) testToTheLeftOfSiblingCentered {
+- (void)testToTheLeftOfSiblingCentered {
     [self.toPositionView mc_setRelativePosition:MCViewRelativePositionToTheLeftCentered toView:self.siblingView];
     XCTAssertTrue(rectEquals(-10, 80, 40, 40, self.toPositionView.frame), @"");
 }
 
-- (void) testToTheLeftOfSiblingAlignBottom {
+- (void)testToTheLeftOfSiblingAlignBottom {
     [self.toPositionView mc_setRelativePosition:MCViewRelativePositionToTheLeftAlignedBottom toView:self.siblingView];
     XCTAssertTrue(rectEquals(-10, 85, 40, 40, self.toPositionView.frame), @"");
 }
 
-- (void) testToTheLeftOfSiblingAlignTop {
+- (void)testToTheLeftOfSiblingAlignTop {
     [self.toPositionView mc_setRelativePosition:MCViewRelativePositionToTheLeftAlignedTop toView:self.siblingView];
     XCTAssertTrue(rectEquals(-10, 75, 40, 40, self.toPositionView.frame), @"");
 }

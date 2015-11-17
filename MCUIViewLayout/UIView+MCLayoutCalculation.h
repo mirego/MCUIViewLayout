@@ -30,14 +30,20 @@
 
 @interface UIView (MCLayoutCalculation)
 - (CGRect)mc_getRectForPosition:(MCViewPosition)position;
+
 - (CGRect)mc_getRectForPosition:(MCViewPosition)position withMargins:(UIEdgeInsets)margins;
-- (CGRect)mc_getRectForPosition:(MCViewPosition)position withMargins:(UIEdgeInsets)margins size:(CGSize) size;
+
+- (CGRect)mc_getRectForPosition:(MCViewPosition)position withMargins:(UIEdgeInsets)margins size:(CGSize)size;
 
 - (CGRect)mc_getRectForPosition:(MCViewPosition)position inView:(UIView *)view;
+
 - (CGRect)mc_getRectForPosition:(MCViewPosition)position inView:(UIView *)view withMargins:(UIEdgeInsets)margins;
-- (CGRect)mc_getRectForPosition:(MCViewPosition)position inView:(UIView *)view withMargins:(UIEdgeInsets)margins size:(CGSize) size;
+
+- (CGRect)mc_getRectForPosition:(MCViewPosition)position inView:(UIView *)view withMargins:(UIEdgeInsets)margins size:(CGSize)size;
 
 - (CGRect)mc_getRectForRelativePosition:(MCViewPosition)position toView:(UIView *)view;
+
 - (CGRect)mc_getRectForRelativePosition:(MCViewPosition)position toView:(UIView *)view withMargins:(UIEdgeInsets)margins;
-- (CGRect)mc_getRectForRelativePosition:(MCViewPosition)position toView:(UIView *)view withMargins:(UIEdgeInsets)margins size:(CGSize) size;
+
+- (CGRect)mc_getRectForRelativePosition:(MCViewPosition)position toView:(UIView *)view withMargins:(UIEdgeInsets)margins size:(CGSize)size;
 @end

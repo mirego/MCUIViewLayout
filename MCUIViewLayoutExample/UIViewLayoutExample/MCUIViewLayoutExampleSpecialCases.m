@@ -31,25 +31,24 @@
 
 //------------------------------------------------------------------------------
 #pragma mark - MCUIViewLayoutExampleSpecialCases
+
 //------------------------------------------------------------------------------
 @interface MCUIViewLayoutExampleSpecialCases ()
 
-@property(nonatomic) UILabel *container;
-@property(nonatomic) UILabel *firstView;
-@property(nonatomic) UILabel *secondView;
-@property(nonatomic) UILabel *thirdView;
+@property (nonatomic) UILabel *container;
+@property (nonatomic) UILabel *firstView;
+@property (nonatomic) UILabel *secondView;
+@property (nonatomic) UILabel *thirdView;
 @end
 
-@implementation MCUIViewLayoutExampleSpecialCases
-{
-
+@implementation MCUIViewLayoutExampleSpecialCases {
 }
 
 //------------------------------------------------------------------------------
 #pragma mark constructors and destructor
+
 //------------------------------------------------------------------------------
-- (id)initWithFrame:(CGRect)frame
-{
+- (id)initWithFrame:(CGRect)frame {
     self = [super initWithFrame:frame];
     if (self) {
 
@@ -57,10 +56,10 @@
         self.backgroundColor = [UIColor darkGrayColor];
         self.container = [MCUIViewExampleUIFactory addLabelWithTitle:@"" inView:self];
         self.container.backgroundColor = [UIColor whiteColor];
-        
+
         self.firstView = [MCUIViewExampleUIFactory addLabelWithTitle:@"first" inView:self.container];
         self.firstView.backgroundColor = [[UIColor redColor] colorWithAlphaComponent:0.3];
-        
+
         self.secondView = [MCUIViewExampleUIFactory addLabelWithTitle:@"second" inView:self.container];
         self.secondView.backgroundColor = [[UIColor blueColor] colorWithAlphaComponent:0.3];
 
@@ -71,8 +70,7 @@
     return self;
 }
 
-- (void)close
-{
+- (void)close {
     [self removeFromSuperview];
 }
 
@@ -86,13 +84,13 @@
 
 //------------------------------------------------------------------------------
 #pragma mark public methods
+
 //------------------------------------------------------------------------------
-- (void)layoutSubviews
-{
+- (void)layoutSubviews {
     [super layoutSubviews];
 
-    [self.container mc_setPosition:MCViewPositionVerticalCenter|MCViewPositionFitWidth withMargins:UIEdgeInsetsMake(1, 15, 1, 15) size:CGSizeMake(100, 105.33)];
-    [self.firstView mc_setPosition:MCViewPositionTopLeft| MCViewPositionFitHeight withMargins:UIEdgeInsetsMake(0, 0, 0, 0) size:CGSizeMake(55.77, 100)];
+    [self.container mc_setPosition:MCViewPositionVerticalCenter | MCViewPositionFitWidth withMargins:UIEdgeInsetsMake(1, 15, 1, 15) size:CGSizeMake(100, 105.33)];
+    [self.firstView mc_setPosition:MCViewPositionTopLeft | MCViewPositionFitHeight withMargins:UIEdgeInsetsMake(0, 0, 0, 0) size:CGSizeMake(55.77, 100)];
     [self.secondView mc_setRelativePosition:MCViewPositionToTheRight | MCViewPositionFitHeight toView:self.firstView withMargins:UIEdgeInsetsMake(0, 0, 0, 0) size:CGSizeMake(55.33, 100)];
     [self.thirdView mc_setRelativePosition:MCViewPositionToTheRight | MCViewPositionFitHeight toView:self.secondView withMargins:UIEdgeInsetsMake(0, 0, 0, 0) size:CGSizeMake(55.66, 100)];
 }

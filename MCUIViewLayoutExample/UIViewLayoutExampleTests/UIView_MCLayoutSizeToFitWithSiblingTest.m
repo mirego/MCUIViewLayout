@@ -30,14 +30,13 @@
 #import "GeometryTestingHelper.h"
 
 @interface UIView_MCLayoutSizeToFitWithSiblingTest : XCTestCase
-@property(nonatomic) UIView *containerView;
-@property(nonatomic) UIView *toPositionView;
-@property(nonatomic) UIView *siblingView;
+@property (nonatomic) UIView *containerView;
+@property (nonatomic) UIView *toPositionView;
+@property (nonatomic) UIView *siblingView;
 @end
 
 @implementation UIView_MCLayoutSizeToFitWithSiblingTest
-- (void)setUp
-{
+- (void)setUp {
     [super setUp];
     self.containerView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 200, 200)];
     self.toPositionView = [[UIView alloc] initWithFrame:CGRectMake(-50, -50, 40, 40)];
@@ -46,8 +45,7 @@
     [self.containerView addSubview:self.siblingView];
 }
 
-- (void)tearDown
-{
+- (void)tearDown {
     [self.toPositionView removeFromSuperview];
     [self.siblingView removeFromSuperview];
     self.siblingView = nil;
@@ -56,21 +54,18 @@
     [super tearDown];
 }
 
-- (void)testLayoutUnderSiblingCenterFitWidth
-{
-    [self.toPositionView mc_setRelativePosition:MCViewRelativePositionUnderCentered|MCViewPositionFitWidth toView:self.siblingView withMargins:UIEdgeInsetsMake(10, 5, 20, 15)];
+- (void)testLayoutUnderSiblingCenterFitWidth {
+    [self.toPositionView mc_setRelativePosition:MCViewRelativePositionUnderCentered | MCViewPositionFitWidth toView:self.siblingView withMargins:UIEdgeInsetsMake(10, 5, 20, 15)];
     XCTAssertTrue(rectEquals(35, 135, 30, 40, self.toPositionView.frame), @"");
 }
 
-- (void)testLayoutUnderSiblingFitWidth
-{
-    [self.toPositionView mc_setRelativePosition:MCViewPositionUnder|MCViewPositionFitWidth toView:self.siblingView withMargins:UIEdgeInsetsMake(10, 5, 20, 15)];
+- (void)testLayoutUnderSiblingFitWidth {
+    [self.toPositionView mc_setRelativePosition:MCViewPositionUnder | MCViewPositionFitWidth toView:self.siblingView withMargins:UIEdgeInsetsMake(10, 5, 20, 15)];
     XCTAssertTrue(rectEquals(35, 135, 30, 40, self.toPositionView.frame), @"");
 }
 
-- (void)testLayoutUnderAboveFitWidth
-{
-    [self.toPositionView mc_setRelativePosition:MCViewPositionAbove|MCViewPositionFitWidth toView:self.siblingView withMargins:UIEdgeInsetsMake(10, 5, 20, 15)];
+- (void)testLayoutUnderAboveFitWidth {
+    [self.toPositionView mc_setRelativePosition:MCViewPositionAbove | MCViewPositionFitWidth toView:self.siblingView withMargins:UIEdgeInsetsMake(10, 5, 20, 15)];
     XCTAssertTrue(rectEquals(35, 15, 30, 40, self.toPositionView.frame), @"");
 }
 @end

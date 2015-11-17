@@ -30,15 +30,14 @@
 #import "GeometryTestingHelper.h"
 
 @interface UIView_MCLayoutInSuperViewAndBesideSibling : XCTestCase
-@property(nonatomic) UIView *containerView;
-@property(nonatomic) UIView *siblingView1;
-@property(nonatomic) UIView *siblingView2;
-@property(nonatomic) UIView *siblingView3;
+@property (nonatomic) UIView *containerView;
+@property (nonatomic) UIView *siblingView1;
+@property (nonatomic) UIView *siblingView2;
+@property (nonatomic) UIView *siblingView3;
 @end
 
 @implementation UIView_MCLayoutInSuperViewAndBesideSibling
-- (void)setUp
-{
+- (void)setUp {
     [super setUp];
     self.containerView = [[UIView alloc] initWithFrame:CGRectMake(7, 7, 201, 105)];
     self.siblingView1 = [[UIView alloc] initWithFrame:CGRectMake(-50, -50, 43, 41)];
@@ -49,8 +48,7 @@
     [self.containerView addSubview:self.siblingView3];
 }
 
-- (void)tearDown
-{
+- (void)tearDown {
     [self.siblingView1 removeFromSuperview];
     [self.siblingView2 removeFromSuperview];
     [self.siblingView3 removeFromSuperview];
@@ -64,9 +62,9 @@
 - (void)testFirstViewAlignLeftSiblingsAlignedCenteredWithPrecedingView {
     [self.siblingView1 mc_setPosition:MCViewPositionLeft | MCViewPositionFitHeight withMargins:UIEdgeInsetsMake(1, 3, 1, 0)];
     XCTAssertTrue(rectEquals(3, 1, 43, 103, self.siblingView1.frame), @"");
-    [self.siblingView2 mc_setRelativePosition:MCViewRelativePositionToTheRightCentered |MCViewPositionFitHeight toView:self.siblingView1];
+    [self.siblingView2 mc_setRelativePosition:MCViewRelativePositionToTheRightCentered | MCViewPositionFitHeight toView:self.siblingView1];
     XCTAssertTrue(rectEquals(46, 1, 53, 103, self.siblingView2.frame), @"");
-    [self.siblingView3 mc_setRelativePosition:MCViewRelativePositionToTheRightCentered |MCViewPositionFitHeight toView:self.siblingView2];
+    [self.siblingView3 mc_setRelativePosition:MCViewRelativePositionToTheRightCentered | MCViewPositionFitHeight toView:self.siblingView2];
     XCTAssertTrue(rectEquals(99, 1, 77, 103, self.siblingView3.frame), @"");
 }
 @end

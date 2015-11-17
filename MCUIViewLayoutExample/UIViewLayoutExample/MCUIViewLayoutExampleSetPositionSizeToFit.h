@@ -26,6 +26,5 @@
 // POSSIBILITY OF SUCH DAMAGE.
 #import <Foundation/Foundation.h>
 
-
-@interface MCUIViewLayoutExampleSetPositionSizeToFit : UIView 
+@interface MCUIViewLayoutExampleSetPositionSizeToFit : UIView
 @end

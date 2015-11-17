@@ -35,6 +35,7 @@
 
 //------------------------------------------------------------------------------
 #pragma mark MCUIViewLayoutRootController (privates methods)
+
 //------------------------------------------------------------------------------
 @interface MCUIViewLayoutRootController ()
 
@@ -42,16 +43,17 @@
 
 //------------------------------------------------------------------------------
 #pragma mark - MCUIViewLayoutRootController implementation
+
 //------------------------------------------------------------------------------
 @implementation MCUIViewLayoutRootController
 //------------------------------------------------------------------------------
 #pragma mark Constructors and destructor
+
 //------------------------------------------------------------------------------
-- (id) init {
+- (id)init {
 
     self = [super init];
     if (self) {
-
     }
     return self;
 }
@@ -80,28 +82,25 @@
 }
 
 - (void)showSetPositionExample {
-    UIView *view =[[MCUIViewLayoutExampleSetPosition alloc] initWithFrame:self.view.bounds];
+    UIView *view = [[MCUIViewLayoutExampleSetPosition alloc] initWithFrame:self.view.bounds];
     view.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
     [self.view addSubview:view];
 }
 
-- (void)showSetPositionSizeToFitExample
-{
-    UIView *view =[[MCUIViewLayoutExampleSetPositionSizeToFit alloc] initWithFrame:self.view.bounds];
+- (void)showSetPositionSizeToFitExample {
+    UIView *view = [[MCUIViewLayoutExampleSetPositionSizeToFit alloc] initWithFrame:self.view.bounds];
     view.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
     [self.view addSubview:view];
 }
 
-- (void)showSpecialCases
-{
-    UIView *view =[[MCUIViewLayoutExampleSpecialCases alloc] initWithFrame:self.view.bounds];
+- (void)showSpecialCases {
+    UIView *view = [[MCUIViewLayoutExampleSpecialCases alloc] initWithFrame:self.view.bounds];
     view.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
     [self.view addSubview:view];
 }
 
-- (void)showRelativeCenterInParent
-{
-    UIView *view =[[MCUIViewLayoutExampleRelativeCenterInParent alloc] initWithFrame:self.view.bounds];
+- (void)showRelativeCenterInParent {
+    UIView *view = [[MCUIViewLayoutExampleRelativeCenterInParent alloc] initWithFrame:self.view.bounds];
     view.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
     [self.view addSubview:view];
 }

@@ -33,26 +33,29 @@ static const int kMargin = 10;
 
 //------------------------------------------------------------------------------
 #pragma mark MCUIViewLayoutExampleSetPosition (Privates methods)
+
 //------------------------------------------------------------------------------
 @interface MCUIViewLayoutExampleSetPosition ()
 
-@property(nonatomic, strong) UILabel *topLeft;
-@property(nonatomic, strong) UILabel *top;
-@property(nonatomic, strong) UILabel *topRight;
-@property(nonatomic, strong) UILabel *left;
-@property(nonatomic, strong) UILabel *centered;
-@property(nonatomic, strong) UILabel *right;
-@property(nonatomic, strong) UILabel *bottomLeft;
-@property(nonatomic, strong) UILabel *bottom;
-@property(nonatomic, strong) UILabel *bottomRight;
+@property (nonatomic, strong) UILabel *topLeft;
+@property (nonatomic, strong) UILabel *top;
+@property (nonatomic, strong) UILabel *topRight;
+@property (nonatomic, strong) UILabel *left;
+@property (nonatomic, strong) UILabel *centered;
+@property (nonatomic, strong) UILabel *right;
+@property (nonatomic, strong) UILabel *bottomLeft;
+@property (nonatomic, strong) UILabel *bottom;
+@property (nonatomic, strong) UILabel *bottomRight;
 @end
 
 //------------------------------------------------------------------------------
 #pragma mark - MCUIViewLayoutExampleSetPosition implementation
+
 //------------------------------------------------------------------------------
 @implementation MCUIViewLayoutExampleSetPosition
 //------------------------------------------------------------------------------
 #pragma mark Constructors and destructor
+
 //------------------------------------------------------------------------------
 - (id)initWithFrame:(CGRect)frame {
     self = [super initWithFrame:frame];
@@ -70,7 +73,7 @@ static const int kMargin = 10;
         self.bottom = [MCUIViewExampleUIFactory addLabelWithTitle:@"bottom" inView:self];
         self.bottomRight = [MCUIViewExampleUIFactory addLabelWithTitle:@"bottomRight" inView:self];
 
-        [self addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(close)] ];
+        [self addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(close)]];
     }
     return self;
 }
@@ -89,8 +92,9 @@ static const int kMargin = 10;
 
 //------------------------------------------------------------------------------
 #pragma mark Layout
+
 //------------------------------------------------------------------------------
-- (void) layoutSubviews {
+- (void)layoutSubviews {
     [super layoutSubviews];
 
     [self.topLeft mc_setPosition:MCViewPositionTopLeft withMargins:UIEdgeInsetsMake(kMargin,

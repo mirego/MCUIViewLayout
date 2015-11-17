@@ -28,41 +28,41 @@
 #import <Foundation/Foundation.h>
 
 typedef NS_OPTIONS(NSInteger, MCViewPosition) {
-    MCViewPositionToTheLeft        = (0x1 << 0),
-    MCViewPositionLeft             = (0x1 << 1),
-    MCViewPositionHorizontalCenter = (0x1 << 2),
-    MCViewPositionRight            = (0x1 << 3),
-    MCViewPositionToTheRight       = (0x1 << 4),
+    MCViewPositionToTheLeft         = (0x1 << 0),
+    MCViewPositionLeft              = (0x1 << 1),
+    MCViewPositionHorizontalCenter  = (0x1 << 2),
+    MCViewPositionRight             = (0x1 << 3),
+    MCViewPositionToTheRight        = (0x1 << 4),
 
-    MCViewPositionAbove            = (0x1 << 5),
-    MCViewPositionTop              = (0x1 << 6),
-    MCViewPositionVerticalCenter   = (0x1 << 7),
-    MCViewPositionBottom           = (0x1 << 8),
-    MCViewPositionUnder            = (0x1 << 9),
+    MCViewPositionAbove             = (0x1 << 5),
+    MCViewPositionTop               = (0x1 << 6),
+    MCViewPositionVerticalCenter    = (0x1 << 7),
+    MCViewPositionBottom            = (0x1 << 8),
+    MCViewPositionUnder             = (0x1 << 9),
 
-    MCViewPositionFitWidth         = (0x1 << 20),
-    MCViewPositionFitHeight        = (0x1 << 21),
-    
-    MCViewPositionFitParentHeight  = (0x1 << 25),
-    MCViewPositionFitParentWidth   = (0x1 << 26),
-    MCViewPositionHCenterInParent  = (0x1 << 27),
-    MCViewPositionVCenterInParent  = (0x1 << 28),
+    MCViewPositionFitWidth          = (0x1 << 20),
+    MCViewPositionFitHeight         = (0x1 << 21),
+
+    MCViewPositionFitParentHeight   = (0x1 << 25),
+    MCViewPositionFitParentWidth    = (0x1 << 26),
+    MCViewPositionHCenterInParent   = (0x1 << 27),
+    MCViewPositionVCenterInParent   = (0x1 << 28),
 
     // Position inside another rect
-    MCViewPositionTopLeft       = MCViewPositionTop | MCViewPositionLeft,
-    MCViewPositionTopHCenter    = MCViewPositionTop | MCViewPositionHorizontalCenter,
-    MCViewPositionTopRight      = MCViewPositionTop | MCViewPositionRight,
+            MCViewPositionTopLeft = MCViewPositionTop | MCViewPositionLeft,
+    MCViewPositionTopHCenter = MCViewPositionTop | MCViewPositionHorizontalCenter,
+    MCViewPositionTopRight = MCViewPositionTop | MCViewPositionRight,
 
-    MCViewPositionBottomLeft    = MCViewPositionBottom | MCViewPositionLeft,
+    MCViewPositionBottomLeft = MCViewPositionBottom | MCViewPositionLeft,
     MCViewPositionBottomHCenter = MCViewPositionBottom | MCViewPositionHorizontalCenter,
-    MCViewPositionBottomRight   = MCViewPositionBottom | MCViewPositionRight,
+    MCViewPositionBottomRight = MCViewPositionBottom | MCViewPositionRight,
 
-    MCViewPositionVCenterLeft   = MCViewPositionVerticalCenter | MCViewPositionLeft,
-    MCViewPositionCenters       = MCViewPositionVerticalCenter | MCViewPositionHorizontalCenter,
-    MCViewPositionVCenterRight  = MCViewPositionVerticalCenter | MCViewPositionRight,
+    MCViewPositionVCenterLeft = MCViewPositionVerticalCenter | MCViewPositionLeft,
+    MCViewPositionCenters = MCViewPositionVerticalCenter | MCViewPositionHorizontalCenter,
+    MCViewPositionVCenterRight = MCViewPositionVerticalCenter | MCViewPositionRight,
 
     // Position outside another rect
-    MCViewRelativePositionAboveAlignedLeft = MCViewPositionAbove | MCViewPositionLeft,
+            MCViewRelativePositionAboveAlignedLeft = MCViewPositionAbove | MCViewPositionLeft,
     MCViewRelativePositionAboveCentered = MCViewPositionAbove | MCViewPositionHorizontalCenter,
     MCViewRelativePositionAboveAlignedRight = MCViewPositionAbove | MCViewPositionRight,
 
@@ -86,6 +86,7 @@ typedef NS_OPTIONS(NSInteger, MCViewPosition) {
 + (CGRect)relativePositionRect:(CGRect)rect atPosition:(MCViewPosition)position inRect:(CGRect)targetRect withMargins:(UIEdgeInsets const)margins;
 
 + (CGFloat)ceilFloatToDisplayScale:(CGFloat)number;
+
 + (CGFloat)floorFloatToDisplayScale:(CGFloat)number;
 
 @end

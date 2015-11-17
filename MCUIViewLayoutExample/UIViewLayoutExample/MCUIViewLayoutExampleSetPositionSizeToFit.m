@@ -30,14 +30,15 @@
 
 //------------------------------------------------------------------------------
 #pragma mark - MCUIViewLayoutExampleSetPositionSizeToFit
+
 //------------------------------------------------------------------------------
 @interface MCUIViewLayoutExampleSetPositionSizeToFit ()
 
-@property(nonatomic, strong) UILabel *top;
-@property(nonatomic, strong) UILabel *left;
-@property(nonatomic, strong) UILabel *centered;
-@property(nonatomic, strong) UILabel *right;
-@property(nonatomic, strong) UILabel *bottom;
+@property (nonatomic, strong) UILabel *top;
+@property (nonatomic, strong) UILabel *left;
+@property (nonatomic, strong) UILabel *centered;
+@property (nonatomic, strong) UILabel *right;
+@property (nonatomic, strong) UILabel *bottom;
 
 @end
 
@@ -45,9 +46,9 @@
 
 //------------------------------------------------------------------------------
 #pragma mark constructors and destructor
+
 //------------------------------------------------------------------------------
-- (id)initWithFrame:(CGRect)frame
-{
+- (id)initWithFrame:(CGRect)frame {
     self = [super initWithFrame:frame];
     if (self) {
         self.backgroundColor = [UIColor darkGrayColor];
@@ -64,7 +65,7 @@
 
         self.bottom = [MCUIViewExampleUIFactory addLabelWithTitle:@"bottom" inView:self];
         self.bottom.backgroundColor = [[UIColor redColor] colorWithAlphaComponent:0.3];
-        [self addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(close)] ];
+        [self addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(close)]];
     }
 
     return self;
@@ -75,24 +76,24 @@
 
 //------------------------------------------------------------------------------
 #pragma mark public methods
+
 //------------------------------------------------------------------------------
-- (void)layoutSubviews
-{
+- (void)layoutSubviews {
     [super layoutSubviews];
     UIEdgeInsets insets = UIEdgeInsetsMake(5, 10, 15, 20);
 
-    [self.top mc_setPosition:MCViewPositionTopHCenter|MCViewPositionFitWidth withMargins:insets];
-    [self.left mc_setPosition:MCViewPositionVCenterLeft|MCViewPositionFitHeight withMargins:insets];
-    [self.bottom mc_setPosition:MCViewPositionBottomHCenter|MCViewPositionFitWidth withMargins:insets];
-    [self.right mc_setPosition:MCViewPositionVCenterRight|MCViewPositionFitHeight withMargins:insets];
-    [self.centered mc_setPosition:MCViewPositionCenters|MCViewPositionFitHeight|MCViewPositionFitWidth withMargins:insets];
+    [self.top mc_setPosition:MCViewPositionTopHCenter | MCViewPositionFitWidth withMargins:insets];
+    [self.left mc_setPosition:MCViewPositionVCenterLeft | MCViewPositionFitHeight withMargins:insets];
+    [self.bottom mc_setPosition:MCViewPositionBottomHCenter | MCViewPositionFitWidth withMargins:insets];
+    [self.right mc_setPosition:MCViewPositionVCenterRight | MCViewPositionFitHeight withMargins:insets];
+    [self.centered mc_setPosition:MCViewPositionCenters | MCViewPositionFitHeight | MCViewPositionFitWidth withMargins:insets];
 }
 
 //------------------------------------------------------------------------------
 #pragma mark private methods
+
 //------------------------------------------------------------------------------
-- (void)close
-{
+- (void)close {
     [self removeFromSuperview];
 }
 @end

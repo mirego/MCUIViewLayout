@@ -29,63 +29,53 @@
 #import "UIView+MCLayoutCalculation.h"
 
 @implementation UIView (MCLayout)
-- (CGFloat)mc_width
-{
-	return CGRectGetWidth(self.bounds);
+- (CGFloat)mc_width {
+    return CGRectGetWidth(self.bounds);
 }
 
-- (void)mc_setWidth:(CGFloat)value
-{
-	CGRect frame = [self frame];
-	frame.size.width = ceilf(value);
-	[self setFrame:frame];
+- (void)mc_setWidth:(CGFloat)value {
+    CGRect frame = [self frame];
+    frame.size.width = ceilf(value);
+    [self setFrame:frame];
 }
 
-- (CGFloat)mc_height
-{
-	return CGRectGetHeight(self.bounds);
+- (CGFloat)mc_height {
+    return CGRectGetHeight(self.bounds);
 }
 
-- (void)mc_setHeight:(CGFloat)value
-{
-	CGRect frame = [self frame];
-	frame.size.height = ceilf(value);
-	[self setFrame:frame];
+- (void)mc_setHeight:(CGFloat)value {
+    CGRect frame = [self frame];
+    frame.size.height = ceilf(value);
+    [self setFrame:frame];
 }
 
-- (void)mc_setSize:(CGSize)size
-{
-	CGRect frame = [self frame];
-	frame.size.width = ceilf(size.width);
-	frame.size.height = ceilf(size.height);
-	[self setFrame:frame];
+- (void)mc_setSize:(CGSize)size {
+    CGRect frame = [self frame];
+    frame.size.width = ceilf(size.width);
+    frame.size.height = ceilf(size.height);
+    [self setFrame:frame];
 }
 
-- (CGSize)mc_size
-{
-	CGRect bounds = [self bounds];
-	return bounds.size;
+- (CGSize)mc_size {
+    CGRect bounds = [self bounds];
+    return bounds.size;
 }
 
-- (CGPoint)mc_origin
-{
-	return self.frame.origin;
+- (CGPoint)mc_origin {
+    return self.frame.origin;
 }
 
-- (void)mc_setOrigin:(CGPoint)point
-{
-	CGRect frame = [self frame];
-	frame.origin = CGPointMake(roundf(point.x), roundf(point.y));
-	[self setFrame:frame];
+- (void)mc_setOrigin:(CGPoint)point {
+    CGRect frame = [self frame];
+    frame.origin = CGPointMake(roundf(point.x), roundf(point.y));
+    [self setFrame:frame];
 }
 
-- (CGFloat)mc_xPosition
-{
-	return [self mc_origin].x;
+- (CGFloat)mc_xPosition {
+    return [self mc_origin].x;
 }
 
-- (CGFloat)mc_yPosition
-{
+- (CGFloat)mc_yPosition {
     return [self mc_origin].y;
 }
 
@@ -97,7 +87,7 @@
     [self mc_setPosition:position withMargins:margins size:self.frame.size];
 }
 
-- (void)mc_setPosition:(MCViewPosition)position withMargins:(UIEdgeInsets)margins size:(CGSize) size {
+- (void)mc_setPosition:(MCViewPosition)position withMargins:(UIEdgeInsets)margins size:(CGSize)size {
     [self mc_setPosition:position inView:self.superview withMargins:margins size:size];
 }
 
@@ -110,12 +100,11 @@
 }
 
 - (void)mc_setPosition:(MCViewPosition)position inView:(UIView *)view withMargins:(UIEdgeInsets)margins size:(CGSize)size {
-    
+
     self.frame = [self mc_getRectForPosition:position inView:view withMargins:margins size:size];
 }
 
-- (void)mc_setRelativePosition:(MCViewPosition)position toView:(UIView *)view
-{
+- (void)mc_setRelativePosition:(MCViewPosition)position toView:(UIView *)view {
     [self mc_setRelativePosition:position toView:view withMargins:UIEdgeInsetsZero];
 }
 
