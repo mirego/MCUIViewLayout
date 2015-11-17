@@ -48,7 +48,6 @@
     self.orphanView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 500, 500)];
     [self.containerView addSubview:self.siblingView];
     [self.containerView addSubview:self.toPositionView];
-    // Set-up code here.
 }
 
 - (void)tearDown

@@ -45,12 +45,10 @@
     self.toPositionView = [[UIView alloc] initWithFrame:CGRectMake(-50, -50, 40, 40)];
     [self.containerView addSubview:self.toPositionView];
     [self.containerView addSubview:self.siblingView];
-    // Set-up code here.
 }
 
 - (void)tearDown
 {
-    // Tear-down code here.
     [self.toPositionView removeFromSuperview];
     [self.siblingView removeFromSuperview];
     self.containerView = nil;
