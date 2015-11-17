@@ -1,4 +1,4 @@
-// Copyright (c) 2013, Mirego
+// Copyright (c) 2015, Mirego
 // All rights reserved.
 //
 // Redistribution and use in source and binary forms, with or without
@@ -42,12 +42,10 @@
     self.containerView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 200, 200)];
     self.toMesureView = [[UIView alloc] initWithFrame:CGRectMake(10, 15, 40, 40)];
     [self.containerView addSubview:self.toMesureView];
-    // Set-up code here.
 }
 
 - (void)tearDown
 {
-    // Tear-down code here.
     [self.toMesureView removeFromSuperview];
     self.containerView = nil;
     self.toMesureView = nil;

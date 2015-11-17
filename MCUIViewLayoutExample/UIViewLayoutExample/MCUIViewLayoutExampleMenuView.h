@@ -1,4 +1,4 @@
-// Copyright (c) 2013, Mirego
+// Copyright (c) 2015, Mirego
 // All rights reserved.
 //
 // Redistribution and use in source and binary forms, with or without
@@ -25,13 +25,12 @@
 // ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
 // POSSIBILITY OF SUCH DAMAGE.
 
-
 #import <Foundation/Foundation.h>
-
 
 @interface MCUIViewLayoutExampleMenuView : UIView
 @property(nonatomic, readonly) UIButton *buttonSetPosition;
 @property(nonatomic, readonly) UIButton *buttonSetRelativePosition;
 @property(nonatomic, readonly) UIButton *buttonSetPositionSizeToFit;
 @property(nonatomic, readonly) UIButton *buttonSpecialCases;
+@property(nonatomic, readonly) UIButton *buttonRelativeCenterInParent;
 @end

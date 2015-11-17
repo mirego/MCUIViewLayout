@@ -25,51 +25,8 @@
 // ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
 // POSSIBILITY OF SUCH DAMAGE.
 
-#import "MCUIViewExampleUIFactory.h"
+#import <UIKit/UIKit.h>
 
-//------------------------------------------------------------------------------
-#pragma mark - MCUIViewExampleUIFactory
-//------------------------------------------------------------------------------
-@interface MCUIViewExampleUIFactory ()
+@interface MCUIViewLayoutExampleRelativeCenterInParent : UIView
 
-@end
-
-@implementation MCUIViewExampleUIFactory {
-
-}
-
-//------------------------------------------------------------------------------
-#pragma mark constructors and destructor
-//------------------------------------------------------------------------------
-- (id)init {
-    self = [super init];
-    if (self) {
-
-    }
-
-    return self;
-}
-
-//- (void)dealloc {
-//
-//}
-//------------------------------------------------------------------------------
-#pragma mark setters and getters
-//------------------------------------------------------------------------------
-
-//------------------------------------------------------------------------------
-#pragma mark public methods
-//------------------------------------------------------------------------------
-
-//------------------------------------------------------------------------------
-#pragma mark private methods
-//------------------------------------------------------------------------------
-+ (UILabel *)addLabelWithTitle:(NSString *)title inView:(UIView *)view {
-    UILabel *label = [[UILabel alloc] init];
-    label.text = title;
-    label.textAlignment = NSTextAlignmentCenter;
-    [label sizeToFit];
-    [view addSubview:label];
-    return label;
-}
 @end

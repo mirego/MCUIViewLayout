@@ -1,4 +1,4 @@
-// Copyright (c) 2013, Mirego
+// Copyright (c) 2015, Mirego
 // All rights reserved.
 //
 // Redistribution and use in source and binary forms, with or without
@@ -44,12 +44,10 @@
     self.containerView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 200, 200)];
     self.toPositionView = [[UIView alloc] initWithFrame:CGRectMake(-50, -50, 40, 40)];
     [self.containerView addSubview:self.toPositionView];
-    // Set-up code here.
 }
 
 - (void)tearDown
 {
-    // Tear-down code here.
     [self.toPositionView removeFromSuperview];
     self.containerView = nil;
     self.toPositionView = nil;

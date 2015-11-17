@@ -1,4 +1,4 @@
-// Copyright (c) 2013, Mirego
+// Copyright (c) 2015, Mirego
 // All rights reserved.
 //
 // Redistribution and use in source and binary forms, with or without
@@ -24,6 +24,7 @@
 // CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE)
 // ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
 // POSSIBILITY OF SUCH DAMAGE.
+
 #import <Foundation/Foundation.h>
 
 typedef NS_OPTIONS(NSInteger, MCViewPosition) {
@@ -40,7 +41,12 @@ typedef NS_OPTIONS(NSInteger, MCViewPosition) {
     MCViewPositionUnder            = (0x1 << 9),
 
     MCViewPositionFitWidth         = (0x1 << 20),
-    MCViewPositionFitHeight         = (0x1 << 21),
+    MCViewPositionFitHeight        = (0x1 << 21),
+    
+    MCViewPositionFitParentHeight  = (0x1 << 25),
+    MCViewPositionFitParentWidth   = (0x1 << 26),
+    MCViewPositionHCenterInParent  = (0x1 << 27),
+    MCViewPositionVCenterInParent  = (0x1 << 28),
 
     // Position inside another rect
     MCViewPositionTopLeft       = MCViewPositionTop | MCViewPositionLeft,

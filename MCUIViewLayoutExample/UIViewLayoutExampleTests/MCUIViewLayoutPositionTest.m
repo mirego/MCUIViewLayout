@@ -1,4 +1,4 @@
-// Copyright (c) 2013, Mirego
+// Copyright (c) 2015, Mirego
 // All rights reserved.
 //
 // Redistribution and use in source and binary forms, with or without
@@ -30,12 +30,16 @@
 #import "MCUIViewLayoutPosition.h"
 
 @interface MCUIViewLayoutPositionTest : XCTestCase
-
+@property(nonatomic) CGFloat displayScale;
 @end
 
 
 @implementation MCUIViewLayoutPositionTest
-
+- (void)setUp
+{
+    [super setUp];
+    self.displayScale = [UIScreen mainScreen].scale;
+}
 
 - (void) testLeftInRectNoMargin {
     CGRect rect = [MCUIViewLayoutPosition positionRect:CGRectMake(1000, 1000, 20, 20) atPosition:MCViewPositionLeft inRect:CGRectMake(100, 100, 100, 100) withMargins:UIEdgeInsetsZero];
@@ -329,6 +333,27 @@
     CGRect rect = [MCUIViewLayoutPosition positionRect:CGRectMake(1000, 1000, 20, 20) atPosition:MCViewPositionFitWidth inRect:CGRectMake(100, 100, 100, 100) withMargins:UIEdgeInsetsMake(0,10,0,5)];
 
     XCTAssertTrue(rectEquals(110.0f, 1000.0f, 85.0f, 20.0f, rect), @"");
+}
+
+- (void)testCeilFloatToDisplayScale
+{
+    CGFloat ceiledFloat = [MCUIViewLayoutPosition ceilFloatToDisplayScale:1.33];
+    if (self.displayScale > 1.0f) {
+        XCTAssertEqual(ceiledFloat, 1.5f);
+    } else {
+        XCTAssertEqual(ceiledFloat, 2.0f);
+    }
+
+}
+
+- (void)testFloorFloatToDisplayScale
+{
+    CGFloat flooredFloat = [MCUIViewLayoutPosition floorFloatToDisplayScale:1.75];
+    if (self.displayScale > 1.0f) {
+        XCTAssertEqual(flooredFloat, 1.5f);
+    } else {
+        XCTAssertEqual(flooredFloat, 1.0f);
+    }
 }
 
 @end
