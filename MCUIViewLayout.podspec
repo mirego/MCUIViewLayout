@@ -9,4 +9,5 @@ Pod::Spec.new do |s|
   s.source_files = 'MCUIViewLayout/*.{h,m}'
   s.requires_arc = true
   s.platform = :ios, '5.0'
+  s.tvos.deployment_target = '9.0'
 end
