@@ -87,6 +87,8 @@ typedef NS_OPTIONS(NSInteger, MCViewPosition) {
 
 + (CGFloat)ceilFloatToDisplayScale:(CGFloat)number;
 
++ (CGFloat)roundFloatToDisplayScale:(CGFloat)number;
+
 + (CGFloat)floorFloatToDisplayScale:(CGFloat)number;
 
 @end

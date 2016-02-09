@@ -29,7 +29,7 @@
 
 @implementation MCUIViewLayoutPosition
 CGFloat (^_ceilFloatToDisplayScale)(CGFloat x);
-
+CGFloat (^_roundFloatToDisplayScale)(CGFloat x);
 CGFloat (^_floorFloatToDisplayScale)(CGFloat x);
 
 + (void)load {
@@ -40,12 +40,18 @@ CGFloat (^_floorFloatToDisplayScale)(CGFloat x);
         _ceilFloatToDisplayScale = ^(CGFloat x) {
             return ceilf(x * displayScale) * displayScaleInv;
         };
+        _roundFloatToDisplayScale = ^(CGFloat x) {
+            return roundf(x * displayScale) * displayScaleInv;
+        };
         _floorFloatToDisplayScale = ^(CGFloat x) {
             return floorf(x * displayScale) * displayScaleInv;
         };
     } else {
         _ceilFloatToDisplayScale = ^(CGFloat x) {
             return (CGFloat)ceilf(x);
+        };
+        _roundFloatToDisplayScale = ^(CGFloat x) {
+            return (CGFloat)roundf(x);
         };
         _floorFloatToDisplayScale = ^(CGFloat x) {
             return (CGFloat)floorf(x);
@@ -200,6 +206,10 @@ CGFloat (^_floorFloatToDisplayScale)(CGFloat x);
 
 + (CGFloat)ceilFloatToDisplayScale:(CGFloat)number {
     return _ceilFloatToDisplayScale(number);
+}
+
++ (CGFloat)roundFloatToDisplayScale:(CGFloat)number {
+    return _roundFloatToDisplayScale(number);
 }
 
 + (CGFloat)floorFloatToDisplayScale:(CGFloat)number {

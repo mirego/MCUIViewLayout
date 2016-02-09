@@ -36,6 +36,12 @@
 
 @implementation UIView_MCLayoutSizeAndPositionBaseMethodTest
 
+CGFloat onePixel;
+
++ (void)load {
+    onePixel = 1.0f / [UIScreen mainScreen].scale;
+}
+
 - (void)setUp {
     [super setUp];
     self.containerView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 200, 200)];
@@ -62,7 +68,9 @@
 
 - (void)testMCSetSizeWithDecimalDimensionsBelowPointFiveShouldCeilToTheHighestValue {
     [self.toMesureView mc_setSize:CGSizeMake(50.04, 50.6)];
-    XCTAssertTrue(sizeEquals(51, 51, [self.toMesureView mc_size]), @"");
+    CGFloat newWidth = ceilf(50.04 / onePixel) * onePixel;
+    CGFloat newHeight = ceilf(50.6 / onePixel) * onePixel;
+    XCTAssertTrue(sizeEquals(newWidth, newHeight, [self.toMesureView mc_size]), @"");
 }
 
 - (void)testMCGetHeight {
@@ -77,7 +85,7 @@
 
 - (void)testMCSetHeightWithDecimalDimensionsBelowPointFiveShouldCeilToTheHighestValue {
     [self.toMesureView mc_setHeight:46.001f];
-    XCTAssertEqual(47.0f, [self.toMesureView mc_height], @"");
+    XCTAssertEqual(46.0f + onePixel, [self.toMesureView mc_height], @"");
 }
 
 - (void)testMCGetWidth {
@@ -92,7 +100,7 @@
 
 - (void)testMCSetWidthWithDecimalDimensionsBelowPointFiveShouldCeilToTheHighestValue {
     [self.toMesureView mc_setWidth:46.001f];
-    XCTAssertEqual(47.0f, [self.toMesureView mc_width], @"");
+    XCTAssertEqual(46.0f + onePixel, [self.toMesureView mc_width], @"");
 }
 
 - (void)testMCGetOrigin {

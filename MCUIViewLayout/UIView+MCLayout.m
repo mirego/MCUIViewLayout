@@ -25,6 +25,7 @@
 // ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
 // POSSIBILITY OF SUCH DAMAGE.
 
+#import "MCUIViewLayoutPosition.h"
 #import "UIView+MCLayout.h"
 #import "UIView+MCLayoutCalculation.h"
 
@@ -35,7 +36,7 @@
 
 - (void)mc_setWidth:(CGFloat)value {
     CGRect frame = [self frame];
-    frame.size.width = ceilf(value);
+    frame.size.width = [MCUIViewLayoutPosition ceilFloatToDisplayScale:value];
     [self setFrame:frame];
 }
 
@@ -45,14 +46,14 @@
 
 - (void)mc_setHeight:(CGFloat)value {
     CGRect frame = [self frame];
-    frame.size.height = ceilf(value);
+    frame.size.height = [MCUIViewLayoutPosition ceilFloatToDisplayScale:value];
     [self setFrame:frame];
 }
 
 - (void)mc_setSize:(CGSize)size {
     CGRect frame = [self frame];
-    frame.size.width = ceilf(size.width);
-    frame.size.height = ceilf(size.height);
+    frame.size.width = [MCUIViewLayoutPosition ceilFloatToDisplayScale:size.width];
+    frame.size.height = [MCUIViewLayoutPosition ceilFloatToDisplayScale:size.height];
     [self setFrame:frame];
 }
 
@@ -67,7 +68,7 @@
 
 - (void)mc_setOrigin:(CGPoint)point {
     CGRect frame = [self frame];
-    frame.origin = CGPointMake(roundf(point.x), roundf(point.y));
+    frame.origin = CGPointMake([MCUIViewLayoutPosition roundFloatToDisplayScale:point.x], [MCUIViewLayoutPosition roundFloatToDisplayScale:point.y]);
     [self setFrame:frame];
 }
 
