@@ -31,8 +31,8 @@ import UIKit
  Swift wrapper for MCUIViewLayout
  
  Features:
-    * Simplified syntaxe, remove all “mc_()”
-    * Many view properties are exposed as variable in Swift:
+    * Simplified syntax compare to objective-c (remove all “mc_()”)
+    * Many UIView properties are exposed as variable in Swift:
          - width: CGFloat     [read-write]
          - height: CGFloat    [read-write]
          - size: CGSize       [read-write]
