@@ -52,8 +52,6 @@
 - (id)initWithFrame:(CGRect)frame {
     self = [super initWithFrame:frame];
     if (self) {
-        UIColor* swiftColor = [self colorFromHexString:@"#dd4d20"];
-
         self.buttonSetPosition = [UIButton buttonWithType:UIButtonTypeRoundedRect];
         [self.buttonSetPosition setTitle:@"mc_setPosition" forState:UIControlStateNormal];
         [self.buttonSetPosition sizeToFit];
@@ -61,7 +59,7 @@
 
         self.buttonSetPositionSwift = [UIButton buttonWithType:UIButtonTypeRoundedRect];
         [self.buttonSetPositionSwift setTitle:@"setPosition [Swift]" forState:UIControlStateNormal];
-        [self.buttonSetPositionSwift setTitleColor:swiftColor  forState:UIControlStateNormal];
+        [self.buttonSetPositionSwift setTitleColor:[UIColor orangeColor] forState:UIControlStateNormal];
         [self.buttonSetPositionSwift sizeToFit];
         [self addSubview:self.buttonSetPositionSwift];
 
@@ -132,13 +130,5 @@
 //------------------------------------------------------------------------------
 #pragma mark Private methods
 //------------------------------------------------------------------------------
-
-- (UIColor *)colorFromHexString:(NSString *)hexString {
-    unsigned rgbValue = 0;
-    NSScanner *scanner = [NSScanner scannerWithString:hexString];
-    [scanner setScanLocation:1]; // bypass '#' character
-    [scanner scanHexInt:&rgbValue];
-    return [UIColor colorWithRed:((rgbValue & 0xFF0000) >> 16)/255.0 green:((rgbValue & 0xFF00) >> 8)/255.0 blue:(rgbValue & 0xFF)/255.0 alpha:1.0];
-}
 
 @end

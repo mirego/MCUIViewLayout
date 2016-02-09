@@ -60,7 +60,7 @@ class MCUIViewLayoutExampleSetPositionSwift: UIView
         addGestureRecognizer(UITapGestureRecognizer(target: self, action: "close"))
     }
 
-    required init?(coder aDecoder: NSCoder) {
+    required init(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
 
