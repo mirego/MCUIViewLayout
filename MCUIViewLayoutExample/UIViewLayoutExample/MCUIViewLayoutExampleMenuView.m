@@ -33,6 +33,7 @@
 //------------------------------------------------------------------------------
 @interface MCUIViewLayoutExampleMenuView ()
 @property (nonatomic, readwrite) UIButton *buttonSetPosition;
+@property (nonatomic, readwrite) UIButton *buttonSetPositionSwift;
 @property (nonatomic, readwrite) UIButton *buttonSetRelativePosition;
 @property (nonatomic, readwrite) UIButton *buttonSetPositionSizeToFit;
 @property (nonatomic, readwrite) UIButton *buttonSpecialCases;
@@ -55,6 +56,12 @@
         [self.buttonSetPosition setTitle:@"mc_setPosition" forState:UIControlStateNormal];
         [self.buttonSetPosition sizeToFit];
         [self addSubview:self.buttonSetPosition];
+
+        self.buttonSetPositionSwift = [UIButton buttonWithType:UIButtonTypeRoundedRect];
+        [self.buttonSetPositionSwift setTitle:@"setPosition [Swift]" forState:UIControlStateNormal];
+        [self.buttonSetPositionSwift setTitleColor:[UIColor orangeColor] forState:UIControlStateNormal];
+        [self.buttonSetPositionSwift sizeToFit];
+        [self addSubview:self.buttonSetPositionSwift];
 
         self.buttonSetRelativePosition = [UIButton buttonWithType:UIButtonTypeRoundedRect];
         [self.buttonSetRelativePosition setTitle:@"mc_setPositionRelative" forState:UIControlStateNormal];
@@ -95,8 +102,11 @@
     [super layoutSubviews];
     [self.buttonSetPosition mc_setPosition:MCViewPositionTopHCenter withMargins:UIEdgeInsetsMake(50, 0, 0, 0)];
 
+    [self.buttonSetPositionSwift mc_setRelativePosition:MCViewRelativePositionUnderCentered
+                                                    toView:self.buttonSetPosition withMargins:UIEdgeInsetsZero];
+
     [self.buttonSetRelativePosition mc_setRelativePosition:MCViewRelativePositionUnderCentered
-                                                    toView:self.buttonSetPosition withMargins:UIEdgeInsetsMake(15.0f, 0, 0, 0)];
+                                                    toView:self.buttonSetPositionSwift withMargins:UIEdgeInsetsMake(15.0f, 0, 0, 0)];
 
     [self.buttonSetPositionSizeToFit mc_setRelativePosition:MCViewRelativePositionUnderCentered
                                                      toView:self.buttonSetRelativePosition withMargins:UIEdgeInsetsMake(15.0f, 0, 0, 0)];
