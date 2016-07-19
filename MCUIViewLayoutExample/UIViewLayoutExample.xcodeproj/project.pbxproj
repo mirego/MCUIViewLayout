@@ -39,6 +39,7 @@
 		BF930920665F2EF890D53326 /* MCUIViewLayoutPosition.m in Sources */ = {isa = PBXBuildFile; fileRef = BF93017C2A02E04CC15591BF /* MCUIViewLayoutPosition.m */; };
 		DF05FD5B1C6A5BDD00CA825F /* UIView+MCLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF05FD5A1C6A5BDD00CA825F /* UIView+MCLayout.swift */; };
 		DF05FD5D1C6A5D0B00CA825F /* MCUIViewLayoutExampleSetPositionSwift.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF05FD5C1C6A5D0B00CA825F /* MCUIViewLayoutExampleSetPositionSwift.swift */; };
+		DF16A1751CD7C29A00538C7B /* MCUIViewLayoutExampleSetPositionFitSize.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF16A1741CD7C29A00538C7B /* MCUIViewLayoutExampleSetPositionFitSize.swift */; };
 		FA41FEF91703D35100071708 /* UIView+MCLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = FA41FEF81703D35100071708 /* UIView+MCLayout.m */; };
 /* End PBXBuildFile section */
 
@@ -105,6 +106,7 @@
 		DF05FD591C6A5BDC00CA825F /* UIView-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIView-Bridging-Header.h"; sourceTree = "<group>"; };
 		DF05FD5A1C6A5BDD00CA825F /* UIView+MCLayout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+MCLayout.swift"; sourceTree = "<group>"; };
 		DF05FD5C1C6A5D0B00CA825F /* MCUIViewLayoutExampleSetPositionSwift.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MCUIViewLayoutExampleSetPositionSwift.swift; sourceTree = "<group>"; };
+		DF16A1741CD7C29A00538C7B /* MCUIViewLayoutExampleSetPositionFitSize.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MCUIViewLayoutExampleSetPositionFitSize.swift; sourceTree = "<group>"; };
 		FA41FEF71703D35100071708 /* UIView+MCLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+MCLayout.h"; sourceTree = "<group>"; };
 		FA41FEF81703D35100071708 /* UIView+MCLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+MCLayout.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -171,6 +173,7 @@
 				915CC9F339EE34C5EFB71925 /* MCUIViewLayoutExampleSetPosition.m */,
 				915CC00B966DD189ED394F8E /* MCUIViewLayoutExampleSetPosition.h */,
 				DF05FD5C1C6A5D0B00CA825F /* MCUIViewLayoutExampleSetPositionSwift.swift */,
+				DF16A1741CD7C29A00538C7B /* MCUIViewLayoutExampleSetPositionFitSize.swift */,
 				915CCAFCAE539F379DDA60E1 /* MCUIViewLayoutExampleMenuView.m */,
 				915CCAB334DF61FFB551D7B7 /* MCUIViewLayoutExampleMenuView.h */,
 				915CCB9122A70EB9F47C5BB7 /* MCUIViewLayoutExampleSetRelativePosition.m */,
@@ -337,6 +340,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DF16A1751CD7C29A00538C7B /* MCUIViewLayoutExampleSetPositionFitSize.swift in Sources */,
 				09ABD59216E8ECF300290BB3 /* main.m in Sources */,
 				32B134701BFA75010058FB3A /* MCUIViewLayoutExampleRelativeCenterInParent.m in Sources */,
 				09ABD59616E8ECF300290BB3 /* AppDelegate.m in Sources */,

@@ -70,12 +70,15 @@
 - (void)loadView {
     MCUIViewLayoutExampleMenuView *rootview = [[MCUIViewLayoutExampleMenuView alloc] initWithFrame:[[UIScreen mainScreen] applicationFrame]];
     [rootview.buttonSetPosition addTarget:self action:@selector(showSetPositionExample) forControlEvents:UIControlEventTouchUpInside];
-    [rootview.buttonSetPositionSwift addTarget:self action:@selector(showSetPositionExampleSwift) forControlEvents:UIControlEventTouchUpInside];
-
     [rootview.buttonSetRelativePosition addTarget:self action:@selector(showSetRelativePositionExample) forControlEvents:UIControlEventTouchUpInside];
     [rootview.buttonSetPositionSizeToFit addTarget:self action:@selector(showSetPositionSizeToFitExample) forControlEvents:UIControlEventTouchUpInside];
     [rootview.buttonSpecialCases addTarget:self action:@selector(showSpecialCases) forControlEvents:UIControlEventTouchUpInside];
     [rootview.buttonRelativeCenterInParent addTarget:self action:@selector(showRelativeCenterInParent) forControlEvents:UIControlEventTouchUpInside];
+
+    // Swift
+    [rootview.buttonSetPositionSwift addTarget:self action:@selector(showSetPositionExampleSwift) forControlEvents:UIControlEventTouchUpInside];
+    [rootview.buttonFitSizeSwift addTarget:self action:@selector(showFitSizeExampleSwift) forControlEvents:UIControlEventTouchUpInside];
+
     self.view = rootview;
 }
 
@@ -93,6 +96,12 @@
 
 - (void)showSetPositionExampleSwift {
     UIView *view = [[MCUIViewLayoutExampleSetPositionSwift alloc] initWithFrame:self.view.bounds];
+    view.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
+    [self.view addSubview:view];
+}
+
+- (void)showFitSizeExampleSwift {
+    UIView *view = [[MCUIViewLayoutExampleFitSize alloc] initWithFrame:self.view.bounds];
     view.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
     [self.view addSubview:view];
 }
