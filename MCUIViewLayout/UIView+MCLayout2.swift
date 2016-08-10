@@ -29,55 +29,96 @@ import UIKit
 
 /**
  Swift wrapper for MCUIViewLayout
-
+ 
  Features:
- * Simplified syntax compare to objective-c (remove all “mc_()”)
- * Add/Expose many UIView's properties:
- - width: CGFloat     [read-write]
- - height: CGFloat    [read-write]
- - size: CGSize       [read-write]
- - origin: CGPoint    [read-write]
- - x: CGFloat         [read-write]
- - y: CGFloat         [read-write]
- - maxX: CGFloat      [read-write]
- - maxY: CGFloat      [read-write]
- - minX: CGFloat      [read-write]
- - minY: CGFloat      [read-write]
- - midX: CGFloat      [read-write]
- - midY: CGFloat      [read-write]
+    * Simplified syntax compare to objective-c (remove all “mc_()”)
+    * Add/Expose many UIView's properties:
+         - top/left/bottom/right  (CGFloat)  [get/set]
+         - x/y/width/height       (CGFloat)  [get/set]
+         - size                   (CGSize)   [get/set]
+         - origin                 (CGPoint)  [get/set]
+         - minX/maxY/minY/maxY    (CGFloat)  [get/set]
 
- Examples:
- myChild.size = view.size
- myChild.width = view.width
+        Examples:
+            myChild.size = view.size
+            myChild.width = view.width
 
- * Expose two methods to position UIView easily: setPosition() and setRelativePosition()
+    * Expose two methods to position UIView easily: setPosition() and setRelativePosition()
  */
 // swiftlint:disable variable_name
 
+let displayScale = UIScreen.mainScreen().scale
+
+func roundFloatToDisplayScale(pointValue: CGFloat) -> CGFloat
+{
+    return (round(pointValue * displayScale) / displayScale)
+}
+
+func ceilFloatToDisplayScale(pointValue: CGFloat) -> CGFloat
+{
+    return (round(pointValue * displayScale) / displayScale)
+}
+
+
 extension UIView
 {
-
-    var left: CGFloat {
+    var x: CGFloat {
         set {
-            frame = CGRect(x: pixelIntegral(newValue), y: y, width: width, height: height)
+            frame = CGRect(x: roundFloatToDisplayScale(newValue), y: y, width: width, height: height)
         }
         get {
             return frame.origin.x
         }
     }
 
-    var top: CGFloat {
+    var y: CGFloat {
         set {
-            frame = CGRect(x: x, y: pixelIntegral(newValue), width: width, height: height)
+            frame = CGRect(x: x, y: roundFloatToDisplayScale(newValue), width: width, height: height)
         }
         get {
             return frame.origin.y
         }
     }
 
+    var width: CGFloat {
+        set {
+            frame = CGRect(x: x, y: y, width: ceilFloatToDisplayScale(newValue), height: height)
+        }
+        get {
+            return frame.width
+        }
+    }
+
+    var height: CGFloat {
+        set {
+            frame = CGRect(x: x, y: y, width: width, height: ceilFloatToDisplayScale(newValue))
+        }
+        get {
+            return frame.height
+        }
+    }
+
+    var left: CGFloat {
+        set {
+            x = newValue
+        }
+        get {
+            return x
+        }
+    }
+
+    var top: CGFloat {
+        set {
+            y = newValue
+        }
+        get {
+            return y
+        }
+    }
+
     var right: CGFloat {
         set {
-            x = newValue - width
+            width = newValue - x
         }
         get {
             return frame.maxX
@@ -86,10 +127,47 @@ extension UIView
 
     var bottom: CGFloat {
         set {
-            y = newValue - height
+            height = newValue - y
         }
         get {
             return frame.maxY
+        }
+    }
+
+    var size: CGSize {
+        set {
+            frame = CGRect(x: x, y: y, width: ceilFloatToDisplayScale(newValue.width), height: ceilFloatToDisplayScale(newValue.height))
+        }
+        get {
+            return bounds.size
+        }
+    }
+
+    var origin: CGPoint {
+        set {
+            frame = CGRect(x: roundFloatToDisplayScale(newValue.x), y: roundFloatToDisplayScale(newValue.y), width: width, height: height)
+        }
+
+        get {
+            return frame.origin
+        }
+    }
+
+    var midX: CGFloat {
+        set {
+            center = CGPoint(x: roundFloatToDisplayScale(newValue), y: midY)
+        }
+        get {
+            return frame.midX
+        }
+    }
+
+    var midY: CGFloat {
+        set {
+            center = CGPoint(x: midX, y: roundFloatToDisplayScale(newValue))
+        }
+        get {
+            return frame.midY
         }
     }
 
@@ -184,8 +262,7 @@ extension UIView
         }
     }
 
-    func setPosition2(position: MCViewPosition, inView: UIView? = nil, margins: UIEdgeInsets? = nil, size: CGSize? = nil, fitSize: CGSize? = nil,
-                     newSize: SizeType? = nil)
+    func setPosition2(position: MCViewPosition, inView: UIView? = nil, margins: UIEdgeInsets? = nil, size: CGSize? = nil, fitSize: CGSize? = nil, newSize: SizeType? = nil)
     {
         let inView = inView ?? superview
         let margins = margins ?? UIEdgeInsetsZero
@@ -715,7 +792,6 @@ func test() {
     let secondView = UIView()
     let thirdView = UIView()
 
-    NSLayoutAttribute
     //view.position.width(20).apply()
 
     // view.setPosition(.PositionTopHCenter, margins: .top(positionY), fitSize: CGSize(width: oneLineElementWidth, height: .max))
@@ -728,6 +804,18 @@ func test() {
     // Hugo wish:
     // - Layout C in the center of the A and B views.
 
+    // Philosopy
+    /*
+     - KISS
+     - Less is better
+     - Compact syntax: easier to read and understand
+     - Most view size & position adjustement is a one liner
+     - Simple positionning,
+     - Simply update the UIView.frame property, nothing more, no magic, no contrains :-)
+     - Can always use UIView.frame to adjust the position
+     - Integrates gracefully with UIView animations methods (UIView.animateXXXXX()
+
+    */
 
     // Notes luc
     /*
@@ -747,10 +835,6 @@ func test() {
         OU
         view.bottomRightOf(view2).marginTop(40).marginLeft(10)  (CHECK)
         OU
-
-
-
-
     */
 
     //

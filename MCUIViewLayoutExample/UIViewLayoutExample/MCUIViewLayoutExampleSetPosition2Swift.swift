@@ -31,32 +31,32 @@ class MCUIViewLayoutExampleSetPosition2Swift: UIView
 {
     private let margin: CGFloat = 10
 
-    private let topLeft = UILabel()
-    private let top = UILabel()
-    private let topRight = UILabel()
-    private let left = UILabel()
-    private let centered = UILabel()
-    private let right = UILabel()
-    private let bottomLeft = UILabel()
-    private let bottom = UILabel()
-    private let bottomRight = UILabel()
+    private let topLeftLabel = UILabel()
+    private let topLabel = UILabel()
+    private let topRightLabel = UILabel()
+    private let leftLabel = UILabel()
+    private let centeredLabel = UILabel()
+    private let rightLabel = UILabel()
+    private let bottomLeftLabel = UILabel()
+    private let bottomLabel = UILabel()
+    private let bottomRightLabel = UILabel()
     
     override init(frame: CGRect) {
         super.init(frame: frame)
 
         backgroundColor = .blueColor()
 
-        addLabel(topLeft, title: "topLeft")
-        addLabel(top, title: "top")
-        addLabel(topRight, title: "topRight")
+        addLabel(topLeftLabel, title: "topLeft")
+        addLabel(topLabel, title: "top")
+        addLabel(topRightLabel, title: "topRight")
 
-        addLabel(left, title: "left")
-        addLabel(centered, title: "centered")
-        addLabel(right, title: "right")
+        addLabel(leftLabel, title: "left")
+        addLabel(centeredLabel, title: "centered")
+        addLabel(rightLabel, title: "right")
 
-        addLabel(bottomLeft, title: "bottomLeft")
-        addLabel(bottom, title: "bottom")
-        addLabel(bottomRight, title: "bottomRight")
+        addLabel(bottomLeftLabel, title: "bottomLeft")
+        addLabel(bottomLabel, title: "bottom")
+        addLabel(bottomRightLabel, title: "bottomRight")
 
         addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(MCUIViewLayoutExampleSetPosition2Swift.close)))
     }
@@ -68,36 +68,36 @@ class MCUIViewLayoutExampleSetPosition2Swift: UIView
     override func layoutSubviews() {
         super.layoutSubviews()
 
-        topLeft.position.topLeft.margins(margin).width(200)
-        top.position.topHCenter.margins(margin).height(40)
-        topRight.position.topRight.margins(margin).size(CGSize(width: 100, height: 40))
+        topLeftLabel.position.topLeft.margins(margin).width(200)
+        topLabel.position.topHCenter.margins(margin).height(40)
+        topRightLabel.position.topRight.margins(margin).size(CGSize(width: 100, height: 40))
 
-        left.position.vCenterLeft.margins(margin).sizeThatFitsWidth(100)
-        centered.position.centers.margins(margin).sizeThatFitsHeight(80)
-        right.position.vCenterRight.margins(margin).sizeThatFits(CGSize(width: 40, height: 400))
+        leftLabel.position.leftVCenter.margins(margin).sizeThatFitsWidth(100)
+        centeredLabel.position.center.margins(margin).sizeThatFitsHeight(80)
+        rightLabel.position.rightVCenter.margins(margin).sizeThatFits(CGSize(width: 40, height: 400))
 
         // Reference to other views
-        top.position.topHCenter.margins(margin).matchWidth(topLeft)
-        top.position.topHCenter.margins(margin).matchHeight(topLeft)
-        top.position.topHCenter.margins(margin).matchSize(topLeft)
+        topLabel.position.topHCenter.margins(margin).matchWidth(topLeftLabel)
+        topLabel.position.topHCenter.margins(margin).matchHeight(topLeftLabel)
+        topLabel.position.topHCenter.margins(margin).matchSize(topLeftLabel)
 
-        bottomLeft.position.bottomLeft.margins(margin).sizeThatFitsViewWidth(topLeft)
-        bottom.position.bottomHCenter.margins(margin).sizeThatFitsViewHeight(top)
-        bottomRight.position.bottomRight.margins(margin).sizeThatFitsViewSize(topRight)
+        bottomLeftLabel.position.bottomLeft.margins(margin).sizeThatFitsViewWidth(topLeftLabel)
+        bottomLabel.position.bottomHCenter.margins(margin).sizeThatFitsViewHeight(topLabel)
+        bottomRightLabel.position.bottomRight.margins(margin).sizeThatFitsViewSize(topRightLabel)
 
         
 
         // Resize too
-        topLeft.resize.height(200)
-        topRight.resize.matchHeight(topLeft)
-        topRight.resize.matchWidth(topLeft)
-        topRight.resize.matchSize(topLeft)
-        topRight.resize.sizeThatFitsWidth(400)
+        topLeftLabel.resize.height(200)
+        topRightLabel.resize.heightMatch(topLeftLabel)
+        topRightLabel.resize.widthMatch(topLeftLabel)
+        topRightLabel.resize.matchSize(topLeftLabel)
+        topRightLabel.resize.sizeThatFitsWidth(400)
 
         // Order is irrelevant
-        topLeft.position.topLeft.margins(margin).width(200)
+        topLeftLabel.position.topLeft.margins(margin).width(200)
         // is similar to
-        topLeft.position.width(200).margins(margin).topLeft
+        topLeftLabel.position.width(200).margins(margin).topLeft
 
 
 //        OR

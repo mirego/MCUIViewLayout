@@ -50,87 +50,16 @@ import UIKit
             myChild.size = view.size
             myChild.width = view.width
 
-    * Only expose two methods to position UIView easily:  setPosition() and setRelativePosition()
-            Optional parameters: margins and size parameters are optionals, so they can be omitted.
-
-        Examples:
-            myChild.setPosition(.PositionTopHCenter)
-            myChild.setPosition(.PositionTopHCenter, size: CGSize(width: 10, height: 10))
-            myChild.setPosition(.PositionTopLeft, size: CGSize(width: parentView.width / 2, height: parentView.height / 2))
- 
-            myChild.setRelativePosition(.RelativePositionUnderCentered, toView: previousView, margins: UIEdgeInsets(top: 10, left: 0, bottom: 0, right: 0))
+    * Expose two methods to position UIView easily: setPosition() and setRelativePosition()
 */
 // swiftlint:disable variable_name
 
-func pixelIntegral(pointValue: CGFloat) -> CGFloat
-{
-    let scale = UIScreen.mainScreen().scale
-    return (round(pointValue * scale) / scale)
-}
-
 extension UIView
 {
-    var width: CGFloat {
-        set {
-            mc_setWidth(newValue)
-        }
-
-        get {
-            return bounds.width
-        }
-    }
-
-    var height: CGFloat {
-        set {
-            mc_setHeight(newValue)
-        }
-
-        get {
-            return bounds.height
-        }
-    }
-
-    var size: CGSize {
-        set {
-            mc_setSize(newValue)
-        }
-
-        get {
-            return bounds.size
-        }
-    }
-
-    var origin: CGPoint {
-        set {
-            mc_setOrigin(newValue)
-        }
-
-        get {
-            return frame.origin
-        }
-    }
-
-    var x: CGFloat {
-        set {
-            frame = CGRect(x: pixelIntegral(newValue), y: y, width: width, height: height)
-        }
-        get {
-            return frame.origin.x
-        }
-    }
-
-    var y: CGFloat {
-        set {
-            frame = CGRect(x: x, y: pixelIntegral(newValue), width: width, height: height)
-        }
-        get {
-            return frame.origin.y
-        }
-    }
-
+    
     var maxX: CGFloat {
         set {
-            x = newValue - width
+            mc_setOrigin(CGPoint(x: newValue - width, y: y))
         }
         get {
             return frame.maxX
@@ -139,7 +68,7 @@ extension UIView
 
     var maxY: CGFloat {
         set {
-            y = newValue - height
+            mc_setOrigin(CGPoint(x: x, y: newValue - height))
         }
         get {
             return frame.maxY
@@ -164,39 +93,64 @@ extension UIView
         }
     }
 
-    var midX: CGFloat {
-        set {
-            center = CGPoint(x: newValue, y: midY)
-        }
-        get {
-            return frame.midX
-        }
-    }
 
-    var midY: CGFloat {
-        set {
-            center = CGPoint(x: midX, y: newValue)
-        }
-        get {
-            return frame.midY
-        }
-    }
+    /**
+     Position the view
 
-    func setPosition(position: MCViewPosition, inView: UIView? = nil, margins: UIEdgeInsets? = nil, size: CGSize? = nil)
+     - parameter position: see MCViewPosition
+     - parameter inView:   Optional relative view. Default value is view's superview.
+     - parameter margins:  Optional margins.
+     - parameter size:     Optional view new size. By default keeps the current view size.
+     - parameter fitSize:  Optional size to fit. If specified the view sizeThatFits() method will be called using the specified size and the result
+                           will be use to set the view size.
+     
+     Examples:
+         myChild.setPosition(.PositionTopHCenter)
+         myChild.setPosition(.PositionTopHCenter, size: CGSize(width: 200, height: 40))
+         myChild.setPosition(.PositionTopLeft, size: CGSize(width: width / 2, height: height / 2))
+         myChild.setPosition(.PositionTopLeft, fitSize: CGSize(width: width, height: .max))
+     */
+    func setPosition(position: MCViewPosition, inView: UIView? = nil, margins: UIEdgeInsets? = nil, size: CGSize? = nil, fitSize: CGSize? = nil)
     {
         let inView = inView ?? superview
         let margins = margins ?? UIEdgeInsetsZero
-        let size = size ?? frame.size
+        var size = size
 
-        mc_setPosition(position, inView:inView, withMargins: margins, size:size)
+        if let fitSize = fitSize {
+            assert(size == nil, "If 'fitSize' param is specified, 'size' param will be ignored!")
+            size = sizeThatFits(fitSize)
+        }
+
+        mc_setPosition(position, inView:inView, withMargins: margins, size: size ?? frame.size)
     }
 
-    func setRelativePosition(position: MCViewPosition, toView: UIView?, margins: UIEdgeInsets? = nil, size: CGSize? = nil)
+    /**
+     Position the view relative to another view.
+
+     - parameter position: see MCViewPosition
+     - parameter toView:   The view from which the view will be relatively positioned.
+     - parameter margins:  Optional margins.
+     - parameter size:     Optional view new size. By default keeps the current view size.
+     - parameter fitSize:  Optional size to fit. If specified the view sizeThatFits() method will be called using the specified and the result
+                           will be use to set the view size.
+
+     Examples:
+         myChild.setRelativePosition(.RelativePositionUnderCentered, toView: previousView)
+         myChild.setRelativePosition(.RelativePositionUnderCentered, toView: previousView, size: CGSize(width: 200, height: 40))
+         myChild.setRelativePosition(.RelativePositionUnderCentered, toView: previousView, margins: UIEdgeInsets(top: 10, left: 0, bottom: 0, right: 0))
+         myChild.setRelativePosition(.RelativePositionUnderCentered, toView: previousView, fitSize: CGSize(width: width, height: .max))
+     */
+    func setRelativePosition(position: MCViewPosition, toView: UIView?, margins: UIEdgeInsets? = nil, size: CGSize? = nil, fitSize: CGSize? = nil)
     {
         let margins = margins ?? UIEdgeInsetsZero
-        let size = size ?? frame.size
+        var size = size
 
-        mc_setRelativePosition(position, toView:toView, withMargins: margins, size:size)
+        if let fitSize = fitSize {
+            assert(size == nil, "If 'fitSize' param is specified, 'size' param will be ignored!")
+            size = sizeThatFits(fitSize)
+        }
+
+        mc_setRelativePosition(position, toView:toView, withMargins: margins, size: size ?? frame.size)
     }
 }
 // swiftlint:enable variable_name
