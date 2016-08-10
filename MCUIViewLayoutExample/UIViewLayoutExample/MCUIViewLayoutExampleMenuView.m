@@ -33,11 +33,13 @@
 //------------------------------------------------------------------------------
 @interface MCUIViewLayoutExampleMenuView ()
 @property (nonatomic, readwrite) UIButton *buttonSetPosition;
-@property (nonatomic, readwrite) UIButton *buttonSetPositionSwift;
 @property (nonatomic, readwrite) UIButton *buttonSetRelativePosition;
 @property (nonatomic, readwrite) UIButton *buttonSetPositionSizeToFit;
 @property (nonatomic, readwrite) UIButton *buttonSpecialCases;
 @property (nonatomic, readwrite) UIButton *buttonRelativeCenterInParent;
+@property (nonatomic, readwrite) UIButton *buttonSetPositionSwift;
+@property (nonatomic, readwrite) UIButton *buttonSetPosition2Swift;
+@property (nonatomic, readwrite) UIButton *buttonFitSizeSwift;
 @end
 
 //------------------------------------------------------------------------------
@@ -56,12 +58,6 @@
         [self.buttonSetPosition setTitle:@"mc_setPosition" forState:UIControlStateNormal];
         [self.buttonSetPosition sizeToFit];
         [self addSubview:self.buttonSetPosition];
-
-        self.buttonSetPositionSwift = [UIButton buttonWithType:UIButtonTypeRoundedRect];
-        [self.buttonSetPositionSwift setTitle:@"setPosition [Swift]" forState:UIControlStateNormal];
-        [self.buttonSetPositionSwift setTitleColor:[UIColor orangeColor] forState:UIControlStateNormal];
-        [self.buttonSetPositionSwift sizeToFit];
-        [self addSubview:self.buttonSetPositionSwift];
 
         self.buttonSetRelativePosition = [UIButton buttonWithType:UIButtonTypeRoundedRect];
         [self.buttonSetRelativePosition setTitle:@"mc_setPositionRelative" forState:UIControlStateNormal];
@@ -82,6 +78,24 @@
         [self.buttonRelativeCenterInParent setTitle:@"mc_RelativeCenterInParent" forState:UIControlStateNormal];
         [self.buttonRelativeCenterInParent sizeToFit];
         [self addSubview:self.buttonRelativeCenterInParent];
+
+        self.buttonSetPositionSwift = [UIButton buttonWithType:UIButtonTypeRoundedRect];
+        [self.buttonSetPositionSwift setTitle:@"setPosition [Swift]" forState:UIControlStateNormal];
+        [self.buttonSetPositionSwift setTitleColor:[UIColor orangeColor] forState:UIControlStateNormal];
+        [self.buttonSetPositionSwift sizeToFit];
+        [self addSubview:self.buttonSetPositionSwift];
+
+        self.buttonSetPosition2Swift = [UIButton buttonWithType:UIButtonTypeRoundedRect];
+        [self.buttonSetPosition2Swift setTitle:@"setPosition [Swift]" forState:UIControlStateNormal];
+        [self.buttonSetPosition2Swift setTitleColor:[UIColor orangeColor] forState:UIControlStateNormal];
+        [self.buttonSetPosition2Swift sizeToFit];
+        [self addSubview:self.buttonSetPosition2Swift];
+
+        self.buttonFitSizeSwift = [UIButton buttonWithType:UIButtonTypeRoundedRect];
+        [self.buttonFitSizeSwift setTitle:@"FitSize [Swift]" forState:UIControlStateNormal];
+        [self.buttonFitSizeSwift setTitleColor:[UIColor orangeColor] forState:UIControlStateNormal];
+        [self.buttonFitSizeSwift sizeToFit];
+        [self addSubview:self.buttonFitSizeSwift];
     }
     return self;
 }
@@ -114,6 +128,16 @@
                                              toView:self.buttonSetPositionSizeToFit withMargins:UIEdgeInsetsMake(15.0f, 0, 0, 0)];
     [self.buttonRelativeCenterInParent mc_setRelativePosition:MCViewRelativePositionUnderCentered | MCViewPositionFitWidth
                                                        toView:self.buttonSpecialCases withMargins:UIEdgeInsetsMake(15.0f, 0, 0, 0)];
+
+    // Swift
+    [self.buttonSetPositionSwift mc_setRelativePosition:MCViewRelativePositionUnderCentered | MCViewPositionFitWidth
+                                                 toView:self.buttonRelativeCenterInParent withMargins:UIEdgeInsetsMake(15.0f, 0, 0, 0)];
+
+    [self.buttonFitSizeSwift mc_setRelativePosition:MCViewRelativePositionUnderCentered | MCViewPositionFitWidth
+                                             toView:self.buttonSetPositionSwift withMargins:UIEdgeInsetsMake(15.0f, 0, 0, 0)];
+[self.buttonSetPosition2Swift mc_setRelativePosition:MCViewRelativePositionUnderCentered | MCViewPositionFitWidth
+                                                 toView:self.buttonFitSizeSwift withMargins:UIEdgeInsetsMake(15.0f, 0, 0, 0)];
+
 }
 
 //------------------------------------------------------------------------------

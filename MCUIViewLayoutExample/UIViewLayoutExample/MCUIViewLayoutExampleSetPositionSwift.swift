@@ -57,7 +57,7 @@ class MCUIViewLayoutExampleSetPositionSwift: UIView
         addLabel(bottom, title: "bottom")
         addLabel(bottomRight, title: "bottomRight")
 
-        addGestureRecognizer(UITapGestureRecognizer(target: self, action: "close"))
+        addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(MCUIViewLayoutExampleSetPositionSwift.close)))
     }
 
     required init(coder aDecoder: NSCoder) {

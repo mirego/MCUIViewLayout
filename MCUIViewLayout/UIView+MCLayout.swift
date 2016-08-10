@@ -32,19 +32,19 @@ import UIKit
  
  Features:
     * Simplified syntax compare to objective-c (remove all “mc_()”)
-    * Many UIView properties are exposed as variable in Swift:
+    * Add/Expose many UIView's properties:
          - width: CGFloat     [read-write]
          - height: CGFloat    [read-write]
          - size: CGSize       [read-write]
          - origin: CGPoint    [read-write]
-         - xPosition: CGFloat [read only]
-         - yPosition: CGFloat [read only]
-         - maxX: CGFloat      [read only]
-         - maxY: CGFloat      [read only]
-         - minX: CGFloat      [read only]
-         - minY: CGFloat      [read only]
-         - midX: CGFloat      [read only]
-         - midY: CGFloat      [read only]
+         - x: CGFloat         [read-write]
+         - y: CGFloat         [read-write]
+         - maxX: CGFloat      [read-write]
+         - maxY: CGFloat      [read-write]
+         - minX: CGFloat      [read-write]
+         - minY: CGFloat      [read-write]
+         - midX: CGFloat      [read-write]
+         - midY: CGFloat      [read-write]
 
         Examples:
             myChild.size = view.size
@@ -60,6 +60,14 @@ import UIKit
  
             myChild.setRelativePosition(.RelativePositionUnderCentered, toView: previousView, margins: UIEdgeInsets(top: 10, left: 0, bottom: 0, right: 0))
 */
+// swiftlint:disable variable_name
+
+func pixelIntegral(pointValue: CGFloat) -> CGFloat
+{
+    let scale = UIScreen.mainScreen().scale
+    return (round(pointValue * scale) / scale)
+}
+
 extension UIView
 {
     var width: CGFloat {
@@ -102,36 +110,76 @@ extension UIView
         }
     }
 
-    var xPosition: CGFloat {
-        return frame.origin.x
+    var x: CGFloat {
+        set {
+            frame = CGRect(x: pixelIntegral(newValue), y: y, width: width, height: height)
+        }
+        get {
+            return frame.origin.x
+        }
     }
 
-    var yPosition: CGFloat {
-        return frame.origin.y
+    var y: CGFloat {
+        set {
+            frame = CGRect(x: x, y: pixelIntegral(newValue), width: width, height: height)
+        }
+        get {
+            return frame.origin.y
+        }
     }
 
     var maxX: CGFloat {
-        return frame.maxX
+        set {
+            x = newValue - width
+        }
+        get {
+            return frame.maxX
+        }
     }
 
     var maxY: CGFloat {
-        return frame.maxY
+        set {
+            y = newValue - height
+        }
+        get {
+            return frame.maxY
+        }
     }
 
     var minX: CGFloat {
-        return frame.minX
+        set {
+            x = newValue
+        }
+        get {
+            return frame.minX
+        }
     }
 
     var minY: CGFloat {
-        return frame.minY
+        set {
+            y = newValue
+        }
+        get {
+            return frame.minY
+        }
     }
 
     var midX: CGFloat {
-        return frame.midX
+        set {
+            center = CGPoint(x: newValue, y: midY)
+        }
+        get {
+            return frame.midX
+        }
     }
 
     var midY: CGFloat {
-        return frame.midY
+        set {
+            center = CGPoint(x: midX, y: newValue)
+        }
+        get {
+            return frame.midY
+        }
     }
 
     func setPosition(position: MCViewPosition, inView: UIView? = nil, margins: UIEdgeInsets? = nil, size: CGSize? = nil)
@@ -151,3 +199,4 @@ extension UIView
         mc_setRelativePosition(position, toView:toView, withMargins: margins, size:size)
     }
 }
+// swiftlint:enable variable_name

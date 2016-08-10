@@ -39,6 +39,10 @@
 		BF930920665F2EF890D53326 /* MCUIViewLayoutPosition.m in Sources */ = {isa = PBXBuildFile; fileRef = BF93017C2A02E04CC15591BF /* MCUIViewLayoutPosition.m */; };
 		DF05FD5B1C6A5BDD00CA825F /* UIView+MCLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF05FD5A1C6A5BDD00CA825F /* UIView+MCLayout.swift */; };
 		DF05FD5D1C6A5D0B00CA825F /* MCUIViewLayoutExampleSetPositionSwift.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF05FD5C1C6A5D0B00CA825F /* MCUIViewLayoutExampleSetPositionSwift.swift */; };
+		DF16A1751CD7C29A00538C7B /* MCUIViewLayoutExampleSetPositionFitSize.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF16A1741CD7C29A00538C7B /* MCUIViewLayoutExampleSetPositionFitSize.swift */; };
+		DF55F8FC1D57E619005495F8 /* UIView+MCLayout2.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF55F8FB1D57E619005495F8 /* UIView+MCLayout2.swift */; };
+		DF55F8FE1D57E6A1005495F8 /* UIEdgeInsets+MCLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF55F8FD1D57E6A1005495F8 /* UIEdgeInsets+MCLayout.swift */; };
+		DF55F9001D57E75F005495F8 /* MCUIViewLayoutExampleSetPosition2Swift.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF55F8FF1D57E75F005495F8 /* MCUIViewLayoutExampleSetPosition2Swift.swift */; };
 		FA41FEF91703D35100071708 /* UIView+MCLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = FA41FEF81703D35100071708 /* UIView+MCLayout.m */; };
 /* End PBXBuildFile section */
 
@@ -105,6 +109,10 @@
 		DF05FD591C6A5BDC00CA825F /* UIView-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIView-Bridging-Header.h"; sourceTree = "<group>"; };
 		DF05FD5A1C6A5BDD00CA825F /* UIView+MCLayout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+MCLayout.swift"; sourceTree = "<group>"; };
 		DF05FD5C1C6A5D0B00CA825F /* MCUIViewLayoutExampleSetPositionSwift.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MCUIViewLayoutExampleSetPositionSwift.swift; sourceTree = "<group>"; };
+		DF16A1741CD7C29A00538C7B /* MCUIViewLayoutExampleSetPositionFitSize.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MCUIViewLayoutExampleSetPositionFitSize.swift; sourceTree = "<group>"; };
+		DF55F8FB1D57E619005495F8 /* UIView+MCLayout2.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+MCLayout2.swift"; sourceTree = "<group>"; };
+		DF55F8FD1D57E6A1005495F8 /* UIEdgeInsets+MCLayout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIEdgeInsets+MCLayout.swift"; sourceTree = "<group>"; };
+		DF55F8FF1D57E75F005495F8 /* MCUIViewLayoutExampleSetPosition2Swift.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MCUIViewLayoutExampleSetPosition2Swift.swift; sourceTree = "<group>"; };
 		FA41FEF71703D35100071708 /* UIView+MCLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+MCLayout.h"; sourceTree = "<group>"; };
 		FA41FEF81703D35100071708 /* UIView+MCLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+MCLayout.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -171,6 +179,8 @@
 				915CC9F339EE34C5EFB71925 /* MCUIViewLayoutExampleSetPosition.m */,
 				915CC00B966DD189ED394F8E /* MCUIViewLayoutExampleSetPosition.h */,
 				DF05FD5C1C6A5D0B00CA825F /* MCUIViewLayoutExampleSetPositionSwift.swift */,
+				DF55F8FF1D57E75F005495F8 /* MCUIViewLayoutExampleSetPosition2Swift.swift */,
+				DF16A1741CD7C29A00538C7B /* MCUIViewLayoutExampleSetPositionFitSize.swift */,
 				915CCAFCAE539F379DDA60E1 /* MCUIViewLayoutExampleMenuView.m */,
 				915CCAB334DF61FFB551D7B7 /* MCUIViewLayoutExampleMenuView.h */,
 				915CCB9122A70EB9F47C5BB7 /* MCUIViewLayoutExampleSetRelativePosition.m */,
@@ -227,6 +237,8 @@
 				FA41FEF71703D35100071708 /* UIView+MCLayout.h */,
 				FA41FEF81703D35100071708 /* UIView+MCLayout.m */,
 				DF05FD5A1C6A5BDD00CA825F /* UIView+MCLayout.swift */,
+				DF55F8FB1D57E619005495F8 /* UIView+MCLayout2.swift */,
+				DF55F8FD1D57E6A1005495F8 /* UIEdgeInsets+MCLayout.swift */,
 				BF930D8EB447693A4A094EA0 /* MCUIViewLayoutPosition.h */,
 				BF93017C2A02E04CC15591BF /* MCUIViewLayoutPosition.m */,
 				325169C81BF685D900038FAF /* UIView+MCLayoutCalculation.h */,
@@ -337,19 +349,23 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DF16A1751CD7C29A00538C7B /* MCUIViewLayoutExampleSetPositionFitSize.swift in Sources */,
 				09ABD59216E8ECF300290BB3 /* main.m in Sources */,
 				32B134701BFA75010058FB3A /* MCUIViewLayoutExampleRelativeCenterInParent.m in Sources */,
 				09ABD59616E8ECF300290BB3 /* AppDelegate.m in Sources */,
 				FA41FEF91703D35100071708 /* UIView+MCLayout.m in Sources */,
 				915CC234176C38B004A184DA /* MCUIViewLayoutRootController.m in Sources */,
 				915CCC00441E907727365383 /* MCUIViewLayoutExampleSetPosition.m in Sources */,
+				DF55F8FC1D57E619005495F8 /* UIView+MCLayout2.swift in Sources */,
 				DF05FD5D1C6A5D0B00CA825F /* MCUIViewLayoutExampleSetPositionSwift.swift in Sources */,
 				915CCA7A367EF8173AB5D7E3 /* MCUIViewLayoutExampleMenuView.m in Sources */,
+				DF55F9001D57E75F005495F8 /* MCUIViewLayoutExampleSetPosition2Swift.swift in Sources */,
 				915CCD3D1192C7EE590BBBC3 /* MCUIViewLayoutExampleSetRelativePosition.m in Sources */,
 				915CC1C38A309CC53EF0A7BC /* MCUIViewExampleUIFactory.m in Sources */,
 				BF930920665F2EF890D53326 /* MCUIViewLayoutPosition.m in Sources */,
 				325169CA1BF685D900038FAF /* UIView+MCLayoutCalculation.m in Sources */,
 				DF05FD5B1C6A5BDD00CA825F /* UIView+MCLayout.swift in Sources */,
+				DF55F8FE1D57E6A1005495F8 /* UIEdgeInsets+MCLayout.swift in Sources */,
 				915CC036C17BE1BC5CCE2517 /* UIView+MCLayoutDeprecated.m in Sources */,
 				915CCAB408003F7D205D454C /* MCUIViewLayoutExampleSetPositionSizeToFit.m in Sources */,
 				915CC73967A80F9F4CC9355B /* MCUIViewLayoutExampleSpecialCases.m in Sources */,
