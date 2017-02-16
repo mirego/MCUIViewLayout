@@ -44,7 +44,7 @@ class MCUIViewLayoutExampleSetPositionSwift: UIView
     override init(frame: CGRect) {
         super.init(frame: frame)
 
-        backgroundColor = .blueColor()
+        backgroundColor = .blue
 
         addLabel(topLeftLabel, title: "topLeft")
         addLabel(topLabel, title: "top")
@@ -69,20 +69,20 @@ class MCUIViewLayoutExampleSetPositionSwift: UIView
 
         let margins = UIEdgeInsets(top: margin, left: margin, bottom: margin, right: margin)
 
-        topLeftLabel.setPosition(.PositionTopLeft, margins: margins)
-        topLabel.setPosition(.PositionTopHCenter, margins: margins)
-        topRightLabel.setPosition(.PositionTopRight, margins: margins)
-        leftLabel.setPosition(.PositionVCenterLeft, margins: margins)
-        centeredLabel.setPosition(.PositionCenters, margins: margins)
-        rightLabel.setPosition(.PositionVCenterRight, margins: margins)
-        bottomLeftLabel.setPosition(.PositionBottomLeft, margins: margins)
-        bottomLabel.setPosition(.PositionBottomHCenter, margins: margins)
-        bottomRightLabel.setPosition(.PositionBottomRight, margins: margins)
+        topLeftLabel.setPosition(.positionTopLeft, margins: margins)
+        topLabel.setPosition(.positionTopHCenter, margins: margins)
+        topRightLabel.setPosition(.positionTopRight, margins: margins)
+        leftLabel.setPosition(.positionVCenterLeft, margins: margins)
+        centeredLabel.setPosition(.positionCenters, margins: margins)
+        rightLabel.setPosition(.positionVCenterRight, margins: margins)
+        bottomLeftLabel.setPosition(.positionBottomLeft, margins: margins)
+        bottomLabel.setPosition(.positionBottomHCenter, margins: margins)
+        bottomRightLabel.setPosition(.positionBottomRight, margins: margins)
     }
 
-    private func addLabel(label: UILabel, title: String) {
+    private func addLabel(_ label: UILabel, title: String) {
         label.text = title
-        label.textAlignment = .Center
+        label.textAlignment = .center
         label.sizeToFit()
 
         addSubview(label)

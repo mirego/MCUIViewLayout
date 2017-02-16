@@ -25,35 +25,29 @@
 // ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
 // POSSIBILITY OF SUCH DAMAGE.
 
-import Foundation
+import UIKit
 
 
-public extension UIEdgeInsets
-{
-    static public var zero: UIEdgeInsets { return UIEdgeInsetsZero }
+public extension UIEdgeInsets {
+    static public var zero: UIEdgeInsets { return UIEdgeInsets.zero }
 
-    static public func top(margin: CGFloat) -> UIEdgeInsets
-    {
+    static public func top(_ margin: CGFloat) -> UIEdgeInsets {
         return UIEdgeInsets(top: margin, left: 0, bottom: 0, right: 0)
     }
 
-    static public func left(margin: CGFloat) -> UIEdgeInsets
-    {
+    static public func left(_ margin: CGFloat) -> UIEdgeInsets {
         return UIEdgeInsets(top: 0, left: margin, bottom: 0, right: 0)
     }
 
-    static public func bottom(margin: CGFloat) -> UIEdgeInsets
-    {
+    static public func bottom(_ margin: CGFloat) -> UIEdgeInsets {
         return UIEdgeInsets(top: 0, left: 0, bottom: margin, right: 0)
     }
 
-    static public func right(margin: CGFloat) -> UIEdgeInsets
-    {
+    static public func right(_ margin: CGFloat) -> UIEdgeInsets {
         return UIEdgeInsets(top: 0, left: 0, bottom: 0, right: margin)
     }
 
-    static func margins(margin: CGFloat) -> UIEdgeInsets
-    {
+    static func margins(_ margin: CGFloat) -> UIEdgeInsets {
         return UIEdgeInsets(top: margin, left: margin, bottom: margin, right: margin)
     }
 
@@ -73,8 +67,7 @@ public extension UIEdgeInsets
 
      - returns: UIEdgeInsets
      */
-    static public func margins(top top: CGFloat = 0, left: CGFloat = 0, bottom: CGFloat = 0, right: CGFloat = 0) -> UIEdgeInsets
-    {
+    static public func margins(top: CGFloat = 0, left: CGFloat = 0, bottom: CGFloat = 0, right: CGFloat = 0) -> UIEdgeInsets {
         return UIEdgeInsets(top: top, left: left, bottom: bottom, right: right)
     }
 

@@ -47,36 +47,40 @@ import UIKit
  */
 // swiftlint:disable variable_name
 
-let displayScale = UIScreen.main.scale
+let displayScale = UIScreen.mainScreen().scale
 
-func roundFloatToDisplayScale(_ pointValue: CGFloat) -> CGFloat {
+func roundFloatToDisplayScale(pointValue: CGFloat) -> CGFloat
+{
     return (round(pointValue * displayScale) / displayScale)
 }
 
-func ceilFloatToDisplayScale(_ pointValue: CGFloat) -> CGFloat {
+func ceilFloatToDisplayScale(pointValue: CGFloat) -> CGFloat
+{
     return (round(pointValue * displayScale) / displayScale)
 }
 
 internal var logConflictsAndWarnings = true
 
-func logConflictsAndWarnings(_ log: Bool) {
+func logConflictsAndWarnings(log: Bool)
+{
     logConflictsAndWarnings = log
 }
 
-func warnings(_ text: String) {
+func warnings(text: String) {
     if logConflictsAndWarnings {
         print("WARNING: " + text)
     }
 }
 
-func conflict(_ text: String) {
+func conflict(text: String) {
     if logConflictsAndWarnings {
         print("CONFLICT: " + text)
     }
 }
 
 
-extension UIView {
+extension UIView
+{
     var x: CGFloat {
         set {
             frame = CGRect(x: roundFloatToDisplayScale(newValue), y: y, width: width, height: height)
@@ -202,81 +206,85 @@ extension UIView {
      myChild.setPosition(.PositionTopLeft, size: CGSize(width: width / 2, height: height / 2))
      myChild.setPosition(.PositionTopLeft, fitSize: CGSize(width: width, height: .max))
      */
-    enum FitSizeType {
-        case width(width: CGFloat)
-        case height(height: CGFloat)
-        case size(size: CGSize)
-        case sizeWH(width: CGFloat, height: CGFloat)
+    enum FitSizeType
+    {
+        case Width(width: CGFloat)
+        case Height(height: CGFloat)
+        case Size(size: CGSize)
+        case SizeWH(width: CGFloat, height: CGFloat)
 
         func getSize() -> CGSize
         {
             switch self {
-            case .width(let width):
-                return CGSize(width: width, height: .greatestFiniteMagnitude)
-            case .height(let height):
-                return CGSize(width: .greatestFiniteMagnitude, height: height)
-            case .size(let size):
+            case .Width(let width):
+                return CGSize(width: width, height: .max)
+            case .Height(let height):
+                return CGSize(width: .max, height: height)
+            case .Size(let size):
                 return size
-            case .sizeWH(let width, let height):
+            case .SizeWH(let width, let height):
                 return CGSize(width: width, height: height)
             }
         }
     }
 
-    enum SizeType {
+    enum SizeType
+    {
         // Size
-        case size(size: CGSize)
-        case sizeWH(width: CGFloat, height: CGFloat)
-        case width(width: CGFloat)
-        case height(height: CGFloat)
-        case rect(sideLength: CGFloat)
+        case Size(size: CGSize)
+        case SizeWH(width: CGFloat, height: CGFloat)
+        case Width(width: CGFloat)
+        case Height(height: CGFloat)
+        case Rect(sideLength: CGFloat)
 
         // Fit size (call view's sizeThatFits() method to compute the size)
-        case fitWidth(width: CGFloat)
-        case fitHeight(height: CGFloat)
-        case fitSize(size: CGSize)
-        case fitSizeWH(width: CGFloat, height: CGFloat)
+        case FitWidth(width: CGFloat)
+        case FitHeight(height: CGFloat)
+        case FitSize(size: CGSize)
+        case FitSizeWH(width: CGFloat, height: CGFloat)
 
-        case fitViewSize(view: UIView)
-        case fitViewWidth(view: UIView)
-        case fitViewHeight(view: UIView)
+        case FitViewSize(view: UIView)
+        case FitViewWidth(view: UIView)
+        case FitViewHeight(view: UIView)
 
 
-        func getSize(forView view: UIView) -> CGSize {
+        func getSize(forView view: UIView) -> CGSize
+        {
             switch self {
-            case .size(let size):
+            case .Size(let size):
                 return size
-            case .sizeWH(let width, let height):
+            case .SizeWH(let width, let height):
                 return CGSize(width: width, height: height)
-            case .width(let width):
+            case .Width(let width):
                 return CGSize(width: width, height: view.height)
-            case .height(let height):
+            case .Height(let height):
                 return CGSize(width: view.width, height: height)
-            case .rect(let sideLength):
+            case .Rect(let sideLength):
                 return CGSize(width: sideLength, height: sideLength)
 
-            case .fitWidth(let width):
-                return view.sizeThatFits(CGSize(width: width, height: .greatestFiniteMagnitude))
-            case .fitHeight(let height):
-                return view.sizeThatFits(CGSize(width: .greatestFiniteMagnitude, height: height))
-            case .fitSize(let size):
+            case .FitWidth(let width):
+                return view.sizeThatFits(CGSize(width: width, height: .max))
+            case .FitHeight(let height):
+                return view.sizeThatFits(CGSize(width: .max, height: height))
+            case .FitSize(let size):
                 return view.sizeThatFits(size)
-            case .fitSizeWH(let width, let height):
+            case .FitSizeWH(let width, let height):
                 return view.sizeThatFits(CGSize(width: width, height: height))
 
-            case .fitViewSize(let otherView):
+            case FitViewSize(let otherView):
                 return view.sizeThatFits(otherView.size)
-            case .fitViewWidth(let otherView):
-                return view.sizeThatFits(CGSize(width: otherView.width, height: .greatestFiniteMagnitude))
-            case .fitViewHeight(let otherView):
-                return view.sizeThatFits(CGSize(width: .greatestFiniteMagnitude, height: otherView.height))
+            case FitViewWidth(let otherView):
+                return view.sizeThatFits(CGSize(width: otherView.width, height: .max))
+            case FitViewHeight(let otherView):
+                return view.sizeThatFits(CGSize(width: .max, height: otherView.height))
             }
         }
     }
 
-    func setPosition2(_ position: MCViewPosition, inView: UIView? = nil, margins: UIEdgeInsets? = nil, size: CGSize? = nil, fitSize: CGSize? = nil, newSize: SizeType? = nil) {
+    func setPosition2(position: MCViewPosition, inView: UIView? = nil, margins: UIEdgeInsets? = nil, size: CGSize? = nil, fitSize: CGSize? = nil, newSize: SizeType? = nil)
+    {
         let inView = inView ?? superview
-        let margins = margins ?? UIEdgeInsets.zero
+        let margins = margins ?? UIEdgeInsetsZero
         var size = size
 
         if let fitSize = fitSize {
@@ -288,7 +296,7 @@ extension UIView {
             size = newSize.getSize(forView: self)
         }
 
-        mc_setPosition(position, in:inView, withMargins: margins, size: size ?? frame.size)
+        mc_setPosition(position, inView:inView, withMargins: margins, size: size ?? frame.size)
     }
 
     /**
@@ -307,8 +315,9 @@ extension UIView {
      myChild.setRelativePosition(.RelativePositionUnderCentered, toView: previousView, margins: UIEdgeInsets(top: 10, left: 0, bottom: 0, right: 0))
      myChild.setRelativePosition(.RelativePositionUnderCentered, toView: previousView, fitSize: CGSize(width: width, height: .max))
      */
-    func setRelativePosition2(_ position: MCViewPosition, toView: UIView?, margins: UIEdgeInsets? = nil, size: CGSize? = nil, fitSize: CGSize? = nil) {
-        let margins = margins ?? UIEdgeInsets.zero
+    func setRelativePosition2(position: MCViewPosition, toView: UIView?, margins: UIEdgeInsets? = nil, size: CGSize? = nil, fitSize: CGSize? = nil)
+    {
+        let margins = margins ?? UIEdgeInsetsZero
         var size = size
 
         if let fitSize = fitSize {
@@ -316,26 +325,25 @@ extension UIView {
             size = sizeThatFits(fitSize)
         }
 
-        mc_setRelativePosition(position, to:toView, withMargins: margins, size: size ?? frame.size)
+        mc_setRelativePosition(position, toView:toView, withMargins: margins, size: size ?? frame.size)
     }
 }
 
 extension UIView {
-    var layout: Layout {
-        return Layout(view: self)
+    var position: ViewPositionning {
+        return ViewPositionningImpl(view: self)
     }
 
-    func layout(_ positionning: Layout) {
+    var resize: ViewResize {
+        return ViewResizeImpl(view: self)
+    }
+
+    func position(positionning: ViewPositionning) {
         positionning.apply(onView: self)
     }
-
-//    var resize: ViewResize {
-//        return ViewResizeImpl(view: self)
-//    }
 }
 
-
-/*protocol ViewResize {
+protocol ViewResize {
     init(view: UIView?)
 
     func size(size: CGSize) -> ViewResize
@@ -357,10 +365,10 @@ extension UIView {
     func sizeThatFitsViewHeight(view: UIView) -> ViewResize
 
     func apply(onView onView: UIView)
-}*/
+}
 
 
-/*protocol ViewPositionning {
+protocol ViewPositionning {
     init(view: UIView?)
 
     // TOP
@@ -388,6 +396,90 @@ extension UIView {
     func rightEqualTo()
     func topEqualTo()
     func bottomEqualTo()
+
+    /*
+      Under view1 and left to view2 with top margin of 10, left margin of 20 and width of 100
+
+     TODO: Update graphic
+                 +-------+
+                 |       |
+                 |   1   |
+                 |       |
+                 +-------+
+
+     +-------+   +-------+
+     |       |   |       |
+     |   2   |   |   X   |
+     |       |   |       |
+     +-------+   +-------+
+
+
+     NEW:   view.position.topEqual(view1.bottom + 10).leftEqual(view2.right + 20).width(100)
+     NEW2:  view.position.top(view1.bottom + 10).left(view2.right + 20).width(100)
+     NEW3:  view.position.top(view1.bottom).left(view2.right).topMargin(10).leftMargin(20).width(100)
+     BEFORE view.SetPosition(.PositionTopLeft, margins: .margins(top: view1.bottom + 10, left: view2.right + 2), size: CGSize(width: 100, height: view.height))
+     MANUAL view.frame = CGRect(x: view2.right + 20, y: view1.top + 10, width: 100, height: view.heigh)
+     */
+
+    /*
+     TODO graphic
+
+     Under left aligned to view1 with top margin of 10 and a size of 100
+     NEW:    view.position.topEqual(view1.bottom + 10).leftEqual(view1.left).width(100)       2/5
+     NEW2:   view.position.top(view1.bottom + 10).left(view1.left).width(100)                 3/5
+     NEW3:   view.position.underLeftAligned(toView: view1).topMargin(10).width(100)           4/5
+     NEW3:   view.position.topLeft(view1.bottomLeft).topMargin(10).width(100)                 3/5
+     NEW4:   view.position.topLeft(view1.bottomLeft).offset(x: 0, y: 10).width(100)
+     BEFORE  view.setRelativePosition(.RelativePositionUnderAlignedLeft, margins: .top(10), size: CGSize(width: 100, height: view.height)
+     BEFORE2 view.setRelativePosition(.RelativePositionUnderAlignedLeft, margins: .top(10), size: .Width(100))
+     MANUAL  view.frame = CGRect(x: view1.left, y: view1.bottom + 10, width: 100, height: view.height)
+
+    */
+
+    /*
+     Under center aligned to view1 with top margin of 10 and a size of 100
+    
+     +-------------+
+     |             |
+     |      1      |
+     |             |
+     +-------------+
+
+        +-------+
+        |       |
+        |   X   |
+        |       |
+        +-------+
+
+     NEW:    view.position.topEqual(view1.bottom + 10).hCenter(view1.hCenter).width(100)      2/5
+     NEW2:   view.position.top(view1.bottom + 10).hCenter(view1.hCenter).width(100)           2/5
+     NEW3:   view.position.underCenterAligned(toView: view1).topMargin(10).width(100)         4/5
+     NEW3:   view.position.topCenter(view1.bottomCenter).topMargin(10).width(100)             3/5
+     NEW4:   view.position.topCenter(view1.bottomCenter).offset(x: 0, y: 10).width(100)       3/5
+     BEFORE  view.setRelativePosition(.RelativePositionUnderAlignedCenter, margins: .top(10), size: CGSize(width: 100, height: view.height)
+     BEFORE2 view.setRelativePosition(.RelativePositionUnderAlignedCenter, margins: .top(10), size: .Width(100))
+     MANUAL  view.frame = CGRect(x: view1.center, y: view1.bottom + 10, width: 100, height: view.height
+    */
+
+    /*
+                 +-------+
+                 |       |
+                 |   1   |
+                 |       |
+                 +-------+
+
+     +-------+   +-------+
+     |       |   |       |
+     |   2   |   |   X   |
+     |       |   |       |
+     +-------+   +-------+
+
+     TODO
+
+     */
+
+    // Under view1 and right of view2
+
 
     // RELATIVE POSITION
     func aboveLeftAligned(of view: UIView) -> ViewPositionning
@@ -437,11 +529,10 @@ extension UIView {
     func sizeThatFitsViewWidth(view: UIView) -> ViewPositionning
     func sizeThatFitsViewHeight(view: UIView) -> ViewPositionning
     func apply(onView onView: UIView)
-}*/
+}
 
 
-
-/*class ViewResizeImpl {
+class ViewResizeImpl: ViewResize {
     private let view: UIView?
     private var sizeType: UIView.SizeType?
     private var size = CGSize(width: CGFloat.max, height: CGFloat.max)
@@ -575,170 +666,43 @@ extension UIView {
 
         return newSize
     }
-}*/
+}
 
 
+//ViewPositionningImpl devrait simplement implémente les deux protocols et UIView.resize retourne un ViewResize et UIView.position retourne un ViewPositionning (qui dérive du protocol ViewResize. Faire une copie avant ce changement !!!!!!
 
-/*
-      Under view1 and left to view2 with top margin of 10, left margin of 20 and width of 100
+class ViewPositionningImpl: ViewPositionning {
+    private let view: UIView?
+    private var parentRelativePosition: MCViewPosition?
 
-     TODO: Update graphic
-                 +-------+
-                 |       |
-                 |   1   |
-                 |       |
-                 +-------+
-
-     +-------+   +-------+
-     |       |   |       |
-     |   2   |   |   X   |
-     |       |   |       |
-     +-------+   +-------+
-
-
-     NEW:   view.layout.topEqual(view1.bottom + 10).leftEqual(view2.right + 20).width(100)
-     NEW2:  view.layout.top(view1.bottom + 10).left(view2.right + 20).width(100)
-     NEW3:  view.layout.top(view1.bottom).left(view2.right).topMargin(10).leftMargin(20).width(100)
-     BEFORE view.SetPosition(.PositionTopLeft, margins: .margins(top: view1.bottom + 10, left: view2.right + 2), size: CGSize(width: 100, height: view.height))
-     MANUAL view.frame = CGRect(x: view2.right + 20, y: view1.top + 10, width: 100, height: view.heigh)
-     */
-
-    /*
-     +-------+
-     |       |
-     |   1   |
-     |       |
-     +-------+
-          |
-         10
-          |
-     +---------+
-     |         |
-     |    X    |
-     | w:100   |
-     +---------+
- 
- 
-     Under left aligned to view1 with top margin of 10 and a size of 100
-     NEW:    view.layout.topEqual(view1.bottom + 10).leftEqual(view1.left).width(100)       2/5
-     NEW2:   view.layout.top(view1.bottom + 10).left(view1.left).width(100)                 3/5
-     NEW3:   view.layout.underLeftAligned(toView: view1).topMargin(10).width(100)           4/5
-     NEW3:   view.layout.topLeft(view1.bottomLeft).topMargin(10).width(100)                 3/5
-     NEW4:   view.layout.topLeft(view1.bottomLeft).offset(x: 0, y: 10).width(100)
-     BEFORE  view.setRelativePosition(.RelativePositionUnderAlignedLeft, toView: view1, margins: .top(10), size: CGSize(width: 100, height: view.height)
-     BEFORE2 view.setRelativePosition(.RelativePositionUnderAlignedLeft, toView: view1, margins: .top(10), size: .Width(100))
-     MANUAL  view.frame = CGRect(x: view1.left, y: view1.bottom + 10, width: 100, height: view.height)
-
-    */
-
-    /*
-     Under center aligned to view1 with top margin of 10 and a size of 100
-    
-     +-------------+
-     |             |
-     |      1      |
-     |             |
-     +-------------+
-
-        +-------+
-        |       |
-        |   X   |
-        |       |
-        +-------+
-
-     NEW2:   view.layout.topCenter(view1.bottomCenter + 10).width(100)                      2/5
-     NEW3:   view.layout.underCenterAligned(toView: view1).topMargin(10).width(100)         4/5
-     NEW3:   view.layout.topCenter(view1.bottomCenter).topMargin(10).width(100)             3/5
-     NEW4:   view.layout.topCenter(view1.bottomCenter).offset(x: 0, y: 10).width(100)       3/5
-     BEFORE  view.setRelativePosition(.RelativePositionUnderAlignedCenter, toView: view1, margins: .top(10), size: CGSize(width: 100, height: view.height)
-     BEFORE2 view.setRelativePosition(.RelativePositionUnderAlignedCenter, toView: view1, margins: .top(10), size: .Width(100))
-     BEFORE2 view.setRelativePosition(.underAlignedCenter, toView: view1, margins: .top(10), size: .Width(100))
-     MANUAL  view.frame = CGRect(x: view1.center, y: view1.bottom + 10, width: 100, height: view.height
-    */
-
-    /*
-                  +-------+
-                  |       |
-                  |   1   |
-                  |       |
-                  +-------+
-                      10
-     +-------+    +--------+
-     |       |    |        |
-     |   2   |-10-|   X    |
-     |       |    | w:100  |
-     +-------+    +--------+
-
-    NEW:   view.layout.left(view2.right + 10).top(view1.bottom + 10).width(view1.width).height(view2.height)
-    NEW:   view.layout.left(view2.right).top(view1.bottom).padding(10).width(view1.width).height(view2.height)
-    NEW:   view.layout.topLeft(top: view2.right, left: view1.bottom).padding(10).width(view1.width).height(view2.height)
-    NEW:   view.layout.topLeft(top: view2.right, left: view1.bottom).padding(10).size(w: view1.width, h: view2.height))
- 
- NEW2:   view.layout.left(view2.right).leftPadding(10).top(view1.bottom).topPadding(10).width(view1.width).height(view2.height)
- NEW2:   view.layout.topLeft(view2.topRight).leftPadding(10).topLeft(view1.bottomLeft).topPadding(10).width(view1.width).height(view2.height)
-    BEFORE  view.setPosition(.positionTopLeft, margins: UIEdgeInsets(top: view1.maxY + 10, left: view2.maxX + 10, bottom: 0, right: 0), size: CGSize(width: 100, height: view.height)
- 
- 
-     */
-
-    // Under view1 and right of view2
-
-
-//ViewPositionningImpl devrait simplement implémente les deux protocols et UIView.resize retourne un ViewResize et UIView.layout retourne un ViewPositionning (qui dérive du protocol ViewResize. Faire une copie avant ce changement !!!!!!
-
-class Layout {
-    fileprivate let view: UIView?
-
-    // Positionning info
-    fileprivate var parentRelativePosition: MCViewPosition?
-    fileprivate var relativePosition: MCViewPosition?
-    fileprivate var relativeToView: UIView?
-
-    fileprivate var top = CGFloat.greatestFiniteMagnitude
-    fileprivate var left = CGFloat.greatestFiniteMagnitude
-    fileprivate var width = CGFloat.greatestFiniteMagnitude
-    fileprivate var height = CGFloat.greatestFiniteMagnitude
-
-    // Size info
-    fileprivate var sizeType: UIView.SizeType?
-
-//    private var rect = CGRect
-//    private var size = CGSize(width: CGFloat.max, height: CGFloat.max)
-
+    private var relativePosition: MCViewPosition?
+    private var relativeToView: UIView?
 
 //    private var topOf: UIView?
 //    private var leftOf: UIView?
 //    private var bottomOf: UIView?
 //    private var rightOf: UIView?
-    fileprivate var margins: UIEdgeInsets?
+    private var margins: UIEdgeInsets?
 
-//    private var viewResize: ViewResizeImpl
+    private var viewResize: ViewResizeImpl
 
 //    private var sizeType: UIView.SizeType?
 //    private var size = CGSize(width: CGFloat.max, height: CGFloat.max)
-    var size: CGSize {
-        get {
-            return CGSize(width: width, height: height)
-        }
-        set {
-            width = newValue.width
-            height = newValue.height
-        }
-    }
 
-    init (view: UIView?) {
+    required init (view: UIView?) {
         self.view = view
-        //viewResize = ViewResizeImpl(view: view, applyOnDeinit: false)
+
+        viewResize = ViewResizeImpl(view: view, applyOnDeinit: false)
     }
 
     // Copy
-    fileprivate convenience init(view: UIView?, parentRelativePosition: MCViewPosition, margins: UIEdgeInsets?) {
+    private convenience init(view: UIView?, parentRelativePosition: MCViewPosition, margins: UIEdgeInsets?, viewResize: ViewResizeImpl) {
         self.init(view: view)
         self.parentRelativePosition = parentRelativePosition
         self.margins = margins
 
         // TODO!!!!!: Implement copy constructor for ViewResize
-//        self.viewResize = viewResize
+        self.viewResize = viewResize
 
         // TOD: Add relativePosition and relativeToView
     }
@@ -747,8 +711,8 @@ class Layout {
         self.init(view: nil)
     }
 
-    /*func copy() -> Layout {
-        return Layout(view: view, position: position, margins:  margins, sizeType: sizeType)
+    /*func copy() -> ViewPositionning {
+        return ViewPositionning(view: view, position: position, margins:  margins, sizeType: sizeType)
     }*/
 
     deinit
@@ -756,335 +720,282 @@ class Layout {
         apply()
     }
 
+
     // POSITION
-    var topLeft: Layout {
-        parentRelativePosition = MCViewPosition.positionTopLeft
+    var topLeft: ViewPositionning {
+        parentRelativePosition = MCViewPosition.PositionTopLeft
         return self
     }
 
-    var topHCenter: Layout {
-        parentRelativePosition = MCViewPosition.positionTopHCenter
+    var topHCenter: ViewPositionning {
+        parentRelativePosition = MCViewPosition.PositionTopHCenter
         return self
     }
 
-    var topRight: Layout {
-        parentRelativePosition = .positionTopRight
+    var topRight: ViewPositionning {
+        parentRelativePosition = .PositionTopRight
         return self
     }
 
-    var leftVCenter: Layout {
-        parentRelativePosition = .positionVCenterLeft
+    var leftVCenter: ViewPositionning {
+        parentRelativePosition = .PositionVCenterLeft
         return self
     }
 
-    var center: Layout {
-        parentRelativePosition = .positionCenters
+    var center: ViewPositionning {
+        parentRelativePosition = .PositionCenters
         return self
     }
 
-    var rightVCenter: Layout {
-        parentRelativePosition = .positionVCenterRight
+    var rightVCenter: ViewPositionning {
+        parentRelativePosition = .PositionVCenterRight
         return self
     }
 
-    var bottomLeft: Layout {
-        parentRelativePosition = .positionBottomLeft
+    var bottomLeft: ViewPositionning {
+        parentRelativePosition = .PositionBottomLeft
         return self
     }
 
-    var bottomHCenter: Layout {
-        parentRelativePosition = .positionBottomHCenter
+    var bottomHCenter: ViewPositionning {
+        parentRelativePosition = .PositionBottomHCenter
         return self
     }
 
-    var bottomRight: Layout {
-        parentRelativePosition = .positionBottomRight
+    var bottomRight: ViewPositionning {
+        parentRelativePosition = .PositionBottomRight
         return self
     }
 
-    func matchView(_ view: UIView) {
-        top = view.top
-        left = view.left
-        size = view.size
-    }
 
     // RELATIVE POSITION
-    func aboveLeftAligned(of view: UIView) -> Layout {
-        relativePosition = MCViewPosition.relativePositionAboveAlignedLeft
+    func aboveLeftAligned(of view: UIView) -> ViewPositionning {
+        relativePosition = MCViewPosition.RelativePositionAboveAlignedLeft
         relativeToView = view
         return self
     }
 
-    func aboveCenterAligned(of view: UIView) -> Layout {
-        relativePosition = MCViewPosition.relativePositionAboveCentered
+    func aboveCenterAligned(of view: UIView) -> ViewPositionning {
+        relativePosition = MCViewPosition.RelativePositionAboveCentered
         relativeToView = view
         return self
     }
 
-    func aboveRightAligned(of view: UIView) -> Layout {
-        relativePosition = MCViewPosition.relativePositionAboveAlignedRight
+    func aboveRightAligned(of view: UIView) -> ViewPositionning {
+        relativePosition = MCViewPosition.RelativePositionAboveAlignedRight
         relativeToView = view
         return self
     }
 
-    func leftTopAligned(of view: UIView) -> Layout {
-        relativePosition = MCViewPosition.relativePositionToTheLeftAlignedTop
+    func leftTopAligned(of view: UIView) -> ViewPositionning {
+        relativePosition = MCViewPosition.RelativePositionToTheLeftAlignedTop
         relativeToView = view
         return self
     }
 
-    func leftCenterAligned(of view: UIView) -> Layout {
-        relativePosition = MCViewPosition.relativePositionToTheLeftCentered
+    func leftCenterAligned(of view: UIView) -> ViewPositionning {
+        relativePosition = MCViewPosition.RelativePositionToTheLeftCentered
         relativeToView = view
         return self
     }
 
-    func leftBottomAligned(of view: UIView) -> Layout {
-        relativePosition = MCViewPosition.relativePositionToTheLeftAlignedBottom
+    func leftBottomAligned(of view: UIView) -> ViewPositionning {
+        relativePosition = MCViewPosition.RelativePositionToTheLeftAlignedBottom
         relativeToView = view
         return self
     }
 
-    func rightTopAligned(of view: UIView) -> Layout {
-        relativePosition = MCViewPosition.relativePositionToTheRightAlignedTop
+    func rightTopAligned(of view: UIView) -> ViewPositionning {
+        relativePosition = MCViewPosition.RelativePositionToTheRightAlignedTop
         relativeToView = view
         return self
     }
 
-    func rightCenterAligned(of view: UIView) -> Layout {
-        relativePosition = MCViewPosition.relativePositionToTheRightCentered
+    func rightCenterAligned(of view: UIView) -> ViewPositionning {
+        relativePosition = MCViewPosition.RelativePositionToTheRightCentered
         relativeToView = view
         return self
     }
 
-    func rightBottomAligned(of view: UIView) -> Layout {
-        relativePosition = MCViewPosition.relativePositionToTheRightAlignedBottom
+    func rightBottomAligned(of view: UIView) -> ViewPositionning {
+        relativePosition = MCViewPosition.RelativePositionToTheRightAlignedBottom
         relativeToView = view
         return self
     }
 
-    func underLeftAligned(of view: UIView) -> Layout {
-        relativePosition = MCViewPosition.relativePositionUnderAlignedLeft
+    func underLeftAligned(of view: UIView) -> ViewPositionning {
+        relativePosition = MCViewPosition.RelativePositionUnderAlignedLeft
         relativeToView = view
         return self
     }
 
-    func underCenterAligned(of view: UIView) -> Layout {
-        relativePosition = MCViewPosition.relativePositionUnderCentered
+    func underCenterAligned(of view: UIView) -> ViewPositionning {
+        relativePosition = MCViewPosition.RelativePositionUnderCentered
         relativeToView = view
         return self
     }
 
-    func underRightAligned(of view: UIView) -> Layout {
-        relativePosition = MCViewPosition.relativePositionUnderAlignedRight
+    func underRightAligned(of view: UIView) -> ViewPositionning {
+        relativePosition = MCViewPosition.RelativePositionUnderAlignedRight
         relativeToView = view
         return self
     }
 
-    /*func top(of view: UIView) -> Layout {
+    /*func top(of view: UIView) -> ViewPositionning {
         topOf = view
         return self
     }
 
-    func left(of view: UIView) -> Layout {
+    func left(of view: UIView) -> ViewPositionning {
         leftOf = view
         return self
     }
 
-    func bottom(of view: UIView) -> Layout {
+    func bottom(of view: UIView) -> ViewPositionning {
         bottomOf = view
         return self
     }
 
-    func right(of view: UIView) -> Layout {
+    func right(of view: UIView) -> ViewPositionning {
         rightOf = view
         return self
     }*/
 
 
     // MARGINS
-    func margins(_ margins: UIEdgeInsets) -> Layout {
+    func margins(margins: UIEdgeInsets) -> ViewPositionning {
         self.margins = margins
         return self
     }
 
-    func margins(_ margins: CGFloat) -> Layout {
+    func margins(margins: CGFloat) -> ViewPositionning {
         self.margins = .margins(margins)
         return self
     }
 
-    /*func margins(top: CGFloat? = nil, left: CGFloat? = nil, bottom: CGFloat? = nil, right: CGFloat? = nil) -> Layout {
+    /*func margins(top: CGFloat? = nil, left: CGFloat? = nil, bottom: CGFloat? = nil, right: CGFloat? = nil) -> ViewPositionning {
         self.margins = UIEdgeInsets(top: top ?? 0, left: left ?? 0, bottom: bottom ?? 0, right: right ?? 0)
         return self
     }*/
 
-    func topMargin(_ top: CGFloat) -> Layout {
+    func topMargin(top: CGFloat) -> ViewPositionning {
         initMargins()
         margins!.top = top
         return self
     }
 
-    func leftMargin(_ left: CGFloat) -> Layout {
+    func leftMargin(left: CGFloat) -> ViewPositionning {
         initMargins()
         margins!.left = left
         return self
     }
 
-    func bottomMargin(_ bottom: CGFloat) -> Layout {
+    func bottomMargin(bottom: CGFloat) -> ViewPositionning {
         initMargins()
         margins!.bottom = bottom
         return self
     }
 
-    func rightMargin(_ right: CGFloat) -> Layout {
+    func rightMargin(right: CGFloat) -> ViewPositionning {
         initMargins()
         margins!.right = right
         return self
     }
 
 
-
-    //
     // WIDTH / HEIGHT / SIZETHATFITS
-    //
-
-    @discardableResult
-    func size(_ size: CGSize) -> Layout {
-        self.size = size
+    func size(size: CGSize) -> ViewPositionning {
+        viewResize.size(size)
         return self
     }
 
-    @discardableResult
-    func matchSize(_ view: UIView) -> Layout {
-        self.size = view.size
+    func matchSize(view: UIView) -> ViewPositionning {
+        viewResize.matchSize(view)
         return self
     }
 
-    @discardableResult
-    func width(_ width: CGFloat) -> Layout {
-        size.width = width
+    func width(width: CGFloat) -> ViewPositionning {
+        viewResize.width(width)
         return self
     }
 
-    @discardableResult
-    func widthMatch(_ view: UIView) -> Layout {
-        size.width = view.width
+    func widthMatch(view: UIView) -> ViewPositionning {
+        viewResize.widthMatch(view)
         return self
     }
 
-    @discardableResult
-    func widthSpaceBetween(view: UIView, andView: UIView) -> Layout {
-        if view.right <= andView.left {
-            // first view is on the left of the second view
-            size.width = andView.left - view.right
-        } else if view.right > andView.right {
-            // first view is on the right of the second view
-            size.width = view.left - andView.right
-        } else {
-            warnings("widthSpaceBetween(view:andView:): The horizontal space between specified are smaller than 0")
-        }
-
+    func widthSpaceBetween(view view: UIView, andView: UIView) -> ViewPositionning {
+        viewResize.widthSpaceBetween(view: view, andView: andView)
         return self
     }
 
-    @discardableResult
-    func height(_ height: CGFloat) -> Layout {
-        size.height = height
+    func height(height: CGFloat) -> ViewPositionning {
+        viewResize.height(height)
         return self
     }
 
-    @discardableResult
-    func heightMatch(_ view: UIView) -> Layout {
-        size.height = view.height
+    func heightMatch(view: UIView) -> ViewPositionning {
+        viewResize.heightMatch(view)
         return self
     }
 
-    @discardableResult
-    func heightSpaceBetween(view: UIView, andView: UIView) -> Layout {
-        if view.bottom <= andView.top {
-            // first view is above the second view
-            size.height = andView.top - view.bottom
-        } else if view.top > andView.bottom {
-            // first view is below the second view
-            size.width = view.top - andView.bottom
-        } else {
-            warnings("widthSpaceBetween(view:andView:): The horizontal space between specified are smaller than 0")
-        }
-
+    func heightSpaceBetween(view view: UIView, andView: UIView) -> ViewPositionning {
+        viewResize.heightSpaceBetween(view: view, andView: andView)
         return self
     }
 
-    @discardableResult
-    func sizeThatFitsWidth(_ width: CGFloat) -> Layout {
-        self.sizeType = UIView.SizeType.fitWidth(width: width)
+    func sizeThatFitsWidth(width: CGFloat) -> ViewPositionning {
+        viewResize.sizeThatFitsWidth(width)
         return self
     }
 
-    @discardableResult
-    func sizeThatFitsHeight(_ height: CGFloat) -> Layout {
-        self.sizeType = UIView.SizeType.fitHeight(height: height)
+    func sizeThatFitsHeight(height: CGFloat) -> ViewPositionning {
+        viewResize.sizeThatFitsHeight(height)
         return self
     }
 
-    @discardableResult
-    func sizeThatFits(_ size: CGSize) -> Layout {
-        self.sizeType = UIView.SizeType.fitSize(size: size)
+    func sizeThatFits(size: CGSize) -> ViewPositionning {
+        view?.sizeThatFits(size)
         return self
     }
 
-    @discardableResult
-    func sizeThatFitsViewSize(_ view: UIView) -> Layout {
-        self.sizeType = UIView.SizeType.fitViewSize(view: view)
+    func sizeThatFitsViewSize(view: UIView) -> ViewPositionning {
+        viewResize.sizeThatFitsViewSize(view)
         return self
     }
 
-    @discardableResult
-    func sizeThatFitsViewWidth(_ view: UIView) -> Layout {
-        self.sizeType = UIView.SizeType.fitViewWidth(view: view)
+    func sizeThatFitsViewWidth(view: UIView) -> ViewPositionning {
+        viewResize.sizeThatFitsViewWidth(view)
         return self
     }
 
-    @discardableResult
-    func sizeThatFitsViewHeight(_ view: UIView) -> Layout {
-        self.sizeType = UIView.SizeType.fitViewHeight(view: view)
+    func sizeThatFitsViewHeight(view: UIView) -> ViewPositionning {
+        viewResize.sizeThatFitsViewHeight(view)
         return self
     }
 
-    fileprivate func apply() {
+
+    private func apply() {
         guard let view = view else { return }
         apply(onView: view)
     }
 
-    func apply(onView: UIView) {
-        let newSize = computeSize(forView: onView)
+    func apply(onView onView: UIView) {
+        let newSize = viewResize.computeSize(forView: onView)
 
-        if let relativePosition = relativePosition, let relativeToView = relativeToView {
+        if let relativePosition = relativePosition, relativeToView = relativeToView {
             assert(parentRelativePosition == nil)
             onView.setRelativePosition2(relativePosition, toView: relativeToView, margins: margins, size: newSize)
         } else {
-            let position = parentRelativePosition ?? .positionTopLeft
+            let position = parentRelativePosition ?? .PositionTopLeft
             onView.setPosition2(position, margins: margins, size: newSize)
         }
     }
 
-    fileprivate func initMargins() {
+    private func initMargins() {
         if margins == nil {
             margins = UIEdgeInsets()
         }
-    }
-
-    fileprivate func computeSize(forView: UIView) -> CGSize? {
-        var newSize: CGSize?
-
-        if let sizeType = sizeType {
-            assert(size.width == .greatestFiniteMagnitude, "Conflict! The width() and the sizeType couldn't be both specified")
-            assert(size.height == .greatestFiniteMagnitude, "Conflict! The height() and the sizeType couldn't be both specified")
-            newSize = sizeType.getSize(forView: forView)
-        } else if size.width != .greatestFiniteMagnitude || size.height != .greatestFiniteMagnitude {
-            newSize = CGSize(width: size.width != .greatestFiniteMagnitude ? size.width : forView.width, height: size.height != .greatestFiniteMagnitude ? size.height : forView.height)
-        }
-
-        return newSize
     }
 }
 
@@ -1095,14 +1006,14 @@ func test() {
     let secondView = UIView()
     let thirdView = UIView()
 
-    //view.layout.width(20).apply()
+    //view.position.width(20).apply()
 
-    // view.setPosition(.layoutTopHCenter, margins: .top(positionY), fitSize: CGSize(width: oneLineElementWidth, height: .max))
+    // view.setPosition(.PositionTopHCenter, margins: .top(positionY), fitSize: CGSize(width: oneLineElementWidth, height: .max))
 
-    view.layout.topHCenter.topMargin(10).width(200)
+    view.position.topHCenter.topMargin(10).width(200)
 
-    //view.layout.right.equalTo(secondView).top.equalTo(thirdView.maxY)
-//    view.layout.wi
+    //view.position.right.equalTo(secondView).top.equalTo(thirdView.maxY)
+//    view.position.wi
 
     // Hugo wish:
     // - Layout C in the center of the A and B views.
@@ -1165,9 +1076,9 @@ func test() {
     // make.left.right.bottom.equalTo(superview)
 
 
-//    view.layout.topHCenter.margins(.top(10)).size(.FitWidth(width: secondView.width))
-//    view.layout.topHCenter.marginTop(10).marginLeft(5).size(.FitWidth(width: secondView.width))
-//    view.layout.topHCenter.margins(10).size(.FitWidth(width: secondView.width))
+//    view.position.topHCenter.margins(.top(10)).size(.FitWidth(width: secondView.width))
+//    view.position.topHCenter.marginTop(10).marginLeft(5).size(.FitWidth(width: secondView.width))
+//    view.position.topHCenter.margins(10).size(.FitWidth(width: secondView.width))
 
 
 

@@ -44,7 +44,7 @@ class MCUIViewLayoutExampleSetPosition2Swift: UIView
     override init(frame: CGRect) {
         super.init(frame: frame)
 
-        backgroundColor = .blue
+        backgroundColor = .blueColor()
 
         addLabel(topLeftLabel, title: "topLeft")
         addLabel(topLabel, title: "top")
@@ -68,38 +68,38 @@ class MCUIViewLayoutExampleSetPosition2Swift: UIView
     override func layoutSubviews() {
         super.layoutSubviews()
 
-        topLeftLabel.layout.topLeft.margins(margin).width(200)
-        topLabel.layout.topHCenter.margins(margin).height(40)
-        topRightLabel.layout.topRight.margins(margin).size(CGSize(width: 100, height: 40))
+        topLeftLabel.position.topLeft.margins(margin).width(200)
+        topLabel.position.topHCenter.margins(margin).height(40)
+        topRightLabel.position.topRight.margins(margin).size(CGSize(width: 100, height: 40))
 
-        leftLabel.layout.leftVCenter.margins(margin).sizeThatFitsWidth(100)
-        centeredLabel.layout.center.margins(margin).sizeThatFitsHeight(80)
-        rightLabel.layout.rightVCenter.margins(margin).sizeThatFits(CGSize(width: 40, height: 400))
+        leftLabel.position.leftVCenter.margins(margin).sizeThatFitsWidth(100)
+        centeredLabel.position.center.margins(margin).sizeThatFitsHeight(80)
+        rightLabel.position.rightVCenter.margins(margin).sizeThatFits(CGSize(width: 40, height: 400))
 
         // Reference to other views
-        topLabel.layout.topHCenter.margins(margin).widthMatch(topLeftLabel)
-        topLabel.layout.topHCenter.margins(margin).heightMatch(topLeftLabel)
-        topLabel.layout.topHCenter.margins(margin).matchSize(topLeftLabel)
-        topLabel.layout.widthSpaceBetween(view: topLabel, andView: topLabel)
-        topLabel.layout.heightSpaceBetween(view: topLabel, andView: topLabel)
+        topLabel.position.topHCenter.margins(margin).widthMatch(topLeftLabel)
+        topLabel.position.topHCenter.margins(margin).heightMatch(topLeftLabel)
+        topLabel.position.topHCenter.margins(margin).matchSize(topLeftLabel)
+        topLabel.position.widthSpaceBetween(view: topLabel, andView: topLabel)
+        topLabel.position.heightSpaceBetween(view: topLabel, andView: topLabel)
 
-        bottomLeftLabel.layout.bottomLeft.margins(margin).sizeThatFitsViewWidth(topLeftLabel)
-        bottomLabel.layout.bottomHCenter.margins(margin).sizeThatFitsViewHeight(topLabel)
-        bottomRightLabel.layout.bottomRight.margins(margin).sizeThatFitsViewSize(topRightLabel)
+        bottomLeftLabel.position.bottomLeft.margins(margin).sizeThatFitsViewWidth(topLeftLabel)
+        bottomLabel.position.bottomHCenter.margins(margin).sizeThatFitsViewHeight(topLabel)
+        bottomRightLabel.position.bottomRight.margins(margin).sizeThatFitsViewSize(topRightLabel)
 
         
 
-        // Resize only
-        topLeftLabel.layout.height(200)
-        topRightLabel.layout.heightMatch(topLeftLabel)
-        topRightLabel.layout.widthMatch(topLeftLabel)
-        topRightLabel.layout.matchSize(topLeftLabel)
-        topRightLabel.layout.sizeThatFitsWidth(400)
+        // Resize too
+        topLeftLabel.resize.height(200)
+        topRightLabel.resize.heightMatch(topLeftLabel)
+        topRightLabel.resize.widthMatch(topLeftLabel)
+        topRightLabel.resize.matchSize(topLeftLabel)
+        topRightLabel.resize.sizeThatFitsWidth(400)
 
         // Order is irrelevant
-        topLeftLabel.layout.topLeft.margins(margin).width(200)
+        topLeftLabel.position.topLeft.margins(margin).width(200)
         // is similar to
-        topLeftLabel.layout.width(200).margins(margin).topLeft
+        topLeftLabel.position.width(200).margins(margin).topLeft
 
 
 //        OR
@@ -135,11 +135,11 @@ class MCUIViewLayoutExampleSetPosition2Swift: UIView
 //        bottomRight.setPosition(.PositionBottomRight, margins: margins)
     }
 
-    private func addLabel(_ label: UILabel, title: String) {
+    private func addLabel(label: UILabel, title: String) {
         label.text = title
-        label.textAlignment = .center
+        label.textAlignment = .Center
         label.sizeToFit()
-        label.backgroundColor = .white
+        label.backgroundColor = .whiteColor()
 
         addSubview(label)
     }

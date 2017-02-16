@@ -25,7 +25,7 @@
 // ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
 // POSSIBILITY OF SUCH DAMAGE.
 
-#import <Foundation/Foundation.h>
+#import <UIKit/UIKit.h>
 
 typedef NS_OPTIONS(NSInteger, MCViewPosition) {
     MCViewPositionToTheLeft         = (0x1 << 0),

@@ -40,7 +40,7 @@ class MCUIViewLayoutExampleFitSize: UIView
     override init(frame: CGRect) {
         super.init(frame: frame)
 
-        backgroundColor = .blueColor()
+        backgroundColor = .blue
 
         addLabel(fitSizeLeft30, title: "Left fitSize 33% of parent's width - Lo rem ip sum do lor sit a met, con sec a b c d e f g h i")
         addLabel(fitSizeCenter30, title: "Center fitSize 33% of parent's width - Lo rem ip sum do lor sit a met, con sec a b c d e f g h i")
@@ -61,15 +61,15 @@ class MCUIViewLayoutExampleFitSize: UIView
 
         let margins = UIEdgeInsets(top: 20, left: 0, bottom: 0, right: 0)
 
-        fitSizeLeft30.setPosition(.PositionTopLeft, margins: UIEdgeInsets(top: 20, left: 0, bottom: 0, right: 0), fitSize: CGSize(width: frame.width * 0.3333, height: .max))
-        fitSizeCenter30.setRelativePosition(.RelativePositionToTheRightAlignedTop, toView: fitSizeLeft30, fitSize: CGSize(width: frame.width * 0.3333, height: .max))
-        fitSizeRight30.setRelativePosition(.RelativePositionToTheRightAlignedTop, toView: fitSizeCenter30, fitSize: CGSize(width: frame.width * 0.3333, height: .max))
-        fitSize50.setRelativePosition(.RelativePositionUnderAlignedLeft, toView: fitSizeLeft30, margins: margins, fitSize: CGSize(width: frame.width * 0.5, height: .max))
-        fitSize75.setRelativePosition(.RelativePositionUnderAlignedLeft, toView: fitSize50, margins: margins, fitSize: CGSize(width: frame.width * 0.75, height: .max))
-        fitSize100.setRelativePosition(.RelativePositionUnderAlignedLeft, toView: fitSize75, margins: margins, fitSize: CGSize(width: frame.width, height: .max))
+        fitSizeLeft30.setPosition(.positionTopLeft, margins: UIEdgeInsets(top: 20, left: 0, bottom: 0, right: 0), fitSize: CGSize(width: frame.width * 0.3333, height: .greatestFiniteMagnitude))
+        fitSizeCenter30.setRelativePosition(.relativePositionToTheRightAlignedTop, toView: fitSizeLeft30, fitSize: CGSize(width: frame.width * 0.3333, height: .greatestFiniteMagnitude))
+        fitSizeRight30.setRelativePosition(.relativePositionToTheRightAlignedTop, toView: fitSizeCenter30, fitSize: CGSize(width: frame.width * 0.3333, height: .greatestFiniteMagnitude))
+        fitSize50.setRelativePosition(.relativePositionUnderAlignedLeft, toView: fitSizeLeft30, margins: margins, fitSize: CGSize(width: frame.width * 0.5, height: .greatestFiniteMagnitude))
+        fitSize75.setRelativePosition(.relativePositionUnderAlignedLeft, toView: fitSize50, margins: margins, fitSize: CGSize(width: frame.width * 0.75, height: .greatestFiniteMagnitude))
+        fitSize100.setRelativePosition(.relativePositionUnderAlignedLeft, toView: fitSize75, margins: margins, fitSize: CGSize(width: frame.width, height: .greatestFiniteMagnitude))
     }
 
-    private func addLabel(label: UILabel, title: String) {
+    private func addLabel(_ label: UILabel, title: String) {
         label.text = title
         label.numberOfLines = 0
         label.sizeToFit()

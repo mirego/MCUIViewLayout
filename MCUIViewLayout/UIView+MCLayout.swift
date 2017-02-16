@@ -24,8 +24,8 @@
 // CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE)
 // ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
 // POSSIBILITY OF SUCH DAMAGE.
-
 import UIKit
+
 
 /**
  Swift wrapper for MCUIViewLayout
@@ -54,9 +54,7 @@ import UIKit
 */
 // swiftlint:disable variable_name
 
-extension UIView
-{
-    
+extension UIView {
     var maxX: CGFloat {
         set {
             mc_setOrigin(CGPoint(x: newValue - width, y: y))
@@ -110,10 +108,9 @@ extension UIView
          myChild.setPosition(.PositionTopLeft, size: CGSize(width: width / 2, height: height / 2))
          myChild.setPosition(.PositionTopLeft, fitSize: CGSize(width: width, height: .max))
      */
-    func setPosition(position: MCViewPosition, inView: UIView? = nil, margins: UIEdgeInsets? = nil, size: CGSize? = nil, fitSize: CGSize? = nil)
-    {
+    func setPosition(_ position: MCViewPosition, inView: UIView? = nil, margins: UIEdgeInsets? = nil, size: CGSize? = nil, fitSize: CGSize? = nil) {
         let inView = inView ?? superview
-        let margins = margins ?? UIEdgeInsetsZero
+        let margins = margins ?? UIEdgeInsets.zero
         var size = size
 
         if let fitSize = fitSize {
@@ -121,7 +118,7 @@ extension UIView
             size = sizeThatFits(fitSize)
         }
 
-        mc_setPosition(position, inView:inView, withMargins: margins, size: size ?? frame.size)
+        mc_setPosition(position, in:inView, withMargins: margins, size: size ?? frame.size)
     }
 
     /**
@@ -140,9 +137,8 @@ extension UIView
          myChild.setRelativePosition(.RelativePositionUnderCentered, toView: previousView, margins: UIEdgeInsets(top: 10, left: 0, bottom: 0, right: 0))
          myChild.setRelativePosition(.RelativePositionUnderCentered, toView: previousView, fitSize: CGSize(width: width, height: .max))
      */
-    func setRelativePosition(position: MCViewPosition, toView: UIView?, margins: UIEdgeInsets? = nil, size: CGSize? = nil, fitSize: CGSize? = nil)
-    {
-        let margins = margins ?? UIEdgeInsetsZero
+    func setRelativePosition(_ position: MCViewPosition, toView: UIView?, margins: UIEdgeInsets? = nil, size: CGSize? = nil, fitSize: CGSize? = nil) {
+        let margins = margins ?? UIEdgeInsets.zero
         var size = size
 
         if let fitSize = fitSize {
@@ -150,7 +146,7 @@ extension UIView
             size = sizeThatFits(fitSize)
         }
 
-        mc_setRelativePosition(position, toView:toView, withMargins: margins, size: size ?? frame.size)
+        mc_setRelativePosition(position, to:toView, withMargins: margins, size: size ?? frame.size)
     }
 }
 // swiftlint:enable variable_name

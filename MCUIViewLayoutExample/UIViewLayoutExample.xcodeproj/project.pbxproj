@@ -26,7 +26,6 @@
 		32C47E171BF6387500E06372 /* UIView_MCLayoutSizeAndPositionBaseMethodTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 915CCBBDF035C678C368819F /* UIView_MCLayoutSizeAndPositionBaseMethodTest.m */; };
 		32C47E181BF6387500E06372 /* UIView_MCLayoutSizeToFitInSuperViewTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 915CC081DFB9902B9C2DBD5F /* UIView_MCLayoutSizeToFitInSuperViewTest.m */; };
 		32C47E191BF6387500E06372 /* UIView_MCLayoutSizeToFitWithSiblingTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 915CC501F5EB6AEBD5A89A8C /* UIView_MCLayoutSizeToFitWithSiblingTest.m */; };
-		915CC036C17BE1BC5CCE2517 /* UIView+MCLayoutDeprecated.m in Sources */ = {isa = PBXBuildFile; fileRef = 915CC490438FC7F0C4280A4E /* UIView+MCLayoutDeprecated.m */; };
 		915CC1C38A309CC53EF0A7BC /* MCUIViewExampleUIFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = 915CC2122AFA59E400174116 /* MCUIViewExampleUIFactory.m */; };
 		915CC234176C38B004A184DA /* MCUIViewLayoutRootController.m in Sources */ = {isa = PBXBuildFile; fileRef = 915CCFD54737A43192F21DB9 /* MCUIViewLayoutRootController.m */; };
 		915CC73967A80F9F4CC9355B /* MCUIViewLayoutExampleSpecialCases.m in Sources */ = {isa = PBXBuildFile; fileRef = 915CC932DAFE7D2E68CC0B40 /* MCUIViewLayoutExampleSpecialCases.m */; };
@@ -40,6 +39,8 @@
 		DF05FD5B1C6A5BDD00CA825F /* UIView+MCLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF05FD5A1C6A5BDD00CA825F /* UIView+MCLayout.swift */; };
 		DF05FD5D1C6A5D0B00CA825F /* MCUIViewLayoutExampleSetPositionSwift.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF05FD5C1C6A5D0B00CA825F /* MCUIViewLayoutExampleSetPositionSwift.swift */; };
 		DF16A1751CD7C29A00538C7B /* MCUIViewLayoutExampleSetPositionFitSize.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF16A1741CD7C29A00538C7B /* MCUIViewLayoutExampleSetPositionFitSize.swift */; };
+		DF1DFB7A1D7AE00B00676B9D /* UIView+MCLayout2-BeforeChangeNameToLayout.swift.old in Resources */ = {isa = PBXBuildFile; fileRef = DF1DFB791D7AE00B00676B9D /* UIView+MCLayout2-BeforeChangeNameToLayout.swift.old */; };
+		DF1DFB7C1D7AE3B300676B9D /* MCUIViewLayoutExampleSetPosition2Swift.swift.beforeNameChange in Resources */ = {isa = PBXBuildFile; fileRef = DF1DFB7B1D7AE3B300676B9D /* MCUIViewLayoutExampleSetPosition2Swift.swift.beforeNameChange */; };
 		DF55F8FC1D57E619005495F8 /* UIView+MCLayout2.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF55F8FB1D57E619005495F8 /* UIView+MCLayout2.swift */; };
 		DF55F8FE1D57E6A1005495F8 /* UIEdgeInsets+MCLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF55F8FD1D57E6A1005495F8 /* UIEdgeInsets+MCLayout.swift */; };
 		DF55F9001D57E75F005495F8 /* MCUIViewLayoutExampleSetPosition2Swift.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF55F8FF1D57E75F005495F8 /* MCUIViewLayoutExampleSetPosition2Swift.swift */; };
@@ -70,6 +71,7 @@
 		09ABD59716E8ECF300290BB3 /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
 		09ABD59916E8ECF300290BB3 /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
 		09ABD59B16E8ECF300290BB3 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
+		24B33DDD1E56337B00F3C840 /* MCLayoutExample-Bridging-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "MCLayoutExample-Bridging-Header.h"; sourceTree = "<group>"; };
 		325169C81BF685D900038FAF /* UIView+MCLayoutCalculation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+MCLayoutCalculation.h"; sourceTree = "<group>"; };
 		325169C91BF685D900038FAF /* UIView+MCLayoutCalculation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+MCLayoutCalculation.m"; sourceTree = "<group>"; };
 		32B1346E1BFA75010058FB3A /* MCUIViewLayoutExampleRelativeCenterInParent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MCUIViewLayoutExampleRelativeCenterInParent.h; sourceTree = "<group>"; };
@@ -82,7 +84,6 @@
 		915CC081DFB9902B9C2DBD5F /* UIView_MCLayoutSizeToFitInSuperViewTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UIView_MCLayoutSizeToFitInSuperViewTest.m; sourceTree = "<group>"; };
 		915CC2122AFA59E400174116 /* MCUIViewExampleUIFactory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MCUIViewExampleUIFactory.m; sourceTree = "<group>"; };
 		915CC366DEE25CFB00E321F8 /* UIView_MCLayoutInSuperViewAndBesideSibling.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UIView_MCLayoutInSuperViewAndBesideSibling.m; sourceTree = "<group>"; };
-		915CC490438FC7F0C4280A4E /* UIView+MCLayoutDeprecated.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+MCLayoutDeprecated.m"; sourceTree = "<group>"; };
 		915CC501F5EB6AEBD5A89A8C /* UIView_MCLayoutSizeToFitWithSiblingTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UIView_MCLayoutSizeToFitWithSiblingTest.m; sourceTree = "<group>"; };
 		915CC583EAC96379F74A17BA /* MCUIViewLayoutExampleSetRelativePosition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MCUIViewLayoutExampleSetRelativePosition.h; sourceTree = "<group>"; };
 		915CC5E96A22B9D2595F79FB /* UIView+MCLayoutDeprecated.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+MCLayoutDeprecated.h"; sourceTree = "<group>"; };
@@ -106,10 +107,11 @@
 		BF9303A636A8ECB35132EAAD /* GeometryTestingHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GeometryTestingHelper.m; sourceTree = "<group>"; };
 		BF9305FFE48374C7414278C6 /* GeometryTestingHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GeometryTestingHelper.h; sourceTree = "<group>"; };
 		BF930D8EB447693A4A094EA0 /* MCUIViewLayoutPosition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MCUIViewLayoutPosition.h; sourceTree = "<group>"; };
-		DF05FD591C6A5BDC00CA825F /* UIView-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIView-Bridging-Header.h"; sourceTree = "<group>"; };
 		DF05FD5A1C6A5BDD00CA825F /* UIView+MCLayout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+MCLayout.swift"; sourceTree = "<group>"; };
 		DF05FD5C1C6A5D0B00CA825F /* MCUIViewLayoutExampleSetPositionSwift.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MCUIViewLayoutExampleSetPositionSwift.swift; sourceTree = "<group>"; };
 		DF16A1741CD7C29A00538C7B /* MCUIViewLayoutExampleSetPositionFitSize.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MCUIViewLayoutExampleSetPositionFitSize.swift; sourceTree = "<group>"; };
+		DF1DFB791D7AE00B00676B9D /* UIView+MCLayout2-BeforeChangeNameToLayout.swift.old */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "UIView+MCLayout2-BeforeChangeNameToLayout.swift.old"; sourceTree = "<group>"; };
+		DF1DFB7B1D7AE3B300676B9D /* MCUIViewLayoutExampleSetPosition2Swift.swift.beforeNameChange */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = MCUIViewLayoutExampleSetPosition2Swift.swift.beforeNameChange; sourceTree = "<group>"; };
 		DF55F8FB1D57E619005495F8 /* UIView+MCLayout2.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+MCLayout2.swift"; sourceTree = "<group>"; };
 		DF55F8FD1D57E6A1005495F8 /* UIEdgeInsets+MCLayout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIEdgeInsets+MCLayout.swift"; sourceTree = "<group>"; };
 		DF55F8FF1D57E75F005495F8 /* MCUIViewLayoutExampleSetPosition2Swift.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MCUIViewLayoutExampleSetPosition2Swift.swift; sourceTree = "<group>"; };
@@ -171,6 +173,7 @@
 		09ABD58B16E8ECF300290BB3 /* UIViewLayoutExample */ = {
 			isa = PBXGroup;
 			children = (
+				24B33DDD1E56337B00F3C840 /* MCLayoutExample-Bridging-Header.h */,
 				09ABD59416E8ECF300290BB3 /* AppDelegate.h */,
 				09ABD59516E8ECF300290BB3 /* AppDelegate.m */,
 				09ABD58C16E8ECF300290BB3 /* Supporting Files */,
@@ -180,6 +183,7 @@
 				915CC00B966DD189ED394F8E /* MCUIViewLayoutExampleSetPosition.h */,
 				DF05FD5C1C6A5D0B00CA825F /* MCUIViewLayoutExampleSetPositionSwift.swift */,
 				DF55F8FF1D57E75F005495F8 /* MCUIViewLayoutExampleSetPosition2Swift.swift */,
+				DF1DFB7B1D7AE3B300676B9D /* MCUIViewLayoutExampleSetPosition2Swift.swift.beforeNameChange */,
 				DF16A1741CD7C29A00538C7B /* MCUIViewLayoutExampleSetPositionFitSize.swift */,
 				915CCAFCAE539F379DDA60E1 /* MCUIViewLayoutExampleMenuView.m */,
 				915CCAB334DF61FFB551D7B7 /* MCUIViewLayoutExampleMenuView.h */,
@@ -238,14 +242,13 @@
 				FA41FEF81703D35100071708 /* UIView+MCLayout.m */,
 				DF05FD5A1C6A5BDD00CA825F /* UIView+MCLayout.swift */,
 				DF55F8FB1D57E619005495F8 /* UIView+MCLayout2.swift */,
+				DF1DFB791D7AE00B00676B9D /* UIView+MCLayout2-BeforeChangeNameToLayout.swift.old */,
 				DF55F8FD1D57E6A1005495F8 /* UIEdgeInsets+MCLayout.swift */,
 				BF930D8EB447693A4A094EA0 /* MCUIViewLayoutPosition.h */,
 				BF93017C2A02E04CC15591BF /* MCUIViewLayoutPosition.m */,
 				325169C81BF685D900038FAF /* UIView+MCLayoutCalculation.h */,
 				325169C91BF685D900038FAF /* UIView+MCLayoutCalculation.m */,
-				915CC490438FC7F0C4280A4E /* UIView+MCLayoutDeprecated.m */,
 				915CC5E96A22B9D2595F79FB /* UIView+MCLayoutDeprecated.h */,
-				DF05FD591C6A5BDC00CA825F /* UIView-Bridging-Header.h */,
 			);
 			name = MCUIViewLayout;
 			path = ../MCUIViewLayout;
@@ -299,6 +302,9 @@
 				LastUpgradeCheck = 0710;
 				ORGANIZATIONNAME = "Mirego, Inc.";
 				TargetAttributes = {
+					09ABD58116E8ECF300290BB3 = {
+						LastSwiftMigration = 0820;
+					};
 					32C47E061BF637E000E06372 = {
 						CreatedOnToolsVersion = 7.1.1;
 						TestTargetID = 09ABD58116E8ECF300290BB3;
@@ -332,6 +338,8 @@
 				09ABD59816E8ECF300290BB3 /* Default.png in Resources */,
 				09ABD59A16E8ECF300290BB3 /* Default@2x.png in Resources */,
 				09ABD59C16E8ECF300290BB3 /* Default-568h@2x.png in Resources */,
+				DF1DFB7A1D7AE00B00676B9D /* UIView+MCLayout2-BeforeChangeNameToLayout.swift.old in Resources */,
+				DF1DFB7C1D7AE3B300676B9D /* MCUIViewLayoutExampleSetPosition2Swift.swift.beforeNameChange in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -366,7 +374,6 @@
 				325169CA1BF685D900038FAF /* UIView+MCLayoutCalculation.m in Sources */,
 				DF05FD5B1C6A5BDD00CA825F /* UIView+MCLayout.swift in Sources */,
 				DF55F8FE1D57E6A1005495F8 /* UIEdgeInsets+MCLayout.swift in Sources */,
-				915CC036C17BE1BC5CCE2517 /* UIView+MCLayoutDeprecated.m in Sources */,
 				915CCAB408003F7D205D454C /* MCUIViewLayoutExampleSetPositionSizeToFit.m in Sources */,
 				915CC73967A80F9F4CC9355B /* MCUIViewLayoutExampleSpecialCases.m in Sources */,
 			);
@@ -481,6 +488,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "../MCUIViewLayout/UIView-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 3.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				WRAPPER_EXTENSION = app;
 			};
@@ -498,6 +506,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "com.mirego.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "../MCUIViewLayout/UIView-Bridging-Header.h";
+				SWIFT_VERSION = 3.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				WRAPPER_EXTENSION = app;
 			};
@@ -637,6 +646,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "../MCUIViewLayout/UIView-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 3.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				WRAPPER_EXTENSION = app;
 			};
