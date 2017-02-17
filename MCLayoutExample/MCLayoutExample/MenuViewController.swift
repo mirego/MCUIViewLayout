@@ -9,11 +9,13 @@ import Foundation
 
 enum Page: Int {
     case basicPositionning = 0
+    case layout2
     case count
     
     var text: String {
         switch self {
         case .basicPositionning: return "Basic Positionning"
+        case .layout2: return "Layout 2"
         default:
             assert(false)
             return "Unknown"
@@ -44,12 +46,20 @@ class MenuViewController: UIViewController {
 // MARK: MenuViewDelegate
 extension MenuViewController: MenuViewDelegate {
     func didSelect(page: Page) {
+        var controller: UIViewController?
+        
         switch page {
         case .basicPositionning:
-            navigationController?.pushViewController(YogoTestViewController(), animated: true)
+            controller = YogoTestViewController()
+        case .layout2:
+            controller = Layout2ViewController()
         default:
             assert(false)
             break
+        }
+        
+        if let controller = controller {
+            navigationController?.pushViewController(controller, animated: true)
         }
     }
 }

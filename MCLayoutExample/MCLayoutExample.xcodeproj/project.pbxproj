@@ -9,6 +9,9 @@
 /* Begin PBXBuildFile section */
 		24B33DEE1E568E3E00F3C840 /* YogoTestView2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24B33DEC1E568E3E00F3C840 /* YogoTestView2.swift */; };
 		24B33DEF1E568E3E00F3C840 /* YogoTestViewController2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24B33DED1E568E3E00F3C840 /* YogoTestViewController2.swift */; };
+		24B33DF11E578CD500F3C840 /* Layout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24B33DF01E578CD500F3C840 /* Layout.swift */; };
+		24B387861E5797BD009F885D /* Layout2View.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24B387841E5797BD009F885D /* Layout2View.swift */; };
+		24B387871E5797BD009F885D /* Layout2ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24B387851E5797BD009F885D /* Layout2ViewController.swift */; };
 		A4AD8BA8A0AC415E765C0CE6 /* Pods_MCLayoutExample.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 884EE66E5FB1109D829136BB /* Pods_MCLayoutExample.framework */; };
 		DF1DFB8A1D7AE4F500676B9D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF1DFB891D7AE4F500676B9D /* AppDelegate.swift */; };
 		DF1DFB931D7AE4F500676B9D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DF1DFB921D7AE4F500676B9D /* Assets.xcassets */; };
@@ -48,6 +51,9 @@
 		24B33DE11E5637BF00F3C840 /* YogoTestViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = YogoTestViewController.swift; path = Tests/YogoTestViewController.swift; sourceTree = "<group>"; };
 		24B33DEC1E568E3E00F3C840 /* YogoTestView2.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = YogoTestView2.swift; path = Tests/YogoTestView2.swift; sourceTree = "<group>"; };
 		24B33DED1E568E3E00F3C840 /* YogoTestViewController2.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = YogoTestViewController2.swift; path = Tests/YogoTestViewController2.swift; sourceTree = "<group>"; };
+		24B33DF01E578CD500F3C840 /* Layout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Layout.swift; path = ../MCUIViewLayout/Layout.swift; sourceTree = "<group>"; };
+		24B387841E5797BD009F885D /* Layout2View.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Layout2View.swift; sourceTree = "<group>"; };
+		24B387851E5797BD009F885D /* Layout2ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Layout2ViewController.swift; sourceTree = "<group>"; };
 		67E16A149D6F0BD8EA4304EB /* Pods-MCLayoutExample.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MCLayoutExample.release.xcconfig"; path = "Pods/Target Support Files/Pods-MCLayoutExample/Pods-MCLayoutExample.release.xcconfig"; sourceTree = "<group>"; };
 		884EE66E5FB1109D829136BB /* Pods_MCLayoutExample.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MCLayoutExample.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		DF1DFB861D7AE4F500676B9D /* MCLayoutExample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MCLayoutExample.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -111,6 +117,8 @@
 				24B33DED1E568E3E00F3C840 /* YogoTestViewController2.swift */,
 				24B33DE01E5637BF00F3C840 /* YogoTestView.swift */,
 				24B33DE11E5637BF00F3C840 /* YogoTestViewController.swift */,
+				24B387841E5797BD009F885D /* Layout2View.swift */,
+				24B387851E5797BD009F885D /* Layout2ViewController.swift */,
 			);
 			name = Tests;
 			sourceTree = "<group>";
@@ -190,6 +198,7 @@
 		DF1DFBB91D7AE51100676B9D /* MCUIViewLayout */ = {
 			isa = PBXGroup;
 			children = (
+				24B33DF01E578CD500F3C840 /* Layout.swift */,
 				DF1DFBBB1D7AE53900676B9D /* MCUIViewLayoutPosition.h */,
 				DF1DFBBC1D7AE53900676B9D /* MCUIViewLayoutPosition.m */,
 				DF1DFBBD1D7AE53900676B9D /* UIEdgeInsets+MCLayout.swift */,
@@ -404,8 +413,11 @@
 				DF1DFBCE1D7AE53900676B9D /* UIView+MCLayoutCalculation.m in Sources */,
 				DF1DFBC91D7AE53900676B9D /* UIEdgeInsets+MCLayout.swift in Sources */,
 				DF1DFBCA1D7AE53900676B9D /* UIView+MCLayout.m in Sources */,
+				24B387871E5797BD009F885D /* Layout2ViewController.swift in Sources */,
+				24B33DF11E578CD500F3C840 /* Layout.swift in Sources */,
 				DF1DFBD41D7AEA2E00676B9D /* MenuView.swift in Sources */,
 				DF1DFBCD1D7AE53900676B9D /* UIView+MCLayout2.swift in Sources */,
+				24B387861E5797BD009F885D /* Layout2View.swift in Sources */,
 				DF1DFB8A1D7AE4F500676B9D /* AppDelegate.swift in Sources */,
 				24B33DEF1E568E3E00F3C840 /* YogoTestViewController2.swift in Sources */,
 				DF1DFBC81D7AE53900676B9D /* MCUIViewLayoutPosition.m in Sources */,

@@ -1,0 +1,5 @@
+use_frameworks!
+
+target 'MCLayoutExample' do
+  pod 'YogaKit', '~> 1.1'
+end
