@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		24B33DEE1E568E3E00F3C840 /* YogoTestView2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24B33DEC1E568E3E00F3C840 /* YogoTestView2.swift */; };
+		24B33DEF1E568E3E00F3C840 /* YogoTestViewController2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24B33DED1E568E3E00F3C840 /* YogoTestViewController2.swift */; };
+		A4AD8BA8A0AC415E765C0CE6 /* Pods_MCLayoutExample.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 884EE66E5FB1109D829136BB /* Pods_MCLayoutExample.framework */; };
 		DF1DFB8A1D7AE4F500676B9D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF1DFB891D7AE4F500676B9D /* AppDelegate.swift */; };
 		DF1DFB931D7AE4F500676B9D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DF1DFB921D7AE4F500676B9D /* Assets.xcassets */; };
 		DF1DFB961D7AE4F500676B9D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DF1DFB941D7AE4F500676B9D /* LaunchScreen.storyboard */; };
@@ -41,6 +44,12 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		24B33DE01E5637BF00F3C840 /* YogoTestView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = YogoTestView.swift; path = Tests/YogoTestView.swift; sourceTree = "<group>"; };
+		24B33DE11E5637BF00F3C840 /* YogoTestViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = YogoTestViewController.swift; path = Tests/YogoTestViewController.swift; sourceTree = "<group>"; };
+		24B33DEC1E568E3E00F3C840 /* YogoTestView2.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = YogoTestView2.swift; path = Tests/YogoTestView2.swift; sourceTree = "<group>"; };
+		24B33DED1E568E3E00F3C840 /* YogoTestViewController2.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = YogoTestViewController2.swift; path = Tests/YogoTestViewController2.swift; sourceTree = "<group>"; };
+		67E16A149D6F0BD8EA4304EB /* Pods-MCLayoutExample.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MCLayoutExample.release.xcconfig"; path = "Pods/Target Support Files/Pods-MCLayoutExample/Pods-MCLayoutExample.release.xcconfig"; sourceTree = "<group>"; };
+		884EE66E5FB1109D829136BB /* Pods_MCLayoutExample.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MCLayoutExample.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		DF1DFB861D7AE4F500676B9D /* MCLayoutExample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MCLayoutExample.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DF1DFB891D7AE4F500676B9D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = AppDelegate.swift; path = MCLayoutExample/AppDelegate.swift; sourceTree = "<group>"; };
 		DF1DFB921D7AE4F500676B9D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -66,6 +75,7 @@
 		DF1DFBC61D7AE53900676B9D /* UIView+MCLayoutDeprecated.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UIView+MCLayoutDeprecated.h"; path = "../MCUIViewLayout/UIView+MCLayoutDeprecated.h"; sourceTree = "<group>"; };
 		DF1DFBD01D7AEA0A00676B9D /* MenuViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuViewController.swift; sourceTree = "<group>"; };
 		DF1DFBD31D7AEA2E00676B9D /* MenuView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuView.swift; sourceTree = "<group>"; };
+		F25EF9BF996996B94216B1E7 /* Pods-MCLayoutExample.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MCLayoutExample.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MCLayoutExample/Pods-MCLayoutExample.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -73,6 +83,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A4AD8BA8A0AC415E765C0CE6 /* Pods_MCLayoutExample.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -93,6 +104,34 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		24B33DDE1E56379300F3C840 /* Tests */ = {
+			isa = PBXGroup;
+			children = (
+				24B33DEC1E568E3E00F3C840 /* YogoTestView2.swift */,
+				24B33DED1E568E3E00F3C840 /* YogoTestViewController2.swift */,
+				24B33DE01E5637BF00F3C840 /* YogoTestView.swift */,
+				24B33DE11E5637BF00F3C840 /* YogoTestViewController.swift */,
+			);
+			name = Tests;
+			sourceTree = "<group>";
+		};
+		325CA5D2E31023A125E87211 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				F25EF9BF996996B94216B1E7 /* Pods-MCLayoutExample.debug.xcconfig */,
+				67E16A149D6F0BD8EA4304EB /* Pods-MCLayoutExample.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		C0B2B50A506B2BF7878050F2 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				884EE66E5FB1109D829136BB /* Pods_MCLayoutExample.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		DF1DFB7D1D7AE4F500676B9D = {
 			isa = PBXGroup;
 			children = (
@@ -103,6 +142,8 @@
 				DF1DFB9F1D7AE4F500676B9D /* MCLayoutExampleTests */,
 				DF1DFBAA1D7AE4F600676B9D /* MCLayoutExampleUITests */,
 				DF1DFB871D7AE4F500676B9D /* Products */,
+				325CA5D2E31023A125E87211 /* Pods */,
+				C0B2B50A506B2BF7878050F2 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -119,6 +160,7 @@
 		DF1DFB881D7AE4F500676B9D /* MCLayoutExample */ = {
 			isa = PBXGroup;
 			children = (
+				24B33DDE1E56379300F3C840 /* Tests */,
 				DF1DFBD21D7AEA2200676B9D /* Menu */,
 				DF1DFB921D7AE4F500676B9D /* Assets.xcassets */,
 				DF1DFB941D7AE4F500676B9D /* LaunchScreen.storyboard */,
@@ -179,9 +221,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = DF1DFBB01D7AE4F600676B9D /* Build configuration list for PBXNativeTarget "MCLayoutExample" */;
 			buildPhases = (
+				163889123E6C944706865E5A /* [CP] Check Pods Manifest.lock */,
 				DF1DFB821D7AE4F500676B9D /* Sources */,
 				DF1DFB831D7AE4F500676B9D /* Frameworks */,
 				DF1DFB841D7AE4F500676B9D /* Resources */,
+				8100C23A03A2E39F673C9669 /* [CP] Embed Pods Frameworks */,
+				B81D97AF534C9E16F0DADAB9 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -301,18 +346,68 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		163889123E6C944706865E5A /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		8100C23A03A2E39F673C9669 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-MCLayoutExample/Pods-MCLayoutExample-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		B81D97AF534C9E16F0DADAB9 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-MCLayoutExample/Pods-MCLayoutExample-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		DF1DFB821D7AE4F500676B9D /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 				DF1DFBCB1D7AE53900676B9D /* UIView+MCLayout.swift in Sources */,
+				24B33DEE1E568E3E00F3C840 /* YogoTestView2.swift in Sources */,
 				DF1DFBCE1D7AE53900676B9D /* UIView+MCLayoutCalculation.m in Sources */,
 				DF1DFBC91D7AE53900676B9D /* UIEdgeInsets+MCLayout.swift in Sources */,
 				DF1DFBCA1D7AE53900676B9D /* UIView+MCLayout.m in Sources */,
 				DF1DFBD41D7AEA2E00676B9D /* MenuView.swift in Sources */,
 				DF1DFBCD1D7AE53900676B9D /* UIView+MCLayout2.swift in Sources */,
 				DF1DFB8A1D7AE4F500676B9D /* AppDelegate.swift in Sources */,
+				24B33DEF1E568E3E00F3C840 /* YogoTestViewController2.swift in Sources */,
 				DF1DFBC81D7AE53900676B9D /* MCUIViewLayoutPosition.m in Sources */,
 				DF1DFBD11D7AEA0A00676B9D /* MenuViewController.swift in Sources */,
 			);
@@ -448,6 +543,7 @@
 		};
 		DF1DFBB11D7AE4F600676B9D /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = F25EF9BF996996B94216B1E7 /* Pods-MCLayoutExample.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
@@ -465,6 +561,7 @@
 		};
 		DF1DFBB21D7AE4F600676B9D /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 67E16A149D6F0BD8EA4304EB /* Pods-MCLayoutExample.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;

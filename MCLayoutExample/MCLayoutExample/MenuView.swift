@@ -6,23 +6,20 @@
 //  Copyright © 2016 Mirego. All rights reserved.
 //
 import Foundation
+import YogaKit
 
-
-protocol MenuViewDelegate: class
-{
-
+protocol MenuViewDelegate: class {
+    func didSelect(page: Page)
 }
 
 
-class MenuView: UIView
-{
+class MenuView: UIView {
     weak var delegate: MenuViewDelegate?
 
     fileprivate let tableView = UITableView()
     fileprivate let cellIdentifier = "MenuViewCell"
 
-    init()
-    {
+    init() {
         super.init(frame: .zero)
 
         backgroundColor = .red
@@ -33,13 +30,11 @@ class MenuView: UIView
         addSubview(tableView)
     }
 
-    required init(coder aDecoder: NSCoder)
-    {
+    required init(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
 
-    override func layoutSubviews()
-    {
+    override func layoutSubviews() {
         super.layoutSubviews()
 
         tableView.layout.matchView(self)
@@ -47,26 +42,25 @@ class MenuView: UIView
 }
 
 // PMARK: UITableViewDataSource
-extension MenuView: UITableViewDataSource
-{
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int
-    {
-        return 1
+extension MenuView: UITableViewDataSource {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return Page.count.rawValue
     }
 
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell
-    {
-        let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath) 
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath)
+        cell.textLabel?.text = Page(rawValue: indexPath.row)?.text ?? "Unknown"
         return cell
     }
 }
 
 // PMARK: UITableViewDelegate
-extension MenuView: UITableViewDelegate
-{
-    /*func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath)
-     {
-     }*/
+extension MenuView: UITableViewDelegate {
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        if let page = Page(rawValue: indexPath.row) {
+            delegate?.didSelect(page: page)
+        }
+    }
 
     /*func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat
      {

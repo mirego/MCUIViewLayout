@@ -29,7 +29,7 @@ import UIKit
 
 
 public extension UIEdgeInsets {
-    static public var zero: UIEdgeInsets { return UIEdgeInsets.zero }
+    //static public var zero: UIEdgeInsets { return UIEdgeInsets.zero }
 
     static public func top(_ margin: CGFloat) -> UIEdgeInsets {
         return UIEdgeInsets(top: margin, left: 0, bottom: 0, right: 0)
