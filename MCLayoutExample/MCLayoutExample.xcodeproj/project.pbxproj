@@ -12,6 +12,13 @@
 		24B33DF11E578CD500F3C840 /* Layout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24B33DF01E578CD500F3C840 /* Layout.swift */; };
 		24B387861E5797BD009F885D /* Layout2View.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24B387841E5797BD009F885D /* Layout2View.swift */; };
 		24B387871E5797BD009F885D /* Layout2ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24B387851E5797BD009F885D /* Layout2ViewController.swift */; };
+		24B3878A1E5B2544009F885D /* Layout2ChainedLayoutView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24B387881E5B2544009F885D /* Layout2ChainedLayoutView.swift */; };
+		24B3878B1E5B2544009F885D /* Layout2ChainedLayoutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24B387891E5B2544009F885D /* Layout2ChainedLayoutViewController.swift */; };
+		24D02AC41E5CDAF6003F3BD6 /* Layout2MarginsAndPaddingsLeftWidthView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24D02AC21E5CDAF6003F3BD6 /* Layout2MarginsAndPaddingsLeftWidthView.swift */; };
+		24D02AC51E5CDAF6003F3BD6 /* Layout2MarginsAndPaddingsLeftWidthViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24D02AC31E5CDAF6003F3BD6 /* Layout2MarginsAndPaddingsLeftWidthViewController.swift */; };
+		24D02AC71E5D0FEC003F3BD6 /* BasicView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24D02AC61E5D0FEC003F3BD6 /* BasicView.swift */; };
+		24D02ACA1E5D1873003F3BD6 /* Layout2MarginsAndPaddingsLeftRightView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24D02AC81E5D1873003F3BD6 /* Layout2MarginsAndPaddingsLeftRightView.swift */; };
+		24D02ACB1E5D1873003F3BD6 /* Layout2MarginsAndPaddingsLeftRightViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24D02AC91E5D1873003F3BD6 /* Layout2MarginsAndPaddingsLeftRightViewController.swift */; };
 		A4AD8BA8A0AC415E765C0CE6 /* Pods_MCLayoutExample.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 884EE66E5FB1109D829136BB /* Pods_MCLayoutExample.framework */; };
 		DF1DFB8A1D7AE4F500676B9D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF1DFB891D7AE4F500676B9D /* AppDelegate.swift */; };
 		DF1DFB931D7AE4F500676B9D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DF1DFB921D7AE4F500676B9D /* Assets.xcassets */; };
@@ -54,6 +61,13 @@
 		24B33DF01E578CD500F3C840 /* Layout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Layout.swift; path = ../MCUIViewLayout/Layout.swift; sourceTree = "<group>"; };
 		24B387841E5797BD009F885D /* Layout2View.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Layout2View.swift; sourceTree = "<group>"; };
 		24B387851E5797BD009F885D /* Layout2ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Layout2ViewController.swift; sourceTree = "<group>"; };
+		24B387881E5B2544009F885D /* Layout2ChainedLayoutView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Layout2ChainedLayoutView.swift; path = Tests/Layout2ChainedLayoutView.swift; sourceTree = "<group>"; };
+		24B387891E5B2544009F885D /* Layout2ChainedLayoutViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Layout2ChainedLayoutViewController.swift; path = Tests/Layout2ChainedLayoutViewController.swift; sourceTree = "<group>"; };
+		24D02AC21E5CDAF6003F3BD6 /* Layout2MarginsAndPaddingsLeftWidthView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Layout2MarginsAndPaddingsLeftWidthView.swift; path = Tests/Layout2MarginsAndPaddingsLeftWidthView.swift; sourceTree = "<group>"; };
+		24D02AC31E5CDAF6003F3BD6 /* Layout2MarginsAndPaddingsLeftWidthViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Layout2MarginsAndPaddingsLeftWidthViewController.swift; path = Tests/Layout2MarginsAndPaddingsLeftWidthViewController.swift; sourceTree = "<group>"; };
+		24D02AC61E5D0FEC003F3BD6 /* BasicView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BasicView.swift; path = Tests/BasicView.swift; sourceTree = "<group>"; };
+		24D02AC81E5D1873003F3BD6 /* Layout2MarginsAndPaddingsLeftRightView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Layout2MarginsAndPaddingsLeftRightView.swift; path = Tests/Layout2MarginsAndPaddingsLeftRightView.swift; sourceTree = "<group>"; };
+		24D02AC91E5D1873003F3BD6 /* Layout2MarginsAndPaddingsLeftRightViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Layout2MarginsAndPaddingsLeftRightViewController.swift; path = Tests/Layout2MarginsAndPaddingsLeftRightViewController.swift; sourceTree = "<group>"; };
 		67E16A149D6F0BD8EA4304EB /* Pods-MCLayoutExample.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MCLayoutExample.release.xcconfig"; path = "Pods/Target Support Files/Pods-MCLayoutExample/Pods-MCLayoutExample.release.xcconfig"; sourceTree = "<group>"; };
 		884EE66E5FB1109D829136BB /* Pods_MCLayoutExample.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MCLayoutExample.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		DF1DFB861D7AE4F500676B9D /* MCLayoutExample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MCLayoutExample.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -113,12 +127,19 @@
 		24B33DDE1E56379300F3C840 /* Tests */ = {
 			isa = PBXGroup;
 			children = (
+				24D02AC61E5D0FEC003F3BD6 /* BasicView.swift */,
 				24B33DEC1E568E3E00F3C840 /* YogoTestView2.swift */,
 				24B33DED1E568E3E00F3C840 /* YogoTestViewController2.swift */,
 				24B33DE01E5637BF00F3C840 /* YogoTestView.swift */,
 				24B33DE11E5637BF00F3C840 /* YogoTestViewController.swift */,
 				24B387841E5797BD009F885D /* Layout2View.swift */,
 				24B387851E5797BD009F885D /* Layout2ViewController.swift */,
+				24B387881E5B2544009F885D /* Layout2ChainedLayoutView.swift */,
+				24B387891E5B2544009F885D /* Layout2ChainedLayoutViewController.swift */,
+				24D02AC21E5CDAF6003F3BD6 /* Layout2MarginsAndPaddingsLeftWidthView.swift */,
+				24D02AC31E5CDAF6003F3BD6 /* Layout2MarginsAndPaddingsLeftWidthViewController.swift */,
+				24D02AC81E5D1873003F3BD6 /* Layout2MarginsAndPaddingsLeftRightView.swift */,
+				24D02AC91E5D1873003F3BD6 /* Layout2MarginsAndPaddingsLeftRightViewController.swift */,
 			);
 			name = Tests;
 			sourceTree = "<group>";
@@ -411,16 +432,23 @@
 				DF1DFBCB1D7AE53900676B9D /* UIView+MCLayout.swift in Sources */,
 				24B33DEE1E568E3E00F3C840 /* YogoTestView2.swift in Sources */,
 				DF1DFBCE1D7AE53900676B9D /* UIView+MCLayoutCalculation.m in Sources */,
+				24D02ACB1E5D1873003F3BD6 /* Layout2MarginsAndPaddingsLeftRightViewController.swift in Sources */,
 				DF1DFBC91D7AE53900676B9D /* UIEdgeInsets+MCLayout.swift in Sources */,
 				DF1DFBCA1D7AE53900676B9D /* UIView+MCLayout.m in Sources */,
 				24B387871E5797BD009F885D /* Layout2ViewController.swift in Sources */,
 				24B33DF11E578CD500F3C840 /* Layout.swift in Sources */,
 				DF1DFBD41D7AEA2E00676B9D /* MenuView.swift in Sources */,
 				DF1DFBCD1D7AE53900676B9D /* UIView+MCLayout2.swift in Sources */,
+				24D02ACA1E5D1873003F3BD6 /* Layout2MarginsAndPaddingsLeftRightView.swift in Sources */,
 				24B387861E5797BD009F885D /* Layout2View.swift in Sources */,
+				24B3878A1E5B2544009F885D /* Layout2ChainedLayoutView.swift in Sources */,
+				24D02AC41E5CDAF6003F3BD6 /* Layout2MarginsAndPaddingsLeftWidthView.swift in Sources */,
 				DF1DFB8A1D7AE4F500676B9D /* AppDelegate.swift in Sources */,
+				24D02AC51E5CDAF6003F3BD6 /* Layout2MarginsAndPaddingsLeftWidthViewController.swift in Sources */,
+				24B3878B1E5B2544009F885D /* Layout2ChainedLayoutViewController.swift in Sources */,
 				24B33DEF1E568E3E00F3C840 /* YogoTestViewController2.swift in Sources */,
 				DF1DFBC81D7AE53900676B9D /* MCUIViewLayoutPosition.m in Sources */,
+				24D02AC71E5D0FEC003F3BD6 /* BasicView.swift in Sources */,
 				DF1DFBD11D7AEA0A00676B9D /* MenuViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

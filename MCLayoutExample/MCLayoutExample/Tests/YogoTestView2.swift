@@ -132,14 +132,14 @@ class YogoTestView: UIView {
             flexbox.addFlexboxContainer(rowFlexboxView, flexDirection: .row, justifyContent: .center) { (flexbox) in
                 flexbox.yg.height = 300
                 flexbox.yg.padding = 12
-
-                flexbox.addFlexboxItem(redView) { (flexbox) in
-                    flexbox.yg.flexGrow = 1
-                    flexbox.yg.flexShrink = 1
-                }
                 
                 flexbox.addFlexboxItem(disappearingView) { (flexbox) in
                     flexbox.yg.flex(flexGrow: 1)
+                }
+                
+                flexbox.addFlexboxItem(redView) { (flexbox) in
+                    flexbox.yg.flexGrow = 1
+                    flexbox.yg.flexShrink = 1
                 }
             }
             

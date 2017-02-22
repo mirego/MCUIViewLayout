@@ -50,6 +50,7 @@ extension MenuView: UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath)
         cell.textLabel?.text = Page(rawValue: indexPath.row)?.text ?? "Unknown"
+        cell.textLabel?.font = UIFont.systemFont(ofSize: 12)
         return cell
     }
 }

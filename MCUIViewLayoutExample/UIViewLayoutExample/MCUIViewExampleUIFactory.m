@@ -69,6 +69,7 @@
     UILabel *label = [[UILabel alloc] init];
     label.text = title;
     label.textAlignment = NSTextAlignmentCenter;
+    label.backgroundColor = [UIColor redColor];
     [label sizeToFit];
     [view addSubview:label];
     return label;

@@ -10,19 +10,24 @@ import Foundation
 enum Page: Int {
     case basicPositionning = 0
     case layout2
+    case layout2ChainedLayout
+    case layout2MarginsAndPaddingLeftWidth
+    case layout2MarginsAndPaddingLeftRight
     case count
     
     var text: String {
         switch self {
-        case .basicPositionning: return "Basic Positionning"
-        case .layout2: return "Layout 2"
+        case .basicPositionning:                 return "Yoga Test"
+        case .layout2:                           return "Layout 2 - Position Direct access"
+        case .layout2ChainedLayout:              return "Layout 2 - Chained Layout"
+        case .layout2MarginsAndPaddingLeftWidth: return "Layout 2 - Test margings and paddings - Left+Width"
+        case .layout2MarginsAndPaddingLeftRight: return "Layout 2 - Test margings and paddings - Left+Right"
         default:
             assert(false)
             return "Unknown"
         }
     }
 }
-
 
 class MenuViewController: UIViewController {
     fileprivate var mainView: MenuView {
@@ -53,6 +58,12 @@ extension MenuViewController: MenuViewDelegate {
             controller = YogoTestViewController()
         case .layout2:
             controller = Layout2ViewController()
+        case .layout2ChainedLayout:
+            controller = Layout2ChainedLayoutViewController()
+        case .layout2MarginsAndPaddingLeftWidth:
+            controller = Layout2MarginsAndPaddingsLeftWidthViewController()
+        case .layout2MarginsAndPaddingLeftRight:
+            controller = Layout2MarginsAndPaddingsLeftRightViewController()
         default:
             assert(false)
             break

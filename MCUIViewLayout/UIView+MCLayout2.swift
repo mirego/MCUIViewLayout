@@ -95,41 +95,41 @@ extension UIView {
         }
     }
 
-//    var width: CGFloat {
-//        set {
-//            frame = CGRect(x: x, y: y, width: ceilFloatToDisplayScale(newValue), height: height)
-//        }
-//        get {
-//            return frame.width
-//        }
-//    }
-//
-//    var height: CGFloat {
-//        set {
-//            frame = CGRect(x: x, y: y, width: width, height: ceilFloatToDisplayScale(newValue))
-//        }
-//        get {
-//            return frame.height
-//        }
-//    }
+    var width: CGFloat {
+        set {
+            frame = CGRect(x: x, y: y, width: ceilFloatToDisplayScale(newValue), height: height)
+        }
+        get {
+            return frame.width
+        }
+    }
 
-//    var left: CGFloat {
-//        set {
-//            x = newValue
-//        }
-//        get {
-//            return x
-//        }
-//    }
-//
-//    var top: CGFloat {
-//        set {
-//            y = newValue
-//        }
-//        get {
-//            return y
-//        }
-//    }
+    var height: CGFloat {
+        set {
+            frame = CGRect(x: x, y: y, width: width, height: ceilFloatToDisplayScale(newValue))
+        }
+        get {
+            return frame.height
+        }
+    }
+
+    var left: CGFloat {
+        set {
+            x = newValue
+        }
+        get {
+            return x
+        }
+    }
+
+    var top: CGFloat {
+        set {
+            y = newValue
+        }
+        get {
+            return y
+        }
+    }
 
     var right: CGFloat {
         set {
@@ -149,14 +149,14 @@ extension UIView {
         }
     }
 
-//    var size: CGSize {
-//        set {
-//            frame = CGRect(x: x, y: y, width: ceilFloatToDisplayScale(newValue.width), height: ceilFloatToDisplayScale(newValue.height))
-//        }
-//        get {
-//            return bounds.size
-//        }
-//    }
+    var size: CGSize {
+        set {
+            frame = CGRect(x: x, y: y, width: ceilFloatToDisplayScale(newValue.width), height: ceilFloatToDisplayScale(newValue.height))
+        }
+        get {
+            return bounds.size
+        }
+    }
 
     var origin: CGPoint {
         set {

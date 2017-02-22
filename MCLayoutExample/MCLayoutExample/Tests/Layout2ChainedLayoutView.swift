@@ -1,17 +1,18 @@
 //
-//  Layout2View.swift
+//  Layout2ChainedLayoutView.swift
 //  MCLayoutExample
 //
-//  Created by DION, Luc (MTL) on 2017-02-17.
+//  Created by DION, Luc (MTL) on 2017-02-20.
 //  Copyright (c) 2017 Mirego. All rights reserved.
 //
 import UIKit
 
-protocol Layout2ViewDelegate: class {
+protocol Layout2ChainedLayoutViewDelegate: class {
 }
 
-class Layout2View: UIView {
-    weak var delegate: Layout2ViewDelegate?
+class Layout2ChainedLayoutView: UIView {
+    weak var delegate: Layout2ChainedLayoutViewDelegate?
+     
     private let centerView = UIView()
     
     private let topLeftView = UIView()
@@ -57,8 +58,7 @@ class Layout2View: UIView {
     
     fileprivate func addSquare(_ view: UIView, color: UIColor) {
         view.backgroundColor = color
-        view.width = 50
-        view.height = 50
+        view.layout2.height(50).width(50)
         addSubview(view)
     }
     
@@ -74,20 +74,27 @@ class Layout2View: UIView {
         centerView.center = CGPoint(x: 200, y: 300)
         print("topCenterView: \(topCenterView.frame)")
         
-        topLeftView.bottomLeft = centerView.topLeft
-        topCenterView.bottomCenter = centerView.topCenter
-        topRightView.bottomRight = centerView.topRight
+        //        topLeftView.layout2.bottomLeft(centerView.topLeft).margins(10)
+        //.bottomLeft = centerView.topLeft
+        //        topCenterView.bottomCenter = centerView.topCenter
+        //        topRightView.bottomRight = centerView.topRight
+
+        bottomLeftView.layout2.topLeft(centerView.bottomLeft).margins(10)
+        bottomLeftView.layout2.topLeft(centerView.bottomLeft).height(50).topMargin(10).bottomMargin(10)
+        bottomCenterView.layout2.topCenter(centerView.bottomCenter).height(50).topMargin(10).bottomMargin(10)
+        bottomRightView.layout2.topRight(centerView.bottomRight).height(50).topMargin(10).bottomMargin(10)
         
-        leftTopView.topRight = centerView.topLeft
-        leftCenterView.centerRight = centerView.centerLeft
-        leftBottomView.bottomRight = centerView.bottomLeft
+        rightTopView.layout2.topLeft(centerView.topRight).width(50).leftMargin(10).rightMargin(10)
+        rightCenterView.layout2.centerLeft(centerView.centerRight).height(50).leftMargin(10).rightMargin(10)
+        rightBottomView.layout2.bottomLeft(centerView.bottomRight).height(50).leftMargin(10).rightMargin(10)
         
-        bottomLeftView.topLeft = centerView.bottomLeft
-        bottomCenterView.topCenter = centerView.bottomCenter
-        bottomRightView.topRight = centerView.bottomRight
-        
-        rightTopView.topLeft = centerView.topRight
-        rightCenterView.centerLeft = centerView.centerRight
-        rightBottomView.bottomLeft = centerView.bottomRight
+//
+//        leftTopView.topRight = centerView.topLeft
+//        leftCenterView.centerRight = centerView.centerLeft
+//        leftBottomView.bottomRight = centerView.bottomLeft
+//        
+//        bottomLeftView.topLeft = centerView.bottomLeft
+//        bottomCenterView.topCenter = centerView.bottomCenter
+//        bottomRightView.topRight = centerView.bottomRight
     }
 }
