@@ -79,18 +79,18 @@ class Layout2ChainedLayoutView: UIView {
         //        topCenterView.bottomCenter = centerView.topCenter
         //        topRightView.bottomRight = centerView.topRight
 
-        bottomLeftView.layout2.topLeft(centerView.bottomLeft).margins(10)
+        //bottomLeftView.layout2.topLeft(centerView.bottomLeft).margins(10)
         bottomLeftView.layout2.topLeft(centerView.bottomLeft).height(50).topMargin(10).bottomMargin(10)
         bottomCenterView.layout2.topCenter(centerView.bottomCenter).height(50).topMargin(10).bottomMargin(10)
         bottomRightView.layout2.topRight(centerView.bottomRight).height(50).topMargin(10).bottomMargin(10)
         
         rightTopView.layout2.topLeft(centerView.topRight).width(50).leftMargin(10).rightMargin(10)
-        rightCenterView.layout2.centerLeft(centerView.centerRight).height(50).leftMargin(10).rightMargin(10)
+        rightCenterView.layout2.leftCenter(centerView.rightCenter).height(50).leftMargin(10).rightMargin(10)
         rightBottomView.layout2.bottomLeft(centerView.bottomRight).height(50).leftMargin(10).rightMargin(10)
         
 //
 //        leftTopView.topRight = centerView.topLeft
-//        leftCenterView.centerRight = centerView.centerLeft
+//        leftCenterView.rightCenter = centerView.leftCenter
 //        leftBottomView.bottomRight = centerView.bottomLeft
 //        
 //        bottomLeftView.topLeft = centerView.bottomLeft

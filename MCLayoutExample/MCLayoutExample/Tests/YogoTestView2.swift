@@ -52,21 +52,21 @@ protocol FlexboxView: class {
 }
 
 extension FlexboxView where Self: UIView {
-    var yg: YGLayout {
+    var fb: YGLayout {
         return self.yoga
     }
     
     func configureAsFlexboxContainer(flexDirection: YGFlexDirection = .column,
                                      justifyContent: YGJustify = .flexStart, closure: (_ flexboxView: UIView) -> Void) {
-        yg.isEnabled = true
-        yg.flexContainer(flexDirection: flexDirection, justifyContent: justifyContent)
+        fb.isEnabled = true
+        fb.flexContainer(flexDirection: flexDirection, justifyContent: justifyContent)
         closure(self)
     }
     
     func configureAsFlexboxContainer(flexDirection: YGFlexDirection = .column,
                                      justifyContent: YGJustify = .flexStart) {
-        yg.isEnabled = true
-        yg.flexContainer(flexDirection: flexDirection, justifyContent: justifyContent)
+        fb.isEnabled = true
+        fb.flexContainer(flexDirection: flexDirection, justifyContent: justifyContent)
     }
     
     func addFlexboxContainer(_ containerView: UIView, flexDirection: YGFlexDirection = .column,
@@ -82,27 +82,27 @@ extension FlexboxView where Self: UIView {
     }
     
     func addFlexboxItem(_ view: UIView, closure: (_ flexboxView: UIView) -> Void) {
-        view.yg.isEnabled = true
+        view.fb.isEnabled = true
         addSubview(view)
         closure(view)
     }
     
     func addFlexboxItem(_ view: UIView) {
-        view.yg.isEnabled = true
+        view.fb.isEnabled = true
         addSubview(view)
     }
 }
 
 extension UIView: FlexboxView {
-    var yg: YGLayout {
+    var fb: YGLayout {
         return self.yoga
     }
 //    var marginTop: CGFloat {
 //        get {
-//            return self.yg.marginTop
+//            return self.fb.marginTop
 //        }
 //        set {
-//            self.yg.marginTop = newValue
+//            self.fb.marginTop = newValue
 //        }
 //    }
 }
@@ -127,50 +127,50 @@ class YogoTestView: UIView {
         button.addTarget(self, action: #selector(buttonWasTapped), for: UIControlEvents.touchUpInside)
         
         self.configureAsFlexboxContainer(flexDirection: .column) { (flexbox) in
-            flexbox.yg.marginTop = 64
+            flexbox.fb.marginTop = 64
             
             flexbox.addFlexboxContainer(rowFlexboxView, flexDirection: .row, justifyContent: .center) { (flexbox) in
-                flexbox.yg.height = 300
-                flexbox.yg.padding = 12
+                flexbox.fb.height = 300
+                flexbox.fb.padding = 12
                 
                 flexbox.addFlexboxItem(disappearingView) { (flexbox) in
-                    flexbox.yg.flex(flexGrow: 1)
+                    flexbox.fb.flex(flexGrow: 1)
                 }
                 
                 flexbox.addFlexboxItem(redView) { (flexbox) in
-                    flexbox.yg.flexGrow = 1
-                    flexbox.yg.flexShrink = 1
+                    flexbox.fb.flexGrow = 1
+                    flexbox.fb.flexShrink = 1
                 }
             }
             
             flexbox.addFlexboxItem(button) { (flexbox) in
-                flexbox.yg.width(300).height(300).align(.center)
+                flexbox.fb.width(300).height(300).align(.center)
             }
         }
         
         // OR
 //        self.configureAsFlexboxContainer(flexDirection: .column)
-//        self.yg.marginTop = 64
+//        self.fb.marginTop = 64
 //        
 //        self.addFlexboxContainer(rowFlexboxView, flexDirection: .row, justifyContent: .center)
-//        rowFlexboxView.yg.height = 300
-//        rowFlexboxView.yg.padding = 12
+//        rowFlexboxView.fb.height = 300
+//        rowFlexboxView.fb.padding = 12
 //        
 //        rowFlexboxView.addFlexboxItem(redView)
-//        redView.yg.flex(flexGrow: 1, flexShrink: 1)
+//        redView.fb.flex(flexGrow: 1, flexShrink: 1)
 //        
 //        rowFlexboxView.addFlexboxItem(disappearingView)
-//        disappearingView.yg.flex(flexGrow: 1)
+//        disappearingView.fb.flex(flexGrow: 1)
 //            
 //        self.addFlexboxItem(button)
-//        button.yg.width(300).height(300).align(.center)
+//        button.fb.width(300).height(300).align(.center)
     }
     
     override func layoutSubviews() {
         super.layoutSubviews()
-        rowFlexboxView.yg.width = width
+        rowFlexboxView.fb.width = width
         
-        yg.applyLayout()
+        fb.applyLayout()
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -184,9 +184,9 @@ class YogoTestView: UIView {
     func buttonWasTapped() {
         button.isSelected = !button.isSelected
         
-        disappearingView.yg.isIncludedInLayout = !disappearingView.yg.isIncludedInLayout
+        disappearingView.fb.isIncludedInLayout = !disappearingView.fb.isIncludedInLayout
         disappearingView.isHidden = !disappearingView.isHidden
         
-        rowFlexboxView.yg.applyLayout()
+        rowFlexboxView.fb.applyLayout()
     }
 }

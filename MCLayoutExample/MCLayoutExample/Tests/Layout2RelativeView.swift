@@ -1,13 +1,14 @@
 //
-//  Layout2View.swift
+//  Layout2RelativeView.swift
 //  MCLayoutExample
 //
-//  Created by DION, Luc (MTL) on 2017-02-17.
+//  Created by DION, Luc (MTL) on 2017-02-22.
 //  Copyright (c) 2017 Mirego. All rights reserved.
 //
 import UIKit
 
-class Layout2View: UIView {
+
+class Layout2RelativeView: UIView {
     private let centerView = UIView()
     
     private let topLeftView = UIView()
@@ -68,22 +69,22 @@ class Layout2View: UIView {
         centerView.width = 200
         centerView.height = 200
         centerView.center = CGPoint(x: 200, y: 300)
-        print("topCenterView: \(topCenterView.frame)")
         
-        topLeftView.bottomLeft = centerView.topLeft
-        topCenterView.bottomCenter = centerView.topCenter
-        topRightView.bottomRight = centerView.topRight
+        topLeftView.layout2.above(of: centerView, aligned: .left)
+        topCenterView.layout2.above(of: centerView, aligned: .center)
+        topRightView.layout2.above(of: centerView, aligned: .right)
         
-        leftTopView.topRight = centerView.topLeft
-        leftCenterView.rightCenter = centerView.leftCenter
-        leftBottomView.bottomRight = centerView.bottomLeft
+        leftTopView.layout2.left(of: centerView, aligned: .top)
+        leftCenterView.layout2.left(of: centerView, aligned: .center)
+        leftBottomView.layout2.left(of: centerView, aligned: .bottom)
         
-        bottomLeftView.topLeft = centerView.bottomLeft
-        bottomCenterView.topCenter = centerView.bottomCenter
-        bottomRightView.topRight = centerView.bottomRight
+        bottomLeftView.layout2.below(of: centerView, aligned: .left)
+        bottomCenterView.layout2.below(of: centerView, aligned: .center)
+        bottomRightView.layout2.below(of: centerView, aligned: .right)
         
-        rightTopView.topLeft = centerView.topRight
-        rightCenterView.leftCenter = centerView.rightCenter
-        rightBottomView.bottomLeft = centerView.bottomRight
+        rightTopView.layout2.right(of: centerView, aligned: .top)
+        rightCenterView.layout2.right(of: centerView, aligned: .center)
+        rightBottomView.layout2.right(of: centerView, aligned: .bottom)
     }
 }
+

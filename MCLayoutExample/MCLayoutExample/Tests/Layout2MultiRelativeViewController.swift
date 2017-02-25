@@ -1,15 +1,15 @@
 //
-//  Layout2ViewController.swift
+//  Layout2MultiRelativeViewController.swift
 //  MCLayoutExample
 //
-//  Created by DION, Luc (MTL) on 2017-02-17.
+//  Created by DION, Luc (MTL) on 2017-02-25.
 //  Copyright (c) 2017 Mirego. All rights reserved.
 //
 import UIKit
 
-class Layout2ViewController: UIViewController {
-    fileprivate var mainView: Layout2View {
-        return self.view as! Layout2View
+class Layout2MultiRelativeViewController: UIViewController {
+    fileprivate var mainView: Layout2MultiRelativeView {
+        return self.view as! Layout2MultiRelativeView
     }
 
     init() {
@@ -21,6 +21,6 @@ class Layout2ViewController: UIViewController {
     }
     
     override func loadView() {
-        view = Layout2View()
+        view = Layout2MultiRelativeView()
     }
 }
