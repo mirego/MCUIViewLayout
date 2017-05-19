@@ -85,7 +85,7 @@ CGFloat onePixel;
 
 - (void)testMCSetHeightWithDecimalDimensionsBelowPointFiveShouldCeilToTheHighestValue {
     [self.toMesureView mc_setHeight:46.001f];
-    XCTAssertEqual(46.0f + onePixel, [self.toMesureView mc_height], @"");
+    XCTAssertEqualWithAccuracy(46.0f + onePixel, [self.toMesureView mc_height], 0.000001, @"");
 }
 
 - (void)testMCGetWidth {
@@ -100,7 +100,7 @@ CGFloat onePixel;
 
 - (void)testMCSetWidthWithDecimalDimensionsBelowPointFiveShouldCeilToTheHighestValue {
     [self.toMesureView mc_setWidth:46.001f];
-    XCTAssertEqual(46.0f + onePixel, [self.toMesureView mc_width], @"");
+    XCTAssertEqualWithAccuracy(46.0f + onePixel, [self.toMesureView mc_width], 0.00001 ,@"");
 }
 
 - (void)testMCGetOrigin {

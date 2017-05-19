@@ -290,6 +290,9 @@
 				LastUpgradeCheck = 0710;
 				ORGANIZATIONNAME = "Mirego, Inc.";
 				TargetAttributes = {
+					09ABD58116E8ECF300290BB3 = {
+						LastSwiftMigration = 0830;
+					};
 					32C47E061BF637E000E06372 = {
 						CreatedOnToolsVersion = 7.1.1;
 						TestTargetID = 09ABD58116E8ECF300290BB3;
@@ -469,6 +472,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "../MCUIViewLayout/UIView-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 3.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				WRAPPER_EXTENSION = app;
 			};
@@ -486,6 +490,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "com.mirego.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "../MCUIViewLayout/UIView-Bridging-Header.h";
+				SWIFT_VERSION = 3.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				WRAPPER_EXTENSION = app;
 			};
@@ -625,6 +630,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "../MCUIViewLayout/UIView-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 3.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				WRAPPER_EXTENSION = app;
 			};
