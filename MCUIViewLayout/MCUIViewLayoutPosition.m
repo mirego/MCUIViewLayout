@@ -29,11 +29,16 @@
 
 @implementation MCUIViewLayoutPosition
 CGFloat (^_ceilFloatToDisplayScale)(CGFloat x);
+
 CGFloat (^_roundFloatToDisplayScale)(CGFloat x);
+
 CGFloat (^_floorFloatToDisplayScale)(CGFloat x);
 
 + (void)load {
-    CGFloat displayScale = [UIScreen mainScreen].scale;
+    [self loadForDisplayScale:[UIScreen mainScreen].scale];
+}
+
++ (void)loadForDisplayScale:(CGFloat)displayScale {
     CGFloat displayScaleInv = 1.0f / displayScale;
 
     if (displayScale > 1.0f) {
@@ -93,15 +98,13 @@ CGFloat (^_floorFloatToDisplayScale)(CGFloat x);
 
     if ((position & MCViewPositionLeft) || (position & MCViewPositionToTheRight)) {
         origin.x = _floorFloatToDisplayScale([self xOriginForPosition:position andInset:inset size:size inRect:targetRect defaultX:initialRectOrigin.x]);
-    }
-    else {
+    } else {
         origin.x = _ceilFloatToDisplayScale([self xOriginForPosition:position andInset:inset size:size inRect:targetRect defaultX:initialRectOrigin.x]);
     }
 
     if ((position & MCViewPositionTop) || (position & MCViewPositionUnder)) {
         origin.y = _floorFloatToDisplayScale([self yOriginForPosition:position andInset:inset size:size inRect:targetRect defaultY:initialRectOrigin.y]);
-    }
-    else {
+    } else {
         origin.y = _ceilFloatToDisplayScale([self yOriginForPosition:position andInset:inset size:size inRect:targetRect defaultY:initialRectOrigin.y]);
     }
 
@@ -115,8 +118,7 @@ CGFloat (^_floorFloatToDisplayScale)(CGFloat x);
 
     if (position & MCViewPositionFitWidth) {
         xPosition = targetRect.origin.x + inset.left;
-    }
-    else {
+    } else {
         int matchingPositionCount = 0;
 
         if (position & MCViewPositionToTheLeft) {
@@ -163,8 +165,7 @@ CGFloat (^_floorFloatToDisplayScale)(CGFloat x);
 
     if (position & MCViewPositionFitHeight) {
         yPosition = targetRect.origin.y + inset.top;
-    }
-    else {
+    } else {
         int matchingPositionCount = 0;
 
         if (position & MCViewPositionAbove) {
@@ -218,6 +219,10 @@ CGFloat (^_floorFloatToDisplayScale)(CGFloat x);
 
 + (CGRect)relativePositionRect:(CGRect)rect atPosition:(MCViewPosition)position inRect:(CGRect)targetRect withMargins:(UIEdgeInsets)margins {
     return [self positionRect:rect atPosition:position inRect:targetRect withMargins:margins];
+}
+
++ (void)overrideDisplayScaleForTest:(CGFloat)displayScale {
+    [self loadForDisplayScale:displayScale];
 }
 
 @end

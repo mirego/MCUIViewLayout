@@ -29,22 +29,22 @@ import Foundation
 
 class MCUIViewLayoutExampleSetPositionSwift: UIView
 {
-    private let margin: CGFloat = 10
+    fileprivate let margin: CGFloat = 10
 
-    private let topLeft = UILabel()
-    private let top = UILabel()
-    private let topRight = UILabel()
-    private let left = UILabel()
-    private let centered = UILabel()
-    private let right = UILabel()
-    private let bottomLeft = UILabel()
-    private let bottom = UILabel()
-    private let bottomRight = UILabel()
+    fileprivate let topLeft = UILabel()
+    fileprivate let top = UILabel()
+    fileprivate let topRight = UILabel()
+    fileprivate let left = UILabel()
+    fileprivate let centered = UILabel()
+    fileprivate let right = UILabel()
+    fileprivate let bottomLeft = UILabel()
+    fileprivate let bottom = UILabel()
+    fileprivate let bottomRight = UILabel()
     
     override init(frame: CGRect) {
         super.init(frame: frame)
 
-        backgroundColor = .blueColor()
+        backgroundColor = .blue
 
         addLabel(topLeft, title: "topLeft")
         addLabel(top, title: "top")
@@ -57,7 +57,7 @@ class MCUIViewLayoutExampleSetPositionSwift: UIView
         addLabel(bottom, title: "bottom")
         addLabel(bottomRight, title: "bottomRight")
 
-        addGestureRecognizer(UITapGestureRecognizer(target: self, action: "close"))
+        addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(MCUIViewLayoutExampleSetPositionSwift.close)))
     }
 
     required init(coder aDecoder: NSCoder) {
@@ -69,20 +69,20 @@ class MCUIViewLayoutExampleSetPositionSwift: UIView
 
         let margins = UIEdgeInsets(top: margin, left: margin, bottom: margin, right: margin)
 
-        topLeft.setPosition(.PositionTopLeft, margins: margins)
-        top.setPosition(.PositionTopHCenter, margins: margins)
-        topRight.setPosition(.PositionTopRight, margins: margins)
-        left.setPosition(.PositionVCenterLeft, margins: margins)
-        centered.setPosition(.PositionCenters, margins: margins)
-        right.setPosition(.PositionVCenterRight, margins: margins)
-        bottomLeft.setPosition(.PositionBottomLeft, margins: margins)
-        bottom.setPosition(.PositionBottomHCenter, margins: margins)
-        bottomRight.setPosition(.PositionBottomRight, margins: margins)
+        topLeft.setPosition(.positionTopLeft, margins: margins)
+        top.setPosition(.positionTopHCenter, margins: margins)
+        topRight.setPosition(.positionTopRight, margins: margins)
+        left.setPosition(.positionVCenterLeft, margins: margins)
+        centered.setPosition(.positionCenters, margins: margins)
+        right.setPosition(.positionVCenterRight, margins: margins)
+        bottomLeft.setPosition(.positionBottomLeft, margins: margins)
+        bottom.setPosition(.positionBottomHCenter, margins: margins)
+        bottomRight.setPosition(.positionBottomRight, margins: margins)
     }
 
-    private func addLabel(label: UILabel, title: String) {
+    fileprivate func addLabel(_ label: UILabel, title: String) {
         label.text = title
-        label.textAlignment = .Center
+        label.textAlignment = .center
         label.sizeToFit()
 
         addSubview(label)

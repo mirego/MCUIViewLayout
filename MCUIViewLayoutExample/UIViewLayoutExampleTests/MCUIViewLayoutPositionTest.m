@@ -29,14 +29,20 @@
 #import "GeometryTestingHelper.h"
 #import "MCUIViewLayoutPosition.h"
 
+static const CGFloat DESIRED_ACCURACY = 0.000001;
+
 @interface MCUIViewLayoutPositionTest : XCTestCase
-@property (nonatomic) CGFloat displayScale;
+
+@end
+
+@interface MCUIViewLayoutPosition (Test)
++ (void)overrideDisplayScaleForTest:(CGFloat)displayScale;
 @end
 
 @implementation MCUIViewLayoutPositionTest
-- (void)setUp {
-    [super setUp];
-    self.displayScale = [UIScreen mainScreen].scale;
+- (void)tearDown {
+    [super tearDown];
+    [MCUIViewLayoutPosition overrideDisplayScaleForTest:[UIScreen mainScreen].scale];
 }
 
 - (void)testLeftInRectNoMargin {
@@ -322,33 +328,120 @@
 }
 
 - (void)testFitWidthNoMargins {
-    CGRect rect = [MCUIViewLayoutPosition positionRect:CGRectMake(1000, 1000, 20, 20) atPosition:MCViewPositionFitWidth inRect:CGRectMake(100, 100, 100, 100) withMargins:UIEdgeInsetsZero];
+    CGRect rect = [MCUIViewLayoutPosition positionRect:CGRectMake(1000, 1000, 20, 20)
+                                            atPosition:MCViewPositionFitWidth
+                                                inRect:CGRectMake(100, 100, 100, 100)
+                                           withMargins:UIEdgeInsetsZero];
 
     XCTAssertTrue(rectEquals(100.0f, 1000.0f, 100.0f, 20.0f, rect), @"");
 }
 
 - (void)testFitWidthWithMargins {
-    CGRect rect = [MCUIViewLayoutPosition positionRect:CGRectMake(1000, 1000, 20, 20) atPosition:MCViewPositionFitWidth inRect:CGRectMake(100, 100, 100, 100) withMargins:UIEdgeInsetsMake(0, 10, 0, 5)];
+    CGRect rect = [MCUIViewLayoutPosition positionRect:CGRectMake(1000, 1000, 20, 20)
+                                            atPosition:MCViewPositionFitWidth
+                                                inRect:CGRectMake(100, 100, 100, 100)
+                                           withMargins:UIEdgeInsetsMake(0, 10, 0, 5)];
 
     XCTAssertTrue(rectEquals(110.0f, 1000.0f, 85.0f, 20.0f, rect), @"");
 }
 
-- (void)testCeilFloatToDisplayScale {
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Wobjc-method-access"
+
+- (void)testCeilFloatToStandardDisplayScale {
+    [MCUIViewLayoutPosition overrideDisplayScaleForTest:1.0];
     CGFloat ceiledFloat = [MCUIViewLayoutPosition ceilFloatToDisplayScale:1.33];
-    if (self.displayScale > 1.0f) {
-        XCTAssertEqual(ceiledFloat, 1.5f);
-    } else {
-        XCTAssertEqual(ceiledFloat, 2.0f);
-    }
+    XCTAssertEqualWithAccuracy(ceiledFloat, 2.0f, DESIRED_ACCURACY);
 }
 
-- (void)testFloorFloatToDisplayScale {
+- (void)testCeilFloatToRetinaDisplayScale {
+    [MCUIViewLayoutPosition overrideDisplayScaleForTest:2.0];
+    CGFloat ceiledFloat = [MCUIViewLayoutPosition ceilFloatToDisplayScale:1.33];
+    XCTAssertEqualWithAccuracy(ceiledFloat, 1.5f, DESIRED_ACCURACY);
+}
+
+- (void)testCeilFloatToRetinaPlusDisplayScale {
+    [MCUIViewLayoutPosition overrideDisplayScaleForTest:3.0];
+    CGFloat ceiledFloat = [MCUIViewLayoutPosition ceilFloatToDisplayScale:1.33];
+    XCTAssertEqualWithAccuracy(ceiledFloat, 1.333333f, DESIRED_ACCURACY);
+}
+
+- (void)testFloorFloatToStandardDisplayScale {
+    [MCUIViewLayoutPosition overrideDisplayScaleForTest:1.0];
+
     CGFloat flooredFloat = [MCUIViewLayoutPosition floorFloatToDisplayScale:1.75];
-    if (self.displayScale > 1.0f) {
-        XCTAssertEqual(flooredFloat, 1.5f);
-    } else {
-        XCTAssertEqual(flooredFloat, 1.0f);
-    }
+    XCTAssertEqualWithAccuracy(flooredFloat, 1.0f, DESIRED_ACCURACY);
 }
 
+- (void)testFloorFloatToRetinaDisplayScale {
+    [MCUIViewLayoutPosition overrideDisplayScaleForTest:2.0];
+
+    CGFloat flooredFloat = [MCUIViewLayoutPosition floorFloatToDisplayScale:1.75];
+    XCTAssertEqualWithAccuracy(flooredFloat, 1.5f, DESIRED_ACCURACY);
+}
+
+- (void)testFloorFloatToRetinaPlusDisplayScale {
+    [MCUIViewLayoutPosition overrideDisplayScaleForTest:3.0];
+
+    CGFloat flooredFloat = [MCUIViewLayoutPosition floorFloatToDisplayScale:1.75];
+    XCTAssertEqualWithAccuracy(flooredFloat, 1.666666f, DESIRED_ACCURACY);
+}
+
+- (void)testRoundFloatToStandardDisplayScaleGoingDown {
+    [MCUIViewLayoutPosition overrideDisplayScaleForTest:1.0];
+
+    CGFloat flooredFloat = [MCUIViewLayoutPosition roundFloatToDisplayScale:1.49];
+    XCTAssertEqualWithAccuracy(flooredFloat, 1.0f, DESIRED_ACCURACY);
+}
+
+- (void)testRoundFloatToStandardDisplayScaleGoingUp {
+    [MCUIViewLayoutPosition overrideDisplayScaleForTest:1.0];
+
+    CGFloat flooredFloat = [MCUIViewLayoutPosition roundFloatToDisplayScale:1.50];
+    XCTAssertEqualWithAccuracy(flooredFloat, 2.0f, DESIRED_ACCURACY);
+}
+
+- (void)testRoundFloatToRetinaDisplayScaleGoingUp {
+    [MCUIViewLayoutPosition overrideDisplayScaleForTest:2.0];
+
+    CGFloat flooredFloat = [MCUIViewLayoutPosition roundFloatToDisplayScale:1.75];
+    XCTAssertEqualWithAccuracy(flooredFloat, 2.0f, DESIRED_ACCURACY);
+}
+
+- (void)testRoundFloatToRetinaDisplayScaleGoingUpUnder1_5 {
+    [MCUIViewLayoutPosition overrideDisplayScaleForTest:2.0];
+
+    CGFloat flooredFloat = [MCUIViewLayoutPosition roundFloatToDisplayScale:1.25];
+    XCTAssertEqualWithAccuracy(flooredFloat, 1.5f, DESIRED_ACCURACY);
+}
+
+- (void)testRoundFloatToRetinaDisplayScaleDownUnder1_5 {
+    [MCUIViewLayoutPosition overrideDisplayScaleForTest:2.0];
+
+    CGFloat flooredFloat = [MCUIViewLayoutPosition roundFloatToDisplayScale:1.24];
+    XCTAssertEqualWithAccuracy(flooredFloat, 1.0f, DESIRED_ACCURACY);
+}
+
+- (void)testRoundFloatToRetinaDisplayScaleGoingDown {
+    [MCUIViewLayoutPosition overrideDisplayScaleForTest:2.0];
+
+    CGFloat flooredFloat = [MCUIViewLayoutPosition roundFloatToDisplayScale:1.74];
+    XCTAssertEqualWithAccuracy(flooredFloat, 1.5f, DESIRED_ACCURACY);
+}
+
+- (void)testRoundFloatToRetinaPlusDisplayScaleToTwo {
+    [MCUIViewLayoutPosition overrideDisplayScaleForTest:3.0];
+
+    CGFloat flooredFloat = [MCUIViewLayoutPosition roundFloatToDisplayScale:1.85];
+    XCTAssertEqualWithAccuracy(flooredFloat, 2.0f, DESIRED_ACCURACY);
+}
+
+- (void)testRoundFloatToRetinaPlusDisplayScaleLowerFraction {
+    [MCUIViewLayoutPosition overrideDisplayScaleForTest:3.0];
+
+    CGFloat flooredFloat = [MCUIViewLayoutPosition roundFloatToDisplayScale:1.49];
+    XCTAssertEqualWithAccuracy(flooredFloat, 1.333333f, DESIRED_ACCURACY);
+}
+
+#pragma clang diagnostic pop
 @end
