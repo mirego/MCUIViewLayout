@@ -29,6 +29,7 @@
 #import "MCUIViewLayoutPosition.h"
 
 @interface UIView (MCLayoutCalculation)
+
 - (CGRect)mc_getRectForPosition:(MCViewPosition)position;
 
 - (CGRect)mc_getRectForPosition:(MCViewPosition)position withMargins:(UIEdgeInsets)margins;
@@ -46,4 +47,5 @@
 - (CGRect)mc_getRectForRelativePosition:(MCViewPosition)position toView:(UIView *)view withMargins:(UIEdgeInsets)margins;
 
 - (CGRect)mc_getRectForRelativePosition:(MCViewPosition)position toView:(UIView *)view withMargins:(UIEdgeInsets)margins size:(CGSize)size;
+
 @end

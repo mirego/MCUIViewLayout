@@ -67,4 +67,5 @@
 - (void)mc_setRelativePosition:(MCViewPosition)position toView:(UIView *)view withMargins:(UIEdgeInsets)margins;
 
 - (void)mc_setRelativePosition:(MCViewPosition)position toView:(UIView *)view withMargins:(UIEdgeInsets)margins size:(CGSize)size;
+
 @end

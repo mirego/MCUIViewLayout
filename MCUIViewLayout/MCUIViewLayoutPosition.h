@@ -25,7 +25,7 @@
 // ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
 // POSSIBILITY OF SUCH DAMAGE.
 
-#import <Foundation/Foundation.h>
+#import <UIKit/UIKit.h>
 
 typedef NS_OPTIONS(NSInteger, MCViewPosition) {
     MCViewPositionToTheLeft         = (0x1 << 0),
@@ -33,47 +33,47 @@ typedef NS_OPTIONS(NSInteger, MCViewPosition) {
     MCViewPositionHorizontalCenter  = (0x1 << 2),
     MCViewPositionRight             = (0x1 << 3),
     MCViewPositionToTheRight        = (0x1 << 4),
-
+    
     MCViewPositionAbove             = (0x1 << 5),
     MCViewPositionTop               = (0x1 << 6),
     MCViewPositionVerticalCenter    = (0x1 << 7),
     MCViewPositionBottom            = (0x1 << 8),
     MCViewPositionUnder             = (0x1 << 9),
-
+    
     MCViewPositionFitWidth          = (0x1 << 20),
     MCViewPositionFitHeight         = (0x1 << 21),
-
+    
     MCViewPositionFitParentHeight   = (0x1 << 25),
     MCViewPositionFitParentWidth    = (0x1 << 26),
     MCViewPositionHCenterInParent   = (0x1 << 27),
     MCViewPositionVCenterInParent   = (0x1 << 28),
-
+    
     // Position inside another rect
-            MCViewPositionTopLeft = MCViewPositionTop | MCViewPositionLeft,
+    MCViewPositionTopLeft = MCViewPositionTop | MCViewPositionLeft,
     MCViewPositionTopHCenter = MCViewPositionTop | MCViewPositionHorizontalCenter,
     MCViewPositionTopRight = MCViewPositionTop | MCViewPositionRight,
-
+    
     MCViewPositionBottomLeft = MCViewPositionBottom | MCViewPositionLeft,
     MCViewPositionBottomHCenter = MCViewPositionBottom | MCViewPositionHorizontalCenter,
     MCViewPositionBottomRight = MCViewPositionBottom | MCViewPositionRight,
-
+    
     MCViewPositionVCenterLeft = MCViewPositionVerticalCenter | MCViewPositionLeft,
     MCViewPositionCenters = MCViewPositionVerticalCenter | MCViewPositionHorizontalCenter,
     MCViewPositionVCenterRight = MCViewPositionVerticalCenter | MCViewPositionRight,
-
+    
     // Position outside another rect
-            MCViewRelativePositionAboveAlignedLeft = MCViewPositionAbove | MCViewPositionLeft,
+    MCViewRelativePositionAboveAlignedLeft = MCViewPositionAbove | MCViewPositionLeft,
     MCViewRelativePositionAboveCentered = MCViewPositionAbove | MCViewPositionHorizontalCenter,
     MCViewRelativePositionAboveAlignedRight = MCViewPositionAbove | MCViewPositionRight,
-
+    
     MCViewRelativePositionToTheRightAlignedTop = MCViewPositionTop | MCViewPositionToTheRight,
     MCViewRelativePositionToTheRightCentered = MCViewPositionVerticalCenter | MCViewPositionToTheRight,
     MCViewRelativePositionToTheRightAlignedBottom = MCViewPositionBottom | MCViewPositionToTheRight,
-
+    
     MCViewRelativePositionToTheLeftAlignedTop = MCViewPositionToTheLeft | MCViewPositionTop,
     MCViewRelativePositionToTheLeftCentered = MCViewPositionToTheLeft | MCViewPositionVerticalCenter,
     MCViewRelativePositionToTheLeftAlignedBottom = MCViewPositionToTheLeft | MCViewPositionBottom,
-
+    
     MCViewRelativePositionUnderAlignedLeft = MCViewPositionLeft | MCViewPositionUnder,
     MCViewRelativePositionUnderCentered = MCViewPositionHorizontalCenter | MCViewPositionUnder,
     MCViewRelativePositionUnderAlignedRight = MCViewPositionRight | MCViewPositionUnder
