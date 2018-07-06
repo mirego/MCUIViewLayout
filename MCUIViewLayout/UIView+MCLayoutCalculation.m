@@ -62,6 +62,7 @@
     }
     else {
         NSAssert(false, @"can only set position for a sibling or the superview");
+        targetFrame = CGRectZero;
     }
 
     if (position & MCViewPositionFitParentWidth) {
