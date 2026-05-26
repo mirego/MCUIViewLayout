@@ -38,7 +38,7 @@ class MCUIViewLayoutExampleFitSize: UIView
     private let fitSize50 = UILabel()
     private let fitSize75 = UILabel()
     private let fitSize100 = UILabel()
-
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
 
@@ -79,7 +79,8 @@ class MCUIViewLayoutExampleFitSize: UIView
         addSubview(label)
     }
 
-    @objc func close() {
+    @objc
+    func close() {
         removeFromSuperview()
     }
 }

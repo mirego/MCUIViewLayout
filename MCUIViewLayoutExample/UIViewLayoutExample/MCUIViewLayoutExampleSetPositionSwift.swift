@@ -42,7 +42,7 @@ class MCUIViewLayoutExampleSetPositionSwift: UIView
     private let bottomLeft = UILabel()
     private let bottom = UILabel()
     private let bottomRight = UILabel()
-
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
 
@@ -88,7 +88,8 @@ class MCUIViewLayoutExampleSetPositionSwift: UIView
         addSubview(label)
     }
 
-    @objc func close() {
+    @objc
+    func close() {
         removeFromSuperview()
     }
 }
