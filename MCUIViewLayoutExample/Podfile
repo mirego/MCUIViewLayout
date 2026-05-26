@@ -1,0 +1,9 @@
+platform :ios, '12.0'
+
+target 'UIViewLayoutExample' do
+  pod 'MCUIViewLayout', :path => '../'
+
+  target 'UIViewLayoutExampleTests' do
+    inherit! :search_paths
+  end
+end

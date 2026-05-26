@@ -26,7 +26,7 @@
 // POSSIBILITY OF SUCH DAMAGE.
 
 #import <XCTest/XCTest.h>
-#import "UIView+MCLayout.h"
+#import <MCUIViewLayout/UIView+MCLayout.h>
 #import "GeometryTestingHelper.h"
 
 @interface UIView_MCLayoutBesideSiblingTest : XCTestCase

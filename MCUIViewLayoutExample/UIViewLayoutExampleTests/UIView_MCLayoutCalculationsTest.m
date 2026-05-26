@@ -27,8 +27,8 @@
 
 #import <XCTest/XCTest.h>
 #import "GeometryTestingHelper.h"
-#import "UIView+MCLayout.h"
-#import "UIView+MCLayoutCalculation.h"
+#import <MCUIViewLayout/UIView+MCLayout.h>
+#import <MCUIViewLayout/UIView+MCLayoutCalculation.h>
 
 @interface UIView_MCLayoutCalculationsTest : XCTestCase
 @property (nonatomic) UIView *containerView;

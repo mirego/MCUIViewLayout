@@ -27,7 +27,7 @@
 
 #import <XCTest/XCTest.h>
 #import "GeometryTestingHelper.h"
-#import "UIView+MCLayout.h"
+#import <MCUIViewLayout/UIView+MCLayout.h>
 
 @interface UIView_MCLayoutPositionAlignInSuperViewTest : XCTestCase
 @property (nonatomic) UIView *containerView;

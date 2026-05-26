@@ -16,7 +16,6 @@
 		09ABD59816E8ECF300290BB3 /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = 09ABD59716E8ECF300290BB3 /* Default.png */; };
 		09ABD59A16E8ECF300290BB3 /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 09ABD59916E8ECF300290BB3 /* Default@2x.png */; };
 		09ABD59C16E8ECF300290BB3 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 09ABD59B16E8ECF300290BB3 /* Default-568h@2x.png */; };
-		325169CA1BF685D900038FAF /* UIView+MCLayoutCalculation.m in Sources */ = {isa = PBXBuildFile; fileRef = 325169C91BF685D900038FAF /* UIView+MCLayoutCalculation.m */; };
 		32B134701BFA75010058FB3A /* MCUIViewLayoutExampleRelativeCenterInParent.m in Sources */ = {isa = PBXBuildFile; fileRef = 32B1346F1BFA75010058FB3A /* MCUIViewLayoutExampleRelativeCenterInParent.m */; };
 		32C47E121BF6387500E06372 /* GeometryTestingHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = BF9303A636A8ECB35132EAAD /* GeometryTestingHelper.m */; };
 		32C47E131BF6387500E06372 /* MCUIViewLayoutPositionTest.m in Sources */ = {isa = PBXBuildFile; fileRef = BF93022FB48635DBB10A1506 /* MCUIViewLayoutPositionTest.m */; };
@@ -26,7 +25,6 @@
 		32C47E171BF6387500E06372 /* UIView_MCLayoutSizeAndPositionBaseMethodTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 915CCBBDF035C678C368819F /* UIView_MCLayoutSizeAndPositionBaseMethodTest.m */; };
 		32C47E181BF6387500E06372 /* UIView_MCLayoutSizeToFitInSuperViewTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 915CC081DFB9902B9C2DBD5F /* UIView_MCLayoutSizeToFitInSuperViewTest.m */; };
 		32C47E191BF6387500E06372 /* UIView_MCLayoutSizeToFitWithSiblingTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 915CC501F5EB6AEBD5A89A8C /* UIView_MCLayoutSizeToFitWithSiblingTest.m */; };
-		915CC036C17BE1BC5CCE2517 /* UIView+MCLayoutDeprecated.m in Sources */ = {isa = PBXBuildFile; fileRef = 915CC490438FC7F0C4280A4E /* UIView+MCLayoutDeprecated.m */; };
 		915CC1C38A309CC53EF0A7BC /* MCUIViewExampleUIFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = 915CC2122AFA59E400174116 /* MCUIViewExampleUIFactory.m */; };
 		915CC234176C38B004A184DA /* MCUIViewLayoutRootController.m in Sources */ = {isa = PBXBuildFile; fileRef = 915CCFD54737A43192F21DB9 /* MCUIViewLayoutRootController.m */; };
 		915CC73967A80F9F4CC9355B /* MCUIViewLayoutExampleSpecialCases.m in Sources */ = {isa = PBXBuildFile; fileRef = 915CC932DAFE7D2E68CC0B40 /* MCUIViewLayoutExampleSpecialCases.m */; };
@@ -36,11 +34,10 @@
 		915CCD3D1192C7EE590BBBC3 /* MCUIViewLayoutExampleSetRelativePosition.m in Sources */ = {isa = PBXBuildFile; fileRef = 915CCB9122A70EB9F47C5BB7 /* MCUIViewLayoutExampleSetRelativePosition.m */; };
 		B89DB36EDFD64CFC8C7A6A7D /* UIView_MCLayoutPositionAlignInSuperViewTest.m in Sources */ = {isa = PBXBuildFile; fileRef = B89DBAECC0EB0C068FBE5262 /* UIView_MCLayoutPositionAlignInSuperViewTest.m */; };
 		B89DBE02216348FB5B9EA7A3 /* UIView_MCLayoutCalculationsTest.m in Sources */ = {isa = PBXBuildFile; fileRef = B89DBD3A820285898C6E33C8 /* UIView_MCLayoutCalculationsTest.m */; };
-		BF930920665F2EF890D53326 /* MCUIViewLayoutPosition.m in Sources */ = {isa = PBXBuildFile; fileRef = BF93017C2A02E04CC15591BF /* MCUIViewLayoutPosition.m */; };
-		DF05FD5B1C6A5BDD00CA825F /* UIView+MCLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF05FD5A1C6A5BDD00CA825F /* UIView+MCLayout.swift */; };
+		D69009DD3BE7E4F4A21A817E /* libPods-UIViewLayoutExampleTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 118D4EE6023C32C07697F80A /* libPods-UIViewLayoutExampleTests.a */; };
 		DF05FD5D1C6A5D0B00CA825F /* MCUIViewLayoutExampleSetPositionSwift.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF05FD5C1C6A5D0B00CA825F /* MCUIViewLayoutExampleSetPositionSwift.swift */; };
 		DF16A1751CD7C29A00538C7B /* MCUIViewLayoutExampleSetPositionFitSize.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF16A1741CD7C29A00538C7B /* MCUIViewLayoutExampleSetPositionFitSize.swift */; };
-		FA41FEF91703D35100071708 /* UIView+MCLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = FA41FEF81703D35100071708 /* UIView+MCLayout.m */; };
+		F9429A99817B5FFC2B53FAA3 /* libPods-UIViewLayoutExample.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 63FB41A49DD90485DE998968 /* libPods-UIViewLayoutExample.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -67,14 +64,20 @@
 		09ABD59716E8ECF300290BB3 /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
 		09ABD59916E8ECF300290BB3 /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
 		09ABD59B16E8ECF300290BB3 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
+		0E810209C4D627AFBABB2A7B /* Pods-UIViewLayoutExampleTests.coverage.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-UIViewLayoutExampleTests.coverage.xcconfig"; path = "Target Support Files/Pods-UIViewLayoutExampleTests/Pods-UIViewLayoutExampleTests.coverage.xcconfig"; sourceTree = "<group>"; };
+		118D4EE6023C32C07697F80A /* libPods-UIViewLayoutExampleTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-UIViewLayoutExampleTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		1FFBDA7B9764E221F0F9566A /* Pods-UIViewLayoutExample.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-UIViewLayoutExample.release.xcconfig"; path = "Target Support Files/Pods-UIViewLayoutExample/Pods-UIViewLayoutExample.release.xcconfig"; sourceTree = "<group>"; };
 		325169C81BF685D900038FAF /* UIView+MCLayoutCalculation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+MCLayoutCalculation.h"; sourceTree = "<group>"; };
 		325169C91BF685D900038FAF /* UIView+MCLayoutCalculation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+MCLayoutCalculation.m"; sourceTree = "<group>"; };
 		32B1346E1BFA75010058FB3A /* MCUIViewLayoutExampleRelativeCenterInParent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MCUIViewLayoutExampleRelativeCenterInParent.h; sourceTree = "<group>"; };
 		32B1346F1BFA75010058FB3A /* MCUIViewLayoutExampleRelativeCenterInParent.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MCUIViewLayoutExampleRelativeCenterInParent.m; sourceTree = "<group>"; };
 		32C47E071BF637E000E06372 /* UIViewLayoutExampleTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = UIViewLayoutExampleTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		32C47E0B1BF637E100E06372 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		383AE5203D1D7755B345AA02 /* Pods-UIViewLayoutExample.coverage.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-UIViewLayoutExample.coverage.xcconfig"; path = "Target Support Files/Pods-UIViewLayoutExample/Pods-UIViewLayoutExample.coverage.xcconfig"; sourceTree = "<group>"; };
 		5E6C83511746A74F00BB872E /* UIView_MCLayoutInSuperViewTest.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = UIView_MCLayoutInSuperViewTest.m; sourceTree = "<group>"; };
 		5E6C83531746A74F00BB872E /* UIViewLayoutExampleTests-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIViewLayoutExampleTests-Prefix.pch"; sourceTree = "<group>"; };
+		63FB41A49DD90485DE998968 /* libPods-UIViewLayoutExample.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-UIViewLayoutExample.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		88A475870487E0E61E8B448D /* Pods-UIViewLayoutExampleTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-UIViewLayoutExampleTests.release.xcconfig"; path = "Target Support Files/Pods-UIViewLayoutExampleTests/Pods-UIViewLayoutExampleTests.release.xcconfig"; sourceTree = "<group>"; };
 		915CC00B966DD189ED394F8E /* MCUIViewLayoutExampleSetPosition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MCUIViewLayoutExampleSetPosition.h; sourceTree = "<group>"; };
 		915CC081DFB9902B9C2DBD5F /* UIView_MCLayoutSizeToFitInSuperViewTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UIView_MCLayoutSizeToFitInSuperViewTest.m; sourceTree = "<group>"; };
 		915CC2122AFA59E400174116 /* MCUIViewExampleUIFactory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MCUIViewExampleUIFactory.m; sourceTree = "<group>"; };
@@ -98,6 +101,7 @@
 		915CCFD54737A43192F21DB9 /* MCUIViewLayoutRootController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MCUIViewLayoutRootController.m; sourceTree = "<group>"; };
 		B89DBAECC0EB0C068FBE5262 /* UIView_MCLayoutPositionAlignInSuperViewTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UIView_MCLayoutPositionAlignInSuperViewTest.m; sourceTree = "<group>"; };
 		B89DBD3A820285898C6E33C8 /* UIView_MCLayoutCalculationsTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UIView_MCLayoutCalculationsTest.m; sourceTree = "<group>"; };
+		BA839DD8FDAD27FCEAC35541 /* Pods-UIViewLayoutExampleTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-UIViewLayoutExampleTests.debug.xcconfig"; path = "Target Support Files/Pods-UIViewLayoutExampleTests/Pods-UIViewLayoutExampleTests.debug.xcconfig"; sourceTree = "<group>"; };
 		BF93017C2A02E04CC15591BF /* MCUIViewLayoutPosition.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MCUIViewLayoutPosition.m; sourceTree = "<group>"; };
 		BF93022FB48635DBB10A1506 /* MCUIViewLayoutPositionTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MCUIViewLayoutPositionTest.m; sourceTree = "<group>"; };
 		BF9303A636A8ECB35132EAAD /* GeometryTestingHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GeometryTestingHelper.m; sourceTree = "<group>"; };
@@ -107,6 +111,7 @@
 		DF05FD5A1C6A5BDD00CA825F /* UIView+MCLayout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+MCLayout.swift"; sourceTree = "<group>"; };
 		DF05FD5C1C6A5D0B00CA825F /* MCUIViewLayoutExampleSetPositionSwift.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MCUIViewLayoutExampleSetPositionSwift.swift; sourceTree = "<group>"; };
 		DF16A1741CD7C29A00538C7B /* MCUIViewLayoutExampleSetPositionFitSize.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MCUIViewLayoutExampleSetPositionFitSize.swift; sourceTree = "<group>"; };
+		EDB10B2767BC38EE9164D2BF /* Pods-UIViewLayoutExample.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-UIViewLayoutExample.debug.xcconfig"; path = "Target Support Files/Pods-UIViewLayoutExample/Pods-UIViewLayoutExample.debug.xcconfig"; sourceTree = "<group>"; };
 		FA41FEF71703D35100071708 /* UIView+MCLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+MCLayout.h"; sourceTree = "<group>"; };
 		FA41FEF81703D35100071708 /* UIView+MCLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+MCLayout.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -119,6 +124,7 @@
 				09ABD58616E8ECF300290BB3 /* UIKit.framework in Frameworks */,
 				09ABD58816E8ECF300290BB3 /* Foundation.framework in Frameworks */,
 				09ABD58A16E8ECF300290BB3 /* CoreGraphics.framework in Frameworks */,
+				F9429A99817B5FFC2B53FAA3 /* libPods-UIViewLayoutExample.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -126,6 +132,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D69009DD3BE7E4F4A21A817E /* libPods-UIViewLayoutExampleTests.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -140,6 +147,7 @@
 				32C47E081BF637E100E06372 /* UIViewLayoutExampleTests */,
 				09ABD58416E8ECF300290BB3 /* Frameworks */,
 				09ABD58316E8ECF300290BB3 /* Products */,
+				40F0DB453E094800C7CABCC0 /* Pods */,
 			);
 			sourceTree = "<group>";
 		};
@@ -158,6 +166,8 @@
 				09ABD58516E8ECF300290BB3 /* UIKit.framework */,
 				09ABD58716E8ECF300290BB3 /* Foundation.framework */,
 				09ABD58916E8ECF300290BB3 /* CoreGraphics.framework */,
+				63FB41A49DD90485DE998968 /* libPods-UIViewLayoutExample.a */,
+				118D4EE6023C32C07697F80A /* libPods-UIViewLayoutExampleTests.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -224,6 +234,20 @@
 			path = UIViewLayoutExampleTests;
 			sourceTree = "<group>";
 		};
+		40F0DB453E094800C7CABCC0 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				EDB10B2767BC38EE9164D2BF /* Pods-UIViewLayoutExample.debug.xcconfig */,
+				383AE5203D1D7755B345AA02 /* Pods-UIViewLayoutExample.coverage.xcconfig */,
+				1FFBDA7B9764E221F0F9566A /* Pods-UIViewLayoutExample.release.xcconfig */,
+				BA839DD8FDAD27FCEAC35541 /* Pods-UIViewLayoutExampleTests.debug.xcconfig */,
+				0E810209C4D627AFBABB2A7B /* Pods-UIViewLayoutExampleTests.coverage.xcconfig */,
+				88A475870487E0E61E8B448D /* Pods-UIViewLayoutExampleTests.release.xcconfig */,
+			);
+			name = Pods;
+			path = Pods;
+			sourceTree = "<group>";
+		};
 		FA41FEF61703D35100071708 /* MCUIViewLayout */ = {
 			isa = PBXGroup;
 			children = (
@@ -249,6 +273,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 09ABD59F16E8ECF300290BB3 /* Build configuration list for PBXNativeTarget "UIViewLayoutExample" */;
 			buildPhases = (
+				AA0F4E38A008CDE7C12AA83E /* [CP] Check Pods Manifest.lock */,
 				09ABD57E16E8ECF300290BB3 /* Sources */,
 				09ABD57F16E8ECF300290BB3 /* Frameworks */,
 				09ABD58016E8ECF300290BB3 /* Resources */,
@@ -266,6 +291,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 32C47E0E1BF637E100E06372 /* Build configuration list for PBXNativeTarget "UIViewLayoutExampleTests" */;
 			buildPhases = (
+				052146E0943B9F18C82C08AD /* [CP] Check Pods Manifest.lock */,
 				32C47E031BF637E000E06372 /* Sources */,
 				32C47E041BF637E000E06372 /* Frameworks */,
 				32C47E051BF637E000E06372 /* Resources */,
@@ -335,6 +361,53 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		052146E0943B9F18C82C08AD /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-UIViewLayoutExampleTests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		AA0F4E38A008CDE7C12AA83E /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-UIViewLayoutExample-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		09ABD57E16E8ECF300290BB3 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -344,17 +417,12 @@
 				09ABD59216E8ECF300290BB3 /* main.m in Sources */,
 				32B134701BFA75010058FB3A /* MCUIViewLayoutExampleRelativeCenterInParent.m in Sources */,
 				09ABD59616E8ECF300290BB3 /* AppDelegate.m in Sources */,
-				FA41FEF91703D35100071708 /* UIView+MCLayout.m in Sources */,
 				915CC234176C38B004A184DA /* MCUIViewLayoutRootController.m in Sources */,
 				915CCC00441E907727365383 /* MCUIViewLayoutExampleSetPosition.m in Sources */,
 				DF05FD5D1C6A5D0B00CA825F /* MCUIViewLayoutExampleSetPositionSwift.swift in Sources */,
 				915CCA7A367EF8173AB5D7E3 /* MCUIViewLayoutExampleMenuView.m in Sources */,
 				915CCD3D1192C7EE590BBBC3 /* MCUIViewLayoutExampleSetRelativePosition.m in Sources */,
 				915CC1C38A309CC53EF0A7BC /* MCUIViewExampleUIFactory.m in Sources */,
-				BF930920665F2EF890D53326 /* MCUIViewLayoutPosition.m in Sources */,
-				325169CA1BF685D900038FAF /* UIView+MCLayoutCalculation.m in Sources */,
-				DF05FD5B1C6A5BDD00CA825F /* UIView+MCLayout.swift in Sources */,
-				915CC036C17BE1BC5CCE2517 /* UIView+MCLayoutDeprecated.m in Sources */,
 				915CCAB408003F7D205D454C /* MCUIViewLayoutExampleSetPositionSizeToFit.m in Sources */,
 				915CC73967A80F9F4CC9355B /* MCUIViewLayoutExampleSpecialCases.m in Sources */,
 			);
@@ -458,17 +526,18 @@
 		};
 		09ABD5A016E8ECF300290BB3 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = EDB10B2767BC38EE9164D2BF /* Pods-UIViewLayoutExample.debug.xcconfig */;
 			buildSettings = {
 				CLANG_ENABLE_MODULES = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "UIViewLayoutExample/UIViewLayoutExample-Prefix.pch";
 				INFOPLIST_FILE = "UIViewLayoutExample/UIViewLayoutExample-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.mirego.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_OBJC_BRIDGING_HEADER = "../MCUIViewLayout/UIView-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				WRAPPER_EXTENSION = app;
 			};
@@ -476,16 +545,17 @@
 		};
 		09ABD5A116E8ECF300290BB3 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 1FFBDA7B9764E221F0F9566A /* Pods-UIViewLayoutExample.release.xcconfig */;
 			buildSettings = {
 				CLANG_ENABLE_MODULES = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "UIViewLayoutExample/UIViewLayoutExample-Prefix.pch";
 				INFOPLIST_FILE = "UIViewLayoutExample/UIViewLayoutExample-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.mirego.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_OBJC_BRIDGING_HEADER = "../MCUIViewLayout/UIView-Bridging-Header.h";
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				WRAPPER_EXTENSION = app;
 			};
@@ -493,6 +563,7 @@
 		};
 		32C47E0F1BF637E100E06372 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = BA839DD8FDAD27FCEAC35541 /* Pods-UIViewLayoutExampleTests.debug.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CLANG_ENABLE_MODULES = YES;
@@ -521,6 +592,7 @@
 		};
 		32C47E101BF637E100E06372 /* Coverage */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 0E810209C4D627AFBABB2A7B /* Pods-UIViewLayoutExampleTests.coverage.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CLANG_ENABLE_MODULES = YES;
@@ -551,6 +623,7 @@
 		};
 		32C47E111BF637E100E06372 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 88A475870487E0E61E8B448D /* Pods-UIViewLayoutExampleTests.release.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CLANG_ENABLE_MODULES = YES;
@@ -614,17 +687,18 @@
 		};
 		A6E494671829A93300692FB5 /* Coverage */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 383AE5203D1D7755B345AA02 /* Pods-UIViewLayoutExample.coverage.xcconfig */;
 			buildSettings = {
 				CLANG_ENABLE_MODULES = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "UIViewLayoutExample/UIViewLayoutExample-Prefix.pch";
 				INFOPLIST_FILE = "UIViewLayoutExample/UIViewLayoutExample-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.mirego.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_OBJC_BRIDGING_HEADER = "../MCUIViewLayout/UIView-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				WRAPPER_EXTENSION = app;
 			};

@@ -26,7 +26,7 @@
 // POSSIBILITY OF SUCH DAMAGE.
 
 #import "MCUIViewLayoutExampleRelativeCenterInParent.h"
-#import "UIView+MCLayout.h"
+#import <MCUIViewLayout/UIView+MCLayout.h>
 
 @interface MCUIViewLayoutExampleRelativeCenterInParent ()
 @property (nonatomic) UIView *anchor;

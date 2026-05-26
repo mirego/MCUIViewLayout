@@ -26,7 +26,7 @@
 // POSSIBILITY OF SUCH DAMAGE.
 
 #import "MCUIViewLayoutExampleMenuView.h"
-#import "UIView+MCLayout.h"
+#import <MCUIViewLayout/UIView+MCLayout.h>
 //------------------------------------------------------------------------------
 #pragma mark MCUIViewLayoutExampleRootView (Privates methods)
 

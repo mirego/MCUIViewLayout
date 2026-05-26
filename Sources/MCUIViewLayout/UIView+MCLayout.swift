@@ -25,6 +25,9 @@
 // ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
 // POSSIBILITY OF SUCH DAMAGE.
 
+#if SWIFT_PACKAGE
+import MCUIViewLayoutObjC
+#endif
 import UIKit
 
 /**
@@ -52,7 +55,7 @@ import UIKit
 
     * Expose two methods to position UIView easily: setPosition() and setRelativePosition()
 */
-extension UIView
+public extension UIView
 {
     var width: CGFloat {
         set {
@@ -145,7 +148,7 @@ extension UIView
     func setPosition(position: MCViewPosition, inView: UIView? = nil, margins: UIEdgeInsets? = nil, size: CGSize? = nil, fitSize: CGSize? = nil)
     {
         let inView = inView ?? superview
-        let margins = margins ?? UIEdgeInsetsZero
+        let margins = margins ?? UIEdgeInsets.zero
         var size = size
 
         if let fitSize = fitSize {
@@ -153,7 +156,7 @@ extension UIView
             size = sizeThatFits(fitSize)
         }
 
-        mc_setPosition(position, inView:inView, withMargins: margins, size: size ?? frame.size)
+        mc_setPosition(position, in: inView, withMargins: margins, size: size ?? frame.size)
     }
 
     /**
@@ -174,7 +177,7 @@ extension UIView
      */
     func setRelativePosition(position: MCViewPosition, toView: UIView?, margins: UIEdgeInsets? = nil, size: CGSize? = nil, fitSize: CGSize? = nil)
     {
-        let margins = margins ?? UIEdgeInsetsZero
+        let margins = margins ?? UIEdgeInsets.zero
         var size = size
 
         if let fitSize = fitSize {
@@ -182,6 +185,6 @@ extension UIView
             size = sizeThatFits(fitSize)
         }
 
-        mc_setRelativePosition(position, toView:toView, withMargins: margins, size: size ?? frame.size)
+        mc_setRelativePosition(position, to: toView, withMargins: margins, size: size ?? frame.size)
     }
 }

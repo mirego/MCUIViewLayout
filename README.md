@@ -248,7 +248,18 @@ Not all the positioning methods are described here. This is still a work in prog
 
 ## Adding to your project
 
-If you're using [`CocoaPods`](http://cocoapods.org/), there's nothing simpler.
+### Swift Package Manager
+
+Add the following to your `Package.swift` dependencies:
+
+```swift
+.package(url: "https://github.com/mirego/MCUIViewLayout.git", from: "0.5.2")
+```
+
+Or add it via Xcode: **File → Add Package Dependencies…** and enter the repository URL.
+
+### CocoaPods
+
 Add the following to your [`Podfile`](http://docs.cocoapods.org/podfile.html)
 and run `pod install`
 
