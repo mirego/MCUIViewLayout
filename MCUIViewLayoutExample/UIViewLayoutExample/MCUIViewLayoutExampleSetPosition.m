@@ -26,7 +26,7 @@
 // POSSIBILITY OF SUCH DAMAGE.
 
 #import "MCUIViewLayoutExampleSetPosition.h"
-#import "UIView+MCLayout.h"
+#import <MCUIViewLayout/UIView+MCLayout.h>
 #import "MCUIViewExampleUIFactory.h"
 
 static const int kMargin = 10;

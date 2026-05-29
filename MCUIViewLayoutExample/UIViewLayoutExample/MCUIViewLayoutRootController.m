@@ -25,7 +25,7 @@
 // ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
 // POSSIBILITY OF SUCH DAMAGE.
 
-#import <UIViewLayoutExample-Swift.h>
+#import "UIViewLayoutExample-Swift.h"
 
 #import "MCUIViewLayoutRootController.h"
 #import "MCUIViewLayoutExampleSetPosition.h"
@@ -68,7 +68,7 @@
 }
 
 - (void)loadView {
-    MCUIViewLayoutExampleMenuView *rootview = [[MCUIViewLayoutExampleMenuView alloc] initWithFrame:[[UIScreen mainScreen] applicationFrame]];
+    MCUIViewLayoutExampleMenuView *rootview = [[MCUIViewLayoutExampleMenuView alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     [rootview.buttonSetPosition addTarget:self action:@selector(showSetPositionExample) forControlEvents:UIControlEventTouchUpInside];
     [rootview.buttonSetRelativePosition addTarget:self action:@selector(showSetRelativePositionExample) forControlEvents:UIControlEventTouchUpInside];
     [rootview.buttonSetPositionSizeToFit addTarget:self action:@selector(showSetPositionSizeToFitExample) forControlEvents:UIControlEventTouchUpInside];
@@ -95,13 +95,13 @@
 }
 
 - (void)showSetPositionExampleSwift {
-    UIView *view = [[MCUIViewLayoutExampleSetPositionSwift alloc] initWithFrame:self.view.bounds];
+    UIView *view = [[MCUIViewLayoutExampleSetPosition alloc] initWithFrame:self.view.bounds];
     view.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
     [self.view addSubview:view];
 }
 
 - (void)showFitSizeExampleSwift {
-    UIView *view = [[MCUIViewLayoutExampleFitSize alloc] initWithFrame:self.view.bounds];
+    UIView *view = [[MCUIViewLayoutExampleMenuView alloc] initWithFrame:self.view.bounds];
     view.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
     [self.view addSubview:view];
 }

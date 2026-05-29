@@ -27,7 +27,7 @@
 
 #import <XCTest/XCTest.h>
 #import "GeometryTestingHelper.h"
-#import "MCUIViewLayoutPosition.h"
+#import <MCUIViewLayout/MCUIViewLayoutPosition.h>
 
 @interface MCUIViewLayoutPositionTest : XCTestCase
 @property (nonatomic) CGFloat displayScale;

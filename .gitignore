@@ -19,3 +19,7 @@ DerivedData
 
 # Example
 MCUIViewLayoutExample/Pods
+
+# Swift Package Manager
+.build/
+.swiftpm/

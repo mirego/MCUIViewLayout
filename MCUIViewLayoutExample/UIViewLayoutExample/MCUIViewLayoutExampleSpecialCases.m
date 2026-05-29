@@ -27,7 +27,7 @@
 
 #import "MCUIViewLayoutExampleSpecialCases.h"
 #import "MCUIViewExampleUIFactory.h"
-#import "UIView+MCLayout.h"
+#import <MCUIViewLayout/UIView+MCLayout.h>
 
 //------------------------------------------------------------------------------
 #pragma mark - MCUIViewLayoutExampleSpecialCases

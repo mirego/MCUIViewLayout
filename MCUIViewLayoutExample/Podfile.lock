@@ -1,0 +1,16 @@
+PODS:
+  - MCUIViewLayout (0.5.2)
+
+DEPENDENCIES:
+  - MCUIViewLayout (from `../`)
+
+EXTERNAL SOURCES:
+  MCUIViewLayout:
+    :path: "../"
+
+SPEC CHECKSUMS:
+  MCUIViewLayout: a3625215075de6dbda62fe895f5d5e0854dad41c
+
+PODFILE CHECKSUM: 2730e0985ab42e86b8dcbc0349d713bf930dd4be
+
+COCOAPODS: 1.16.2
