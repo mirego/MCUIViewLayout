@@ -253,7 +253,7 @@ Not all the positioning methods are described here. This is still a work in prog
 Add the following to your `Package.swift` dependencies:
 
 ```swift
-.package(url: "https://github.com/mirego/MCUIViewLayout.git", from: "0.5.2")
+.package(url: "https://github.com/mirego/MCUIViewLayout.git", from: "0.6.0")
 ```
 
 Or add it via Xcode: **File → Add Package Dependencies…** and enter the repository URL.
